@@ -1,6 +1,6 @@
 Class:RenderableObject:Declaration
 	class #SceneName#;
-	class #ClassName#{
+	class #ClassName# : public ::gc::ClassTraits<#ClassName#>{
 		friend class ::gc::Camera;
 	public:	
 		typedef #ClassName# this_t;

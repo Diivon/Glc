@@ -1,40 +1,40 @@
-Class:PhysicalObject:Declaration
+Class:Layer:Declaration
 	class #SceneName#;
 	class #ClassName# : public ::gc::ClassTraits<#ClassName#>{
-	//public:
-		typedef #ClassName# this_t;
 		#SceneName# & scene;
-		#LayerName# & layer;
-
-		::gc::Vec2 pos;
+		#ObjectVariables#
 		#ComponentsVariables#
 	public:
-		#ClassName#(#SceneName# &, #LayerName# &);
+		#ClassName#(#SceneName# &);
 		~#ClassName#();
+
 		void onStart();
 		void onUpdate(const float & dt);
-		#ComponentsMethods#
+		#ComponentsMethodsDeclaration#
+		template<class T>
+		T & getObject();
+		#getObjects#
 	private:
 		#ClassName#(c_lref_t) = delete;
 		#ClassName#(rref_t) = delete;
 		void operator = (c_lref_t) = delete;
-		void operator = (rref_T) = delete;
+		void operator = (rref_t) = delete;
 	};
-Class:PhysicalObject:Implementation
+Class:Layer:Implementation
 	#include "#SceneName#.h"
 	#include "#ClassName#.h"
-	#ClassName#::#ClassName#(#SceneName# & sc, #LayerName# & lr):
-		pos(#Pos#), scene(sc), layer(lr)
+	#ClassName#::#ClassName#(#SceneName# & sc):
+		scene(sc) 
 		#AdditionalConstructorList#
 		{
-			#ConstructorBody#
-		}
+		#ConstructorBody#
+	}
 	#ClassName#::~#ClassName#(){
 	}
 	void #ClassName#::onStart(){
 		#OnStart#
 	}
-	void #ClassName#::onUpdate(const float & dt){
-		#OnUpdate#
+	void #ClassName#::onUpdate(){
+		#onUpdate#
 	}
-	#ComponentsMethods#
+	#ComponentsMethodsImplementation#
