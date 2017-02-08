@@ -1,6 +1,6 @@
 #pragma once
 #include <cmath>
-#include "GC/Utils.h"
+#include "Utils.h"
 #include "SFML/Graphics.hpp"
 
 namespace gc
@@ -17,14 +17,14 @@ namespace gc
 	{
 		float x, y;
 
-		static const Vec2 Zero;
-		
+		static const Vec2 zero;
+		this_t(float x, float y);
+
 		this_t() noexcept;
 		this_t(c_lref_t) noexcept;
 		this_t(rref_t) noexcept;
 		lref_t operator = (c_lref_t) noexcept;
 		lref_t operator = (rref_t) noexcept;
-		~this_t() noexcept;
 
 		#ifdef SFML_VECTOR2_HPP
 			this_t(const sf::Vector2f &) noexcept;
@@ -45,10 +45,10 @@ namespace gc
 		c_this_t operator / (float) const noexcept;
 
 		//changers
-		c_lref_t operator += (c_lref_t) const noexcept;
-		c_lref_t operator -= (c_lref_t) const noexcept;
-		c_lref_t operator *= (float a) const noexcept;
-		c_lref_t operator /= (float a) const noexcept;
+		c_lref_t operator += (c_lref_t) noexcept;
+		c_lref_t operator -= (c_lref_t) noexcept;
+		c_lref_t operator *= (float a) noexcept;
+		c_lref_t operator /= (float a) noexcept;
 		
 		//getters
 		c_this_t getRotatedDeg(float) const noexcept;
@@ -65,49 +65,51 @@ namespace gc
 		c_lref_t setLength(float) noexcept;
 	};
 		/*--IMPLEMENTATION--*/
-	Vec2::Vec2():
+	Vec2::Vec2(float a, float b) :
+		x(a), y(b)
+	{}
+	Vec2::Vec2() noexcept:
 		x(0.0), y(0.0)
 	{}
-	Vec2::Vec2(Vec2::c_lref_t a):
+	Vec2::Vec2(Vec2::c_lref_t a) noexcept :
 		x(a.x), y(a.y)
 	{}
-	Vec2::Vec2(Vec::rref_t a):
-		*this(a)
+	Vec2::Vec2(Vec2::rref_t a) noexcept :
+		Vec2(a)
 	{}
-	Vec2::lref_t operator = (Vec2::c_lref_t a){
+	Vec2::lref_t Vec2::operator = (Vec2::c_lref_t a) noexcept {
 		x = a.x;
 		y = a.y;
 		return *this;
 	}
-	Vec2::lref_t operator = (Vec2::rref_t a){
+	Vec2::lref_t Vec2::operator = (Vec2::rref_t a) noexcept {
 		return *this = a;
 	}
-	Vec2::~Vec2(){}
 	#ifdef SFML_VECTOR2_HPP
-		Vec2::Vec2(const sf::Vector2f & a):
+		Vec2::Vec2(const sf::Vector2f & a) noexcept:
 			x(a.x), y(a.y)
 		{}
-		Vec2::Vec2(sf::Vector2f && a):
+		Vec2::Vec2(sf::Vector2f && a) noexcept :
 			x(a.x), y(a.y)
 		{}
-		Vec2::lref_t operator = (const sf::Vector2f & a){
+		Vec2::lref_t Vec2::operator = (const sf::Vector2f & a) noexcept {
 			x = a.x;
 			y = a.y;
 			return *this;
 		}
-		Vec2::lref_t operator = (sf::Vector2f && a){
+		Vec2::lref_t Vec2::operator = (sf::Vector2f && a) noexcept {
 			x = a.x;
 			y = a.y;
 			return *this;
 		}
-		Vec2::operator sf::Vector2f (){
+		Vec2::operator sf::Vector2f () const noexcept {
 			return sf::Vector2f(x, y);
 		}
 	#endif
 	Vec2::c_this_t Vec2::operator + () const noexcept{
-		return Vec2(+x, +y);
+		return Vec2(x, y);
 	}
-	Vec2::c_this_t Vec::operator - () const noexcept{
+	Vec2::c_this_t Vec2::operator - () const noexcept{
 		return Vec2(-x, -y);
 	}
 	Vec2::c_this_t Vec2::operator + (Vec2::c_lref_t a) const noexcept{
@@ -129,22 +131,22 @@ namespace gc
 			return Vec2::zero;
 		return Vec2(x / a, y / a);
 	}
-	Vec2::c_lref_t Vec2::operator += (Vec2::c_lref_t a) const noexcept{
+	Vec2::c_lref_t Vec2::operator += (Vec2::c_lref_t a) noexcept{
 		x += a.x;
 		y += a.y;
 		return *this;
 	}
-	Vec2::c_lref_t Vec2::operator -= (Vec2::C_lref_t a) const noexcept{
+	Vec2::c_lref_t Vec2::operator -= (Vec2::c_lref_t a) noexcept{
 		x -= a.x;
 		y -= a.y;
 		return *this;
 	}
-	Vec2::c_lref_t Vec2::operator *= (float a) const noexcept{
+	Vec2::c_lref_t Vec2::operator *= (float a) noexcept{
 		x *= a;
 		y *= a;
 		return *this;
 	}
-	Vec2::c_lref_t Vec2::operator /= (float a) const noexcept{
+	Vec2::c_lref_t Vec2::operator /= (float a) noexcept{
 		if (a == 0)
 			*this = Vec2::zero;
 		return *this;
@@ -184,8 +186,8 @@ namespace gc
 		return *this;
 	}
 	Vec2::c_lref_t Vec2::rotateRad(float a) noexcept{
-		float coss = std::cos(radian);
-		float sinn = std::sin(radian);
+		float coss = std::cos(a);
+		float sinn = std::sin(a);
 		float newX = x * coss - y * sinn;		//x*coss - y*sinn
 		y = x * sinn + y * coss;		//x*sinn + y*coss
 		x = newX;

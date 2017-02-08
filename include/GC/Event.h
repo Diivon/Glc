@@ -1,62 +1,87 @@
 #pragma once
-#include "Delegate.h"
 #include <memory>
+#include "GC/Delegate.h"
+#include "GC/Utils.h"
+
+//sorry, i just cannot comment this shit
 
 namespace gc {
 	template<class ... Args>
-	class ClassEvent
+	class Event : public ClassTraits<Event<Args...>>
 	{
-		struct ICallable {
-			virtual void call(Args ...) = 0;
-		};
+		Event(c_lref_t) = delete;
+		Event(rref_t) = delete;
+		void operator = (c_lref_t) = delete;
+		void operator = (rref_t) = delete;
+		struct ICallable {virtual void call(Args...) = 0;};
 		template<class T>
-		class Callable : public ICallable {
+		class MethodCall : public ICallable {
 			T * _t;
 			void (T::*_met)(Args...);
 		public:
-			Callable(T * t, void (T::*met)(Args...)) :
+			MethodCall(T * t, void (T::*met)(Args...)) :
 				_t(t), _met(met)
 			{}
-			virtual void call(Args ... args) override {
+			virtual void call(Args... args) override {
 				(*_t.*_met)(std::forward<Args>(args)...);
 			}
 		};
-		class noObj {};
-		template<>
-		class Callable<noObj> : public ICallable {
-			void(*func)(Args...);
+		template<class T>
+		class FunctorCall : public ICallable {
+			T * _functor;
 		public:
-			Callable(decltype(func) f) :func(f) {}
-			virtual void call(Args ... args) override {
-				func(std::forward<Args>(args)...);
+			FunctorCall(T * t) :
+				_functor(t)
+			{}
+			virtual void call(Args... args) override {
+				(*_functor)(std::forward<Args>(args)...);
 			}
 		};
-		using CallablePtr = std::unique_ptr<ICallable>;
+		class EventCall : public ICallable {
+			Event<Args...> * _event;
+		public:
+			EventCall(Event<Args...> * e):
+				_event(e)
+			{}
+			virtual void call(Args... args) override {
+				_event->emit(std::forward<Args>(args)...);
+			}
+		};
 
+		using CallablePtr = std::unique_ptr<ICallable>;
 		mutable	std::list<CallablePtr> _list;
 	public:
-		ClassEvent() :
+		Event():
 			_list()
 		{}
-		~ClassEvent() {}
 		template<class Y>
-		void add(Y & t, void (Y::*meth)(Args...)) const {
-			_list.emplace_back(new Callable<Y>(&t, meth));
+		void sign(Y & t, void (Y::*meth)(Args...)) const {
+			_list.emplace_back(new MethodCall<Y>(&t, meth));
 		}
 		template<class Y>
-		void add(Y * t, void (Y::*meth)(Args...)) const {
-			_list.emplace_back(new Callable<Y>(t, meth));
+		void sign(Y * t, void (Y::*meth)(Args...)) const {
+			_list.emplace_back(new MethodCall<Y>(t, meth));
 		}
 		template<class Y>
-		void add(Y * f) const {
-			_list.emplace_back(new Callable<noObj>(f));
+		void sign(Y & f) const {
+			_list.emplace_back(new FunctorCall<Y>(&f));
 		}
-		void emit(Args ... args) const {
+		template<class Y>
+		void sign(Y * f) const {
+			_list.emplace_back(new FunctorCall<Y>(f));
+		}
+		void sign(lref_t e) const{
+			_list.emplace_back(new EventCall(&e));
+		}
+		void sign(ptr_t e) const{
+			_list.emplace_back(new EventCall(e));
+		}
+		void emit(Args ... args) {
 			for (auto & i : _list)
 				i->call(std::forward<Args>(args)...);
 		}
 		unsigned int getCountOfSubscribers() {
 			return _list.size();
 		}
-	};//version 0.3;
+	};//version 0.6;
 }//ns gc

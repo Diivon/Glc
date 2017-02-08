@@ -1,7 +1,7 @@
 Сlass:Scene:FDef
 	class #ClassName#{
+		#Layers#
 	public:
-		#Objects#
 		#ClassName#():
 			#Ctors#
 		{}
@@ -13,11 +13,7 @@
 		{
 			#update#
 		}
-		void render(::gc::Camera & cam)
-		{
-			#render#
-		}
 		template<class T>
-		T & getObject();
-		#getObjects#
+		T & getLayer();
+		#getLayers#
 	};

@@ -1,4 +1,16 @@
 #pragma once
+/*
+	gc/Delegate provides class for Delegate object
+	Delegate is analog of C# delegate, it is tool
+	for processing chains.
+	Example:
+		gc::Delegate<int> d;
+		d += [&](int i){std::cout << i << ' ';};
+		d += [&](int i){std::cout << i * 2 << ' ';};
+		d(5);
+	Output is:
+		5 10
+*/
 #include <list>
 
 namespace gc {
@@ -12,9 +24,6 @@ namespace gc {
 		Delegate() :_list()
 		{}
 		void operator += (func_t a) {
-			for (iter_t i = _list.begin(); i != _list.end(); ++i)
-				if ((*i) == a)
-					i = _list.erase(i);
 			_list.push_back(a);
 		}
 		void operator -= (func_t a) {

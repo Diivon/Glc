@@ -1,10 +1,17 @@
 #pragma once
+/*
+	gc/Camera provides Class for Camera object
+	Nearest analog is camera from our real world,
+	actually it is viewport, which limited visible part of scene
+*/
 #include "Vec2.h"
+#include <SFML/Graphics.hpp>
 namespace gc
 {
 	class Camera : ClassTraits<Camera>
 	{
-		sf::View _view;
+		::sf::View _view;
+		friend class Renderer;
 	public:
 		Camera() noexcept;
 		Camera(const Vec2 & pos, const Vec2 & size) noexcept;
@@ -18,8 +25,10 @@ namespace gc
 		lref_t changeSize(const Vec2 & ds) noexcept;
 		lref_t setRotation(float r) noexcept;			//set
 		lref_t rotate(float dr) noexcept;				//change
-		lref_t zoom(float z);							//change (deprecated)
+		lref_t zoom(float z) noexcept;					//change (deprecated)
 
+		
+		
 		//getters
 		Vec2::c_lref_t getPosition() const noexcept;
 		Vec2::c_lref_t getSize() const noexcept;
@@ -64,13 +73,17 @@ namespace gc
 	}
 
 	inline Camera::lref_t Camera::changeSize(float dw, float dh) noexcept {
-		_view.m_size.x += dw;
-		_view.m_size.y += dh;
+		//_view.m_size.x += dw;
+		//_view.m_size.y += dh;
+		auto size = _view.getSize();
+		_view.setSize(size.x + dw, size.y + dh);
 		return *this;
 	}
 
 	inline Camera::lref_t Camera::changeSize(const Vec2 & ds) noexcept {
-		_view.m_size += ds;
+		//_view.m_size += static_cast<::sf::Vector2f>(ds);
+		auto size = _view.getSize();
+		_view.setSize(size.x + ds.x, size.y + ds.y);
 		return *this;
 	}
 

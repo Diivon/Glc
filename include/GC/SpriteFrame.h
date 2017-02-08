@@ -5,10 +5,10 @@
 
 namespace gc
 {	
-	class SpriteFrame : ClassTraits<SpriteFrame>
+	class SpriteFrame : public ClassTraits<SpriteFrame>
 	{
 		friend class Camera;
-		Sprite _sprite
+		Sprite _sprite;
 		float _dur;
 	public:
 		SpriteFrame(Sprite, float duration) noexcept;
@@ -22,10 +22,10 @@ namespace gc
 	SpriteFrame::SpriteFrame(Sprite a, float duration) noexcept:
 		_dur(duration), _sprite(a)
 	{}
-	SpriteFrame::SpriteFrame(SpriteFrame::c_lref_t a) noexcept: 
+	SpriteFrame::SpriteFrame(SpriteFrame::c_lref_t a) noexcept:
 		_sprite(a._sprite), _dur(a._dur)
 	{}
-	SpriteFrame::c_lref_t operator = (SpriteFrame::c_lref_t a) noexcept{
+	SpriteFrame::c_lref_t SpriteFrame::operator = (SpriteFrame::c_lref_t a) noexcept{
 		if (&a == this) return *this;
 		_sprite = a._sprite;
 		_dur = a._dur;

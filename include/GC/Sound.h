@@ -9,19 +9,22 @@ namespace gc
 		sf::SoundBuffer _buf;
 		sf::Sound _snd;
 	public:
-		Sound(const std::string & file){
+		Sound(const std::string & file);
+		void play();
+		void pause();
+		void stop();
+	};
+		Sound::Sound(const std::string & file){
 			_buf.loadFromFile(file);
 			_snd.setBuffer(_buf);
 		}
-		~Sound(){}
-		void play(){
+		void Sound::play(){
 			_snd.play();
 		}
-		void pause(){
+		void Sound::pause(){
 			_snd.pause();
 		}
-		void stop(){
+		void Sound::stop(){
 			_snd.stop();
 		}
-	};
 }//ns gc
