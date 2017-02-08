@@ -1,0 +1,23 @@
+Сlass:Scene:FDef
+	class #ClassName#{
+	public:
+		#Objects#
+		#ClassName#():
+			#Ctors#
+		{}
+		void start()
+		{
+			#start#
+		}
+		void update(const float & dt)
+		{
+			#update#
+		}
+		void render(::gc::Camera & cam)
+		{
+			#render#
+		}
+		template<class T>
+		T & getObject();
+		#getObjects#
+	};

@@ -1,0 +1,9 @@
+Com:Sound:Vars
+	::gc::Sound sound;
+Com:Sound:Constructor
+	sound(#FileName#)
+Com:Sound:ConstructorBody
+Com:Sound:OnUpdate
+Com:Sound:OnRender
+Com:Sound:OnStart
+Com:Sound:Methods

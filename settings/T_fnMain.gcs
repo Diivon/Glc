@@ -1,0 +1,44 @@
+File:Main:Def
+	#Include#
+	inline void processEvents(sf::RenderWindow & w){
+		sf::Event event;
+		while (w.pollEvent(event)) {
+			if (event.type == sf::Event::Closed){ 
+				w.close(); continue; 
+			}
+			if (event.type == sf::Event::KeyPressed)
+				if (event.key.code == sf::Keyboard::Escape)
+					w.close();
+		}
+	}
+
+	const int c_framesPerSecond = 30;
+	const float c_MillisecondsForOneFrame = 1'000 / c_framesPerSecond;
+
+	int main(){
+		//::gc::Debug::_instance = ::gc::Debug();
+		sf::RenderWindow mainWindow(sf::VideoMode(800,600), "sfml", sf::Style::Close);
+		gc::Camera mainCamera(gc::Vec2(0, 0), mainWindow);
+		
+		float dt = 0.5f;
+		auto & currentScene = #FirstSceneClassName#();
+		currentScene.start();
+		sf::Clock clock;
+		while(mainWindow.isOpen()){
+			clock.restart();
+
+			processEvents(mainWindow);
+
+			mainCamera.clear();
+
+			currentScene.update(c_MillisecondsForOneFrame);
+			//mainCamera.follow(player);
+			currentScene.render(mainCamera);
+
+			mainCamera.display();
+
+			dt = clock.getElapsedTime().asMilliseconds();
+			if (dt < c_MillisecondsForOneFrame) sf::sleep(sf::milliseconds(static_cast<sf::Int32>(c_MillisecondsForOneFrame - dt)));
+			//std::cout << dt << std::endl;
+		}
+	}

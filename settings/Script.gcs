@@ -1,0 +1,11 @@
+B:Script
+	variables:
+		//your variables here
+	methods:
+		void onStart(){
+			//use it for initialization
+		}
+		void onUpdate(const float & dt){
+			//onUpdate called once per frame
+		}
+		//else methods here

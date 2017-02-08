@@ -1,0 +1,42 @@
+Class:RenderableObject:Declaration
+	class #SceneName#;
+	class #ClassName#{
+		friend class ::gc::Camera;
+	public:	
+		typedef #ClassName# this_t;
+		#SceneName# & scene;
+		::gc::Vec2 pos;
+		#ComponentsVariables#
+	//public:
+		#ClassName#(#SceneName# & sc);
+		~#ClassName#();
+		void onStart();
+		void onUpdate(const float & dt);
+		const sf::Sprite & onRender(::gc::Camera & cam);
+		#ComponentsMethods#
+	private:
+		#ClassName#(const #ClassName# &) = delete;
+		#ClassName#(#ClassName# &&) = delete;
+		void operator = (const #ClassName# &) = delete;
+		void operator = (#ClassName# &&) = delete;
+	};
+Class:RenderableObject:Implementation
+	#include "#SceneName#.h"
+	#include "#ClassName#.h"
+	#ClassName#::#ClassName#(#SceneName# & sc):
+		pos(#Pos#), scene(sc) #AdditionalConstructorList#
+		{
+			#ConstructorBody#
+		}
+	#ClassName#::~#ClassName#(){
+	}
+	void #ClassName#::onStart(){
+		#OnStart#
+	}
+	void #ClassName#::onUpdate(const float & dt){
+		#OnUpdate#
+	}
+	const sf::Sprite & #ClassName#::onRender(::gc::Camera & cam){
+		#OnRender#
+	}
+	#ComponentsMethods#

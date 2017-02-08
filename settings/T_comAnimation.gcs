@@ -1,0 +1,17 @@
+Com:Animation:Vars
+	typedef ::gc::Animation<#ClassName#, #AnimationType#> #AnimationTypeName#;
+	#AnimationTypeName# #AnimationName#;
+Com:Animation:Constructor
+	#AnimationName#(this)
+Com:Animation:ConstructorBody
+	#SpriteFrames#
+Com:Animation:OnUpdate
+	#AnimationName#.update(dt);
+	#AnimationName#.getCurrentSpriteFrame().getSprite().setPosition(pos);
+Com:Animation:OnRender
+	return #AnimationName#.getCurrentSpriteFrame().getSprite();
+Com:Animation:OnStart
+	#AnimationName#.start();
+Com:Animation:Methods
+	void onAnimationNextFrame(#AnimationTypeName# & a);
+	void onAnimationEnd(#AnimationTypeName# & a);

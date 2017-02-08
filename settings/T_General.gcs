@@ -1,0 +1,11 @@
+Set:StandartIncludes:Def
+	#pragma once
+	#include <string>
+	#include <iostream>
+	#include <utility>
+	#include "Glance.h"
+	#include "SFML/Graphics.hpp"
+	#include "SFML/System.hpp"
+	#include "SFML/Audio.hpp"
+	#include "SFML/Network.hpp"
+	#include <cmath>
