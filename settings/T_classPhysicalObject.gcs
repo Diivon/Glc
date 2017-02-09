@@ -1,5 +1,6 @@
 Class:PhysicalObject:Declaration
 	class #SceneName#;
+	class #LayerName#;
 	class #ClassName# : public ::gc::ClassTraits<#ClassName#>{
 	//public:
 		typedef #ClassName# this_t;
@@ -22,7 +23,6 @@ Class:PhysicalObject:Declaration
 	};
 Class:PhysicalObject:Implementation
 	#include "#SceneName#.h"
-	#include "#ClassName#.h"
 	#ClassName#::#ClassName#(#SceneName# & sc, #LayerName# & lr):
 		pos(#Pos#), scene(sc), layer(lr)
 		#AdditionalConstructorList#

@@ -1,4 +1,5 @@
 Сlass:Scene:FDef
+	#LayersDeclarationInclude#
 	class #ClassName# : public ::gc::ClassTraits<#ClassName#>{
 		#Layers#
 	public:

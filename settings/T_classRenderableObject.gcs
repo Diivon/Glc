@@ -1,5 +1,6 @@
 Class:RenderableObject:Declaration
 	class #SceneName#;
+	class #LayerName#;
 	class #ClassName# : public ::gc::ClassTraits<#ClassName#>{
 		friend class ::gc::Camera;
 	public:	
@@ -23,7 +24,6 @@ Class:RenderableObject:Declaration
 	};
 Class:RenderableObject:Implementation
 	#include "#SceneName#.h"
-	#include "#ClassName#.h"
 	#ClassName#::#ClassName#(#SceneName# & sc, #LayerName# & lr):
 		pos(#Pos#), scene(sc), layer(lr)
 		#AdditionalConstructorList#

@@ -16,29 +16,28 @@ File:Main:Def
 	const float c_MillisecondsForOneFrame = 1'000 / c_framesPerSecond;
 
 	int main(){
-		//::gc::Debug::_instance = ::gc::Debug();
 		sf::RenderWindow mainWindow(sf::VideoMode(800,600), "sfml", sf::Style::Close);
-		gc::Camera mainCamera(gc::Vec2(0, 0), mainWindow);
+		gc::Camera mainCamera(gc::Vec2(0, 0), gc::Vec2(800,600));
+		gc::Renderer renderer;
+		renderer.setWindow(mainWindow).setCamera(mainCamera);
 		
 		float dt = 0.5f;
 		auto & currentScene = #FirstSceneClassName#();
-		currentScene.start();
 		sf::Clock clock;
+		currentScene.start();
 		while(mainWindow.isOpen()){
 			clock.restart();
 
 			processEvents(mainWindow);
 
-			mainCamera.clear();
+			mainWindow.clear();
 
 			currentScene.update(c_MillisecondsForOneFrame);
-			//mainCamera.follow(player);
-			currentScene.render(mainCamera);
+			renderer.render(currentScene);
 
 			mainCamera.display();
 
 			dt = clock.getElapsedTime().asMilliseconds();
 			if (dt < c_MillisecondsForOneFrame) sf::sleep(sf::milliseconds(static_cast<sf::Int32>(c_MillisecondsForOneFrame - dt)));
-			//std::cout << dt << std::endl;
 		}
 	}

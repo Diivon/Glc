@@ -1,0 +1,8 @@
+Com:Sprite:Vars
+	::gc::Sprite sprite;
+Com:Sprite:Constructor
+	sprite(#FileName#)
+Com:Sprite:ConstructorBody
+Com:Sprite:Methods
+Com:Sprite:OnUpdate
+Com:Sprite:OnStart

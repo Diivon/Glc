@@ -1,4 +1,6 @@
 Class:Layer:Declaration
+	#ObjectsDeclarationInclude#	
+
 	class #SceneName#;
 	class #ClassName# : public ::gc::ClassTraits<#ClassName#>{
 		#SceneName# & scene;
@@ -22,7 +24,7 @@ Class:Layer:Declaration
 	};
 Class:Layer:Implementation
 	#include "#SceneName#.h"
-	#include "#ClassName#.h"
+	
 	#ClassName#::#ClassName#(#SceneName# & sc):
 		scene(sc) 
 		#AdditionalConstructorList#
