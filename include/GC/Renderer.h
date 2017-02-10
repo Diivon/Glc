@@ -14,6 +14,10 @@ namespace gc
 		lref_t setCamera(Camera &) noexcept;
 		lref_t setWindow(::sf::RenderWindow &) noexcept;
 		c_lref_t render(Sprite::c_lref_t) const noexcept;
+		template<class T>
+		void renderScene(const T &);
+		template<class T>
+		void renderLayer(const T &);
 		c_lref_t show() const noexcept;
 	};
 	Renderer::Renderer() noexcept:

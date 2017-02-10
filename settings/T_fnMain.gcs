@@ -33,9 +33,9 @@ File:Main:Def
 			mainWindow.clear();
 
 			currentScene.update(c_MillisecondsForOneFrame);
-			renderer.render(currentScene);
+			renderer.renderScene(currentScene);
 
-			mainCamera.display();
+			renderer.show();
 
 			dt = clock.getElapsedTime().asMilliseconds();
 			if (dt < c_MillisecondsForOneFrame) sf::sleep(sf::milliseconds(static_cast<sf::Int32>(c_MillisecondsForOneFrame - dt)));

@@ -16,5 +16,8 @@
 		}
 		template<class T>
 		T & getLayer();
+		template<class T>
+		const T & getLayer() const;
 		#getLayers#
 	};
+	#RenderScene#
