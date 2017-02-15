@@ -10,3 +10,4 @@
 #include "GC/Renderer.h"
 #include "GC/Keyboard.h"
 #include "GC/Utils.h"
+#include "GC/Random.h"

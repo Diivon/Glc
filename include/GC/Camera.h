@@ -13,26 +13,26 @@ namespace gc
 		::sf::View _view;
 		friend class Renderer;
 	public:
-		Camera() noexcept;
-		Camera(const Vec2 & pos, const Vec2 & size) noexcept;
-		lref_t moveTo(float x, float y) noexcept;		//set
-		lref_t moveTo(const Vec2 & pos) noexcept;		//set
-		lref_t moveOn(float dx, float dy) noexcept;		//change
-		lref_t moveOn(const Vec2 & dp) noexcept;
-		lref_t setSize(float w, float h) noexcept;		//set
-		lref_t setSize(const Vec2 & size) noexcept;
-		lref_t changeSize(float dw, float dh) noexcept;	//change
-		lref_t changeSize(const Vec2 & ds) noexcept;
-		lref_t setRotation(float r) noexcept;			//set
-		lref_t rotate(float dr) noexcept;				//change
-		lref_t zoom(float z) noexcept;					//change (deprecated)
+		inline Camera() noexcept;
+		inline Camera(const Vec2 & pos, const Vec2 & size) noexcept;
+		inline lref_t moveTo(float x, float y) noexcept;		//set
+		inline lref_t moveTo(const Vec2 & pos) noexcept;		//set
+		inline lref_t moveOn(float dx, float dy) noexcept;		//change
+		inline lref_t moveOn(const Vec2 & dp) noexcept;
+		inline lref_t setSize(float w, float h) noexcept;		//set
+		inline lref_t setSize(const Vec2 & size) noexcept;
+		inline lref_t changeSize(float dw, float dh) noexcept;	//change
+		inline lref_t changeSize(const Vec2 & ds) noexcept;
+		inline lref_t setRotation(float r) noexcept;			//set
+		inline lref_t rotate(float dr) noexcept;				//change
+		inline lref_t zoom(float z) noexcept;					//change (deprecated)
 
 		
 		
 		//getters
-		Vec2::c_lref_t getPosition() const noexcept;
-		Vec2::c_lref_t getSize() const noexcept;
-		const float getRotation() const noexcept;
+		inline Vec2::c_lref_t getPosition() const noexcept;
+		inline Vec2::c_lref_t getSize() const noexcept;
+		inline const float getRotation() const noexcept;
 	};
 	/*----------------------------------------------IMPLEMENTATION--------------------------------------------*/
 #pragma region GC_CAMERA

@@ -11,11 +11,11 @@ namespace gc
 		Sprite _sprite;
 		float _dur;
 	public:
-		SpriteFrame(Sprite, float duration) noexcept;
-		SpriteFrame(c_lref_t) noexcept;
-		c_lref_t operator = (c_lref_t) noexcept;
-		Sprite::c_lref_t getSprite() const noexcept;
-		const float getDuration() const noexcept;
+		inline SpriteFrame(Sprite, float duration) noexcept;
+		inline SpriteFrame(c_lref_t) noexcept;
+		inline c_lref_t operator = (c_lref_t) noexcept;
+		inline Sprite::c_lref_t getSprite() const noexcept;
+		inline const float getDuration() const noexcept;
 	};
 
 

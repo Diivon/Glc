@@ -61,32 +61,32 @@ namespace gc
 		Vec2 _pos;//left up corner;
 		Vec2 _size;//where x is width, and y is height
 	public:
-		this_t();
-		this_t(const lref_t c);
-		this_t(rref_t c);
-		this_t(Vec2::c_lref_t pos, Vec2::c_lref_t size);
-		this_t(Vec2::c_lref_t pos, float width = 0, float height = 0);
-		Vec2::c_lref_t getPosition() const;
-		lref_t moveOn(Vec2::c_lref_t v);
-		lref_t moveOn(const float & dx, const float & dy);
-		lref_t moveTo(Vec2::c_lref_t v);
-		lref_t moveTo(const float & x, const float & y);
+		inline this_t();
+		inline this_t(const lref_t c);
+		inline this_t(rref_t c);
+		inline this_t(Vec2::c_lref_t pos, Vec2::c_lref_t size);
+		inline this_t(Vec2::c_lref_t pos, float width = 0, float height = 0);
+		inline Vec2::c_lref_t getPosition() const;
+		inline lref_t moveOn(Vec2::c_lref_t v);
+		inline lref_t moveOn(const float & dx, const float & dy);
+		inline lref_t moveTo(Vec2::c_lref_t v);
+		inline lref_t moveTo(const float & x, const float & y);
 
-		Vec2::c_lref_t getSize() const { return _size; }
-		lref_t changeSize(Vec2::c_lref_t v);
-		lref_t changeSize(const float & dw, const float & dh);
-		lref_t setSize(Vec2::c_lref_t s);
-		lref_t setSize(const float & width, const float & height);
-		const float getTopLevel() const;
-		const float getLowLevel() const;
-		const float getLeftLevel() const;
-		const float getRightLevel() const;
-		const Vec2 getTopLeftCorner() const;
-		const Vec2 getLowLeftCorner() const;
-		const Vec2 getTopRightCorner() const;
-		const Vec2 getLowRightCorner() const;
-		const bool isCollide(const lref_t c) const;
-		const bool isCollide(const Collider<ColliderType::Circle> & a) const;
+		inline Vec2::c_lref_t getSize() const { return _size; }
+		inline lref_t changeSize(Vec2::c_lref_t v);
+		inline lref_t changeSize(const float & dw, const float & dh);
+		inline lref_t setSize(Vec2::c_lref_t s);
+		inline lref_t setSize(const float & width, const float & height);
+		inline const float getTopLevel() const;
+		inline const float getLowLevel() const;
+		inline const float getLeftLevel() const;
+		inline const float getRightLevel() const;
+		inline const Vec2 getTopLeftCorner() const;
+		inline const Vec2 getLowLeftCorner() const;
+		inline const Vec2 getTopRightCorner() const;
+		inline const Vec2 getLowRightCorner() const;
+		inline const bool isCollide(const lref_t c) const;
+		inline const bool isCollide(const Collider<ColliderType::Circle> & a) const;
 	};
 	template<>
 	class Collider<ColliderType::Circle> : public ClassTraits<Collider<ColliderType::Circle>>
@@ -94,27 +94,27 @@ namespace gc
 		Vec2 _pos;
 		float _radius;
 	public:
-		this_t();
-		this_t(c_lref_t c);
-		this_t(rref_t c);
-		this_t(Vec2::c_lref_t pos, const float & radius = 0.0f);
-		this_t(const float & x, const float & y, const float & radius = 0.0f);
+		inline this_t();
+		inline this_t(c_lref_t c);
+		inline this_t(rref_t c);
+		inline this_t(Vec2::c_lref_t pos, const float & radius = 0.0f);
+		inline this_t(const float & x, const float & y, const float & radius = 0.0f);
 
-		Vec2::c_lref_t getPosition() const;
-		lref_t moveOn(Vec2::c_lref_t v);
-		lref_t moveOn(const float & dx, const float & dy);
-		lref_t moveTo(Vec2::c_lref_t v);
-		lref_t moveTo(const float & x, const float & y);
+		inline Vec2::c_lref_t getPosition() const;
+		inline lref_t moveOn(Vec2::c_lref_t v);
+		inline lref_t moveOn(const float & dx, const float & dy);
+		inline lref_t moveTo(Vec2::c_lref_t v);
+		inline lref_t moveTo(const float & x, const float & y);
 
-		const float & getRadius() const;
-		lref_t changeRadius(const float & dr);
-		lref_t setRadius(const float & r);
-		const float getTopLevel();
-		const float getLowLevel();
-		const float getLeftLevel();
-		const float getRightLevel();
-		const bool isCollide(c_lref_t a) const;
-		const bool isCollide(Collider<ColliderType::Rectangle>::c_lref_t a) const;
+		inline const float & getRadius() const;
+		inline lref_t changeRadius(const float & dr);
+		inline lref_t setRadius(const float & r);
+		inline const float getTopLevel();
+		inline const float getLowLevel();
+		inline const float getLeftLevel();
+		inline const float getRightLevel();
+		inline const bool isCollide(c_lref_t a) const;
+		inline const bool isCollide(Collider<ColliderType::Rectangle>::c_lref_t a) const;
 	};
 
 	/*--------------------------------------------------IMPLEMENTATION--------------------------------------------------------*/

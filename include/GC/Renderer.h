@@ -10,15 +10,15 @@ namespace gc
 		Camera * _cam;
 		::sf::RenderWindow * _win;
 	public:
-		this_t() noexcept;
-		lref_t setCamera(Camera &) noexcept;
-		lref_t setWindow(::sf::RenderWindow &) noexcept;
-		c_lref_t render(Sprite::c_lref_t) const noexcept;
+		inline this_t() noexcept;
+		inline lref_t setCamera(Camera &) noexcept;
+		inline lref_t setWindow(::sf::RenderWindow &) noexcept;
+		inline c_lref_t render(Sprite::c_lref_t) const noexcept;
 		template<class T>
-		void renderScene(const T &);
+		inline void renderScene(const T &);
 		template<class T>
-		void renderLayer(const T &);
-		c_lref_t show() const noexcept;
+		inline void renderLayer(const T &);
+		inline c_lref_t show() const noexcept;
 	};
 	Renderer::Renderer() noexcept:
 		_cam(nullptr), _win(nullptr)
@@ -36,7 +36,9 @@ namespace gc
 		return *this;
 	}
 	Renderer::c_lref_t Renderer::render(Sprite::c_lref_t s) const noexcept{
-		_win->draw(s.getSfSprite());
+		auto spr = s.getSfSprite();
+		spr.setPosition(s.getPosition().x, s.getPosition().y);
+		_win->draw(spr);
 		return *this;
 	}
 	Renderer::c_lref_t Renderer::show() const noexcept{

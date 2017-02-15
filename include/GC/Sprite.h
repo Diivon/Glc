@@ -2,6 +2,7 @@
 
 #include <string>
 #include "GC/Utils.h"
+#include "GC/Vec2.h"
 #include "SFML/Graphics.hpp"
 namespace gc
 {
@@ -12,18 +13,19 @@ namespace gc
 		Sprite() = delete;
 	public:
 		//Basis
-		Sprite(c_lref_t);
-		Sprite(rref_t);
-		c_lref_t operator = (c_lref_t);
-		c_lref_t operator = (rref_t);
+		inline Sprite(c_lref_t);
+		inline Sprite(rref_t);
+		inline c_lref_t operator = (c_lref_t);
+		inline c_lref_t operator = (rref_t);
 		//End Basis
 
-		Sprite(const std::string & fileName);
-		const ::sf::Sprite getSfSprite() const noexcept;
+		inline Sprite(const std::string & fileName);
+		inline const ::sf::Sprite getSfSprite() const noexcept;
 
-		lref_t setPosition(Vec2::c_lref_t) noexcept;
-		lref_t setOrigin(Vec2::c_lref_t) noexcept;
+		inline lref_t setPosition(Vec2::c_lref_t) noexcept;
+		inline lref_t setOrigin(Vec2::c_lref_t) noexcept;
 
+		inline Vec2 getPosition() const noexcept;
 	};
 	/*--------------------------------------------------IMPLEMENTATION--------------------------------------------------------*/
 	//Basis
@@ -62,5 +64,8 @@ namespace gc
 	Sprite::lref_t Sprite::setOrigin(Vec2::c_lref_t v) noexcept{
 		_sprite.setOrigin(v.x, v.y);
 		return *this;
+	}
+	Vec2 Sprite::getPosition() const noexcept{
+		return Vec2(_sprite.getPosition().x, _sprite.getPosition().y);
 	}
 }

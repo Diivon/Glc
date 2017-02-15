@@ -39,7 +39,7 @@ Class:Layer:Implementation
 	void #ClassName#::onStart(){
 		#OnStart#
 	}
-	void #ClassName#::onUpdate(){
-		#onUpdate#
+	void #ClassName#::onUpdate(const float & dt){
+		#OnUpdate#
 	}
 	#ComponentsMethodsImplementation#

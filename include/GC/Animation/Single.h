@@ -26,25 +26,25 @@ namespace gc
 		Event<lref_t> _onPause;
 	public:
 		//constructors		
-		this_t() noexcept;
-		lref_t 	addFrame(SpriteFrame::c_lref_t);
-		lref_t 	addFrame(SpriteFrame::rref_t);
+		inline this_t() noexcept;
+		inline lref_t 	addFrame(SpriteFrame::c_lref_t);
+		inline lref_t 	addFrame(SpriteFrame::rref_t);
 		template<class ... Args>
-		lref_t 	emplaceFrame(Args ...);
+		inline lref_t 	emplaceFrame(Args ...);
 
 		//getters
-		const bool	isPlay() const noexcept;
-		SpriteFrame::c_lref_t getCurrentSpriteFrame() const noexcept;
-		Sprite::c_lref_t getCurrentSprite() const noexcept;
-		const float	getCurrentSpeed() const noexcept;
-		const uint32 getCurrentFrameIndex() const noexcept; 
+		inline const bool	isPlay() const noexcept;
+		inline SpriteFrame::c_lref_t getCurrentSpriteFrame() const noexcept;
+		inline Sprite::c_lref_t getCurrentSprite() const noexcept;
+		inline const float	getCurrentSpeed() const noexcept;
+		inline const uint32 getCurrentFrameIndex() const noexcept; 
 
 		//setters
-		lref_t setCurrentSpeed(float s) noexcept;
-		lref_t start() noexcept;
-		lref_t pause() noexcept;
-		lref_t stop() noexcept;
-		lref_t update(const float &) noexcept;
+		inline lref_t setCurrentSpeed(float s) noexcept;
+		inline lref_t start() noexcept;
+		inline lref_t pause() noexcept;
+		inline lref_t stop() noexcept;
+		inline lref_t update(const float &) noexcept;
 
 		//events
 		const Event<lref_t> & onEnd;

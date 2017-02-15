@@ -21,19 +21,19 @@ namespace gc {
 	{
 	public:
 		typedef typename RetType(*func_t)(Params ...);
-		Delegate() :_list()
+		inline Delegate() :_list()
 		{}
-		void operator += (func_t a) {
+		inline void operator += (func_t a) {
 			_list.push_back(a);
 		}
-		void operator -= (func_t a) {
+		inline void operator -= (func_t a) {
 			_list.remove(a);
 		}
-		void operator () (Params ... a) {
+		inline void operator () (Params ... a) {
 			for (auto & i : _list)
 				(*i)(a...);
 		}
-		int getCount() {
+		inline int getCount() {
 			return _list.size();
 		}
 	private:

@@ -9,10 +9,10 @@ namespace gc
 		sf::SoundBuffer _buf;
 		sf::Sound _snd;
 	public:
-		Sound(const std::string & file);
-		void play();
-		void pause();
-		void stop();
+		inline Sound(const std::string & file);
+		inline void play();
+		inline void pause();
+		inline void stop();
 	};
 		Sound::Sound(const std::string & file){
 			_buf.loadFromFile(file);

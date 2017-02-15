@@ -14,7 +14,7 @@ namespace gc
 		~Keyboard() = delete;
 	public:
 		enum Key;
-		static bool isKeyPressed(Key key){
+		inline static bool isKeyPressed(Key key){
 			return sf::Keyboard::isKeyPressed(static_cast<sf::Keyboard::Key>(static_cast<int>(key)));
 		}
 

@@ -18,51 +18,51 @@ namespace gc
 		float x, y;
 
 		static const Vec2 zero;
-		this_t(float x, float y);
+		inline this_t(float x, float y);
 
-		this_t() noexcept;
-		this_t(c_lref_t) noexcept;
-		this_t(rref_t) noexcept;
-		lref_t operator = (c_lref_t) noexcept;
-		lref_t operator = (rref_t) noexcept;
+		inline this_t() noexcept;
+		inline this_t(c_lref_t) noexcept;
+		inline this_t(rref_t) noexcept;
+		inline lref_t operator = (c_lref_t) noexcept;
+		inline lref_t operator = (rref_t) noexcept;
 
 		#ifdef SFML_VECTOR2_HPP
-			this_t(const sf::Vector2f &) noexcept;
-			this_t(sf::Vector2f &&) noexcept;
-			lref_t operator = (const sf::Vector2f &) noexcept;
-			lref_t operator = (sf::Vector2f &&) noexcept;
-			operator sf::Vector2f() const noexcept;
+			inline this_t(const sf::Vector2f &) noexcept;
+			inline this_t(sf::Vector2f &&) noexcept;
+			inline lref_t operator = (const sf::Vector2f &) noexcept;
+			inline lref_t operator = (sf::Vector2f &&) noexcept;
+			inline operator sf::Vector2f() const noexcept;
 		#endif
 
 		//getters
-		c_this_t operator + () const noexcept;
-		c_this_t operator - () const noexcept;
+		inline c_this_t operator + () const noexcept;
+		inline c_this_t operator - () const noexcept;
 		
-		c_this_t operator + (c_lref_t) const noexcept;
-		c_this_t operator - (c_lref_t) const noexcept;
-		const float operator * (c_lref_t) const noexcept;
-		c_this_t operator * (float) const noexcept;
-		c_this_t operator / (float) const noexcept;
+		inline c_this_t operator + (c_lref_t) const noexcept;
+		inline c_this_t operator - (c_lref_t) const noexcept;
+		inline const float operator * (c_lref_t) const noexcept;
+		inline c_this_t operator * (float) const noexcept;
+		inline c_this_t operator / (float) const noexcept;
 
 		//changers
-		c_lref_t operator += (c_lref_t) noexcept;
-		c_lref_t operator -= (c_lref_t) noexcept;
-		c_lref_t operator *= (float a) noexcept;
-		c_lref_t operator /= (float a) noexcept;
+		inline c_lref_t operator += (c_lref_t) noexcept;
+		inline c_lref_t operator -= (c_lref_t) noexcept;
+		inline c_lref_t operator *= (float a) noexcept;
+		inline c_lref_t operator /= (float a) noexcept;
 		
 		//getters
-		c_this_t getRotatedDeg(float) const noexcept;
-		c_this_t getRotatedRad(float) const noexcept;
-		c_this_t getRotatedCS(float coss, float sinn) const noexcept;
-		c_this_t getNormalized() const noexcept;
-		const float getLength() const noexcept;
+		inline c_this_t getRotatedDeg(float) const noexcept;
+		inline c_this_t getRotatedRad(float) const noexcept;
+		inline c_this_t getRotatedCS(float coss, float sinn) const noexcept;
+		inline c_this_t getNormalized() const noexcept;
+		inline const float getLength() const noexcept;
 
 		//changers
-		c_lref_t rotateDeg(float) noexcept;
-		c_lref_t rotateRad(float) noexcept;
-		c_lref_t rotateCS(float coss, float sinn) noexcept;
-		c_lref_t normalize() noexcept;
-		c_lref_t setLength(float) noexcept;
+		inline c_lref_t rotateDeg(float) noexcept;
+		inline c_lref_t rotateRad(float) noexcept;
+		inline c_lref_t rotateCS(float coss, float sinn) noexcept;
+		inline c_lref_t normalize() noexcept;
+		inline c_lref_t setLength(float) noexcept;
 	};
 		/*--IMPLEMENTATION--*/
 	Vec2::Vec2(float a, float b) :

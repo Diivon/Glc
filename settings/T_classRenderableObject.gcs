@@ -14,7 +14,8 @@ Class:RenderableObject:Declaration
 		~#ClassName#();
 		void onStart();
 		void onUpdate(const float & dt);
-		const sf::Sprite & onRender(::gc::Camera & cam);
+		const ::gc::Sprite & getSprite() const;
+		::gc::Sprite & getSprite();
 		#ComponentsMethods#
 	private:
 		#ClassName#(const #ClassName# &) = delete;
@@ -38,7 +39,12 @@ Class:RenderableObject:Implementation
 	void #ClassName#::onUpdate(const float & dt){
 		#OnUpdate#
 	}
-	const sf::Sprite & #ClassName#::onRender(::gc::Camera & cam){
-		#OnRender#
+	const ::gc::Sprite & #ClassName#::getSprite() const{
+		const_cast<::gc::Sprite &>(sprite).setPosition(pos);
+		return sprite;
+	}
+	::gc::Sprite & #ClassName#::getSprite(){
+		sprite.setPosition(pos);
+		return sprite;
 	}
 	#ComponentsMethods#

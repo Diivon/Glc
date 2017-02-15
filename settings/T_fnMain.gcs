@@ -23,8 +23,9 @@ File:Main:Def
 		
 		float dt = 0.5f;
 		auto & currentScene = #FirstSceneClassName#();
-		sf::Clock clock;
 		currentScene.start();
+
+		sf::Clock clock;
 		while(mainWindow.isOpen()){
 			clock.restart();
 

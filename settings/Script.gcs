@@ -1,9 +1,12 @@
 B:Script
 	variables:
-		//your variables here
+		public: 
+			//your public variables here
+		private: 
+			//your private variables here
 	methods:
 		void onStart(){
-			//use it for initialization
+			//it's called once, before game cycle begins
 		}
 		void onUpdate(const float & dt){
 			//onUpdate called once per frame
