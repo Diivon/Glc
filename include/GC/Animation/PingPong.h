@@ -36,7 +36,7 @@ namespace gc
 		//getters
 		inline const bool	isPlay() const noexcept;
 		inline SpriteFrame::c_lref_t getCurrentSpriteFrame() const noexcept;
-		inline Sprite::c_lref_t getCurrentSprite() const noexcept;
+		inline const Sprite getCurrentSprite() const noexcept;
 		inline const float	getCurrentSpeed() const noexcept;
 		inline const uint32 getCurrentFrameIndex() const noexcept; 
 		inline const AnimationDirection getCurrentDirection() const noexcept;
@@ -88,7 +88,7 @@ namespace gc
 	SpriteFrame::c_lref_t GC_ANIMATION_PINGPONG::getCurrentSpriteFrame() const noexcept{
 		return *_currentAnimationFrame;
 	}
-	Sprite::c_lref_t GC_ANIMATION_PINGPONG::getCurrentSprite() const noexcept{
+	const Sprite GC_ANIMATION_PINGPONG::getCurrentSprite() const noexcept{
 		return _currentAnimationFrame->getSprite();
 	}
 	const float 	GC_ANIMATION_PINGPONG::getCurrentSpeed() const noexcept{

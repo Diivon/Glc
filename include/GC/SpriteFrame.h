@@ -11,16 +11,16 @@ namespace gc
 		Sprite _sprite;
 		float _dur;
 	public:
-		inline SpriteFrame(Sprite, float duration) noexcept;
+		inline SpriteFrame(const std::string & path, float duration) noexcept;
 		inline SpriteFrame(c_lref_t) noexcept;
 		inline c_lref_t operator = (c_lref_t) noexcept;
-		inline Sprite::c_lref_t getSprite() const noexcept;
+		inline const Sprite getSprite() const noexcept;
 		inline const float getDuration() const noexcept;
 	};
 
 
-	SpriteFrame::SpriteFrame(Sprite a, float duration) noexcept:
-		_dur(duration), _sprite(a)
+	SpriteFrame::SpriteFrame(const std::string & path, float duration) noexcept:
+		_dur(duration), _sprite(path)
 	{}
 	SpriteFrame::SpriteFrame(SpriteFrame::c_lref_t a) noexcept:
 		_sprite(a._sprite), _dur(a._dur)
@@ -31,7 +31,7 @@ namespace gc
 		_dur = a._dur;
 		return *this;
 	}
-	Sprite::c_lref_t SpriteFrame::getSprite() const noexcept{
+	const Sprite SpriteFrame::getSprite() const noexcept{
 		return _sprite;
 	}
 	const float SpriteFrame::getDuration() const noexcept{

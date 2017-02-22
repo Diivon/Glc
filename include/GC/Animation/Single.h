@@ -35,7 +35,7 @@ namespace gc
 		//getters
 		inline const bool	isPlay() const noexcept;
 		inline SpriteFrame::c_lref_t getCurrentSpriteFrame() const noexcept;
-		inline Sprite::c_lref_t getCurrentSprite() const noexcept;
+		inline const Sprite getCurrentSprite() const noexcept;
 		inline const float	getCurrentSpeed() const noexcept;
 		inline const uint32 getCurrentFrameIndex() const noexcept; 
 
@@ -59,7 +59,7 @@ namespace gc
 	#define GC_ANIMATION_SINGLE Animation<AnimationType::Single>
 	GC_ANIMATION_SINGLE::Animation() noexcept:
 		_SFlist(), _currentAnimationFrame(_SFlist.begin()), _isPlays(false), 
-		_currentAnimationTime(0), _currentAnimationSpeed(1), _currentAnimationFrameIndex(0),
+		_currentAnimationTime(0.0f), _currentAnimationSpeed(1.0f), _currentAnimationFrameIndex(0),
 		//events init
 		_onEnd(), onEnd(_onEnd),
 		_onNextFrame(), onNextFrame(_onNextFrame),
@@ -86,7 +86,7 @@ namespace gc
 	SpriteFrame::c_lref_t GC_ANIMATION_SINGLE::getCurrentSpriteFrame() const noexcept{
 		return *_currentAnimationFrame;
 	}
-	Sprite::c_lref_t GC_ANIMATION_SINGLE::getCurrentSprite() const noexcept{
+	const Sprite GC_ANIMATION_SINGLE::getCurrentSprite() const noexcept{
 		return _currentAnimationFrame->getSprite();
 	}
 	const float 	GC_ANIMATION_SINGLE::getCurrentSpeed() const noexcept{
@@ -118,7 +118,6 @@ namespace gc
 		_onStop.emit(*this);
 		return *this;
 	}
-
 	GC_ANIMATION_SINGLE::lref_t GC_ANIMATION_SINGLE::update(const float & dt) noexcept {
 		if(!_isPlays) return *this;
 

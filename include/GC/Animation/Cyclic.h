@@ -35,12 +35,12 @@ namespace gc
 		//getters
 		inline const bool	isPlay() const noexcept;
 		inline SpriteFrame::c_lref_t getCurrentSpriteFrame() const noexcept;
-		inline Sprite::c_lref_t getCurrentSprite() const noexcept;
+		inline const Sprite getCurrentSprite() const noexcept;
 		inline const float	getCurrentSpeed() const noexcept;
 		inline const uint32 getCurrentFrameIndex() const noexcept; 
 
 		//setters
-		inline lref_t setCurrentSpeed(float) noexcept;
+		inline lref_t setCurrentSpeed(float s) noexcept;
 		inline lref_t start() noexcept;
 		inline lref_t pause() noexcept;
 		inline lref_t stop() noexcept;
@@ -57,7 +57,6 @@ namespace gc
 	/*-----------------------------------IMPLEMENTATION----------------------------------------------*/
 #pragma region GC_ANIMATION_CYCLIC_REGION
 	#define GC_ANIMATION_CYCLIC Animation<AnimationType::Cyclic>
-	
 	GC_ANIMATION_CYCLIC::Animation() noexcept:
 		_SFlist(), _currentAnimationFrame(_SFlist.begin()), _isPlays(false), 
 		_currentAnimationTime(0.0f), _currentAnimationSpeed(1.0f), _currentAnimationFrameIndex(0),
@@ -87,7 +86,7 @@ namespace gc
 	SpriteFrame::c_lref_t GC_ANIMATION_CYCLIC::getCurrentSpriteFrame() const noexcept{
 		return *_currentAnimationFrame;
 	}
-	Sprite::c_lref_t GC_ANIMATION_CYCLIC::getCurrentSprite() const noexcept{
+	const Sprite GC_ANIMATION_CYCLIC::getCurrentSprite() const noexcept{
 		return _currentAnimationFrame->getSprite();
 	}
 	const float 	GC_ANIMATION_CYCLIC::getCurrentSpeed() const noexcept{

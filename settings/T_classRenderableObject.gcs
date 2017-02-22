@@ -14,8 +14,8 @@ Class:RenderableObject:Declaration
 		~#ClassName#();
 		void onStart();
 		void onUpdate(const float & dt);
-		const ::gc::Sprite & getSprite() const;
-		::gc::Sprite & getSprite();
+		const ::gc::Sprite getCurrentSprite() const;
+		::gc::Sprite getCurrentSprite();
 		#ComponentsMethods#
 	private:
 		#ClassName#(const #ClassName# &) = delete;
@@ -39,12 +39,10 @@ Class:RenderableObject:Implementation
 	void #ClassName#::onUpdate(const float & dt){
 		#OnUpdate#
 	}
-	const ::gc::Sprite & #ClassName#::getSprite() const{
-		const_cast<::gc::Sprite &>(sprite).setPosition(pos);
-		return sprite;
+	const ::gc::Sprite #ClassName#::getCurrentSprite() const{
+		#GetCurrentSprite#
 	}
-	::gc::Sprite & #ClassName#::getSprite(){
-		sprite.setPosition(pos);
-		return sprite;
+	::gc::Sprite #ClassName#::getCurrentSprite(){
+		#GetCurrentSprite#
 	}
 	#ComponentsMethods#

@@ -20,7 +20,7 @@ namespace gc
 		//End Basis
 
 		inline Sprite(const std::string & fileName);
-		inline const ::sf::Sprite getSfSprite() const noexcept;
+		inline const ::sf::Sprite & getSfSprite() const noexcept;
 
 		inline lref_t setPosition(Vec2::c_lref_t) noexcept;
 		inline lref_t setOrigin(Vec2::c_lref_t) noexcept;
@@ -33,7 +33,7 @@ namespace gc
 		_tex(s._tex), _sprite(s._sprite)
 	{}
 	Sprite::Sprite(Sprite::rref_t s):
-		_tex(std::move(s._tex)), _sprite(std::move(s._sprite))
+		_tex(s._tex), _sprite(s._sprite)
 	{}
 	Sprite::c_lref_t Sprite::operator = (Sprite::c_lref_t s){
 		_tex = s._tex;
@@ -41,8 +41,8 @@ namespace gc
 		return *this;
 	}
 	Sprite::c_lref_t Sprite::operator = (Sprite::rref_t s){
-		_tex = std::move(s._tex);
-		_sprite = std::move(s._sprite);
+		_tex = s._tex;
+		_sprite = s._sprite;
 		return *this;
 	}
 	//End Basis
@@ -53,8 +53,8 @@ namespace gc
 		_tex.loadFromMemory(v.data(), v.size());
 		_sprite.setTexture(_tex);
 	}
-	const ::sf::Sprite Sprite::getSfSprite() const noexcept{
-		return ::sf::Sprite(_tex);
+	const ::sf::Sprite & Sprite::getSfSprite() const noexcept{
+		return _sprite;
 	}
 
 	Sprite::lref_t Sprite::setPosition(Vec2::c_lref_t p) noexcept{

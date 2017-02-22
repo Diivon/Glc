@@ -12,7 +12,6 @@ methods:
 	void onUpdate(const float & dt){
 		if (_count == 2)
 			layer.isDone = true;
-		
 	}
 	void kek(Number1 & a){
 		if(a.pos.x > pos.x)

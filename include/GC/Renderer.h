@@ -13,7 +13,7 @@ namespace gc
 		inline this_t() noexcept;
 		inline lref_t setCamera(Camera &) noexcept;
 		inline lref_t setWindow(::sf::RenderWindow &) noexcept;
-		inline c_lref_t render(Sprite::c_lref_t) const noexcept;
+		inline c_lref_t render(Sprite::c_lref_t, Vec2::c_lref_t) const noexcept;
 		template<class T>
 		inline void renderScene(const T &);
 		template<class T>
@@ -35,9 +35,9 @@ namespace gc
 			_win->setView(_cam->_view);
 		return *this;
 	}
-	Renderer::c_lref_t Renderer::render(Sprite::c_lref_t s) const noexcept{
+	Renderer::c_lref_t Renderer::render(Sprite::c_lref_t s, Vec2::c_lref_t pos) const noexcept{
 		auto spr = s.getSfSprite();
-		spr.setPosition(s.getPosition().x, s.getPosition().y);
+		spr.setPosition(pos.x, pos.y);
 		_win->draw(spr);
 		return *this;
 	}
