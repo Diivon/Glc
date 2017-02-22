@@ -2,12 +2,15 @@ variables:
 	private:
 	float elapsed;
 	::gc::AnimationDirection dir;
+	uint32 _times;
 	public:
 	::gc::Event<lref_t> onMoveEvent;
 methods:
 	void onStart(){
 		elapsed = 0.0f;
+		_times = 0;
 		dir = ::gc::AnimationDirection::Forward;
+		layer.getObject<Number2>().animation.onNextFrame.sign([this](auto &){gc::debug << std::string("onNextFrame event emited ");});
 	}
 	void onUpdate(const float & dt){
 		if(!layer.isDone)

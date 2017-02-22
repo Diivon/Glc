@@ -15,7 +15,12 @@ File:Main:Def
 	const int c_framesPerSecond = 30;
 	const float c_MillisecondsForOneFrame = 1'000 / c_framesPerSecond;
 
+	const gc::Vec2 gc::Vec2::zero = gc::Vec2(0, 0);
+	const sf::Font gc::priv::Debug::_font = ([](){sf::Font f;f.loadFromFile(R"(resources\DebugFont.ttf)"); return f;})();
+	gc::priv::Debug gc::debug = gc::priv::Debug();
+
 	int main(){
+		gc::debug << std::string("Hello!");
 		sf::RenderWindow mainWindow(sf::VideoMode(800,600), "sfml", sf::Style::Close);
 		gc::Camera mainCamera(gc::Vec2(0, 0), gc::Vec2(800,600));
 		gc::Renderer renderer;
@@ -35,6 +40,8 @@ File:Main:Def
 
 			currentScene.update(c_MillisecondsForOneFrame);
 			renderer.renderScene(currentScene);
+
+			mainWindow.draw(gc::debug.getSFText());
 
 			renderer.show();
 
