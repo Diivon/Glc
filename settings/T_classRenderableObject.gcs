@@ -5,11 +5,12 @@ Class:RenderableObject:Declaration
 		friend class ::gc::Camera;
 	public:	
 		typedef #ClassName# this_t;
+		#ClassName# & self;
 		#SceneName# & scene;
 		#LayerName# & layer;
 		::gc::Vec2 pos;
 		#ComponentsVariables#
-	//public:
+	public:
 		#ClassName#(#SceneName# &, #LayerName# &);
 		~#ClassName#();
 		void onStart();
@@ -26,7 +27,7 @@ Class:RenderableObject:Declaration
 Class:RenderableObject:Implementation
 	#include "#SceneName#.h"
 	#ClassName#::#ClassName#(#SceneName# & sc, #LayerName# & lr):
-		pos(#Pos#), scene(sc), layer(lr)
+		self(*this), pos(#Pos#), scene(sc), layer(lr)
 		#AdditionalConstructorList#
 		{
 			#ConstructorBody#

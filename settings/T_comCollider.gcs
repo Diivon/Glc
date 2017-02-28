@@ -1,0 +1,9 @@
+Com:Collider:Vars
+	typedef ::gc::Collider<#ColliderType#> #ColliderTypeName#;
+	#ColliderTypeName# #ColliderName#
+Com:Collider:Constructor
+	#ColliderName#(#Pos#, #Size#)
+Com:Collider:ConstructorBody
+Com:Collider:OnUpdate
+Com:Collider:OnStart
+Com:Collider:Methods
