@@ -20,7 +20,6 @@ File:Main:Def
 	gc::priv::Debug gc::debug = gc::priv::Debug();
 
 	int main(){
-		gc::debug << std::string("Hello!");
 		sf::RenderWindow mainWindow(sf::VideoMode(800,600), "sfml", sf::Style::Close);
 		gc::Camera mainCamera(gc::Vec2(0, 0), gc::Vec2(800,600));
 		gc::Renderer renderer;

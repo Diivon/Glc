@@ -1,6 +1,7 @@
 variables:
 	public: 
 		//your public variables here
+		float distance;
 	private: 
 		//your private variables here
 methods:
@@ -9,10 +10,20 @@ methods:
 	}
 	void onUpdate(const float & dt){
 		//onUpdate called once per frame
-		gc::debug << "CS: " << layer.getObject<Number2>().collider.getRadius();
-		if (layer.getObject<Number2>().collider.isCollide(self.collider))
-			gc::debug << "1 ";
-		else 
-			gc::debug << "0 ";
+		//gc::debug << layer.getObject<Number2>().collider.isCollide(self.collider);
+		distance = (pos - layer.getObject<Number2>().pos).getLength();
+		gc::debug
+		.clear()
+		.write(distance)
+		.newLine()
+		.write(layer.getObject<Number2>().collider.isCollide(self.collider));
 	}
 	//else methods here
+constructors:
+	//this code will be in class constructor-specific synthax example is: 
+	//str("awd"), dur(6)
+	distance(0)
+constructor_body:
+	//this code will be runned when constructor of object will be called
+	//use it for primary initialization only!!!
+	gc::debug.write("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
