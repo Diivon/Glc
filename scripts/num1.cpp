@@ -13,15 +13,17 @@ methods:
 		//layer.getObject<Number2>().animation.onNextFrame.sign([this](auto &){gc::debug << std::string("onNextFrame event emited ");});
 	}
 	void onUpdate(const float & dt){
-		if(!layer.isDone)
+		if (gc::Keyboard::isKeyPressed(gc::Keyboard::W))
+			--pos.y;
+		if (gc::Keyboard::isKeyPressed(gc::Keyboard::S))
+			++pos.y;
+		if (gc::Keyboard::isKeyPressed(gc::Keyboard::A))
+			--pos.x;
+		if (gc::Keyboard::isKeyPressed(gc::Keyboard::D))
+			++pos.x;
+		if (gc::Keyboard::isKeyPressed(gc::Keyboard::F))
 		{
-			if (pos.x > 100)
-				dir = ::gc::AnimationDirection::Backward;
-			if (pos.x < 25)
-				dir = ::gc::AnimationDirection::Forward;
-			dir == ::gc::AnimationDirection::Forward ? ++pos.x : --pos.x;
-			onMoveEvent.emit(*this);
+			pos.x += gc::Random<float>::get(-5, 5);
+			pos.y += gc::Random<float>::get(-5, 5);
 		}
-		if (layer.isDone)
-			layer.getObject<Number2>().pos = scene.getLayer<Layer1>().getObject<PhysicalObject2>().pos;
 	}

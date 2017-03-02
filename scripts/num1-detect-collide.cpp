@@ -17,6 +17,10 @@ methods:
 		.write(distance)
 		.newLine()
 		.write(layer.getObject<Number2>().collider.isCollide(self.collider));
+		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Space))
+			gc::debug
+			.newLine()
+			.write( (scene.getLayer<Layer1>().getObject<PhysicalObject2>().pos - pos).getLength() );
 	}
 	//else methods here
 constructors:

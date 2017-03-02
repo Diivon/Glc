@@ -3,7 +3,7 @@
 	class #ClassName# : public ::gc::ClassTraits<#ClassName#>{
 		#Layers#
 	public:
-		#ClassName#():
+		#ClassName#()
 			#Ctors#
 		{}
 		void start()

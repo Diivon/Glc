@@ -13,25 +13,25 @@ namespace gc
 	{
 		
 		template<class T, Distribution Y>
-		struct getStdDistByDL {};
+		struct getStdDistByGC {};
 	
 		template<>
-		struct getStdDistByDL<float, Distribution::Float> {
+		struct getStdDistByGC<float, Distribution::Float> {
 			typedef std::uniform_real_distribution<float> type;
 		};
 	
 		template<>
-		struct getStdDistByDL<float, Distribution::Normal> {
+		struct getStdDistByGC<float, Distribution::Normal> {
 			typedef std::normal_distribution<float> type;
 		};
 	
 		template<>
-		struct getStdDistByDL<int, Distribution::Float> {
+		struct getStdDistByGC<int, Distribution::Float> {
 			typedef std::uniform_int_distribution<int> type;
 		};
 	
 		template<>
-		struct getStdDistByDL<int, Distribution::Normal> {
+		struct getStdDistByGC<int, Distribution::Normal> {
 			typedef std::normal_distribution<float> type;
 		};
 	}
@@ -41,7 +41,7 @@ namespace gc
 	public:
 		static inline T get(T l, T h) {
 			static E engine(static_cast<unsigned int>(time(0)));
-			static typename getStdDistByDL<T, Y>::type dist(l, h);
+			static typename priv::getStdDistByGC<T, Y>::type dist(l, h);
 			return static_cast<T>(dist(engine));
 		}
 	};
