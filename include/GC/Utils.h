@@ -4,10 +4,21 @@
 #include <stdint.h>
 #include <string>
 #include <vector>
+#include <limits>
+
+#define GC_GET_WORD_SIZE (::gc::priv::size_if<std::numeric_limits<size_t>::max() == 0xffffffff, 4, 8>::value)
 namespace gc
 {
-
+	typedef int8_t int8;
+	typedef uint8_t uint8;
+	typedef int16_t int16;
+	typedef uint16_t uint16;
+	typedef int32_t int32;
+	typedef uint32_t uint32;
+	typedef int64_t int64;
+	typedef uint64_t uint64;
 	const float Pi = 3.14159265358979323846f;
+	
 	template<class T>
 	struct TypeName
 	{
@@ -26,29 +37,7 @@ namespace gc
 		typedef T && rref_t; typedef const T && c_rref_t; typedef volatile T && v_rref_t; typedef const volatile T && cv_rref_t;
 		typedef Ptr ptr_t; typedef const Ptr c_ptr_t; typedef volatile Ptr v_ptr_t; typedef const volatile Ptr cv_ptr_t;
 		inline static const std::string getTypeName(){return TypeName<T>::get();}
-	};
-	struct NonCopyable
-	{
-		NonCopyable(){}
-		NonCopyable(const NonCopyable &) = delete;
-		void operator = (const NonCopyable &) = delete;
-	};
-	struct NonMoveable
-	{
-		NonMoveable(){}
-		NonMoveable(NonMoveable &&) = delete;
-		void operator = (NonMoveable &&) = delete;
-	};
-	
-	typedef int8_t sbyte;
-	typedef uint8_t byte;
-	typedef int16_t int16;
-	typedef uint16_t uint16;
-	typedef int32_t int32;
-	typedef uint32_t uint32;
-	typedef int64_t int64;
-	typedef uint64_t uint64;
-
+	};	
 	inline std::vector<char> getByteVectorFromFile(const std::string & s) {
 		std::ifstream ifs(s, std::ios::in | std::ios::binary | std::ios::ate);//open file for reading
 		decltype(ifs)::pos_type pos;//position in file 
@@ -61,9 +50,23 @@ namespace gc
 		ifs.read(&data[0], size);	//read it
 		return data;				//..
 	}
+	namespace priv{
+		template<bool c, size_t t, size_t>
+		struct size_if {
+			static constexpr size_t value = true;
+		};
+		template<size_t t, size_t f>
+		struct size_if<true, t, f> {
+			static constexpr size_t value = t;
+		};
+		template<size_t t, size_t f>
+		struct size_if<false, t, f> {
+			static constexpr size_t value = f;
+		};
+	}
 }
-typedef int8_t sbyte;
-typedef uint8_t byte;
+typedef int8_t int8;
+typedef uint8_t uint8;
 typedef int16_t int16;
 typedef uint16_t uint16;
 typedef int32_t int32;

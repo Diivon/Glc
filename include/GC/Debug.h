@@ -57,7 +57,7 @@ namespace gc{
 			sf::Text result;
 			result.setString(_text);
 			result.setFont(_font);
-			result.setColor(sf::Color::White);
+			result.setOutlineColor(sf::Color::White);
 			result.setCharacterSize(20);
 			result.setPosition(-400, -300);
 			return result;

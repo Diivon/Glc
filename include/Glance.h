@@ -11,3 +11,6 @@
 #include "GC/Keyboard.h"
 #include "GC/Utils.h"
 #include "GC/Random.h"
+#include "GC/Allocator.h"
+#include "GC/Memory.h"
+#include "GC/SemanticHelpers.h"
