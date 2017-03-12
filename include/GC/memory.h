@@ -2,13 +2,14 @@
 
 namespace gc{
 	namespace memory{
-		struct Block
+		struct Slice
 		{
 			void * begin;
 			void * end;
 			inline ptrdiff_t getDifference() {
 				return static_cast<uint8 *>(end) - static_cast<uint8 *>(begin);
 			}
+			static Slice null;
 		};
 		inline void * getNextAligned(void * ptr){
 			ptrdiff_t n = reinterpret_cast<ptrdiff_t>(ptr);
@@ -23,3 +24,4 @@ namespace gc{
 		}
 	}
 }
+gc::memory::Slice gc::memory::Slice::null = gc::memory::Slice(nullptr, nullptr);

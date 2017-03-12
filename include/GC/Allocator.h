@@ -1,49 +1,51 @@
 #pragma once
-#include <new>
 #include "GC/Utils.h"
 #include "GC/Memory.h"
 #include "GC/SemanticHelpers.h"
+#include "GC/Settings.h"
+
+#include "GC/Allocator/StackAllocator.h"
+#include "GC/Allocator/ListAllocator.h"
+#include "GC/Allocator/Mallocator.h"
 
 namespace gc {
-	template<size_t StackSize>
-	class StackAllocator {
-	public:
-		StackAllocator();
-		memory::Block alloc(priv::bytes_t);
-		memory::Block allocAll();
-		bool free(const memory::Block &);
-	private:
-		void * _ptr;
-		uint8 _data[StackSize];
+	enum class AllocationType{
+		Default,
+		Fast,
+		Defragmented
 	};
-	template<size_t StackSize>
-	StackAllocator<StackSize>::StackAllocator():
-		_ptr(_data)
-	{}
-
-	template<size_t StackSize>
-	memory::Block StackAllocator<StackSize>::alloc(priv::bytes_t bs){
-		size_t freeVolume = &_data[StackSize - 1] - static_cast<uint8 *>(_ptr);
-		if (freeVolume < bs.value)
-			throw std::bad_alloc();
-		void * resultptr = _ptr;
-		_ptr = memory::getNextAligned(static_cast<uint8 *>(_ptr) + bs.value);
-		return {resultptr, static_cast<uint8 *>(resultptr) + bs.value};
+	class Allocator{
+		StackAllocator<GC_FAST_ALLOCATION_AREA_SIZE> _fast;
+		ListAllocator<GC_SLOW_ALLOCATION_AREA_SIZE> _slow;
+		Mallocator _other;
+	public:
+		Allocator();
+		template<AllocationType T>
+		memory::Slice allocate(priv::bytes_t);
+		bool deallocate(const memory::Slice &);
+	};
+	Allocator::Allocator(){}
+	template<>
+	inline memory::Slice Allocator::allocate<AllocationType::Default>(priv::bytes_t b){
+		return _slow.allocate(b);
 	}
-	template<size_t StackSize>
-	memory::Block StackAllocator<StackSize>::allocAll() {
-		void * resultBeginPtr = _ptr;
-		_ptr = &_data[StackSize - 1];
-		return {resultBeginPtr, _ptr};
+	template<>
+	inline memory::Slice Allocator::allocate<AllocationType::Defragmented>(priv::bytes_t b){
+		return _slow.allocate(b);
 	}
-	template<size_t StackSize>
-	bool StackAllocator<StackSize>::free(const memory::Block & blk) {
-		ptrdiff_t diff = (static_cast<uint8 *>(_ptr) - static_cast<uint8 *>(blk.end));
-		if (diff <= GC_GET_WORD_SIZE / 2)
-		{
-			_ptr = blk.begin;//it already aligned
+	template<>
+	inline memory::Slice Allocator::allocate<AllocationType::Fast>(priv::bytes_t b){
+		return _fast.allocate(b);
+	}
+	inline bool Allocator::deallocate(const memory::Slice & blk){
+		if (_fast.isOwn(blk)){
+			_fast.deallocate(blk);
 			return true;
 		}
-		else return false;
+		if (_slow.isOwn(blk)){
+			_slow.deallocate(blk);
+			return true;
+		}
+		_other.deallocate(blk);
 	}
 }
