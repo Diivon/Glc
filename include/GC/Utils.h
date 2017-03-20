@@ -7,6 +7,7 @@
 #include <limits>
 
 #define GC_GET_WORD_SIZE (::gc::priv::size_if<std::numeric_limits<size_t>::max() == 0xffffffff, 4, 8>::value)
+#define GC_ON_FAIL
 namespace gc
 {
 	typedef int8_t i8;
@@ -45,7 +46,7 @@ namespace gc
 		
 		ifs.seekg(0, std::ios::end);//get length
 		auto size = ifs.tellg();	//of file
-		data.resize(static_cast<uint32>(size));			//resize buffer to fit file data
+		data.resize(static_cast<size_t>(size));			//resize buffer to fit file data
 		ifs.seekg(0, std::ios::beg);//return position at start
 		ifs.read(&data[0], size);	//read it
 		return data;				//..

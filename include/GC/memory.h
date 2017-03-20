@@ -7,8 +7,15 @@ namespace gc{
 			void * begin;
 			void * end;
 			inline ptrdiff_t getDifference() {
-				return static_cast<uint8 *>(end) - static_cast<uint8 *>(begin);
+				return static_cast<u8 *>(end) - static_cast<u8 *>(begin);
 			}
+			inline bool operator == (const Slice & other){
+				return begin == other.begin && end == other.end;
+			}
+			inline bool operator != (const Slice & other){
+				return begin != other.begin && end != other.end;
+			}
+		public:
 			static Slice null;
 		};
 		inline void * getNextAligned(void * ptr){
@@ -24,4 +31,3 @@ namespace gc{
 		}
 	}
 }
-gc::memory::Slice gc::memory::Slice::null = gc::memory::Slice(nullptr, nullptr);

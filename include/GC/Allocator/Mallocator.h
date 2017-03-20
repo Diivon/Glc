@@ -6,18 +6,22 @@
 namespace gc{
 	class Mallocator{
 	public:
-		Mallocator();
-		memory::Slice allocate(priv::bytes_t);
-		bool deallocate(const memory::Slice &);
+		Mallocator() noexcept;
+		memory::Slice allocate(priv::bytes_t) noexcept;
+		bool deallocate(const memory::Slice &) noexcept;
 	};
-	inline Mallocator::Mallocator(){}
-	inline memory::Slice Mallocator::allocate(priv::bytes_t bs){
+	inline Mallocator::Mallocator() noexcept {}
+	inline memory::Slice Mallocator::allocate(priv::bytes_t bs) noexcept{
 		auto ptr = malloc(bs.value);
-		if (ptr)
-			return {ptr, static_cast<u8>(ptr) + bs.value};
+		memory::Slice result;
+		if (ptr){
+			result.begin = ptr;
+			result.end = static_cast<void *>(static_cast<u8 *>(ptr) + bs.value);
+			return result;
+		}
 		return memory::Slice::null;
 	}
-	inline bool Mallocator::deallocate(const memory::Slice & blk){
+	inline bool Mallocator::deallocate(const memory::Slice & blk) noexcept{
 		free(blk.begin);
 		return true;
 	}

@@ -12,7 +12,7 @@ namespace gc
 		std::list<SpriteFrame>::iterator 	_currentAnimationFrame;//current SpriteFrame
 		float								_currentAnimationTime;//time, measured from last frame started
 		float								_currentAnimationSpeed;//speed of animation
-		uint32 								_currentAnimationFrameIndex;//current number of animation frame
+		size_t 								_currentAnimationFrameIndex;//current number of animation frame
 		AnimationDirection					_currentAnimationDirection;//direction of animation
 
 		this_t(c_lref_t) = delete;
@@ -38,7 +38,7 @@ namespace gc
 		inline SpriteFrame::c_lref_t getCurrentSpriteFrame() const noexcept;
 		inline const Sprite getCurrentSprite() const noexcept;
 		inline const float	getCurrentSpeed() const noexcept;
-		inline const uint32 getCurrentFrameIndex() const noexcept; 
+		inline const size_t getCurrentFrameIndex() const noexcept; 
 		inline const AnimationDirection getCurrentDirection() const noexcept;
 
 		//setters
@@ -94,7 +94,7 @@ namespace gc
 	const float 	GC_ANIMATION_PINGPONG::getCurrentSpeed() const noexcept{
 		return _currentAnimationSpeed;
 	}
-	const uint32 	GC_ANIMATION_PINGPONG::getCurrentFrameIndex() const noexcept{
+	const size_t 	GC_ANIMATION_PINGPONG::getCurrentFrameIndex() const noexcept{
 		return _currentAnimationFrameIndex;
 	}
 	const AnimationDirection GC_ANIMATION_PINGPONG::getCurrentDirection() const noexcept{

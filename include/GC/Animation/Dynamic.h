@@ -12,7 +12,7 @@ namespace gc
 		std::list<SpriteFrame>::iterator 	_currentAnimationFrame;//current SpriteFrame
 		float								_currentAnimationTime;//time, measured from last frame started
 		float								_currentAnimationSpeed;//speed of animation
-		uint32 								_currentAnimationFrameIndex;//current number of animation frame
+		size_t 								_currentAnimationFrameIndex;//current number of animation frame
 		AnimationType						_currentAnimationType;//
 		AnimationDirection					_currentAnimationDirection;//
 
@@ -38,7 +38,7 @@ namespace gc
 		inline const bool	isPlay() const noexcept;
 		inline SpriteFrame::c_lref_t getCurrentSpriteFrame() const noexcept;
 		inline Sprite::c_lref_t getCurrentSprite() const noexcept;
-		inline const uint32 getCurrentFrameIndex() const noexcept; 
+		inline const size_t getCurrentFrameIndex() const noexcept; 
 		inline const float	getCurrentSpeed() const noexcept;
 		inline const AnimationDirection getCurrentDirection() const noexcept;
 		inline const AnimationType getCurrentType() const noexcept;
@@ -99,7 +99,7 @@ namespace gc
 	const float 	GC_ANIMATION_DYNAMIC::getCurrentSpeed() const noexcept{
 		return _currentAnimationSpeed;
 	}
-	const uint32 	GC_ANIMATION_DYNAMIC::getCurrentFrameIndex() const noexcept{
+	const size_t 	GC_ANIMATION_DYNAMIC::getCurrentFrameIndex() const noexcept{
 		return _currentAnimationFrameIndex;
 	}
 	GC_ANIMATION_DYNAMIC::lref_t GC_ANIMATION_DYNAMIC::setCurrentSpeed(float s) noexcept{
