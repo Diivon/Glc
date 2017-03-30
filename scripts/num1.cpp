@@ -2,7 +2,7 @@ variables:
 	private:
 	float elapsed;
 	::gc::AnimationDirection dir;
-	uint32 _times;
+	u32 _times;
 	public:
 	::gc::Event<lref_t> onMoveEvent;
 methods:

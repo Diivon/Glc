@@ -21,11 +21,11 @@ namespace gc{
 		bool isOwn(const memory::Slice &) const noexcept;
 	};
 	template<size_t ChunkSize>
-	ListAllocator<ChunkSize>::ListAllocator():
+	inline ListAllocator<ChunkSize>::ListAllocator():
 		_first(new _Node()), _last(_first)
 	{}
 	template<size_t ChunkSize>
-	memory::Slice ListAllocator<ChunkSize>::allocate(priv::bytes_t bs) noexcept{
+	inline memory::Slice ListAllocator<ChunkSize>::allocate(priv::bytes_t bs) noexcept{
 		if (bs.value > ChunkSize)
 			return memory::Slice::null;
 		memory::Slice result;
@@ -42,14 +42,14 @@ namespace gc{
 		return _last->_alloc.allocate(bs);	//and in new node we guaranteed find requested memory
 	}
 	template<size_t ChunkSize>
-	bool ListAllocator<ChunkSize>::deallocate(const memory::Slice & blk) noexcept{
+	inline bool ListAllocator<ChunkSize>::deallocate(const memory::Slice & blk) noexcept{
 		for (auto i = _first; i != nullptr; ++i)
 			if (i->_alloc.deallocate(blk))
 				return true;
 		return false;	//it's not owr memory
 	}
 	template<size_t ChunkSize>
-	bool ListAllocator<ChunkSize>::isOwn(const memory::Slice & blk) const noexcept{
+	inline bool ListAllocator<ChunkSize>::isOwn(const memory::Slice & blk) const noexcept{
 		for (auto i = _first; i != nullptr; i = i->_next)
 			if (i->_alloc.isOwn(blk))
 				return true;

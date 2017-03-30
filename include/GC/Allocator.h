@@ -19,18 +19,12 @@ namespace gc {
 		ListAllocator<GC_SLOW_ALLOCATION_AREA_SIZE> _slow;
 		Mallocator _other;
 	public:
-		Allocator();
-		template<AllocationType T = AllocationType::Default>
-		memory::Slice allocate(priv::bytes_t) noexcept;
-		bool deallocate(const memory::Slice &) noexcept;
+		inline Allocator();
+		template<AllocationType T>
+		inline memory::Slice allocate(priv::bytes_t) noexcept;
+		inline bool deallocate(const memory::Slice &) noexcept;
 	};
 	Allocator::Allocator(){}
-	template<>
-	inline memory::Slice Allocator::allocate<AllocationType::Default>(priv::bytes_t b) noexcept{
-		if (b .value < GC_FAST_ALLOCATION_AREA_SIZE / 10)
-			return allocate<AllocationType::Fast>(b);
-		return allocate<AllocationType::Defragmented>(b);
-	}
 	template<>
 	inline memory::Slice Allocator::allocate<AllocationType::Defragmented>(priv::bytes_t b) noexcept{
 		if (b.value > GC_SLOW_ALLOCATION_AREA_SIZE){
@@ -48,7 +42,12 @@ namespace gc {
 				return result;
 		}
 		return allocate<AllocationType::Defragmented>(b);
-		
+	}
+	template<>
+	inline memory::Slice Allocator::allocate<AllocationType::Default>(priv::bytes_t b) noexcept{
+		if (b .value < GC_FAST_ALLOCATION_AREA_SIZE / 10)
+			return allocate<AllocationType::Fast>(b);
+		return allocate<AllocationType::Defragmented>(b);
 	}
 	inline bool Allocator::deallocate(const memory::Slice & blk) noexcept{
 		if (_fast.isOwn(blk)){
