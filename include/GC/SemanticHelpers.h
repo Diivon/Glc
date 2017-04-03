@@ -25,10 +25,10 @@ namespace gc{
 	}
 	template<class T>
 	inline priv::from_t<T> from(T && t){
-		return priv::from_t{std::forward<T>(t)};
+		return priv::from_t<T>{std::forward<T>(t)};
 	}
 	template<class T>
 	inline priv::to_t<T> to(T && t){
-		return priv::to_t{std::forward<T>(t)};
+		return priv::to_t<T>{std::forward<T>(t)};
 	}
 }

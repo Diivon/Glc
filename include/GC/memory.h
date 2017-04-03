@@ -6,13 +6,13 @@ namespace gc{
 		{
 			void * begin;
 			void * end;
-			inline ptrdiff_t getDifference() {
+			inline ptrdiff_t getDifference() const noexcept {
 				return static_cast<u8 *>(end) - static_cast<u8 *>(begin);
 			}
-			inline bool operator == (const Slice & other){
+			inline bool operator == (const Slice & other) const noexcept {
 				return begin == other.begin && end == other.end;
 			}
-			inline bool operator != (const Slice & other){
+			inline bool operator != (const Slice & other) const noexcept {
 				return begin != other.begin && end != other.end;
 			}
 		public:

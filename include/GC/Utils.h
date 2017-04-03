@@ -41,12 +41,13 @@ namespace gc
 	};	
 	inline std::vector<char> getByteVectorFromFile(const std::string & s) {
 		std::ifstream ifs(s, std::ios::in | std::ios::binary | std::ios::ate);//open file for reading
+		ifs.fail();
 		decltype(ifs)::pos_type pos;//position in file 
 		std::vector<char> data;		//file data which must be returned
 		
 		ifs.seekg(0, std::ios::end);//get length
-		auto size = ifs.tellg();	//of file
-		data.resize(static_cast<size_t>(size));			//resize buffer to fit file data
+		size_t size = static_cast<size_t>(ifs.tellg());	//of file
+		data.resize(size);			//resize buffer to fit file data
 		ifs.seekg(0, std::ios::beg);//return position at start
 		ifs.read(&data[0], size);	//read it
 		return data;				//..

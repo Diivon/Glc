@@ -15,18 +15,16 @@ namespace gc {
 		Defragmented
 	};
 	class Allocator{
-		StackAllocator<GC_FAST_ALLOCATION_AREA_SIZE> _fast;
-		ListAllocator<GC_SLOW_ALLOCATION_AREA_SIZE> _slow;
-		Mallocator _other;
+		static StackAllocator<GC_FAST_ALLOCATION_AREA_SIZE> _fast;
+		static ListAllocator<GC_SLOW_ALLOCATION_AREA_SIZE> _slow;
+		static Mallocator _other;
 	public:
-		inline Allocator();
-		template<AllocationType T>
-		inline memory::Slice allocate(priv::bytes_t) noexcept;
-		inline bool deallocate(const memory::Slice &) noexcept;
+		template<AllocationType T = AllocationType::Default>
+		inline static memory::Slice allocate(priv::bytes_t);
+		inline static bool deallocate(const memory::Slice &) noexcept;
 	};
-	Allocator::Allocator(){}
 	template<>
-	inline memory::Slice Allocator::allocate<AllocationType::Defragmented>(priv::bytes_t b) noexcept{
+	inline memory::Slice Allocator::allocate<AllocationType::Defragmented>(priv::bytes_t b){
 		if (b.value > GC_SLOW_ALLOCATION_AREA_SIZE){
 			auto result = _slow.allocate(b);
 			if (result.begin)
@@ -35,7 +33,7 @@ namespace gc {
 		return _other.allocate(b);
 	}
 	template<>
-	inline memory::Slice Allocator::allocate<AllocationType::Fast>(priv::bytes_t b) noexcept{
+	inline memory::Slice Allocator::allocate<AllocationType::Fast>(priv::bytes_t b){
 		if (b.value > GC_FAST_ALLOCATION_AREA_SIZE){
 			auto result = _fast.allocate(b);
 			if (result.begin)
@@ -44,7 +42,7 @@ namespace gc {
 		return allocate<AllocationType::Defragmented>(b);
 	}
 	template<>
-	inline memory::Slice Allocator::allocate<AllocationType::Default>(priv::bytes_t b) noexcept{
+	inline memory::Slice Allocator::allocate<AllocationType::Default>(priv::bytes_t b){
 		if (b .value < GC_FAST_ALLOCATION_AREA_SIZE / 10)
 			return allocate<AllocationType::Fast>(b);
 		return allocate<AllocationType::Defragmented>(b);
@@ -58,6 +56,6 @@ namespace gc {
 			_slow.deallocate(blk);
 			return true;
 		}
-		_other.deallocate(blk);
+		return _other.deallocate(blk);
 	}
 }
