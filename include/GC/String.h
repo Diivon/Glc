@@ -38,10 +38,32 @@ namespace gc
 		friend std::ostream & operator << (std::ostream & os, const String<T, Alloc> & s){
 			return os << static_cast<T *>(s._data.begin);
 		}
-		StringSlice<T> getSubstring(priv::to_t<int>) const;
-		StringSlice<T> getSubstring(priv::from_t<int>) const;
-		StringSlice<T> getSubstring(priv::from_t<int>, priv::to_t<int>) const;
-	private:
+		const StringSlice<T> getSubstring(priv::to_t<int>) const;
+		const StringSlice<T> getSubstring(priv::from_t<int>) const;
+		const StringSlice<T> getSubstring(priv::from_t<int>, priv::to_t<int>) const;
+		const StringSlice<T> getSubstring(priv::fromFirst_t<int>, priv::toFirst_t<int>) const;
+		const StringSlice<T> getSubstring(priv::fromLast_t<int>, priv::toFirst_t<int>) const;
+		const StringSlice<T> getSubstring(priv::fromFirst_t<int>, priv::toLast_t<int>) const;
+		const StringSlice<T> getSubstring(priv::fromLast_t<int>, priv::toLast_t<int>) const;
+
+		const size_t getIndexOf(T &&) const;
+		const bool isContain(T &&) const noexcept;
+		const T getElementAt(size_t) const noexcept;
+		const T operator [] (size_t) const;
+
+		template<class F>
+		lref_t foreach(F &&) noexcept(noexcept(F()(T())));
+		template<class F>
+		c_lref_t cforeach(F &&) const noexcept(noexcept(F()(T())));
+		template<class F>
+		this_t map(F &&) const noexcept(noexcept(F()(T())));
+		template<class F>
+		lref_t filter(F &&) noexcept(noexcept(F()(T())));
+		template<class F>
+		this_t select(F &&) noexcept(noexcept(F()(T())));
+
+		template<class Y>
+		Y as() const;
 	};
 	//---------------IMPLEMENTATION----------------------
 	template<class T>
@@ -96,4 +118,12 @@ namespace gc
 		return StringSlice<T>(memory::Slice{static_cast<T *>(_data.begin) + from.value, static_cast<T *>(_data.begin) + to.value});
 	}
 	#undef INVALIDATE_SUBSTRING_ARGUMENT
+	template<class T, class Alloc, class Y>
+	inline Y String<T, Alloc>::as() const{
+		return Y(*this);
+	}
+	template<class T, class Alloc>
+	inline int String<T, Alloc>::as<int>() const{
+		return std::stoi(_data.begin);
+	}
 }
