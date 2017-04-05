@@ -14,4 +14,5 @@
 #include "GC/Allocator.h"
 #include "GC/Memory.h"
 #include "GC/SemanticHelpers.h"
+#include "GC/Numerics.h"
 #include "GC/String.h"

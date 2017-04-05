@@ -32,6 +32,14 @@ namespace gc{
 		struct toLast_t{
 			T value;
 		};
+		template<class T>
+		struct first_t{
+			T value;
+		};
+		template<class T>
+		struct last_t{
+			T value;
+		};
 	}
 	inline priv::count_t count(size_t d){
 		return priv::count_t{ d };
@@ -41,26 +49,34 @@ namespace gc{
 	}
 	template<class T>
 	inline priv::from_t<T> from(T && t){
-		return priv::from_t<T &&>{std::forward<T>(t)};
+		return priv::from_t<T>{std::forward<T>(t)};
 	}
 	template<class T>
 	inline priv::to_t<T> to(T && t){
-		return priv::to_t<T &&>{std::forward<T>(t)};
+		return priv::to_t<T>{std::forward<T>(t)};
 	}
 	template<class T>
-	inline priv::fromFirst_t fromFirst(T && t){
-		return priv::fromFirst_t<T &&>(std::forward<T>(t));
+	inline priv::fromFirst_t<T> fromFirst(T && t){
+		return priv::fromFirst_t<T>{std::forward<T>(t)};
 	}
 	template<class T>
-	inline priv::fromLast_t fromLast(T && t){
-		return priv::fromLast_t<T &&>(std::forward<T>(t));
+	inline priv::fromLast_t<T> fromLast(T && t){
+		return priv::fromLast_t<T>{std::forward<T>(t)};
 	}
 	template<class T>
-	inline priv::toFirst_t toFirst(T && t){
-		return priv::toFirst_t<T &&>(std::forward<T>(t));
+	inline priv::toFirst_t<T> toFirst(T && t){
+		return priv::toFirst_t<T>{std::forward<T>(t)};
 	}
 	template<class T>
-	inline priv::toLast_t toLast(T && t){
-		return priv::toLast_t<T &&>(std::forward<T>(t));
+	inline priv::toLast_t<T> toLast(T && t){
+		return priv::toLast_t<T>{std::forward<T>(t)};
+	}
+	template<class T>
+	inline priv::last_t<T> last(T && t){
+		return priv::last_t<T>{std::forward<T>(t)};
+	}
+	template<class T>
+	inline auto first(T && t){
+		return priv::first_t<T>{std::forward<T>(t)};
 	}
 }
