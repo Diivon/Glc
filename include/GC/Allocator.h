@@ -3,6 +3,7 @@
 #include "GC/Memory.h"
 #include "GC/SemanticHelpers.h"
 #include "GC/Settings.h"
+#include "GC/Optional.h"
 
 #include "GC/Allocator/StackAllocator.h"
 #include "GC/Allocator/ListAllocator.h"
@@ -20,36 +21,70 @@ namespace gc {
 		static Mallocator _other;
 	public:
 		template<AllocationType T = AllocationType::Default>
-		inline static memory::Slice allocate(priv::bytes_t);
+		inline static Optional<memory::Slice> allocate(priv::bytes_t);
+		template<AllocationType T>
+		inline static memory::Slice _alloc(priv::bytes_t);
 		inline static bool deallocate(const memory::Slice &) noexcept;
 	};
 	template<>
-	inline memory::Slice Allocator::allocate<AllocationType::Defragmented>(priv::bytes_t b){
-		if (b.value > GC_SLOW_ALLOCATION_AREA_SIZE){
-			auto result = _slow.allocate(b);
+	inline memory::Slice Allocator::_alloc<AllocationType::Defragmented>(priv::bytes_t b)
+	{
+		if (b.value > GC_SLOW_ALLOCATION_AREA_SIZE) {
+			auto result = _slow._alloc(b);
 			if (result.begin)
 				return result;
 		}
-		return _other.allocate(b);
+		return memory::Slice::null;		//if nothing
 	}
 	template<>
-	inline memory::Slice Allocator::allocate<AllocationType::Fast>(priv::bytes_t b){
-		if (b.value > GC_FAST_ALLOCATION_AREA_SIZE){
-			auto result = _fast.allocate(b);
+	inline memory::Slice Allocator::_alloc<AllocationType::Fast>(priv::bytes_t b)
+	{
+		if (b.value > GC_FAST_ALLOCATION_AREA_SIZE) {
+			auto result = _fast._alloc(b);
 			if (result.begin)
 				return result;
 		}
-		return allocate<AllocationType::Defragmented>(b);
+		return memory::Slice::null;
 	}
 	template<>
-	inline memory::Slice Allocator::allocate<AllocationType::Default>(priv::bytes_t b){
-		if (b .value < GC_FAST_ALLOCATION_AREA_SIZE / 10)
-			return allocate<AllocationType::Fast>(b);
-		return allocate<AllocationType::Defragmented>(b);
+	inline Optional<memory::Slice> Allocator::allocate<AllocationType::Defragmented>(priv::bytes_t b){
+		auto res = _alloc<AllocationType::Defragmented>(b);
+		if (res.begin)
+			return res;
+		else 
+			return std::bad_alloc();
 	}
+	template<>
+	inline Optional<memory::Slice> Allocator::allocate<AllocationType::Fast>(priv::bytes_t b){
+		auto res = _alloc<AllocationType::Fast>(b);
+		if (res.begin)
+			return res;
+		else 
+			return std::bad_alloc();
+	}
+	template<>
+	inline Optional<memory::Slice> Allocator::allocate<AllocationType::Default>(priv::bytes_t b) {
+		if (b.value < GC_FAST_ALLOCATION_AREA_SIZE) {
+			auto res = _alloc<AllocationType::Fast>(b);
+			if (res.begin)
+				return res;
+		}
+		if (b.value < GC_SLOW_ALLOCATION_AREA_SIZE) {
+			auto res = _alloc<AllocationType::Defragmented>(b);
+			if (res.begin)
+				return res;
+		}
+		{
+			auto res = _other._alloc(b);
+			if (res.begin)
+				return res;
+		}
+		return std::bad_alloc();
+	}
+
+
 	inline bool Allocator::deallocate(const memory::Slice & blk) noexcept{
-		if (_fast.isOwn(blk)){
-			_fast.deallocate(blk);
+		if (_fast.deallocate(blk)){
 			return true;
 		}
 		if (_slow.isOwn(blk)){
