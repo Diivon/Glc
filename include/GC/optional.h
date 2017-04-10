@@ -9,7 +9,6 @@ namespace gc {
 			std::exception _ex;
 		};
 	public:
-		/*
 		Optional(Optional<T> const & a):
 			_success(a._success)
 		{
@@ -18,7 +17,6 @@ namespace gc {
 			else
 				new(_ex) std::exception(a._ex);
 		}
-		*/
 		Optional(T const & y) : _data(y), _success(true) {}
 		Optional(T && y) : _data(std::move(y)), _success(true) {}
 		Optional(std::exception e) : _ex(e), _success(false) {}

@@ -7,7 +7,7 @@
 #include <limits>
 
 #define GC_GET_WORD_SIZE (::gc::priv::size_if<std::numeric_limits<size_t>::max() == 0xffffffff, 4, 8>::value)
-#define GC_ON_FAIL
+#define IF_FAIL(expr) try{ expr ; }catch(std::exception & e)
 namespace gc
 {
 	typedef int8_t i8;
