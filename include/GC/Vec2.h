@@ -122,13 +122,9 @@ namespace gc
 		return (x * a.x) + (y * a.y);
 	}
 	Vec2::c_this_t Vec2::operator * (float a) const noexcept{
-		if (a == 0)
-			return Vec2::zero;
 		return Vec2(x * a, y * a);
 	}
 	Vec2::c_this_t Vec2::operator / (float a) const noexcept{
-		if (a == 0)
-			return Vec2::zero;
 		return Vec2(x / a, y / a);
 	}
 	Vec2::c_lref_t Vec2::operator += (Vec2::c_lref_t a) noexcept{
@@ -147,8 +143,6 @@ namespace gc
 		return *this;
 	}
 	Vec2::c_lref_t Vec2::operator /= (float a) noexcept{
-		if (a == 0)
-			*this = Vec2::zero;
 		return *this;
 	}
 	Vec2::c_this_t Vec2::getRotatedDeg(float a) const noexcept{
@@ -208,8 +202,6 @@ namespace gc
 		return *this;
 	}
 	Vec2::c_lref_t Vec2::setLength(float l) noexcept{
-		if (l == 0)
-			return *this = Vec2::zero;
 		if (x == 0 && y == 0) return *this;
 		float len = this->getLength();
 		x /= len; y /= len;

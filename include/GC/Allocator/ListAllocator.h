@@ -19,7 +19,6 @@ namespace gc{
 		Optional<memory::Slice> allocate(priv::bytes_t) noexcept;
 		memory::Slice _alloc(priv::bytes_t) noexcept;
 		bool deallocate(const memory::Slice &) noexcept;
-		bool isOwn(const memory::Slice &) const noexcept;
 	};
 	template<size_t ChunkSize>
 	inline ListAllocator<ChunkSize>::ListAllocator():
@@ -51,16 +50,9 @@ namespace gc{
 	}
 	template<size_t ChunkSize>
 	inline bool ListAllocator<ChunkSize>::deallocate(const memory::Slice & blk) noexcept{
-		for (auto i = _first; i != nullptr; ++i)
-			if (i->_alloc.deallocate(blk))
-				return true;
-		return false;	//it's not owr memory
-	}
-	template<size_t ChunkSize>
-	inline bool ListAllocator<ChunkSize>::isOwn(const memory::Slice & blk) const noexcept{
 		for (auto i = _first; i != nullptr; i = i->_next)
 			if (i->_alloc.deallocate(blk))
 				return true;
-		return false;
+		return false;	//it's not owr memory
 	}
 }

@@ -29,7 +29,7 @@ namespace gc {
 	template<>
 	inline memory::Slice Allocator::_alloc<AllocationType::Defragmented>(priv::bytes_t b)
 	{
-		if (b.value > GC_SLOW_ALLOCATION_AREA_SIZE) {
+		if (b.value < GC_SLOW_ALLOCATION_AREA_SIZE) {
 			auto result = _slow._alloc(b);
 			if (result.begin)
 				return result;
@@ -39,7 +39,7 @@ namespace gc {
 	template<>
 	inline memory::Slice Allocator::_alloc<AllocationType::Fast>(priv::bytes_t b)
 	{
-		if (b.value > GC_FAST_ALLOCATION_AREA_SIZE) {
+		if (b.value < GC_FAST_ALLOCATION_AREA_SIZE) {
 			auto result = _fast._alloc(b);
 			if (result.begin)
 				return result;
@@ -66,31 +66,41 @@ namespace gc {
 	inline Optional<memory::Slice> Allocator::allocate<AllocationType::Default>(priv::bytes_t b) {
 		if (b.value < GC_FAST_ALLOCATION_AREA_SIZE) {
 			auto res = _alloc<AllocationType::Fast>(b);
-			if (res.begin)
+			if (res.begin) {
+				std::cout << "allocated with fast " << res.begin << std::endl;
 				return res;
+			}
 		}
 		if (b.value < GC_SLOW_ALLOCATION_AREA_SIZE) {
 			auto res = _alloc<AllocationType::Defragmented>(b);
-			if (res.begin)
+			if (res.begin) {
+				std::cout << "allocated with slow " << res.begin << std::endl;
 				return res;
+			}
 		}
 		{
 			auto res = _other._alloc(b);
-			if (res.begin)
+			if (res.begin) {
+				std::cout << "allocated with other " << res.begin << std::endl;
 				return res;
+			}
 		}
 		return std::bad_alloc();
 	}
 
 
 	inline bool Allocator::deallocate(const memory::Slice & blk) noexcept{
+		if (!blk.begin)
+			return false;
 		if (_fast.deallocate(blk)){
+			std::cout << "deallocated with fast " << blk.begin << std::endl;
 			return true;
 		}
-		if (_slow.isOwn(blk)){
-			_slow.deallocate(blk);
+		if (_slow.deallocate(blk)){
+			std::cout << "deallocated with slow " << blk.begin << std::endl;
 			return true;
 		}
+		std::cout << "deallocated with other " << blk.begin << std::endl;
 		return _other.deallocate(blk);
 	}
 }

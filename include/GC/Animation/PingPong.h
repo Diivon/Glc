@@ -101,7 +101,6 @@ namespace gc
 		return _currentAnimationDirection;
 	}
 	GC_ANIMATION_PINGPONG::lref_t GC_ANIMATION_PINGPONG::setCurrentSpeed(float s) noexcept{
-		if (s == 0.0f) return *this;
 		_currentAnimationSpeed = s;
 		return *this;
 	}

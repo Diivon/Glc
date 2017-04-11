@@ -320,9 +320,9 @@ namespace gc
 	}
 	const float GC_COLLIDER_CIRCLE::getLowLevel() {
 		#ifdef GC_COLLIDER_CIRCLE_NEGATIVE_RADIUS_ENABLE
-			return (_radius < 0 ? _pos.y + _radius : _pos.y - _radius);
+			return (_radius < 0 ? _pos.y - _radius : _pos.y + _radius);
 		#else
-			return _pos.y - _radius;
+			return _pos.y + _radius;
 		#endif
 	}
 	const bool GC_COLLIDER_CIRCLE::isCollide(c_lref_t a) const {

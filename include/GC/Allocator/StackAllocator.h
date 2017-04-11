@@ -13,12 +13,14 @@ namespace gc{
 		bool deallocate(const memory::Slice &) noexcept;
 		memory::Slice _alloc(priv::bytes_t) noexcept;
 	private:
+		bool isOwn(memory::Slice const &) const noexcept;
+		size_t _refCounter;
 		u8 * _ptr;
 		u8 _data[StackSize];
 	};
 	template<size_t StackSize>
 	inline StackAllocator<StackSize>::StackAllocator():
-		_ptr(_data)
+		_ptr(_data), _refCounter(0)
 	{}
 
 	template<size_t StackSize>
@@ -33,18 +35,36 @@ namespace gc{
 		size_t freeVolume = &_data[StackSize - 1] - _ptr;
 		if (freeVolume < bs.value)
 			return memory::Slice::null;
+		
 		void * resultptr = _ptr;
 		_ptr = static_cast<u8 *>(memory::getNextAligned(_ptr + bs.value));
+		++_refCounter;
 		return memory::Slice{ resultptr, static_cast<u8 *>(resultptr) + bs.value };
 	}
 	template<size_t StackSize>
 	inline bool StackAllocator<StackSize>::deallocate(const memory::Slice & blk) noexcept{
+		bool result = false;
+		if (isOwn(blk)){
+			--_refCounter;
+			result = true;
+			if (!_refCounter){
+				_ptr = _data;
+				return true;//because no more clients in block
+			}
+		}
 		ptrdiff_t diff = (static_cast<u8 *>(_ptr) - static_cast<u8 *>(blk.end));
 		if (diff <= GC_GET_WORD_SIZE)
 		{
 			_ptr = static_cast<u8 *>(blk.begin);//it already aligned
 			return true;
 		}
-		else return false;
+		return result;
+	}
+	template<size_t StackSize>
+	inline bool StackAllocator<StackSize>::isOwn(const memory::Slice & blk) const noexcept{
+		if((_data <= blk.begin) && (_data + StackSize - 1 >= blk.end))
+			return true;
+		else
+			return false;
 	}
 }

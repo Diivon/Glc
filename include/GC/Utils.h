@@ -7,7 +7,7 @@
 #include <limits>
 
 #define GC_GET_WORD_SIZE (::gc::priv::size_if<std::numeric_limits<size_t>::max() == 0xffffffff, 4, 8>::value)
-#define IF_FAIL(expr) try{ expr ; }catch(std::exception & e)
+#define IF_FAIL(expr) try{ expr ; }catch(std::exception & fail_exception)
 namespace gc
 {
 	typedef int8_t i8;
@@ -41,7 +41,8 @@ namespace gc
 	};	
 	inline std::vector<char> getByteVectorFromFile(const std::string & s) {
 		std::ifstream ifs(s, std::ios::in | std::ios::binary | std::ios::ate);//open file for reading
-		ifs.fail();
+		if (ifs.fail())
+			throw std::exception();
 		decltype(ifs)::pos_type pos;//position in file 
 		std::vector<char> data;		//file data which must be returned
 		
@@ -55,7 +56,7 @@ namespace gc
 	namespace priv{
 		template<bool c, size_t t, size_t>
 		struct size_if {
-			static constexpr size_t value = true;
+			static constexpr size_t value = 4;
 		};
 		template<size_t t, size_t f>
 		struct size_if<true, t, f> {

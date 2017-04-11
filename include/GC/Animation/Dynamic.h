@@ -103,7 +103,6 @@ namespace gc
 		return _currentAnimationFrameIndex;
 	}
 	GC_ANIMATION_DYNAMIC::lref_t GC_ANIMATION_DYNAMIC::setCurrentSpeed(float s) noexcept{
-		if(s == 0.0f) return *this; 
 		_currentAnimationSpeed = s;
 		return *this;
 	}
@@ -192,6 +191,9 @@ namespace gc
 				}
 				return *this;		
 			}//case ping-pong
+		case AnimationType::Single: {
+			//TODO
+		}
 		}//switch
 		return *this;
 	}

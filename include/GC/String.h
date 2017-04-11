@@ -19,7 +19,8 @@ namespace gc
 		template<>
 		struct _AsHelper<String<T>>{
 			inline static auto get(StringSlice<T> const & sl){
-				return String<T>(static_cast<T *>(sl._data.begin), sl._data.getDifference() / sizeof(T));
+				auto len = sl._data.getDifference() / sizeof(T);
+				return String<T>(static_cast<T *>(sl._data.begin), len);
 			}
 		};
 	public:
@@ -42,7 +43,7 @@ namespace gc
 		template<class F>
 		this_t select(F &&);
 		template<class Y>
-		Y as() const { return _AsHelper<Y>::get(*this); }
+		Optional<Y> as() const { return _AsHelper<Y>::get(*this); }
 	};
 	template<class T, class Alloc>
 	class String: public ClassTraits<String<T, Alloc>>
@@ -125,32 +126,29 @@ namespace gc
 		template<>
 		struct _AsHelper<Int> {
 			static inline Optional<Int> get(String<T, Alloc> const & str) {
-				try {
-					return Int(std::stoi(static_cast<T *>(str._data.begin)));
-				}
-				catch (std::exception & e){
-					return e;
+				IF_FAIL( return Int(std::stoi(static_cast<T *>(str._data.begin))) ){
+					return fail_exception;
 				}
 			}
 		};
 		template<>
 		struct _AsHelper<Size_t> {
-			static inline Size_t get(String<T, Alloc> const & str) {
-				return std::stoul(static_cast<char *>(str._data.begin));
+			static inline Optional<Size_t> get(String<T, Alloc> const & str) {
+				IF_FAIL( std::stoul(static_cast<char *>(str._data.begin)) ){
+					return fail_exception;
+				}
 			}
 		};
 		template<>
 		struct _AsHelper<std::vector<T>> {
-			static inline auto get(String<T, Alloc> const & str) {
-				std::vector<T> result;
-				result.reserve(str.getLength().as<size_t>());
-				str.cforeach([&result](auto const & c) {result.emplace_back(c); });
-				return result;
+			static inline Optional<std::vector<T>> get(String<T, Alloc> const & str) {
+				IF_FAIL(
+					std::vector<T> result;
+					result.reserve(str.getLength().as<size_t>());
+					str.cforeach([&result](auto const & c) {result.emplace_back(c); });
+					return result;
+				){ return fail_exception; }
 			}
-		};
-		template<template<class Y> class C>
-		struct _AsTmplHelper{
-			static inline C<T> get(String<T, Alloc> const & str);
 		};
 	};
 
@@ -222,9 +220,8 @@ namespace gc
 	//												copy ctor
 	template<class T, class Alloc>
 	inline String<T, Alloc>::String(typename String<T, Alloc>::c_lref_t s):
-		_data(Alloc::allocate(bytes(s.getLength() + 1)).unwrap())
+		_data(Alloc::allocate(bytes(s.getLength().as<size_t>() + 1)).unwrap())
 	{
-		//TODO: allocator must throw
 		T * ptr = static_cast<T *>(_data.begin);
 		for(T * i = static_cast<T *>(s._data.begin); i <= s._data.end; ++i, ++ptr)
 			*ptr = *i;
@@ -232,13 +229,15 @@ namespace gc
 	//												move ctor
 	template<class T, class Alloc>
 	inline String<T, Alloc>::String(typename String<T, Alloc>::rref_t s):
+		_data(s._data)
 	{
-		std::swap(_data.begin, s._data.begin);
-		std::swap(_data.end, s._data.end);
+		s._data = memory::Slice::null;
 	}
+	//												destructor
 	template<class T, class Alloc>
 	inline String<T, Alloc>::~String(){
-		Alloc::deallocate(_data);
+		if (_data.begin)
+			Alloc::deallocate(_data);
 	}
 	template<class T, class Alloc>
 	inline const StringSlice<T> String<T, Alloc>::toSlice() const noexcept{

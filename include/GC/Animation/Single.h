@@ -96,7 +96,6 @@ namespace gc
 		return _currentAnimationFrameIndex;
 	}
 	GC_ANIMATION_SINGLE::lref_t GC_ANIMATION_SINGLE::setCurrentSpeed(float s) noexcept{
-		if(s == 0.0f) return *this; 
 		_currentAnimationSpeed = s;
 		return *this;
 	}
