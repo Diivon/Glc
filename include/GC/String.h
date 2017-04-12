@@ -7,6 +7,16 @@
 
 namespace gc
 {
+	namespace priv{
+		template<class I, template<class T, class A> class C>
+		struct stringMake2{
+			gc::Optional<C<I, void>> get();
+		};
+		template<class I, template<class T> class C>
+		struct stringMake1{
+			gc::Optional<C<I>> get();
+		};
+	}
 	template<class T, class Alloc = gc::Allocator>
 	class String;
 	template<class T>
@@ -49,10 +59,34 @@ namespace gc
 	class String: public ClassTraits<String<T, Alloc>>
 	{
 		memory::Slice _data;
+		//friends
+		template<class I, template<class T, class A> class C>
+		friend struct priv::stringMake2;
+		template<class I, template<class T> class C>
+		friend struct priv::stringMake1;
+		//helpers for 'as'
 		template<class Y>
 		struct _AsHelper {
 			inline static Y get(String<T, Alloc> const &);
 		};
+		template<>
+		struct _AsHelper<Int> {
+			static inline Optional<Int> get(String<T, Alloc> const & str) {
+				IF_FAIL( return Int(std::stoi(static_cast<T *>(str._data.begin))) ){
+					return fail_exception;
+				}
+			}
+		};
+		template<>
+		struct _AsHelper<Size_t> {
+			static inline Optional<Size_t> get(String<T, Alloc> const & str) {
+				IF_FAIL( std::stoul(static_cast<char *>(str._data.begin)) ){
+					return fail_exception;
+				}
+			}
+		};
+		T * _getPtrTo(priv::first_t<T>) const noexcept;
+		T * _getPtrTo(priv::last_t<T>) const noexcept;
 	public:
 		String();
 		String(const T *);
@@ -120,38 +154,40 @@ namespace gc
 		Optional<Y> as() const {
 			return _AsHelper<Y>::get(*this);
 		}
-	private:
-		T * _getPtrTo(priv::first_t<T>) const noexcept;
-		T * _getPtrTo(priv::last_t<T>) const noexcept;
-		template<>
-		struct _AsHelper<Int> {
-			static inline Optional<Int> get(String<T, Alloc> const & str) {
-				IF_FAIL( return Int(std::stoi(static_cast<T *>(str._data.begin))) ){
-					return fail_exception;
-				}
-			}
-		};
-		template<>
-		struct _AsHelper<Size_t> {
-			static inline Optional<Size_t> get(String<T, Alloc> const & str) {
-				IF_FAIL( std::stoul(static_cast<char *>(str._data.begin)) ){
-					return fail_exception;
-				}
-			}
-		};
-		template<>
-		struct _AsHelper<std::vector<T>> {
-			static inline Optional<std::vector<T>> get(String<T, Alloc> const & str) {
-				IF_FAIL(
-					std::vector<T> result;
-					result.reserve(str.getLength().as<size_t>());
-					str.cforeach([&result](auto const & c) {result.emplace_back(c); });
-					return result;
-				){ return fail_exception; }
-			}
-		};
+		template<template<class I, class A>class C>
+		auto as(){
+			return priv::stringMake2<T, C>::get(*this);
+		}
+		template<template<class I>class C>
+		auto as() {
+			return priv::stringMake1<T, C>::get(*this);
+		}
 	};
-
+	namespace priv{
+		template<class T>
+		struct stringMake1<T, gc::StringSlice> {
+			static inline gc::Optional<gc::StringSlice<T>> get(gc::String<T> const & s) {
+				gc::StringSlice<T> result(s._data.begin, static_cast<T *>(s._data.end) - 1);
+				return result;
+			}
+		};
+		template<class T>
+		struct stringMake2<T, std::vector>{
+			static inline gc::Optional<std::vector<T>> get(gc::String<T> const & s){
+				std::vector<T> result;
+				s.cforeach([&result](auto const & i){result.emplace_back(i);});
+				return result;
+			}
+		};
+		template<class T>
+		struct stringMake2<T, std::list>{
+			static inline gc::Optional<std::list<T>> get(gc::String<T> const & s){
+				std::list<T> result;
+				s.cforeach([&result](auto const & i){result.emplace_back(i);});
+				return result;
+			}
+		};
+	}
 	//+---------------------------------------------------------------------------+
 	//|                                                                           |
 	//|                    STRING IMPLEMENTATION AREA                             |
