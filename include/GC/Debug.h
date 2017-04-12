@@ -63,5 +63,7 @@ namespace gc{
 			return result;
 		}
 	}
-	extern priv::Debug debug;
+	namespace debug {
+		extern priv::Debug debug;
+	}
 }//namespace gc

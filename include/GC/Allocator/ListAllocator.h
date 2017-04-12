@@ -11,9 +11,21 @@ namespace gc{
 			_Node * _next;
 			_Node * _prev;
 			StackAllocator<ChunkSize> _alloc;
+			bool isEmpty(){return _alloc.isEmpty();}
 		};
 		_Node * _first;
 		_Node * _last;
+		inline void _cutNode(_Node & n){
+			if (!n._prev){//if n == _first
+				if (!n._next)
+					return;
+			}
+			else{
+				n._prev->_next = n._next;
+				if (n._next)
+					n._next->_prev = n._prev;
+			}
+		}
 	public:
 		ListAllocator();
 		Optional<memory::Slice> allocate(priv::bytes_t) noexcept;
@@ -51,8 +63,11 @@ namespace gc{
 	template<size_t ChunkSize>
 	inline bool ListAllocator<ChunkSize>::deallocate(const memory::Slice & blk) noexcept{
 		for (auto i = _first; i != nullptr; i = i->_next)
-			if (i->_alloc.deallocate(blk))
+			if (i->_alloc.deallocate(blk)){
+				if (i->isEmpty())
+					_cutNode(*i);
 				return true;
+			}
 		return false;	//it's not owr memory
 	}
 }

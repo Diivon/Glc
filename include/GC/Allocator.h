@@ -16,9 +16,9 @@ namespace gc {
 		Defragmented
 	};
 	class Allocator{
-		static StackAllocator<GC_FAST_ALLOCATION_AREA_SIZE> _fast;
-		static ListAllocator<GC_SLOW_ALLOCATION_AREA_SIZE> _slow;
-		static Mallocator _other;
+		static StackAllocator<GC_FAST_ALLOCATION_AREA_SIZE> & _fast;
+		static ListAllocator<GC_SLOW_ALLOCATION_AREA_SIZE> & _slow;
+		static Mallocator & _other;
 	public:
 		template<AllocationType T = AllocationType::Default>
 		inline static Optional<memory::Slice> allocate(priv::bytes_t);
@@ -67,21 +67,18 @@ namespace gc {
 		if (b.value < GC_FAST_ALLOCATION_AREA_SIZE) {
 			auto res = _alloc<AllocationType::Fast>(b);
 			if (res.begin) {
-				std::cout << "allocated with fast " << res.begin << std::endl;
 				return res;
 			}
 		}
 		if (b.value < GC_SLOW_ALLOCATION_AREA_SIZE) {
 			auto res = _alloc<AllocationType::Defragmented>(b);
 			if (res.begin) {
-				std::cout << "allocated with slow " << res.begin << std::endl;
 				return res;
 			}
 		}
 		{
 			auto res = _other._alloc(b);
 			if (res.begin) {
-				std::cout << "allocated with other " << res.begin << std::endl;
 				return res;
 			}
 		}
@@ -93,14 +90,11 @@ namespace gc {
 		if (!blk.begin)
 			return false;
 		if (_fast.deallocate(blk)){
-			std::cout << "deallocated with fast " << blk.begin << std::endl;
 			return true;
 		}
 		if (_slow.deallocate(blk)){
-			std::cout << "deallocated with slow " << blk.begin << std::endl;
 			return true;
 		}
-		std::cout << "deallocated with other " << blk.begin << std::endl;
 		return _other.deallocate(blk);
 	}
 }

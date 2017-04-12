@@ -12,6 +12,12 @@ namespace gc{
 		Optional<memory::Slice> allocate(priv::bytes_t) noexcept;
 		bool deallocate(const memory::Slice &) noexcept;
 		memory::Slice _alloc(priv::bytes_t) noexcept;
+
+		bool isEmpty() const noexcept{
+			if (!_refCounter)
+				debug::panicAssert(_ptr == _data);
+			return (_refCounter == 0);
+		}
 	private:
 		bool isOwn(memory::Slice const &) const noexcept;
 		size_t _refCounter;
@@ -21,7 +27,9 @@ namespace gc{
 	template<size_t StackSize>
 	inline StackAllocator<StackSize>::StackAllocator():
 		_ptr(_data), _refCounter(0)
-	{}
+	{
+		debug::panicAssert(_ptr == _data);
+	}
 
 	template<size_t StackSize>
 	inline Optional<memory::Slice> StackAllocator<StackSize>::allocate(priv::bytes_t bs) noexcept{
@@ -32,6 +40,8 @@ namespace gc{
 	}
 	template<size_t StackSize>
 	memory::Slice StackAllocator<StackSize>::_alloc(priv::bytes_t bs) noexcept{
+		debug::panicAssert(_ptr >= _data &&	_ptr <= &_data[StackSize - 1]);
+
 		size_t freeVolume = &_data[StackSize - 1] - _ptr;
 		if (freeVolume < bs.value)
 			return memory::Slice::null;
@@ -62,7 +72,9 @@ namespace gc{
 	}
 	template<size_t StackSize>
 	inline bool StackAllocator<StackSize>::isOwn(const memory::Slice & blk) const noexcept{
-		if((_data <= blk.begin) && (_data + StackSize - 1 >= blk.end))
+		bool expr1 = (_data <= blk.begin);
+		bool expr2 = (_data + StackSize - 1 >= blk.end);
+		if(expr1 && expr2)
 			return true;
 		else
 			return false;

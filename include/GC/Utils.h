@@ -19,6 +19,32 @@ namespace gc
 	typedef int64_t i64;
 	typedef uint64_t u64;
 	const float Pi = 3.14159265358979323846f;
+	namespace debug{
+		//unwide the stack
+		//[[deprecated("do you really need to panic? do you know what it's do?")]]
+		[[noreturn]] 
+		inline void panic(){
+				throw;
+		}
+		//if assertion failed, it calls panic();
+		inline bool panicAssert(bool expr){
+			#ifdef GC_DEBUG
+				if (!expr) 
+					panic();
+			#endif
+			return expr;
+		}
+		//if assertion failed, throw exception
+		template<class Ex>
+		inline bool assert(bool expr){
+			#ifdef GC_DEBUG
+				if(!expr)
+					throw Ex();
+			#endif
+			return expr;
+		}
+	}
+
 	
 	template<class T>
 	struct TypeName
