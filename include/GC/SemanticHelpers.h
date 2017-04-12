@@ -41,10 +41,10 @@ namespace gc{
 			T value;
 		};
 	}
-	inline priv::count_t count(size_t d){
+	inline priv::count_t count(::size_t d){
 		return priv::count_t{ d };
 	}
-	inline priv::bytes_t bytes(size_t d){
+	inline priv::bytes_t bytes(::size_t d){
 		return priv::bytes_t { d };
 	}
 	template<class T>

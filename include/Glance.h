@@ -16,3 +16,4 @@
 #include "GC/SemanticHelpers.h"
 #include "GC/Numerics.h"
 #include "GC/String.h"
+#include "GC/Containers.h"
