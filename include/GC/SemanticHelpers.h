@@ -40,6 +40,14 @@ namespace gc{
 		struct last_t{
 			T value;
 		};
+		template<class T>
+		struct after_t{
+			T value;
+		};
+		template<class T>
+		struct before_t{
+			T value;
+		};
 	}
 	inline priv::count_t count(::size_t d){
 		return priv::count_t{ d };
@@ -78,5 +86,13 @@ namespace gc{
 	template<class T>
 	inline auto first(T && t){
 		return priv::first_t<T>{std::forward<T>(t)};
+	}
+	template<class T>
+	inline auto after(T && t){
+		return priv::after_t<T>{std::forward<T>(t)};
+	}
+	template<class T>
+	inline auto before(T && t){
+		return priv::before_t<T>{std::forward<T>(t)};
 	}
 }

@@ -14,7 +14,7 @@ namespace gc{
 			static inline auto get();
 		};
 		template<class Y>
-		struct _AsHelper<std::vector>{
+		struct _AsHelper<Y, std::vector>{
 			static inline auto get(Container const & c){
 				std::vector result;
 				result.assign(static_cast<Y *>(c._data.begin), static_cast<Y *>(c._data.end) + c.getLength());
@@ -42,7 +42,7 @@ namespace gc{
 		Optional<T &>		getAt(size_t);
 
 		template<template<class Y, class A> class C>
-		C<T> as() const{
+		auto as() const{
 			return _AsHelper<T, C>::get();
 		}
 	};
