@@ -1,5 +1,6 @@
 #pragma once
 #include <new>
+#include "GC/Utils.h"
 namespace gc {
 	template<class T>
 	class Optional : ClassTraits<Optional<T>> {
@@ -9,7 +10,7 @@ namespace gc {
 			std::exception _ex;
 		};
 	public:
-		Optional(Optional<T> const & a):
+		Optional(const Optional<T> & a):
 			_success(a._success)
 		{
 			if (_success)
@@ -17,27 +18,35 @@ namespace gc {
 			else
 				new(_ex) std::exception(a._ex);
 		}
-		Optional(T const & y) : _data(y), _success(true) {}
+		Optional(Optional<T> && a):
+			_success(a._success)
+		{
+			if (_success)
+				new(_data) T(std::move(a._data));
+			else
+				new(_ex) std::exception(std::move(a._ex));
+		}
+		Optional(const T & y) : _data(y), _success(true) {}
 		Optional(T && y) : _data(std::move(y)), _success(true) {}
-		Optional(std::exception e) : _ex(e), _success(false) {}
+		Optional(const std::exception & e) : _ex(e), _success(false) {}
 		~Optional() {}
 		T unwrap() {
 			if (_success)
-				return _data;
+				return std::move(_data);
 			else
 				throw _ex;
 		}
-		T unwrapOr(T def) {
+		T unwrapOr(T def) noexcept {
 			if (_success)
-				return _data;
+				return std::move(_data);
 			else
 				return def;
 		}
 		T unwrapOrPanic() {
 			if (_success)
-				return _data;
+				return std::move(_data);
 			else
-				throw;
+				debug::panic();
 		}
 		template<class Y>
 		T map(Y && y) const noexcept(noexcept(std::declval<Y>()(std::declval<std::exception>()))) {
@@ -87,7 +96,7 @@ namespace gc {
 			if (_success)
 				return *_data;
 			else
-				throw;
+				debug::panic;
 		}
 		template<class Y>
 		T & map(Y && y) const noexcept(noexcept(std::declval<Y>()(std::declval<std::exception>()))) {

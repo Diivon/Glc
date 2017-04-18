@@ -14,7 +14,7 @@ const int c_framesPerSecond = 30;
 const float c_MillisecondsForOneFrame = 1'000 / c_framesPerSecond;
 const gc::Vec2 gc::Vec2::zero = gc::Vec2(0, 0);
 const sf::Font gc::priv::Debug::_font = ([](){sf::Font f;f.loadFromFile(R"(resources\DebugFont.ttf)"); return f;})();
-	gc::priv::Debug gc::debug = gc::priv::Debug();
+	gc::priv::Debug gc::debug::log = gc::priv::Debug();
 	int main(){
 		sf::RenderWindow mainWindow(sf::VideoMode(800,600), "sfml", sf::Style::Close);
 		gc::Camera mainCamera(gc::Vec2(0, 0), gc::Vec2(800,600));
@@ -30,7 +30,7 @@ const sf::Font gc::priv::Debug::_font = ([](){sf::Font f;f.loadFromFile(R"(resou
 			mainWindow.clear();
 			currentScene.update(c_MillisecondsForOneFrame);
 			renderer.renderScene(currentScene);
-			mainWindow.draw(gc::debug.getSFText());
+			mainWindow.draw(gc::debug::log.getSFText());
 			renderer.show();
 			dt = clock.getElapsedTime().asMilliseconds();
 			if (dt < c_MillisecondsForOneFrame) sf::sleep(sf::milliseconds(static_cast<sf::Int32>(c_MillisecondsForOneFrame - dt)));

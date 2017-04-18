@@ -17,7 +17,7 @@ File:Main:Def
 
 	const gc::Vec2 gc::Vec2::zero = gc::Vec2(0, 0);
 	const sf::Font gc::priv::Debug::_font = ([](){sf::Font f;f.loadFromFile(R"(resources\DebugFont.ttf)"); return f;})();
-	gc::priv::Debug gc::debug = gc::priv::Debug();
+	gc::priv::Debug gc::debug::log = gc::priv::Debug();
 
 	int main(){
 		sf::RenderWindow mainWindow(sf::VideoMode(800,600), "sfml", sf::Style::Close);
@@ -40,7 +40,7 @@ File:Main:Def
 			currentScene.update(c_MillisecondsForOneFrame);
 			renderer.renderScene(currentScene);
 
-			mainWindow.draw(gc::debug.getSFText());
+			mainWindow.draw(gc::debug::log.getSFText());
 
 			renderer.show();
 

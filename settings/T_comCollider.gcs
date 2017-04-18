@@ -5,6 +5,5 @@ Com:Collider:Constructor
 	#ColliderName#(#Pos#, #Size#)
 Com:Collider:ConstructorBody
 Com:Collider:OnUpdate
-	#ColliderName#.moveTo(pos);
 Com:Collider:OnStart
 Com:Collider:Methods

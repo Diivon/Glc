@@ -12,13 +12,13 @@ methods:
 		//onUpdate called once per frame
 		//gc::debug << layer.getObject<Number2>().collider.isCollide(self.collider);
 		distance = (pos - layer.getObject<Number2>().pos).getLength();
-		gc::debug
-		.clear()
+		gc::debug::log.
+		clear()
 		.write(distance)
 		.newLine()
 		.write(layer.getObject<Number2>().collider.isCollide(self.collider));
 		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Space))
-			gc::debug
+			gc::debug::log
 			.newLine()
 			.write( (scene.getLayer<Layer1>().getObject<PhysicalObject2>().pos - pos).getLength() );
 	}
@@ -30,4 +30,4 @@ constructors:
 constructor_body:
 	//this code will be runned when constructor of object will be called
 	//use it for primary initialization only!!!
-	gc::debug.write("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+	gc::debug::log.write("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");

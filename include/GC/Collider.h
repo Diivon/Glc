@@ -58,19 +58,14 @@ namespace gc
 	template<>
 	class Collider<ColliderType::Rectangle> : public gc::ClassTraits<Collider<ColliderType::Rectangle>>
 	{
-		Vec2 _pos;//left up corner;
+		Vec2::c_lref_t _pos;//left up corner;
 		Vec2 _size;//where x is width, and y is height
 	public:
-		inline this_t();
 		inline this_t(const lref_t c);
 		inline this_t(rref_t c);
 		inline this_t(Vec2::c_lref_t pos, Vec2::c_lref_t size);
 		inline this_t(Vec2::c_lref_t pos, float width = 0, float height = 0);
 		inline Vec2::c_lref_t getPosition() const;
-		inline lref_t moveOn(Vec2::c_lref_t v);
-		inline lref_t moveOn(const float & dx, const float & dy);
-		inline lref_t moveTo(Vec2::c_lref_t v);
-		inline lref_t moveTo(const float & x, const float & y);
 
 		inline Vec2::c_lref_t getSize() const { return _size; }
 		inline lref_t changeSize(Vec2::c_lref_t v);
@@ -91,20 +86,14 @@ namespace gc
 	template<>
 	class Collider<ColliderType::Circle> : public ClassTraits<Collider<ColliderType::Circle>>
 	{
-		Vec2 _pos;
+		Vec2::c_lref_t _pos;
 		float _radius;
 	public:
-		inline this_t();
 		inline this_t(c_lref_t c);
 		inline this_t(rref_t c);
 		inline this_t(Vec2::c_lref_t pos, const float & radius = 0.0f);
-		inline this_t(const float & x, const float & y, const float & radius = 0.0f);
 
 		inline Vec2::c_lref_t getPosition() const;
-		inline lref_t moveOn(Vec2::c_lref_t v);
-		inline lref_t moveOn(const float & dx, const float & dy);
-		inline lref_t moveTo(Vec2::c_lref_t v);
-		inline lref_t moveTo(const float & x, const float & y);
 
 		inline const float & getRadius() const;
 		inline lref_t changeRadius(const float & dr);
@@ -122,10 +111,6 @@ namespace gc
 	
 #pragma region GC_COLLIDER_RECT_REGION
 	#define GC_COLLIDER_RECT Collider<ColliderType::Rectangle>
-	//default constructor
-	GC_COLLIDER_RECT::Collider() :
-		_pos(), _size()
-	{}
 	GC_COLLIDER_RECT::Collider(const lref_t c) :
 		_pos(c._pos), _size(c._size)
 	{}
@@ -150,18 +135,6 @@ namespace gc
 	}
 	Vec2::c_lref_t GC_COLLIDER_RECT::getPosition() const {
 		return _pos; 
-	}
-	GC_COLLIDER_RECT::lref_t GC_COLLIDER_RECT::moveOn(Vec2::c_lref_t v) {
-		_pos += v; return *this; 
-	}
-	GC_COLLIDER_RECT::lref_t GC_COLLIDER_RECT::moveOn(const float & dx, const float & dy) {
-		_pos.x += dx; _pos.y += dy; return *this; 
-	}
-	GC_COLLIDER_RECT::lref_t GC_COLLIDER_RECT::moveTo(Vec2::c_lref_t v) {
-		_pos = v; return *this;
-	}
-	GC_COLLIDER_RECT::lref_t GC_COLLIDER_RECT::moveTo(const float & x, const float & y) {
-		_pos.x = x; _pos.y = y; return *this;
 	}
 	GC_COLLIDER_RECT::lref_t GC_COLLIDER_RECT::changeSize(Vec2::c_lref_t v) { 
 		_size += v; return *this; 
@@ -237,11 +210,11 @@ namespace gc
 	}
 	#undef GC_COLLIDER_RECT
 #pragma endregion
+
+
+
 #pragma region GC_COLLIDER_CIRCLE_REGION
 	#define GC_COLLIDER_CIRCLE Collider<ColliderType::Circle>
-	GC_COLLIDER_CIRCLE::Collider():
-		_pos(), _radius(0.0f)
-	{}
 	GC_COLLIDER_CIRCLE::Collider(c_lref_t c) :
 		_pos(c._pos), _radius(c._radius)
 	{}
@@ -256,28 +229,8 @@ namespace gc
 				throw 228;
 		#endif
 	}
-	GC_COLLIDER_CIRCLE::Collider(const float & x, const float & y, const float & radius) :
-		_pos(x, y), _radius(radius)
-	{
-		#ifndef GC_COLLIDER_CIRCLE_NEGATIVE_RADIUS_ENABLE
-			if (radius < 0)
-				throw 228;
-		#endif 
-	}
 	Vec2::c_lref_t GC_COLLIDER_CIRCLE::getPosition() const {
 		return _pos;
-	}
-	GC_COLLIDER_CIRCLE::lref_t GC_COLLIDER_CIRCLE::moveOn(Vec2::c_lref_t v) { 
-		_pos += v; return *this; 
-	}
-	GC_COLLIDER_CIRCLE::lref_t GC_COLLIDER_CIRCLE::moveOn(const float & dx, const float & dy) { 
-		_pos.x += dx; _pos.y += dy; return *this; 
-	}
-	GC_COLLIDER_CIRCLE::lref_t GC_COLLIDER_CIRCLE::moveTo(Vec2::c_lref_t v) { 
-		_pos = v; return *this; 
-	}
-	GC_COLLIDER_CIRCLE::lref_t GC_COLLIDER_CIRCLE::moveTo(const float & x, const float & y) {
-		_pos.x = x; _pos.y = y; return *this; 
 	}
 	const float & GC_COLLIDER_CIRCLE::getRadius() const { 
 		return _radius; 

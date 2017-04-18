@@ -31,7 +31,7 @@ self(*this), pos(50, 50), scene(sc), layer(lr)
 , distance(0), collider(::gc::Vec2(50,  50),  ::gc::Vec2(50,  50))
 , sprite("resources\\n\\1.jpg")
 {
-	gc::debug.write("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+	gc::debug::log.write("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 }
 Number1::~Number1(){
 }
@@ -55,16 +55,15 @@ void Number1::onUpdate(const float & dt){
 		pos.y += gc::Random<float>::get(-5, 5);
 	}
 	distance = (pos - layer.getObject<Number2>().pos).getLength();
-	gc::debug
-	.clear()
+	gc::debug::log.
+	clear()
 	.write(distance)
 	.newLine()
 	.write(layer.getObject<Number2>().collider.isCollide(self.collider));
 	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Space))
-	gc::debug
+	gc::debug::log
 	.newLine()
 	.write( (scene.getLayer<Layer1>().getObject<PhysicalObject2>().pos - pos).getLength() );
-	collider.moveTo(pos);
 }
 const ::gc::Sprite Number1::getCurrentSprite() const{
 	return sprite;
@@ -104,7 +103,6 @@ void Number2::onStart(){
 void Number2::onUpdate(const float & dt){
 	if (_count == 2)
 	layer.isDone = true;
-	collider.moveTo(pos);
 	animation.update(dt);
 }
 const ::gc::Sprite Number2::getCurrentSprite() const{

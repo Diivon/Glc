@@ -162,6 +162,9 @@ namespace gc
 		auto as() {
 			return priv::stringMake1<T, C>::get(*this);
 		}
+		inline rref_t move() noexcept {
+			return std::move(*this);
+		}
 	};
 	namespace priv{
 		template<class T>
@@ -197,7 +200,7 @@ namespace gc
 	inline StringSlice<T>::StringSlice(const memory::Slice & ms) noexcept:
 		_data(ms)
 	{}
-	std::ostream & operator << (std::ostream & os, const StringSlice<char> & sl){
+	inline std::ostream & operator << (std::ostream & os, const StringSlice<char> & sl){
 			if (!sl.isReversed())
 				for(const char * ptr = static_cast<decltype(ptr)>(sl._data.begin); ptr <= sl._data.end; ++ptr)
 					os.put(*ptr);

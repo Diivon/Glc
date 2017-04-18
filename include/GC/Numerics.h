@@ -23,7 +23,7 @@ namespace gc{
 			T _data;
 		public:
 			inline numeric_base<T>()noexcept : _data() {}
-			inline numeric_base<T>(T && t)noexcept : _data(t) {}
+			inline numeric_base<T>(const T & t)noexcept : _data(t) {}
 			inline numeric_base<T>(numeric_base<T> const & a)noexcept : _data(a._data) {}
 			inline numeric_base<T>(numeric_base<T> && a)noexcept : _data(a._data) {}
 			inline const numeric_base<T> & operator = (numeric_base<T> const &) noexcept {_data = a._data;}
@@ -31,10 +31,17 @@ namespace gc{
 
 			inline const Bool operator == (numeric_base<T> const & a) const noexcept{return _data == a._data;}
 			inline const Bool operator != (numeric_base<T> const & a) const noexcept{return _data != a._data;}
-			inline const Bool operator < (numeric_base<T> const & a) const noexcept{return _data < a._data;}
-			inline const Bool operator > (numeric_base<T> const & a) const noexcept{return _data > a._data;}
+			inline const Bool operator <  (numeric_base<T> const & a) const noexcept{return _data <  a._data;}
+			inline const Bool operator >  (numeric_base<T> const & a) const noexcept{return _data >  a._data;}
 			inline const Bool operator <= (numeric_base<T> const & a) const noexcept{return _data <= a._data;}
 			inline const Bool operator >= (numeric_base<T> const & a) const noexcept{return _data >= a._data;}
+
+			inline const Bool operator == (T const & a) const noexcept{return _data == a;}
+			inline const Bool operator != (T const & a) const noexcept{return _data != a;}
+			inline const Bool operator <  (T const & a) const noexcept{return _data <  a;}
+			inline const Bool operator >  (T const & a) const noexcept{return _data >  a;}
+			inline const Bool operator <= (T const & a) const noexcept{return _data <= a;}
+			inline const Bool operator >= (T const & a) const noexcept{return _data >= a;}
 		
 			inline const numeric_base<T> operator << (numeric_base<T> const & a) const noexcept{return _data << a._data;}
 			inline const numeric_base<T> operator >> (numeric_base<T> const & a) const noexcept{return _data >> a._data;}
@@ -43,6 +50,21 @@ namespace gc{
 			inline const numeric_base<T> operator - () const noexcept{return -_data}
 			inline const numeric_base<T> operator + (numeric_base<T> const & a) const noexcept{return _data + a._data;}
 			inline const numeric_base<T> operator - (numeric_base<T> const & a) const noexcept{return _data - a._data;}
+			inline const numeric_base<T> operator * (numeric_base<T> const & a) const noexcept{return _data * a._data;}
+			inline const numeric_base<T> operator / (numeric_base<T> const & a) const noexcept{return _data - a._data;}
+			inline const numeric_base<T> operator +=(numeric_base<T> const & a) noexcept{_data += a._data;return _data;}
+			inline const numeric_base<T> operator -=(numeric_base<T> const & a) noexcept{_data -= a._data;return _data;}
+			inline const numeric_base<T> operator *=(numeric_base<T> const & a) noexcept{_data *= a._data;return _data;}
+			inline const numeric_base<T> operator /=(numeric_base<T> const & a) noexcept{_data -= a._data;return _data;}
+
+			inline const numeric_base<T> operator + (T const & a) const noexcept{return _data + a._data;}
+			inline const numeric_base<T> operator - (T const & a) const noexcept{return _data - a._data;}
+			inline const numeric_base<T> operator * (T const & a) const noexcept{return _data * a._data;}
+			inline const numeric_base<T> operator / (T const & a) const noexcept{return _data - a._data;}
+			inline const numeric_base<T> operator +=(T const & a) noexcept 		{return _data += a;}
+			inline const numeric_base<T> operator -=(T const & a) noexcept 		{return _data -= a;}
+			inline const numeric_base<T> operator *=(T const & a) noexcept 		{return _data *= a;}
+			inline const numeric_base<T> operator /=(T const & a) noexcept 		{return _data -= a;}
 
 			inline const Bool operator ! () const noexcept{return !_data;}
 		
@@ -50,11 +72,17 @@ namespace gc{
 			template<class Y>
 			Y as() const noexcept {return static_cast<Y>(_data);}
 			template<>
-			T as() const noexcept {return _data;}
+			T as<T>() const noexcept {return _data;}
 
 			inline static const numeric_base<T> getMaxValue(){return std::numeric_limits<T>::max();}
 			friend std::ostream & operator << (std::ostream & s, numeric_base<T> const & n){
 				return s << n._data;
+			}
+			inline void print() const {
+				std::cout << _data;
+			}
+			inline void debug() const{
+				gc::debug::log.write(_data);
 			}
 		};
 	}

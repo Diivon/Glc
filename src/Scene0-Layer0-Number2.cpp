@@ -30,7 +30,6 @@ void Number2::onStart(){
 void Number2::onUpdate(const float & dt){
 	if (_count == 2)
 	layer.isDone = true;
-	collider.moveTo(pos);
 	animation.update(dt);
 }
 const ::gc::Sprite Number2::getCurrentSprite() const{
