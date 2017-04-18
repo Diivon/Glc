@@ -8,6 +8,10 @@
 
 #define GC_GET_WORD_SIZE (::gc::priv::size_if<std::numeric_limits<size_t>::max() == 0xffffffff, 4, 8>::value)
 #define IF_FAIL(expr) try{ expr ; }catch(std::exception & fail_exception)
+///human readable lambdas
+#define LAM []()
+#define F_LAM(name) [](auto & name)
+#define FC_LAM(name) [](const auto & name)
 namespace gc
 {
 	typedef int8_t i8;
