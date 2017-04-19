@@ -1,9 +1,10 @@
 #pragma once
+#include <cstring>
+#include <exception>
+#include <iterator>
 #include "GC/Utils.h"
 #include "GC/Allocator.h"
 #include "GC/Optional.h"
-#include <cstring>
-#include <exception>
 
 namespace gc
 {
@@ -33,7 +34,23 @@ namespace gc
 				return String<T>(static_cast<T *>(sl._data.begin), len);
 			}
 		};
+		class _Iter: public std::iterator<std::random_access_iterator_tag, T>{
+			T * _data;
+		public:
+			reference operator *(){return _data;}
+			void operator ++(){++_data;}
+			void operator --(){--_data;}
+			bool operator !=(const _Iter & a){return _data != a._data;}
+		}
 	public:
+		using value_type = T;
+		using size_type = size_t;
+		using difference_type = ptrdiff_t;
+		using reference = T &;
+		using const_reference = const T &;
+		using iterator = _Iter;
+		//don't know what to do with other iterators
+		
 		StringSlice(T * b, T * e): _data{b, e} {}
 		StringSlice(void * b, void * e) : _data{ b, e } {}
 		StringSlice(const memory::Slice &) noexcept;
@@ -41,17 +58,6 @@ namespace gc
 		lref_t reverse() noexcept;
 		this_t getReversed() const noexcept;
 		friend std::ostream & operator << (std::ostream & os, const StringSlice<char> & sl);
-
-		template<class F>
-		lref_t foreach(F &&);
-		template<class F>
-		c_lref_t cforeach(F &&);
-		template<class F>
-		this_t map(F &&);
-		template<class F>
-		lref_t filter(F &&);
-		template<class F>
-		this_t select(F &&);
 		template<class Y>
 		Optional<Y> as() const { return _AsHelper<Y>::get(*this); }
 	};
@@ -87,7 +93,24 @@ namespace gc
 		};
 		T * _getPtrTo(priv::first_t<T>) const noexcept;
 		T * _getPtrTo(priv::last_t<T>) const noexcept;
+
+		class _Iter: public std::iterator<std::random_access_iterator_tag, T>{
+			T * _data;
+		public:
+			reference operator *(){return _data;}
+			void operator ++(){++_data;}
+			void operator --(){--_data;}
+			bool operator !=(const _Iter & a){return _data != a._data;}
+		}
 	public:
+		using value_type = T;
+		using size_type = size_t;
+		using difference_type = ptrdiff_t;
+		using reference = T &;
+		using const_reference = const T &;
+		using iterator = _Iter;
+		//don't know what to do with other iterators
+
 		String();
 		String(const T *);
 		String(const T *, size_t);
@@ -142,13 +165,9 @@ namespace gc
 		StringSlice<T> trim() const noexcept;
 		StringSlice<T> trimBegin() const noexcept;
 		StringSlice<T> trimEnd() const noexcept;
-		
-		template<class F>
-		lref_t foreach(F &&);
-		template<class F>
-		c_lref_t cforeach(F &&) const;
-		template<class F>
-		this_t map(F &&) const;
+
+		iterator begin();
+		iterator end();
 
 		template<class Y>
 		Optional<Y> as() const {

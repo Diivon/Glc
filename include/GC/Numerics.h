@@ -26,8 +26,8 @@ namespace gc{
 			inline numeric_base<T>(const T & t)noexcept : _data(t) {}
 			inline numeric_base<T>(numeric_base<T> const & a)noexcept : _data(a._data) {}
 			inline numeric_base<T>(numeric_base<T> && a)noexcept : _data(a._data) {}
-			inline const numeric_base<T> & operator = (numeric_base<T> const &) noexcept {_data = a._data;}
-			inline const numeric_base<T> & operator = (numeric_base<T> &&) noexcept {_data = a._data;}
+			inline const numeric_base<T> & operator = (numeric_base<T> const & a) noexcept {return _data = a._data;}
+			inline const numeric_base<T> & operator = (numeric_base<T> && a)	  noexcept {return _data = a._data;}
 
 			inline const Bool operator == (numeric_base<T> const & a) const noexcept{return _data == a._data;}
 			inline const Bool operator != (numeric_base<T> const & a) const noexcept{return _data != a._data;}
@@ -65,8 +65,13 @@ namespace gc{
 			inline const numeric_base<T> operator -=(T const & a) noexcept 		{return _data -= a;}
 			inline const numeric_base<T> operator *=(T const & a) noexcept 		{return _data *= a;}
 			inline const numeric_base<T> operator /=(T const & a) noexcept 		{return _data -= a;}
-
+			
+			inline const numeric_base<T> operator % (numeric_base<T> const & a) const noexcept{return _data % a._data;}
+			inline const numeric_base<T> operator % (T const & a) const noexcept{return _data % a;}
+			
 			inline const Bool operator ! () const noexcept{return !_data;}
+			inline operator bool() const noexcept{return _data != 0;}
+			inline operator Bool() const noexcept{return _data != 0;}
 		
 			//inline operator T() const noexcept{return _data;}
 			template<class Y>
