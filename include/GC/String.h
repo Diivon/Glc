@@ -41,7 +41,7 @@ namespace gc
 			void operator ++(){++_data;}
 			void operator --(){--_data;}
 			bool operator !=(const _Iter & a){return _data != a._data;}
-		}
+		};
 	public:
 		using value_type = T;
 		using size_type = size_t;
@@ -96,12 +96,14 @@ namespace gc
 
 		class _Iter: public std::iterator<std::random_access_iterator_tag, T>{
 			T * _data;
+			_Iter(T * d):_data(d){}
+			friend class String<T, Alloc>;
 		public:
-			reference operator *(){return _data;}
+			reference operator *(){return *_data;}
 			void operator ++(){++_data;}
 			void operator --(){--_data;}
 			bool operator !=(const _Iter & a){return _data != a._data;}
-		}
+		};
 	public:
 		using value_type = T;
 		using size_type = size_t;
@@ -166,8 +168,10 @@ namespace gc
 		StringSlice<T> trimBegin() const noexcept;
 		StringSlice<T> trimEnd() const noexcept;
 
-		iterator begin();
-		iterator end();
+		iterator begin(){return iterator(static_cast<T *>(_data.begin));}
+		iterator end(){
+			return iterator(static_cast<T *>(_data.begin) + getLength().as<size_t>());
+		}
 
 		template<class Y>
 		Optional<Y> as() const {
@@ -241,18 +245,6 @@ namespace gc
 	inline Bool StringSlice<T>::isReversed() const noexcept {
 		return _data.begin > _data.end;
 	}
-	template<class T>
-	template<class F>
-	typename StringSlice<T>::lref_t StringSlice<T>::foreach(F && f){
-		if (!this->isReversed())
-			for(const T * ptr = static_cast<decltype(ptr)>(_data.begin); ptr <= _data.end; ++ptr)
-				f(*ptr);
-		else
-			for(const T * ptr = static_cast<decltype(ptr)>(_data.begin); ptr >= _data.end; --ptr)
-				f(*ptr);
-		return *this;
-	}
-
 	//STRING---STRING---STRING---STRING---STRING---STRING---STRING---STRING
 
 	//												default ctor
@@ -523,29 +515,5 @@ namespace gc
 		while (*lastPtr == ' ' || *lastPtr == '\t' || *lastPtr == '\n')
 			--lastPtr;
 		return StringSlice<T>(_data.begin, lastPtr);
-	}
-
-
-	template<class T, class Alloc>
-	template<class F>
-	inline typename String<T, Alloc>::lref_t String<T, Alloc>::foreach(F && f){
-		for(T * i = static_cast<T *>(_data.begin); i < _data.end; ++i)
-			f(*i);
-		return *this;
-	}
-	template<class T, class Alloc>
-	template<class F>
-	inline typename String<T, Alloc>::c_lref_t String<T, Alloc>::cforeach(F && f) const{
-		for(T * i = static_cast<T *>(_data.begin); i < _data.end; ++i)
-			f(*i);
-		return *this;
-	}
-	template<class T, class Alloc>
-	template<class F>
-	inline typename String<T, Alloc>::this_t String<T, Alloc>::map(F && f) const{
-		this_t result = *this;
-		for(T * ptr = static_cast<T *>(_data.begin), T * i = static_cast<T *>(result._data.begin); i < _data.end; ++i, ++ptr)
-			*i = f(*ptr);
-		return *this;
 	}
 }

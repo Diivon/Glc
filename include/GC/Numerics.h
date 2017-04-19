@@ -26,8 +26,8 @@ namespace gc{
 			inline numeric_base<T>(const T & t)noexcept : _data(t) {}
 			inline numeric_base<T>(numeric_base<T> const & a)noexcept : _data(a._data) {}
 			inline numeric_base<T>(numeric_base<T> && a)noexcept : _data(a._data) {}
-			inline const numeric_base<T> & operator = (numeric_base<T> const & a) noexcept {return _data = a._data;}
-			inline const numeric_base<T> & operator = (numeric_base<T> && a)	  noexcept {return _data = a._data;}
+			inline const numeric_base<T> & operator = (numeric_base<T> const & a) noexcept {_data = a._data;return *this;}
+			inline const numeric_base<T> & operator = (numeric_base<T> && a)	  noexcept {_data = a._data;return *this;}
 
 			inline const Bool operator == (numeric_base<T> const & a) const noexcept{return _data == a._data;}
 			inline const Bool operator != (numeric_base<T> const & a) const noexcept{return _data != a._data;}
