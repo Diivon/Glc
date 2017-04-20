@@ -85,8 +85,39 @@ namespace gc{
 		};
 	}
 	template<class T>
-	auto iterateConsume(T && v) -> priv::OwnerIterator<T>{
-		static_assert(std::is_rvalue_reference<decltype(v)>::value, "iterateConsume argument must be rvalue reference");
+	priv::OwnerIterator<T> iterateConsume(T && v){
+		//assertions
+		static_assert(
+			std::is_nothrow_move_constructible<T>::value,
+			"iterate consume argument must be nothrow constructible, else use other types of iterations");
+			static_assert(
+				std::is_rvalue_reference<decltype(v)>::value, 
+				"iterateConsume argument must be rvalue reference");
+			static_assert(
+				traits::container::is_has_typedef_value_type<T>::value, 
+				"iterateConsume argument must have 'value_type' typedef");
+			static_assert(
+				traits::container::is_has_typedef_reference<T>::value, 
+				"iterateConsume argument must have 'reference' typedef");
+			static_assert(
+				traits::container::is_has_typedef_iterator<T>::value, 
+				"iterateConsume argument must have 'iterator' typedef");
+			static_assert(
+				traits::container::is_has_typedef_const_iterator<T>::value, 
+				"iterateConsume argument must have 'const_iterator' typedef");
+			static_assert(//for what?!
+				traits::container::is_has_typedef_difference_type<T>::value, 
+				"iterateConsume argument must have 'difference_type' typedef");
+			static_assert(
+				traits::container::is_has_typedef_size_type<T>::value, 
+				"iterateConsume argument must have 'size_type' typedef");
+			static_assert(
+				traits::container::is_has_method_erase<T, T::iterator>::value, 
+				"iterateConsume argument must have 'erase' method");
+			static_assert(
+				traits::container::is_has_method_emplace_back<T, T::value_type>::value, 
+				"iterateConsume argument must have 'emplace_back' method");
+		//end assertions
 		return priv::OwnerIterator<T>(std::move(v));
 	}
 	priv::printer printEvery() {

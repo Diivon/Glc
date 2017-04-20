@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include <limits>
+#include "GC/Traits.h"
 
 #define GC_GET_WORD_SIZE (::gc::priv::size_if<std::numeric_limits<size_t>::max() == 0xffffffff, 4, 8>::value)
 #define IF_FAIL(expr) try{ expr ; }catch(std::exception & fail_exception)

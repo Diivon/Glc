@@ -34,23 +34,7 @@ namespace gc
 				return String<T>(static_cast<T *>(sl._data.begin), len);
 			}
 		};
-		class _Iter: public std::iterator<std::random_access_iterator_tag, T>{
-			T * _data;
-		public:
-			reference operator *(){return _data;}
-			void operator ++(){++_data;}
-			void operator --(){--_data;}
-			bool operator !=(const _Iter & a){return _data != a._data;}
-		};
 	public:
-		using value_type = T;
-		using size_type = size_t;
-		using difference_type = ptrdiff_t;
-		using reference = T &;
-		using const_reference = const T &;
-		using iterator = _Iter;
-		//don't know what to do with other iterators
-		
 		StringSlice(T * b, T * e): _data{b, e} {}
 		StringSlice(void * b, void * e) : _data{ b, e } {}
 		StringSlice(const memory::Slice &) noexcept;
@@ -104,6 +88,14 @@ namespace gc
 			void operator --(){--_data;}
 			bool operator !=(const _Iter & a){return _data != a._data;}
 		};
+		class _CIter: public std::iterator<std::random_access_iterator_tag, const T>{
+			const T * _data;
+		public:
+			const reference operator *()const noexcept{return _data;}
+			void operator ++()noexcept{++_data;}
+			void operator --()noexcept{--_data;}
+			bool operator !=(const _Iter & a)const noexcept{return _data != a._data;}
+		};
 	public:
 		using value_type = T;
 		using size_type = size_t;
@@ -111,31 +103,32 @@ namespace gc
 		using reference = T &;
 		using const_reference = const T &;
 		using iterator = _Iter;
+		using const_iterator = _CIter;
 		//don't know what to do with other iterators
 
 		String();
 		String(const T *);
 		String(const T *, size_t);
 		String(c_lref_t s);
-		String(rref_t s);
-		~String();
+		String(rref_t s) noexcept;
+		~String() noexcept;
 		const StringSlice<T> toSlice() const noexcept;
-		const char * const c_string() const noexcept;
+		const char * const 	c_string() const noexcept;
 
 		const Optional<Size_t> getIndexOf(priv::first_t<T> &&) const noexcept;
 		const Optional<Size_t> getIndexOf(priv::last_t<T> &&) const noexcept;
-		const Size_t getCountOf(T) const noexcept;
+		const Size_t 		getCountOf(T) const noexcept;
 		template<class Y>
-		const Bool isContain(Y &&) const noexcept;
-		const T getElementAt(Size_t) const;
-			  T getElementAt(Size_t);
-		const Bool isEqual(c_lref_t) const noexcept;
-		const Size_t getLength() const noexcept;
+		const Bool 			isContain(Y &&) const noexcept;
+		const Optional<T> 	getElementAt(Size_t) const;
+			  Optional<T> 	getElementAt(Size_t);
+		const Bool 			isEqual(c_lref_t) const noexcept;
+		const Size_t 		getLength() const noexcept;
 
-		const T & operator [] (Size_t) const;
-			  T & operator [] (Size_t);
-		const Bool operator == (c_lref_t) const noexcept;
-		const Bool operator != (c_lref_t) const noexcept;
+		const T & 			operator [] (Size_t) const;
+			  T & 			operator [] (Size_t);
+		const Bool 			operator == (c_lref_t) const noexcept;
+		const Bool 			operator != (c_lref_t) const noexcept;
 
 		Optional<StringSlice<T>> getSubstring(priv::to_t<int>) const noexcept;
 		Optional<StringSlice<T>> getSubstring(priv::from_t<int>) const noexcept;
@@ -163,13 +156,13 @@ namespace gc
 		Optional<StringSlice<T>> getSubstring(priv::fromLast_t<T>, priv::toLast_t<T>) const noexcept;
 		
 		template<template<class Y> class C>
-		C<T> split();
-		StringSlice<T> trim() const noexcept;
-		StringSlice<T> trimBegin() const noexcept;
-		StringSlice<T> trimEnd() const noexcept;
+		C<T> 			split();
+		StringSlice<T> 	trim() const noexcept;
+		StringSlice<T> 	trimBegin() const noexcept;
+		StringSlice<T> 	trimEnd() const noexcept;
 
-		iterator begin(){return iterator(static_cast<T *>(_data.begin));}
-		iterator end(){
+		iterator 		begin(){return iterator(static_cast<T *>(_data.begin));}
+		iterator 		end(){
 			return iterator(static_cast<T *>(_data.begin) + getLength().as<size_t>());
 		}
 
@@ -278,7 +271,7 @@ namespace gc
 	}
 	//												move ctor
 	template<class T, class Alloc>
-	inline String<T, Alloc>::String(typename String<T, Alloc>::rref_t s):
+	inline String<T, Alloc>::String(typename String<T, Alloc>::rref_t s) noexcept:
 		_data(s._data)
 	{
 		s._data = memory::Slice::null;
@@ -329,15 +322,15 @@ namespace gc
 		return false;
 	}
 	template<class T, class Alloc>
-	inline const T String<T, Alloc>::getElementAt(Size_t i) const{
+	inline const Optional<T> String<T, Alloc>::getElementAt(Size_t i) const{
 		if (i > this->getLength())
-			throw std::out_of_range();
+			return std::out_of_range();
 		return static_cast<T *>(_data.begin)[static_cast<size_t>(i)];
 	}
 	template<class T, class Alloc>
-	inline T String<T, Alloc>::getElementAt(Size_t i){
+	inline Optional<T> String<T, Alloc>::getElementAt(Size_t i){
 		if (i > this->getLength())
-			throw std::out_of_range();
+			return std::out_of_range();
 		return static_cast<T *>(_data.begin)[static_cast<size_t>(i)];
 	}
 	template<class T, class Alloc>
