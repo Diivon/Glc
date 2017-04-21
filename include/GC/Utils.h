@@ -26,31 +26,6 @@ namespace gc
 	typedef int64_t i64;
 	typedef uint64_t u64;
 	const float Pi = 3.14159265358979323846f;
-	namespace debug{
-		//unwide the stack
-		//[[deprecated("do you really need to panic? do you know what it's do?")]]
-		[[noreturn]] 
-		inline void panic(){
-				throw;
-		}
-		//if assertion failed, it calls panic();
-		inline bool panicAssert(bool expr){
-			#ifdef GC_DEBUG
-				if (!expr) 
-					panic();
-			#endif
-			return expr;
-		}
-		//if assertion failed, throw exception
-		template<class Ex>
-		inline bool assert(bool expr){
-			#ifdef GC_DEBUG
-				if(!expr)
-					throw Ex();
-			#endif
-			return expr;
-		}
-	}
 
 	
 	template<class T>
@@ -99,6 +74,26 @@ namespace gc
 		struct size_if<false, t, f> {
 			static constexpr size_t value = f;
 		};
+	}
+	[[noreturn]] 
+	//unwide the stack
+	inline void panic(){throw;}
+	//if assertion failed, it calls panic();
+	inline static bool panicAssert(bool expr){
+		#ifdef GC_DEBUG
+			if (!expr)
+				panic();
+		#endif
+		return expr;
+	}
+	//if assertion failed, throw exception
+	template<class Ex>
+	static bool assert(bool expr){
+		#ifdef GC_DEBUG
+			if(!expr)
+				throw Ex();
+		#endif
+		return expr;
 	}
 }
 typedef int8_t i8;

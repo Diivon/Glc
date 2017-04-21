@@ -58,6 +58,9 @@ namespace gc {
 		bool isHoldResult() const noexcept {
 			return _success;
 		}
+		operator T(){
+			static_assert(false, "look like you forget to unwrap Optional")
+		}
 	};
 	//specialization for l-reference
 	template<class T>
@@ -107,6 +110,9 @@ namespace gc {
 		}
 		bool isHoldResult() const noexcept {
 			return _success;
+		}
+		operator T &(){
+			static_assert(false, "look like you forget to unwrap Optional")
 		}
 	};
 }

@@ -15,7 +15,7 @@ namespace gc{
 
 		bool isEmpty() const noexcept{
 			if (!_refCounter)
-				debug::panicAssert(_ptr == _data);
+				panicAssert(_ptr == _data);
 			return (_refCounter == 0);
 		}
 	private:
@@ -28,7 +28,7 @@ namespace gc{
 	inline StackAllocator<StackSize>::StackAllocator():
 		_ptr(_data), _refCounter(0)
 	{
-		debug::panicAssert(_ptr == _data);
+		panicAssert(_ptr == _data);
 	}
 
 	template<size_t StackSize>
@@ -40,7 +40,7 @@ namespace gc{
 	}
 	template<size_t StackSize>
 	memory::Slice StackAllocator<StackSize>::_alloc(priv::bytes_t bs) noexcept{
-		debug::panicAssert(_ptr >= _data &&	_ptr <= &_data[StackSize - 1]);
+		panicAssert(_ptr >= _data && _ptr <= &_data[StackSize - 1]);
 
 		size_t freeVolume = &_data[StackSize - 1] - _ptr;
 		if (freeVolume < bs.value)

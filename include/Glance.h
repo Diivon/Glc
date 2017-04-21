@@ -17,3 +17,4 @@
 #include "GC/Numerics.h"
 #include "GC/String.h"
 #include "GC/Iterate.h"
+#include "GC/Print.h"
