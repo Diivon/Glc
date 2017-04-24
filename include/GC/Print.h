@@ -1,35 +1,66 @@
 #pragma once
 #include <iostream>
+#include "GC/StringSlice.h"
 
-namespace gc{		
-	template<class T, class Y, class ... Args>
-	void print(T &&, Args && ...);
-	template<class T, class Y, class ... Args>
-	void println(T &&, Args && ...);
-	//----------------IMPLEMENTATION-------------------------
-	template<class T, class Y, class ... Args>
-	void print(T && t, Y && y, Args && ... args){
-		std::cout << t;
-		print(std::forward<Y>(y), std::forward<Args>(args)...);
+namespace gc{	
+	namespace priv{
+		struct printer{
+			printer() {}
+			template<class T, class Y, class ... Args>
+			void operator () (T && , Y &&, Args && ...);
+			template<class T>
+			void operator () (T &&);
+			void operator () ();
+		};
+		struct printLiner{
+			printLiner() {}
+			template<class T, class Y, class ... Args>
+			void operator () (T &&, Y &&, Args && ...);
+			template<class T>
+			void operator () (T &&);
+			void operator () ();
+		};
+	}
+	extern priv::printer 	print;
+	extern priv::printLiner println;
+	template<class T>
+	void dump(T && t){
+		std::cout << "type: " << TypeName<T>::get() << ", " << "value: " << std::forward<T>(t);
 	}
 	template<class T>
-	void print(T && t){
-		std::cout << t;
-	}
-	void print(){
-	}
-	template<class T, class Y, class ... Args>
-	void println(T && t, Y && y, Args && ... args){
-		std::cout << t;
-		print(std::forward<Y>(y), std::forward<Args>(args)...);
-		std::cout << std::endl;
-	}
-	template<class T, class ... Args>
-	void println(T && t, Args && ... args){
-		print(std::forward<T>(t), std::forward<Args>(args)...);
-		std::cout << std::endl;
-	}
-	void println(){
-		std::cout << std::endl;
+	struct TypeName
+	{
+		inline static const StringSlice get(){
+			static constexpr size_t FRONT_SIZE = sizeof("gc::TypeName<");
+			static constexpr size_t BACK_SIZE = sizeof(">::get");
+			static const char * firstPtr = __FUNCTION__ + FRONT_SIZE - 1;
+			static const char * lastPtr = __FUNCTION__ + sizeof(__FUNCTION__) - BACK_SIZE - 2;
+			return StringSlice(firstPtr, lastPtr);
+		}
+	};
+	//----------------IMPLEMENTATION-------------------------
+	namespace priv{
+		template<class T, class Y, class ... Args>
+		void printer::operator () (T && t, Y && y, Args && ... args){
+			std::cout << t;
+			this->operator() (std::forward<Y>(y), std::forward<Args>(args)...);
+		}
+		template<class T>
+		void printer::operator () (T && t){
+			std::cout << t;
+		}
+		void printer::operator () (){}
+		template<class T, class Y, class ... Args>
+		void priv::printLiner::operator () (T && t, Y && y, Args && ... args){
+			std::cout << t;
+			this->operator() (std::forward<Y>(y), std::forward<Args>(args)...);
+		}
+		template<class T>
+		void priv::printLiner::operator () (T && t){
+			std::cout << t << std::endl;
+		}
+		void priv::printLiner::operator () (){
+			std::cout << std::endl;
+		}
 	}
 }

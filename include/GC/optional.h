@@ -3,7 +3,7 @@
 #include "GC/Utils.h"
 namespace gc {
 	template<class T>
-	class Optional : ClassTraits<Optional<T>> {
+	class Optional{
 		bool _success;
 		union {
 			T _data;

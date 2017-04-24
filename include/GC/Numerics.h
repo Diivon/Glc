@@ -18,9 +18,11 @@ namespace gc{
 			inline Bool operator ! () const noexcept{return !_data;}
 			inline operator bool() const noexcept{return _data;}
 		};
+		#define ASSERT_INTEGRAL(_arg_type_) static_assert(std::is_integral<T>::value, "numeric_base template argument is not numeric");
 		template<class T>
 		class numeric_base{
 			T _data;
+			ASSERT_INTEGRAL(T)
 		public:
 			inline numeric_base<T>()noexcept : _data() {}
 			inline numeric_base<T>(const T & t)noexcept : _data(t) {}
@@ -36,12 +38,18 @@ namespace gc{
 			inline const Bool operator <= (numeric_base<T> const & a) const noexcept{return _data <= a._data;}
 			inline const Bool operator >= (numeric_base<T> const & a) const noexcept{return _data >= a._data;}
 
-			inline const Bool operator == (T const & a) const noexcept{return _data == a;}
-			inline const Bool operator != (T const & a) const noexcept{return _data != a;}
-			inline const Bool operator <  (T const & a) const noexcept{return _data <  a;}
-			inline const Bool operator >  (T const & a) const noexcept{return _data >  a;}
-			inline const Bool operator <= (T const & a) const noexcept{return _data <= a;}
-			inline const Bool operator >= (T const & a) const noexcept{return _data >= a;}
+			template<class Y>
+			inline const Bool operator == (Y const & a) const noexcept{return _data == a;ASSERT_INTEGRAL(T)}
+			template<class Y>
+			inline const Bool operator != (Y const & a) const noexcept{return _data != a;ASSERT_INTEGRAL(T)}
+			template<class Y>
+			inline const Bool operator <  (Y const & a) const noexcept{return _data <  a;ASSERT_INTEGRAL(T)}
+			template<class Y>
+			inline const Bool operator >  (Y const & a) const noexcept{return _data >  a;ASSERT_INTEGRAL(T)}
+			template<class Y>
+			inline const Bool operator <= (Y const & a) const noexcept{return _data <= a;ASSERT_INTEGRAL(T)}
+			template<class Y>
+			inline const Bool operator >= (Y const & a) const noexcept{return _data >= a;ASSERT_INTEGRAL(T)}
 		
 			inline const numeric_base<T> operator << (numeric_base<T> const & a) const noexcept{return _data << a._data;}
 			inline const numeric_base<T> operator >> (numeric_base<T> const & a) const noexcept{return _data >> a._data;}

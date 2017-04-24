@@ -7,13 +7,10 @@ namespace gc{
 		class OwnerIterator{
 			T _container;
 			template<class Y>
-			using _func = Y(*)(void);
+			using _func = void (*)(Y);
 		public:
 			template<class Y>
 			OwnerIterator(Y &&);
-			///it takes one of gc functions instead of functor
-			template<class Y>
-			OwnerIterator & foreach(_func<Y>);
 			///it takes functor which take one argument, and apply it to every element of collection
 			template<class F>
 			OwnerIterator & foreach(F &&);
@@ -31,18 +28,6 @@ namespace gc{
 			OwnerIterator & filter(F &&);
 			template<class F>
 			OwnerIterator & look(F &&);
-		};
-		struct printer {
-			template<class T>
-			void operator () (const T & i) {
-				std::cout << i << ' ';
-			}
-		};
-		struct debugger{
-			template<class T>
-			void operator () (const T & i) {
-				debug::log.write(i, ' ');
-			}
 		};
 	}
 	template<class T>
@@ -79,12 +64,6 @@ namespace gc{
 		//end assertions
 		return priv::OwnerIterator<T>(std::move(v));
 	}
-	priv::printer printEvery() {
-		return priv::printer();
-	}
-	priv::debugger debugEvery(){
-		return priv::debugger();
-	}
 	//+---------------------------------------------------------------------------+
 	//|                                                                           |
 	//|                    ITERATIONS IMPLEMENTATION AREA                         |
@@ -96,19 +75,6 @@ namespace gc{
 		OwnerIterator<T>::OwnerIterator(Y && y):
 			_container(std::forward<Y>(y)) 
 		{}
-		template<class T>
-		template<class Y>
-		inline OwnerIterator<T> & OwnerIterator<T>::foreach(_func<Y> f){
-			//template<class Y>using _func = Y(*)(void);
-			//Y is return type of f();
-			static_assert(
-				traits::is_able_to_call<Y, T::reference>::value, 
-				"foreach argument return value bust be callable by Container::reference");
-			auto fun = f();
-			for (auto & i : _container)
-				fun(i);
-			return *this;
-		}
 		template<class T>
 		template<class F>
 		inline OwnerIterator<T> & OwnerIterator<T>::foreach(F && f){
@@ -126,7 +92,7 @@ namespace gc{
 				traits::is_able_to_call<F, T::reference>::value, 
 				"map argument must be callable with Container::reference");
 			static_assert(
-				std::is_assibnable<T::value_type, traits::return_type<F>::type>::value, 
+				std::is_assignable<T::value_type, traits::return_type<F>::type>::value, 
 				"Container::value_type must be assignable with argument return value");
 			for (auto & i : _container)
 				i = f(i);//cause we are only owner of this container, we are able to change him

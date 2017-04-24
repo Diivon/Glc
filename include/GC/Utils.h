@@ -26,18 +26,6 @@ namespace gc
 	typedef int64_t i64;
 	typedef uint64_t u64;
 	const float Pi = 3.14159265358979323846f;
-
-	
-	template<class T>
-	struct TypeName
-	{
-		inline static std::string get(){
-			static const size_t FRONT_SIZE = sizeof("gc::TypeName<") - 1u;
-			static const size_t BACK_SIZE = sizeof(">::get") - 1u;
-			static const size_t size = sizeof(__FUNCTION__) - FRONT_SIZE - BACK_SIZE;
-			return std::string(__FUNCTION__ + FRONT_SIZE, size - 1u);
-		}
-	};
 	template<class T, class Ptr = T *>
 	struct ClassTraits
 	{
@@ -45,7 +33,6 @@ namespace gc
 		typedef T & lref_t; typedef const T & c_lref_t; typedef volatile T & v_lref_t; typedef const volatile T & cv_lref_t;
 		typedef T && rref_t; typedef const T && c_rref_t; typedef volatile T && v_rref_t; typedef const volatile T && cv_rref_t;
 		typedef Ptr ptr_t; typedef const Ptr c_ptr_t; typedef volatile Ptr v_ptr_t; typedef const volatile Ptr cv_ptr_t;
-		inline static const std::string getTypeName(){return TypeName<T>::get();}
 	};	
 	inline std::vector<char> getByteVectorFromFile(const std::string & s) {
 		std::ifstream ifs(s, std::ios::in | std::ios::binary | std::ios::ate);//open file for reading

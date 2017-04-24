@@ -5,107 +5,15 @@
 #include "GC/Utils.h"
 #include "GC/Allocator.h"
 #include "GC/Optional.h"
+#include "GC/StringSlice.h"
+#include "GC/Numerics.h"
 
 namespace gc
 {
-	namespace priv{
-		template<class I, template<class T, class A> class C>
-		struct BasicStringMake2{
-			gc::Optional<C<I, void>> get();
-		};
-		template<class I, template<class T> class C>
-		struct BasicStringMake1{
-			gc::Optional<C<I>> get();
-		};
-	}
-	template<class T, class Alloc = gc::Allocator>
-	class BasicString;
-	template<class T>
-	class BasicStringSlice: public ClassTraits<BasicStringSlice<T>>{
-		memory::Slice _data;
-		template<class Y>
-		struct _AsHelper{
-			inline static Y get(BasicStringSlice<T> const &);
-		};
-		template<>
-		struct _AsHelper<BasicString<T>>{
-			inline static auto get(BasicStringSlice<T> const & sl){
-				auto len = sl._data.getDifference() / sizeof(T);
-				return BasicString<T>(static_cast<T *>(sl._data.begin), len);
-			}
-		};
-	public:
-		BasicStringSlice(T * b, T * e): _data{b, e} {}
-		BasicStringSlice(void * b, void * e) : _data{ b, e } {}
-		BasicStringSlice(const memory::Slice &) noexcept;
-		Bool isReversed() const noexcept;
-		lref_t reverse() noexcept;
-		this_t getReversed() const noexcept;
-		friend std::ostream & operator << (std::ostream & os, const BasicStringSlice<char> & sl);
-		template<class Y>
-		Optional<Y> as() const { return _AsHelper<Y>::get(*this); }
-	};
 	template<class T, class Alloc>
 	class BasicString: public ClassTraits<BasicString<T, Alloc>>
 	{
-		memory::Slice _data;
-		//friends
-		template<class I, template<class T, class A> class C>
-		friend struct priv::BasicStringMake2;
-		template<class I, template<class T> class C>
-		friend struct priv::BasicStringMake1;
-		//helpers for 'as'
-		template<class Y>
-		struct _AsHelper {
-			inline static Y get(BasicString<T, Alloc> const &);
-		};
-		template<>
-		struct _AsHelper<Int> {
-			static inline Optional<Int> get(BasicString<T, Alloc> const & str) {
-				IF_FAIL( return Int(std::stoi(static_cast<T *>(str._data.begin))) ){
-					return fail_exception;
-				}
-			}
-		};
-		template<>
-		struct _AsHelper<Size_t> {
-			static inline Optional<Size_t> get(BasicString<T, Alloc> const & str) {
-				IF_FAIL( std::stoul(static_cast<char *>(str._data.begin)) ){
-					return fail_exception;
-				}
-			}
-		};
-		T * _getPtrTo(priv::first_t<T>) const noexcept;
-		T * _getPtrTo(priv::last_t<T>) const noexcept;
-
-		class _Iter: public std::iterator<std::random_access_iterator_tag, T>{
-			T * _data;
-			_Iter(T * d):_data(d){}
-			friend class BasicString<T, Alloc>;
-		public:
-			reference operator *(){return *_data;}
-			void operator ++(){++_data;}
-			void operator --(){--_data;}
-			bool operator !=(const _Iter & a){return _data != a._data;}
-		};
-		class _CIter: public std::iterator<std::random_access_iterator_tag, const T>{
-			const T * _data;
-		public:
-			const reference operator *()const noexcept{return _data;}
-			void operator ++()noexcept{++_data;}
-			void operator --()noexcept{--_data;}
-			bool operator !=(const _Iter & a)const noexcept{return _data != a._data;}
-		};
 	public:
-		using value_type = T;
-		using size_type = size_t;
-		using difference_type = ptrdiff_t;
-		using reference = T &;
-		using const_reference = const T &;
-		using iterator = _Iter;
-		using const_iterator = _CIter;
-		//don't know what to do with other iterators
-
 		BasicString();
 		BasicString(const T *);
 		BasicString(const T *, size_t);
@@ -159,15 +67,12 @@ namespace gc
 		Optional<BasicStringSlice<T>> getSubstring(priv::fromLast_t<T>, priv::toLast_t<T>) const noexcept;
 		
 		template<template<class Y> class C>
-		C<T> 					split();
+		C<T> 					split()const;
+		std::pair<BasicStringSlice<T>, BasicStringSlice<T>> spiltAt(size_t)const;
+		std::pair<BasicStringSlice<T>, BasicStringSlice<T>> spiltAt(priv::first_t<T>)const;
 		BasicStringSlice<T> 	trim() const noexcept;
 		BasicStringSlice<T> 	trimBegin() const noexcept;
 		BasicStringSlice<T> 	trimEnd() const noexcept;
-
-		iterator 				begin(){return iterator(static_cast<T *>(_data.begin));}
-		iterator 				end(){
-			return iterator(static_cast<T *>(_data.begin) + getLength().as<size_t>());
-		}
 
 		template<class Y>
 		Optional<Y> as() const {return _AsHelper<Y>::get(*this);}
@@ -175,65 +80,134 @@ namespace gc
 		auto as(){return priv::BasicStringMake2<T, C>::get(*this);}
 		template<template<class I>class C>
 		auto as() {return priv::BasicStringMake1<T, C>::get(*this);}
+
 		inline rref_t move() noexcept {return std::move(*this);}
+	private: 
+		memory::Slice _data;
+		//friends
+		template<class I, template<class T, class A> class C>
+		friend struct priv::BasicStringMake2;
+		template<class I, template<class T> class C>
+		friend struct priv::BasicStringMake1;
+		//helpers for 'as'
+		template<class Y>
+		struct _AsHelper {
+			inline static Y get(BasicString<T, Alloc> const &);
+		};
+		#define REGISTER_SIGNED_AS_HELPER(_arg_type_)\
+		template<>\
+		struct _AsHelper<_arg_type_> {\
+			static inline Optional<_arg_type_> get(BasicString<T, Alloc> const & str) {\
+				IF_FAIL( return _arg_type_(std::stoi(static_cast<T *>(str._data.begin))) ){\
+					return fail_exception;\
+				}\
+			}\
+		};
+
+		#define REGISTER_UNSIGNED_AS_HELPER(_arg_type_)\
+		template<>\
+		struct _AsHelper<_arg_type_> {\
+			static inline Optional<_arg_type_> get(BasicString<T, Alloc> const & str) {\
+				IF_FAIL( _arg_type_(std::stoul(static_cast<char *>(str._data.begin))) ){\
+					return fail_exception;\
+				}\
+			}\
+		};
+
+		REGISTER_SIGNED_AS_HELPER(I16)
+		REGISTER_SIGNED_AS_HELPER(I32)
+		REGISTER_SIGNED_AS_HELPER(I64)
+
+		REGISTER_UNSIGNED_AS_HELPER(U16)
+		REGISTER_UNSIGNED_AS_HELPER(U32)
+		REGISTER_UNSIGNED_AS_HELPER(U64)
+
+		#undef REGISTER_SIGNED_AS_HELPER
+		#undef REGISTER_UNSIGNED_AS_HELPER
+
+		T * _getPtrTo(priv::first_t<T>) const noexcept;
+		T * _getPtrTo(priv::last_t<T>) const noexcept;
+
+		class _Iter: public std::iterator<std::random_access_iterator_tag, T>{
+			T * _data;
+			_Iter(T * d):_data(d){}
+			friend class BasicString<T, Alloc>;
+		public:
+			reference operator *(){return *_data;}
+			void operator ++(){++_data;}
+			void operator --(){--_data;}
+			bool operator !=(const _Iter & a){return _data != a._data;}
+		};
+		class _CIter: public std::iterator<std::random_access_iterator_tag, const T>{
+			const T * _data;
+			_CIter(const T * d) :_data(d) {}
+			friend class BasicString<T, Alloc>;
+		public:
+			const reference operator *()const noexcept{return *_data;}
+			void operator ++()noexcept{++_data;}
+			void operator --()noexcept{--_data;}
+			bool operator !=(const _CIter & a)const noexcept{return _data != a._data;}
+		};
+	public:
+		using value_type = T;
+		using size_type = size_t;
+		using difference_type = ptrdiff_t;
+		using reference = T &;
+		using const_reference = const T &;
+		using iterator = _Iter;
+		using const_iterator = _CIter;
+
+		iterator begin(){return iterator(static_cast<T *>(_data.begin));}
+		iterator end(){return iterator(static_cast<T *>(_data.begin) + getLength().as<size_t>());}
+
+		const_iterator begin() const {return const_iterator(static_cast<T *>(_data.begin));}
+		const_iterator end() const {return const_iterator(static_cast<T *>(_data.begin) + getLength().as<size_t>());}
+
+		const_iterator cbegin() const {return const_iterator(static_cast<T *>(_data.begin));}
+		const_iterator cend() const {return const_iterator(static_cast<T *>(_data.begin) + getLength().as<size_t>());}
+
+		template<class Y>
+		friend std::ostream & operator << (std::ostream & os, const BasicString<char, Y> & sl);
 	};
 	namespace priv{
 		template<class T>
 		struct BasicStringMake1<T, gc::BasicStringSlice> {
-			static inline gc::Optional<gc::BasicStringSlice<T>> get(gc::BasicString<T> const & s) {
+			template<class Y>
+			static inline gc::Optional<gc::BasicStringSlice<T>> get(Y const & s) {
 				gc::BasicStringSlice<T> result(s._data.begin, static_cast<T *>(s._data.end) - 1);
 				return result;
 			}
 		};
 		template<class T>
 		struct BasicStringMake2<T, std::vector>{
-			static inline gc::Optional<std::vector<T>> get(gc::BasicString<T> const & s){
+			template<class Y>
+			static inline gc::Optional<std::vector<T>> get(Y const & s){
 				std::vector<T> result;
-				s.cforeach([&result](auto const & i){result.emplace_back(i);});
+				for (const auto & i : s)
+					result.emplace_back(i);
 				return result;
 			}
 		};
 		template<class T>
 		struct BasicStringMake2<T, std::list>{
-			static inline gc::Optional<std::list<T>> get(gc::BasicString<T> const & s){
+			template<class Y>
+			static inline gc::Optional<std::list<T>> get(Y const & s){
 				std::list<T> result;
 				s.cforeach([&result](auto const & i){result.emplace_back(i);});
 				return result;
 			}
 		};
 	}
+	using String = BasicString<char, gc::Allocator>;
 	//+---------------------------------------------------------------------------+
 	//|                                                                           |
-	//|                    BasicString IMPLEMENTATION AREA                             |
+	//|                    BasicString IMPLEMENTATION AREA                        |
 	//|                                                                           |
 	//+---------------------------------------------------------------------------+
-	template<class T>
-	inline BasicStringSlice<T>::BasicStringSlice(const memory::Slice & ms) noexcept:
-		_data(ms)
-	{}
-	inline std::ostream & operator << (std::ostream & os, const BasicStringSlice<char> & sl){
-			if (!sl.isReversed())
-				for(const char * ptr = static_cast<decltype(ptr)>(sl._data.begin); ptr <= sl._data.end; ++ptr)
-					os.put(*ptr);
-			else
-				for(const char * ptr = static_cast<decltype(ptr)>(sl._data.begin); ptr >= sl._data.end; --ptr)
-					os.put(*ptr);
-			return os;
-		}
-	template<class T>
-	typename BasicStringSlice<T>::lref_t BasicStringSlice<T>::reverse() noexcept {
-		std::swap(_data.begin, _data.end);
-		return *this;
+	template<class Y>
+	std::ostream & operator << (std::ostream & os, const BasicString<char, Y> & s){
+		return std::cout << static_cast<char *>(s._data.begin);
 	}
-	template<class T>
-	typename BasicStringSlice<T>::this_t BasicStringSlice<T>::getReversed() const noexcept {
-		return BasicStringSlice<T>(memory::Slice{ _data.end, _data.begin });
-	}
-	template<class T>
-	inline Bool BasicStringSlice<T>::isReversed() const noexcept {
-		return _data.begin > _data.end;
-	}
-	//BasicString---BasicString---BasicString---BasicString---BasicString---BasicString---BasicString---BasicString
 
 	//												default ctor
 	template<class T, class Alloc>
@@ -292,8 +266,8 @@ namespace gc
 	template<class T, class Alloc>
 	inline const BasicStringSlice<T> BasicString<T, Alloc>::toSlice() const noexcept{
 		if (_data.begin)
-			return BasicStringSlice<T>(_data.begin, static_cast<T *>(_data.end) - 2);
-		return BasicStringSlice<T>(memory::Slice::null);
+			return BasicStringSlice<T>(static_cast<T *>(_data.begin), static_cast<T *>(_data.end) - 2);
+		return BasicStringSlice<T>(nullptr, nullptr);
 	}
 	template<class T, class Alloc>
 	const char * const BasicString<T, Alloc>::c_string() const noexcept{
