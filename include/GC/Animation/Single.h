@@ -27,8 +27,6 @@ namespace gc
 	public:
 		//constructors		
 		inline this_t() noexcept;
-		inline lref_t 	addFrame(SpriteFrame::c_lref_t);
-		inline lref_t 	addFrame(SpriteFrame::rref_t);
 		template<class ... Args>
 		inline lref_t 	emplaceFrame(Args ...);
 
@@ -67,14 +65,6 @@ namespace gc
 		_onStop(), onStop(_onStop),
 		_onPause(), onPause(_onPause)
 	{}
-	GC_ANIMATION_SINGLE::lref_t GC_ANIMATION_SINGLE::addFrame(const SpriteFrame & a){
-		_SFlist.push_back(a);
-		return *this;
-	}
-	GC_ANIMATION_SINGLE::lref_t GC_ANIMATION_SINGLE::addFrame(SpriteFrame && a){
-		_SFlist.push_back(::std::move(a));
-		return *this;
-	}
 	template<class ... Args>
 	GC_ANIMATION_SINGLE::lref_t GC_ANIMATION_SINGLE::emplaceFrame(Args... args){
 		_SFlist.emplace_back(std::forward<Args>(args)...);

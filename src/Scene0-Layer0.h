@@ -18,6 +18,7 @@ class Layer0 : public ::gc::ClassTraits<Layer0>{
 	Number2 ObjRenderableObject1;
 	private:
 	;
+	Layer0 & self;
 	public:
 	Layer0(Scene0 &);
 	~Layer0();
@@ -25,6 +26,8 @@ class Layer0 : public ::gc::ClassTraits<Layer0>{
 	void onUpdate(const float & dt);
 	public:
 	private:
+	template<class F>
+	void foreach(F &&);
 	template<class T>
 	T & getObject();
 	template<class T>

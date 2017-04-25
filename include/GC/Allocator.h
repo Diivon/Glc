@@ -21,13 +21,13 @@ namespace gc {
 		static Mallocator & _other;
 	public:
 		template<AllocationType T = AllocationType::Default>
-		inline static Optional<memory::Slice> allocate(priv::bytes_t);
+		inline static Optional<memory::Slice> allocate(sh::priv::bytes_t);
 		template<AllocationType T>
-		inline static memory::Slice _alloc(priv::bytes_t);
+		inline static memory::Slice _alloc(sh::priv::bytes_t);
 		inline static bool deallocate(const memory::Slice &) noexcept;
 	};
 	template<>
-	inline memory::Slice Allocator::_alloc<AllocationType::Defragmented>(priv::bytes_t b)
+	inline memory::Slice Allocator::_alloc<AllocationType::Defragmented>(sh::priv::bytes_t b)
 	{
 		if (b.value < GC_SLOW_ALLOCATION_AREA_SIZE) {
 			auto result = _slow._alloc(b);
@@ -37,7 +37,7 @@ namespace gc {
 		return memory::Slice::null;		//if nothing
 	}
 	template<>
-	inline memory::Slice Allocator::_alloc<AllocationType::Fast>(priv::bytes_t b)
+	inline memory::Slice Allocator::_alloc<AllocationType::Fast>(sh::priv::bytes_t b)
 	{
 		if (b.value < GC_FAST_ALLOCATION_AREA_SIZE) {
 			auto result = _fast._alloc(b);
@@ -47,7 +47,7 @@ namespace gc {
 		return memory::Slice::null;
 	}
 	template<>
-	inline Optional<memory::Slice> Allocator::allocate<AllocationType::Defragmented>(priv::bytes_t b){
+	inline Optional<memory::Slice> Allocator::allocate<AllocationType::Defragmented>(sh::priv::bytes_t b){
 		auto res = _alloc<AllocationType::Defragmented>(b);
 		if (res.begin)
 			return res;
@@ -55,7 +55,7 @@ namespace gc {
 			return std::bad_alloc();
 	}
 	template<>
-	inline Optional<memory::Slice> Allocator::allocate<AllocationType::Fast>(priv::bytes_t b){
+	inline Optional<memory::Slice> Allocator::allocate<AllocationType::Fast>(sh::priv::bytes_t b){
 		auto res = _alloc<AllocationType::Fast>(b);
 		if (res.begin)
 			return res;
@@ -63,7 +63,7 @@ namespace gc {
 			return std::bad_alloc();
 	}
 	template<>
-	inline Optional<memory::Slice> Allocator::allocate<AllocationType::Default>(priv::bytes_t b) {
+	inline Optional<memory::Slice> Allocator::allocate<AllocationType::Default>(sh::priv::bytes_t b) {
 		if (b.value < GC_FAST_ALLOCATION_AREA_SIZE) {
 			auto res = _alloc<AllocationType::Fast>(b);
 			if (res.begin) {

@@ -11,10 +11,10 @@
 #include "Scene0.h"
 Number1::Number1(Scene0 & sc, Layer0 & lr):
 self(*this), pos(50, 50), scene(sc), layer(lr)
-, distance(0), collider(::gc::Vec2(50,  50),  ::gc::Vec2(50,  50))
+, distance(0), collider(pos,  ::gc::Vec2(50,  50))
 , sprite("resources\\n\\1.jpg")
 {
-	gc::debug::log.write("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+	gc::debug.write("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 }
 Number1::~Number1(){
 }
@@ -38,13 +38,16 @@ void Number1::onUpdate(const float & dt){
 		pos.y += gc::Random<float>::get(-5, 5);
 	}
 	distance = (pos - layer.getObject<Number2>().pos).getLength();
-	gc::debug::log.
+	gc::debug.
 	clear()
 	.write(distance)
 	.newLine()
-	.write(layer.getObject<Number2>().collider.isCollide(self.collider));
+	.write(layer.getObject<Number2>().collider.isCollide(self.collider))
+	.write(self.collider.getPosition())
+	.write(' ')
+	.write(self.collider.getSize());
 	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Space))
-	gc::debug::log
+	gc::debug
 	.newLine()
 	.write( (scene.getLayer<Layer1>().getObject<PhysicalObject2>().pos - pos).getLength() );
 }
@@ -53,4 +56,7 @@ const ::gc::Sprite Number1::getCurrentSprite() const{
 }
 ::gc::Sprite Number1::getCurrentSprite(){
 	return sprite;
+}
+::gc::Vec2 Number1::getPosition(){
+	return self.pos;
 }

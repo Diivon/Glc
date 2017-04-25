@@ -12,12 +12,11 @@ class Scene0;
 class Layer0;
 class Number1 : public ::gc::ClassTraits<Number1>{
 	friend class ::gc::Camera;
-	public:
+	friend class Layer0;
 	typedef Number1 this_t;
 	Number1 & self;
 	Scene0 & scene;
 	Layer0 & layer;
-	::gc::Vec2 pos;
 	public:
 	::gc::Event<lref_t> onMoveEvent;
 	float distance;
@@ -29,6 +28,7 @@ class Number1 : public ::gc::ClassTraits<Number1>{
 	::gc::AnimationDirection dir;
 	u32 _times;
 	public:
+	::gc::Vec2 pos;
 	Number1(Scene0 &, Layer0 &);
 	~Number1();
 	void onStart();
@@ -37,6 +37,8 @@ class Number1 : public ::gc::ClassTraits<Number1>{
 	::gc::Sprite getCurrentSprite();
 	public:
 	private:
+	public:
+	gc::Vec2 getPosition();
 	private:
 	Number1(const Number1 &) = delete;
 	Number1(Number1 &&) = delete;

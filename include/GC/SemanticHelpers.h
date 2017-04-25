@@ -1,6 +1,6 @@
 #pragma once
 
-namespace gc{
+namespace sh{
 	namespace priv{
 		struct count_t{
 			size_t value;

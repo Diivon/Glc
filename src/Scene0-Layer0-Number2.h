@@ -12,12 +12,11 @@ class Scene0;
 class Layer0;
 class Number2 : public ::gc::ClassTraits<Number2>{
 	friend class ::gc::Camera;
-	public:
+	friend class Layer0;
 	typedef Number2 this_t;
 	Number2 & self;
 	Scene0 & scene;
 	Layer0 & layer;
-	::gc::Vec2 pos;
 	public:
 	typedef ::gc::Collider<::gc::ColliderType::Rectangle> collider_t;
 	collider_t collider;
@@ -27,6 +26,7 @@ class Number2 : public ::gc::ClassTraits<Number2>{
 	int _count;
 	bool _isRight;
 	public:
+	::gc::Vec2 pos;
 	Number2(Scene0 &, Layer0 &);
 	~Number2();
 	void onStart();
@@ -36,6 +36,8 @@ class Number2 : public ::gc::ClassTraits<Number2>{
 	public:
 	void kek(Number1 & a);
 	private:
+	public:
+	gc::Vec2 getPosition();
 	private:
 	Number2(const Number2 &) = delete;
 	Number2(Number2 &&) = delete;

@@ -1,4 +1,7 @@
 #pragma once
+#ifndef GC_VEC2_INC
+	#define GC_VEC2_INC
+#endif
 #include <cmath>
 #include "Utils.h"
 #include "SFML/Graphics.hpp"

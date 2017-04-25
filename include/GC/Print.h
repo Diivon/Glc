@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "GC/StringSlice.h"
+#include "GC/Vec2.h"
 
 namespace gc{	
 	namespace priv{
@@ -10,6 +11,9 @@ namespace gc{
 			void operator () (T && , Y &&, Args && ...);
 			template<class T>
 			void operator () (T &&);
+			void operator () (const gc::Vec2 & v){
+				std::cout << '{' << v.x << ", " << v.y << '}';
+			}
 			void operator () ();
 		};
 		struct printLiner{
@@ -18,6 +22,9 @@ namespace gc{
 			void operator () (T &&, Y &&, Args && ...);
 			template<class T>
 			void operator () (T &&);
+			void operator () (const gc::Vec2 & v){
+				std::cout << '{' << v.x << ", " << v.y << '}' << std::endl;
+			}
 			void operator () ();
 		};
 	}
@@ -49,7 +56,7 @@ namespace gc{
 		void printer::operator () (T && t){
 			std::cout << t;
 		}
-		void printer::operator () (){}
+		inline void printer::operator () (){}
 		template<class T, class Y, class ... Args>
 		void priv::printLiner::operator () (T && t, Y && y, Args && ... args){
 			std::cout << t;
@@ -59,7 +66,7 @@ namespace gc{
 		void priv::printLiner::operator () (T && t){
 			std::cout << t << std::endl;
 		}
-		void priv::printLiner::operator () (){
+		inline void priv::printLiner::operator () (){
 			std::cout << std::endl;
 		}
 	}

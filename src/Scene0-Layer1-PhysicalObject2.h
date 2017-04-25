@@ -11,7 +11,7 @@
 class Scene0;
 class Layer1;
 class PhysicalObject2 : public ::gc::ClassTraits<PhysicalObject2>{
-	//public:
+	friend class Layer1;
 	typedef PhysicalObject2 this_t;
 	PhysicalObject2 & self;
 	Scene0 & scene;

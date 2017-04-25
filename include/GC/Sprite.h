@@ -26,6 +26,8 @@ namespace gc
 		inline lref_t setOrigin(Vec2::c_lref_t) noexcept;
 
 		inline Vec2 getPosition() const noexcept;
+		inline Vec2 getSize() const noexcept;
+
 	};
 	/*--------------------------------------------------IMPLEMENTATION--------------------------------------------------------*/
 	//Basis
@@ -67,5 +69,11 @@ namespace gc
 	}
 	Vec2 Sprite::getPosition() const noexcept{
 		return Vec2(_sprite.getPosition().x, _sprite.getPosition().y);
+	}
+	Vec2 Sprite::getSize() const noexcept{
+		return Vec2(
+			static_cast<float>(_tex.getSize().x),
+			static_cast<float>(_tex.getSize().y)
+		);
 	}
 }

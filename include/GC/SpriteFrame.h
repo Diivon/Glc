@@ -5,36 +5,40 @@
 
 namespace gc
 {	
-	class SpriteFrame : public ClassTraits<SpriteFrame>
+	class SpriteFrame
 	{
 		friend class Camera;
 		Sprite _sprite;
 		float _dur;
 	public:
-		inline SpriteFrame(const std::string & path, float duration) noexcept;
-		inline SpriteFrame(c_lref_t) noexcept;
-		inline c_lref_t operator = (c_lref_t) noexcept;
-		inline const Sprite getSprite() const noexcept;
-		inline const float getDuration() const noexcept;
+		inline 					SpriteFrame(const std::string & path, float duration) noexcept;
+		inline 					SpriteFrame(const SpriteFrame &) noexcept;
+		inline 					SpriteFrame(const Sprite &, float dur) noexcept;
+		inline const SpriteFrame & 		operator = (const SpriteFrame &) noexcept;
+		inline const Sprite & 	getSprite() const noexcept;
+		inline const float 		getDuration() const noexcept;
 	};
 
 
-	SpriteFrame::SpriteFrame(const std::string & path, float duration) noexcept:
+	inline SpriteFrame::SpriteFrame(const std::string & path, float duration) noexcept:
 		_dur(duration), _sprite(path)
 	{}
-	SpriteFrame::SpriteFrame(SpriteFrame::c_lref_t a) noexcept:
+	inline SpriteFrame::SpriteFrame(const SpriteFrame & a) noexcept:
 		_sprite(a._sprite), _dur(a._dur)
 	{}
-	SpriteFrame::c_lref_t SpriteFrame::operator = (SpriteFrame::c_lref_t a) noexcept{
+	inline SpriteFrame::SpriteFrame(const Sprite & s, float dur) noexcept:
+		_sprite(s), _dur(dur)
+	{}
+	inline const SpriteFrame & SpriteFrame::operator = (const SpriteFrame & a) noexcept{
 		if (&a == this) return *this;
 		_sprite = a._sprite;
 		_dur = a._dur;
 		return *this;
 	}
-	const Sprite SpriteFrame::getSprite() const noexcept{
+	inline const Sprite & SpriteFrame::getSprite() const noexcept{
 		return _sprite;
 	}
-	const float SpriteFrame::getDuration() const noexcept{
+	inline const float SpriteFrame::getDuration() const noexcept{
 		return _dur;
 	}
 }

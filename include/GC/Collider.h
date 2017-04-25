@@ -58,7 +58,7 @@ namespace gc
 	template<>
 	class Collider<ColliderType::Rectangle> : public gc::ClassTraits<Collider<ColliderType::Rectangle>>
 	{
-		Vec2::c_lref_t _pos;//left up corner;
+		const Vec2 & _pos;//left up corner;
 		Vec2 _size;//where x is width, and y is height
 	public:
 		inline this_t(const lref_t c);
@@ -86,7 +86,7 @@ namespace gc
 	template<>
 	class Collider<ColliderType::Circle> : public ClassTraits<Collider<ColliderType::Circle>>
 	{
-		Vec2::c_lref_t _pos;
+		const Vec2 & _pos;
 		float _radius;
 	public:
 		inline this_t(c_lref_t c);

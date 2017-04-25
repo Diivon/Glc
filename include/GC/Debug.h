@@ -1,38 +1,45 @@
 #pragma once
 #include <iomanip>
 #include <sstream>
-
 #include "GC/Utils.h"
 #include "SFML/Graphics.hpp"
+
 namespace gc{
 	namespace priv{
 		class Debug: public ClassTraits<Debug>{
-			std::string _text;
 			static const sf::Font _font;
-			template<class T, class ... Args>
-			inline void _write_helper(T && t, Args && ... args);
+			template<class T, class Y, class ... Args>
+			inline void _write_helper(T && t, Y && y, Args && ... args);
+			template<class T>
+			inline void _write_helper(T && t);
 			inline lref_t _write(const char * const);
 			inline lref_t _write(bool);
 			inline lref_t _write(char);
 			inline lref_t _write(float);
 			inline lref_t _write(int);
+			inline lref_t _write(const gc::Vec2 &);
 			inline void _try_clear();
 		public:
+			std::string _text;
 			template<class T, class ... Args>
-			inline lref_t log(T && t, Args && ...);
+			inline lref_t write(T && t, Args && ...);
 			inline lref_t clear();
 			inline lref_t newLine();
 			inline const sf::Text getSFText() const;
 		};
 		template<class T, class ... Args>
-		inline Debug::lref_t Debug::log (T && t, Args && ... args){
-			_write_helper(std::forward<T>(t), std::forward<Args>(args));
+		inline Debug::lref_t Debug::write (T && t, Args && ... args){
+			_write_helper(std::forward<T>(t), std::forward<Args>(args)...);
 			return *this;
 		}
-		template<class T, class ... Args>
-		inline void Debug::_write_helper(T && t, Args && ... args){
+		template<class T, class Y, class ... Args>
+		inline void Debug::_write_helper(T && t, Y && y, Args && ... args){
 			_write(std::forward<T>(t));
-			_write_helper(std::forward<Args>(args)...);
+			_write_helper(std::forward<Y>(y), std::forward<Args>(args)...);
+		}
+		template<class T>
+		inline void Debug::_write_helper(T && t){
+			_write(std::forward<T>(t));
 		}
 		inline Debug::lref_t Debug::_write (bool b){
 			if (b)
@@ -66,6 +73,15 @@ namespace gc{
 			_text += std::to_string(s);
 			return *this;
 		}
+		inline Debug::lref_t Debug::_write(const gc::Vec2 & v){
+			_try_clear();
+			_text += '{';
+			_text += std::to_string(v.x);
+			_text += ' ';
+			_text += std::to_string(v.y);
+			_text += '}';
+			return *this;
+		}
 		inline Debug::lref_t Debug::clear(){
 			_text.clear();
 			return *this;
@@ -84,5 +100,5 @@ namespace gc{
 			return result;
 		}
 	}
-	extern priv::Debug debug; 
+	extern priv::Debug debug;
 }//namespace gc

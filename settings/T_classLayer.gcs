@@ -6,6 +6,7 @@ Class:Layer:Declaration
 		#SceneName# & scene;
 		#ObjectVariables#
 		#ComponentsVariables#
+		#ClassName# & self;
 	public:
 		#ClassName#(#SceneName# &);
 		~#ClassName#();
@@ -13,6 +14,8 @@ Class:Layer:Declaration
 		void onStart();
 		void onUpdate(const float & dt);
 		#ComponentsMethodsDeclaration#
+		template<class F>
+		void foreach(F &&);
 		template<class T>
 		T & getObject();
 		template<class T>
@@ -29,7 +32,7 @@ Class:Layer:Implementation
 	#include "#SceneName#.h"
 	
 	#ClassName#::#ClassName#(#SceneName# & sc):
-		scene(sc) 
+		scene(sc), self(*this) 
 		#AdditionalConstructorList#
 		{
 		#ConstructorBody#
@@ -42,4 +45,8 @@ Class:Layer:Implementation
 	void #ClassName#::onUpdate(const float & dt){
 		#OnUpdate#
 	}
+	template<class F>
 	#ComponentsMethodsImplementation#
+	void #ClassName#::foreach(F && f){
+		#Foreach#
+	}

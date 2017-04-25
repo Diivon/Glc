@@ -2,7 +2,7 @@ Class:PhysicalObject:Declaration
 	class #SceneName#;
 	class #LayerName#;
 	class #ClassName# : public ::gc::ClassTraits<#ClassName#>{
-	//public:
+		friend class #LayerName#;
 		typedef #ClassName# this_t;
 		#ClassName# & self;
 		#SceneName# & scene;

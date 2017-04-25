@@ -10,15 +10,17 @@ methods:
 	}
 	void onUpdate(const float & dt){
 		//onUpdate called once per frame
-		//gc::debug << layer.getObject<Number2>().collider.isCollide(self.collider);
 		distance = (pos - layer.getObject<Number2>().pos).getLength();
-		gc::debug::log.
+		gc::debug.
 		clear()
 		.write(distance)
 		.newLine()
-		.write(layer.getObject<Number2>().collider.isCollide(self.collider));
+		.write(layer.getObject<Number2>().collider.isCollide(self.collider))
+		.write(self.collider.getPosition())
+		.write(' ')
+		.write(self.collider.getSize());
 		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Space))
-			gc::debug::log
+			gc::debug
 			.newLine()
 			.write( (scene.getLayer<Layer1>().getObject<PhysicalObject2>().pos - pos).getLength() );
 	}
@@ -30,4 +32,4 @@ constructors:
 constructor_body:
 	//this code will be runned when constructor of object will be called
 	//use it for primary initialization only!!!
-	gc::debug::log.write("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+	gc::debug.write("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");

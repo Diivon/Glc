@@ -27,10 +27,8 @@ namespace gc
 		Event<lref_t> _onStop;
 		Event<lref_t> _onPause;
 	public:
-		//constructors		
+		//constructors
 		inline this_t() noexcept;
-		inline lref_t 	addFrame(SpriteFrame::c_lref_t);
-		inline lref_t 	addFrame(SpriteFrame::rref_t);
 		template<class ... Args>
 		inline lref_t 	emplaceFrame(Args ...);
 

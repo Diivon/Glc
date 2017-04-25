@@ -26,8 +26,8 @@ namespace gc
 		const BasicStringSlice<T> toSlice() const noexcept;
 		const char * const 		c_string() const noexcept;
 
-		Optional<Size_t> getIndexOf(priv::first_t<T> &&) const noexcept;
-		Optional<Size_t> getIndexOf(priv::last_t<T> &&) const noexcept;
+		Optional<Size_t> getIndexOf(sh::priv::first_t<T> &&) const noexcept;
+		Optional<Size_t> getIndexOf(sh::priv::last_t<T> &&) const noexcept;
 		const Size_t 			getCountOf(T) const noexcept;
 		template<class Y>
 		const Bool 				isContain(Y &&) const noexcept;
@@ -41,35 +41,36 @@ namespace gc
 		const Bool 				operator == (c_lref_t) const noexcept;
 		const Bool 				operator != (c_lref_t) const noexcept;
 
-		Optional<BasicStringSlice<T>> getSubstring(priv::to_t<int>) const noexcept;
-		Optional<BasicStringSlice<T>> getSubstring(priv::from_t<int>) const noexcept;
-		Optional<BasicStringSlice<T>> getSubstring(priv::from_t<int>, priv::to_t<int>) const noexcept;
+		Optional<BasicStringSlice<T>> getSubstring(sh::priv::to_t<int>) const noexcept;
+		Optional<BasicStringSlice<T>> getSubstring(sh::priv::from_t<int>) const noexcept;
+		Optional<BasicStringSlice<T>> getSubstring(sh::priv::from_t<int>, sh::priv::to_t<int>) const noexcept;
 		//--------------
-		Optional<BasicStringSlice<T>> getSubstring(priv::to_t<Int> to) const noexcept{return this->getSubstring(priv::to_t<int>{to.value});}
-		Optional<BasicStringSlice<T>> getSubstring(priv::from_t<Int> from) const noexcept{return this->getSubstring(priv::from_t<int>{from.value});}
-		Optional<BasicStringSlice<T>> getSubstring(priv::from_t<Int> from, priv::to_t<Int> to) const noexcept{return this->getSubstring(priv::from_t<int>{from.value}, priv::to_t<int>{to.value});}
+		Optional<BasicStringSlice<T>> getSubstring(sh::priv::to_t<Int> to) const noexcept{return this->getSubstring(sh::priv::to_t<int>{to.value});}
+		Optional<BasicStringSlice<T>> getSubstring(sh::priv::from_t<Int> from) const noexcept{return this->getSubstring(sh::priv::from_t<int>{from.value});}
+		Optional<BasicStringSlice<T>> getSubstring(sh::priv::from_t<Int> from, sh::priv::to_t<Int> to) const noexcept{return this->getSubstring(sh::priv::from_t<int>{from.value}, sh::priv::to_t<int>{to.value});}
 		//--------------
-		Optional<BasicStringSlice<T>> getSubstring(priv::to_t<size_t>) const noexcept;
-		Optional<BasicStringSlice<T>> getSubstring(priv::from_t<size_t>) const noexcept;
-		Optional<BasicStringSlice<T>> getSubstring(priv::from_t<size_t>, priv::to_t<size_t>) const noexcept;
+		Optional<BasicStringSlice<T>> getSubstring(sh::priv::to_t<size_t>) const noexcept;
+		Optional<BasicStringSlice<T>> getSubstring(sh::priv::from_t<size_t>) const noexcept;
+		Optional<BasicStringSlice<T>> getSubstring(sh::priv::from_t<size_t>, sh::priv::to_t<size_t>) const noexcept;
 		//--------------
-		Optional<BasicStringSlice<T>> getSubstring(priv::to_t<Size_t> to) const noexcept{return this->getSubstring(priv::to_t<size_t>{to.value});}
-		Optional<BasicStringSlice<T>> getSubstring(priv::from_t<Size_t> from) const noexcept{return this->getSubstring(priv::from_t<size_t>{from.value});}
-		Optional<BasicStringSlice<T>> getSubstring(priv::from_t<Size_t> from, priv::to_t<Size_t> to) const noexcept{return this->getSubstring(priv::from_t<size_t>{from.value}, priv::to_t<size_t>{to.value});}
+		Optional<BasicStringSlice<T>> getSubstring(sh::priv::to_t<Size_t> to) const noexcept{return this->getSubstring(sh::priv::to_t<size_t>{to.value});}
+		Optional<BasicStringSlice<T>> getSubstring(sh::priv::from_t<Size_t> from) const noexcept{return this->getSubstring(sh::priv::from_t<size_t>{from.value});}
+		Optional<BasicStringSlice<T>> getSubstring(sh::priv::from_t<Size_t> from, sh::priv::to_t<Size_t> to) const noexcept{return this->getSubstring(sh::priv::from_t<size_t>{from.value}, sh::priv::to_t<size_t>{to.value});}
 		//--------------
-		Optional<BasicStringSlice<T>> getSubstring(priv::fromFirst_t<T>) const noexcept;
-		Optional<BasicStringSlice<T>> getSubstring(priv::fromLast_t<T>) const noexcept;
-		Optional<BasicStringSlice<T>> getSubstring(priv::toFirst_t<T>) const noexcept;
-		Optional<BasicStringSlice<T>> getSubstring(priv::toLast_t<T>) const noexcept;
-		Optional<BasicStringSlice<T>> getSubstring(priv::fromFirst_t<T>, priv::toFirst_t<T>) const noexcept;
-		Optional<BasicStringSlice<T>> getSubstring(priv::fromLast_t<T>, priv::toFirst_t<T>) const noexcept;
-		Optional<BasicStringSlice<T>> getSubstring(priv::fromFirst_t<T>, priv::toLast_t<T>) const noexcept;
-		Optional<BasicStringSlice<T>> getSubstring(priv::fromLast_t<T>, priv::toLast_t<T>) const noexcept;
+		Optional<BasicStringSlice<T>> getSubstring(sh::priv::fromFirst_t<T>) const noexcept;
+		Optional<BasicStringSlice<T>> getSubstring(sh::priv::fromLast_t<T>) const noexcept;
+		Optional<BasicStringSlice<T>> getSubstring(sh::priv::toFirst_t<T>) const noexcept;
+		Optional<BasicStringSlice<T>> getSubstring(sh::priv::toLast_t<T>) const noexcept;
+		Optional<BasicStringSlice<T>> getSubstring(sh::priv::fromFirst_t<T>, sh::priv::toFirst_t<T>) const noexcept;
+		Optional<BasicStringSlice<T>> getSubstring(sh::priv::fromLast_t<T>, sh::priv::toFirst_t<T>) const noexcept;
+		Optional<BasicStringSlice<T>> getSubstring(sh::priv::fromFirst_t<T>, sh::priv::toLast_t<T>) const noexcept;
+		Optional<BasicStringSlice<T>> getSubstring(sh::priv::fromLast_t<T>, sh::priv::toLast_t<T>) const noexcept;
 		
 		template<template<class Y> class C>
 		C<T> 					split()const;
 		std::pair<BasicStringSlice<T>, BasicStringSlice<T>> spiltAt(size_t)const;
-		std::pair<BasicStringSlice<T>, BasicStringSlice<T>> spiltAt(priv::first_t<T>)const;
+		std::pair<BasicStringSlice<T>, BasicStringSlice<T>> spiltAt(sh::priv::first_t<T>)const;
+		std::pair<BasicStringSlice<T>, BasicStringSlice<T>> spiltAt(sh::priv::last_t<T>)const;
 		BasicStringSlice<T> 	trim() const noexcept;
 		BasicStringSlice<T> 	trimBegin() const noexcept;
 		BasicStringSlice<T> 	trimEnd() const noexcept;
@@ -77,12 +78,12 @@ namespace gc
 		template<class Y>
 		Optional<Y> as() const {return _AsHelper<Y>::get(*this);}
 		template<template<class I, class A>class C>
-		auto as(){return priv::BasicStringMake2<T, C>::get(*this);}
+		auto as(){return sh::priv::BasicStringMake2<T, C>::get(*this);}
 		template<template<class I>class C>
-		auto as() {return priv::BasicStringMake1<T, C>::get(*this);}
+		auto as() {return sh::priv::BasicStringMake1<T, C>::get(*this);}
 
 		inline rref_t move() noexcept {return std::move(*this);}
-	private: 
+		private: 
 		memory::Slice _data;
 		//friends
 		template<class I, template<class T, class A> class C>
@@ -125,8 +126,8 @@ namespace gc
 		#undef REGISTER_SIGNED_AS_HELPER
 		#undef REGISTER_UNSIGNED_AS_HELPER
 
-		T * _getPtrTo(priv::first_t<T>) const noexcept;
-		T * _getPtrTo(priv::last_t<T>) const noexcept;
+		T * _getPtrTo(sh::priv::first_t<T>) const noexcept;
+		T * _getPtrTo(sh::priv::last_t<T>) const noexcept;
 
 		class _Iter: public std::iterator<std::random_access_iterator_tag, T>{
 			T * _data;
@@ -217,7 +218,7 @@ namespace gc
 	//												const char * ctor
 	template<class T, class Alloc>
 	inline BasicString<T, Alloc>::BasicString(const T * ptr):
-		_data(Alloc::allocate(bytes(strlen(ptr) + 1)).unwrap())
+		_data(Alloc::allocate(sh::bytes(strlen(ptr) + 1)).unwrap())
 	{
 		auto diff = _data.getDifference();
 		strcpy_s(static_cast<char *>(_data.begin), diff, ptr);
@@ -225,14 +226,14 @@ namespace gc
 	//												const char *, size_t ctor
 	template<class T, class Alloc>
 	inline BasicString<T, Alloc>::BasicString(const T * ptr, size_t len):
-		_data(Alloc::allocate(bytes(len + 1)).unwrap())
+		_data(Alloc::allocate(sh::bytes(len + 1)).unwrap())
 	{
 		memcpy(_data.begin, ptr, len + 1);
 	}
 	//												copy ctor
 	template<class T, class Alloc>
 	inline BasicString<T, Alloc>::BasicString(typename BasicString<T, Alloc>::c_lref_t s):
-		_data(Alloc::allocate(bytes(s.getLength().as<size_t>() + 1)).unwrap())
+		_data(Alloc::allocate(sh::bytes(s.getLength().as<size_t>() + 1)).unwrap())
 	{
 		T * ptr = static_cast<T *>(_data.begin);
 		for(T * i = static_cast<T *>(s._data.begin); i <= s._data.end; ++i, ++ptr)
@@ -274,14 +275,14 @@ namespace gc
 		return static_cast<const char * const>(_data.begin);
 	}
 	template<class T, class Alloc>
-	inline Optional<Size_t> BasicString<T, Alloc>::getIndexOf(priv::first_t<T> && t) const noexcept{
+	inline Optional<Size_t> BasicString<T, Alloc>::getIndexOf(sh::priv::first_t<T> && t) const noexcept{
 		for (T * i = static_cast<T *>(_data.begin); i < _data.end; ++i)
 			if (*i == t.value)
 				return i - static_cast<T *>(_data.begin);
 		return std::invalid_argument(std::to_string(t.value));
 	}
 	template<class T, class Alloc>
-	inline Optional<Size_t> BasicString<T, Alloc>::getIndexOf(priv::last_t<T> && t) const noexcept{
+	inline Optional<Size_t> BasicString<T, Alloc>::getIndexOf(sh::priv::last_t<T> && t) const noexcept{
 		for (T * i = static_cast<T *>(_data.end); i > _data.begin; --i)
 			if (*i == t.value)
 				return i - static_cast<T *>(_data.begin);
@@ -342,21 +343,21 @@ namespace gc
 	//|                             Get SubBasicString Area                                            |
 	//+-------------------------------------------------------------------------------------------+
 	template<class T, class Alloc>
-	T * BasicString<T, Alloc>::_getPtrTo(priv::first_t<T> first) const noexcept{
+	T * BasicString<T, Alloc>::_getPtrTo(sh::priv::first_t<T> first) const noexcept{
 		for (T * i = static_cast<T *>(_data.begin); *i; ++i)//while not BasicString terminator
 			if (*i == first.value)
 				return i;
 		return nullptr;
 	}
 	template<class T, class Alloc>
-	T * BasicString<T, Alloc>::_getPtrTo(priv::last_t<T> last) const noexcept{
+	T * BasicString<T, Alloc>::_getPtrTo(sh::priv::last_t<T> last) const noexcept{
 		for (T * i = static_cast<T *>(_data.end); i >= _data.begin; --i)
 			if (*i == last.value)
 				return i;
 		return nullptr;
 	}
 	template<class T, class Alloc>
-	inline Optional<BasicStringSlice<T>> BasicString<T, Alloc>::getSubstring(priv::to_t<int> to) const noexcept {
+	inline Optional<BasicStringSlice<T>> BasicString<T, Alloc>::getSubstring(sh::priv::to_t<int> to) const noexcept {
 		int len = this->getLength().as<int>();
 		int minusLen = this->getLength().as<int>() * -1;
 		if (to.value > len || to.value < minusLen)
@@ -368,7 +369,7 @@ namespace gc
 			return BasicStringSlice<T>(_data.begin, static_cast<T *>(_data.end) + to.value - 1);
 	}
 	template<class T, class Alloc>
-	inline Optional<BasicStringSlice<T>> BasicString<T, Alloc>::getSubstring(priv::from_t<int> from) const noexcept {
+	inline Optional<BasicStringSlice<T>> BasicString<T, Alloc>::getSubstring(sh::priv::from_t<int> from) const noexcept {
 		int len = this->getLength().as<int>();
 		int minusLen = this->getLength().as<int>() * -1;
 		if (from.value > len || from.value < minusLen)
@@ -380,7 +381,7 @@ namespace gc
 			return BasicStringSlice<T>(static_cast<T *>(_data.end) - 1 + from.value, static_cast<T *>(_data.end) - 2);
 	}
 	template<class T, class Alloc>
-	inline Optional<BasicStringSlice<T>> BasicString<T, Alloc>::getSubstring(priv::from_t<int> from, priv::to_t<int> to) const noexcept {
+	inline Optional<BasicStringSlice<T>> BasicString<T, Alloc>::getSubstring(sh::priv::from_t<int> from, sh::priv::to_t<int> to) const noexcept {
 		int len = this->getLength().as<int>();
 		int minusLen = this->getLength().as<int>() * -1;
 		if (from.value > len || from.value < minusLen)
@@ -401,61 +402,61 @@ namespace gc
 		return result;
 	}
 	template<class T, class Alloc>
-	Optional<BasicStringSlice<T>> BasicString<T, Alloc>::getSubstring(priv::fromFirst_t<T> from) const noexcept{
-		auto res = _getPtrTo(priv::first_t<T>{ from.value });
+	Optional<BasicStringSlice<T>> BasicString<T, Alloc>::getSubstring(sh::priv::fromFirst_t<T> from) const noexcept{
+		auto res = _getPtrTo(sh::priv::first_t<T>{ from.value });
 		if (res)
 			return BasicStringSlice<T>(res, static_cast<T *>(_data.end) - 1);
 		return std::invalid_argument(__FUNCTION__);
 	}
 	template<class T, class Alloc>
-	Optional<BasicStringSlice<T>> BasicString<T, Alloc>::getSubstring(priv::fromLast_t<T> from) const noexcept{
-		auto res = _getPtrTo(priv::last_t<T>{ from.value });
+	Optional<BasicStringSlice<T>> BasicString<T, Alloc>::getSubstring(sh::priv::fromLast_t<T> from) const noexcept{
+		auto res = _getPtrTo(sh::priv::last_t<T>{ from.value });
 		if (res)
 			return BasicStringSlice<T>(res, static_cast<T *>(_data.end) - 1);
 		return std::invalid_argument(__FUNCTION__);
 	}
 	template<class T, class Alloc>
-	Optional<BasicStringSlice<T>> BasicString<T, Alloc>::getSubstring(priv::toFirst_t<T> to) const noexcept{
-		auto res = _getPtrTo(priv::first_t<T>{ to.value });
+	Optional<BasicStringSlice<T>> BasicString<T, Alloc>::getSubstring(sh::priv::toFirst_t<T> to) const noexcept{
+		auto res = _getPtrTo(sh::priv::first_t<T>{ to.value });
 		if (res)
 			return BasicStringSlice<T>(static_cast<T *>(_data.begin), res);
 		return std::invalid_argument(__FUNCTION__);
 	}
 	template<class T, class Alloc>
-	Optional<BasicStringSlice<T>> BasicString<T, Alloc>::getSubstring(priv::toLast_t<T> to) const noexcept{
-		auto res = _getPtrTo(priv::last_t<T>{ to.value });
+	Optional<BasicStringSlice<T>> BasicString<T, Alloc>::getSubstring(sh::priv::toLast_t<T> to) const noexcept{
+		auto res = _getPtrTo(sh::priv::last_t<T>{ to.value });
 		if (res)
 			return BasicStringSlice<T>(static_cast<T *>(_data.begin), res);
 		return std::invalid_argument(__FUNCTION__);
 	}
 	template<class T, class Alloc>
-	Optional<BasicStringSlice<T>> BasicString<T, Alloc>::getSubstring(priv::fromFirst_t<T> from, priv::toFirst_t<T> to) const noexcept{
-		auto fromRes = _getPtrTo(priv::first_t<T>{ from.value });
-		auto toRes =   _getPtrTo(priv::first_t<T>{ to.value });
+	Optional<BasicStringSlice<T>> BasicString<T, Alloc>::getSubstring(sh::priv::fromFirst_t<T> from, sh::priv::toFirst_t<T> to) const noexcept{
+		auto fromRes = _getPtrTo(sh::priv::first_t<T>{ from.value });
+		auto toRes =   _getPtrTo(sh::priv::first_t<T>{ to.value });
 		if (fromRes && toRes)
 			return BasicStringSlice<T>(fromRes, toRes);
 		return std::invalid_argument(__FUNCTION__);
 	}
 	template<class T, class Alloc>
-	Optional<BasicStringSlice<T>> BasicString<T, Alloc>::getSubstring(priv::fromLast_t<T> from, priv::toFirst_t<T> to) const noexcept{
-		auto fromRes = 	_getPtrTo(priv::last_t<T>{ from.value });
-		auto toRes = 	_getPtrTo(priv::first_t<T>{ to.value });
+	Optional<BasicStringSlice<T>> BasicString<T, Alloc>::getSubstring(sh::priv::fromLast_t<T> from, sh::priv::toFirst_t<T> to) const noexcept{
+		auto fromRes = 	_getPtrTo(sh::priv::last_t<T>{ from.value });
+		auto toRes = 	_getPtrTo(sh::priv::first_t<T>{ to.value });
 		if (fromRes && toRes)
 			return BasicStringSlice<T>(fromRes, toRes);
 		return std::invalid_argument(__FUNCTION__);
 	}
 	template<class T, class Alloc>
-	Optional<BasicStringSlice<T>> BasicString<T, Alloc>::getSubstring(priv::fromFirst_t<T> from, priv::toLast_t<T> to) const noexcept{
-		auto fromRes = 	_getPtrTo(priv::first_t<T>{ from.value });
-		auto toRes = 	_getPtrTo(priv::last_t<T>{ to.value });
+	Optional<BasicStringSlice<T>> BasicString<T, Alloc>::getSubstring(sh::priv::fromFirst_t<T> from, sh::priv::toLast_t<T> to) const noexcept{
+		auto fromRes = 	_getPtrTo(sh::priv::first_t<T>{ from.value });
+		auto toRes = 	_getPtrTo(sh::priv::last_t<T>{ to.value });
 		if (fromRes && toRes)
 			return BasicStringSlice<T>(fromRes, toRes);
 		return std::invalid_argument(__FUNCTION__);
 	}
 	template<class T, class Alloc>
-	Optional<BasicStringSlice<T>> BasicString<T, Alloc>::getSubstring(priv::fromLast_t<T> from, priv::toLast_t<T> to) const noexcept{
-		auto fromRes = 	_getPtrTo(priv::last_t<T>{ from.value });
-		auto toRes = 	_getPtrTo(priv::last_t<T>{ to.value });
+	Optional<BasicStringSlice<T>> BasicString<T, Alloc>::getSubstring(sh::priv::fromLast_t<T> from, sh::priv::toLast_t<T> to) const noexcept{
+		auto fromRes = 	_getPtrTo(sh::priv::last_t<T>{ from.value });
+		auto toRes = 	_getPtrTo(sh::priv::last_t<T>{ to.value });
 		if (fromRes && toRes)
 			return BasicStringSlice<T>(fromRes, toRes);
 		return std::invalid_argument(__FUNCTION__);

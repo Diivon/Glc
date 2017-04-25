@@ -12,6 +12,14 @@ methods:
 	void onUpdate(const float & dt){
 		if (_count == 2)
 			layer.isDone = true;
+		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::I))
+			--pos.y;
+		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::K))
+			++pos.y;
+		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::J))
+			--pos.x;
+		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::L))
+			++pos.x;
 	}
 	void kek(Number1 & a){
 		if(a.pos.x > pos.x)

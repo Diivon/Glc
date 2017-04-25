@@ -17,7 +17,6 @@ namespace gc
 		inline static bool isKeyPressed(Key key){
 			return sf::Keyboard::isKeyPressed(static_cast<sf::Keyboard::Key>(static_cast<int>(key)));
 		}
-
 		enum Key{
 			Unknown = -1,
 			A = 0,

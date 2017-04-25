@@ -9,9 +9,9 @@ namespace gc{
 	class StackAllocator {
 	public:
 		StackAllocator();
-		Optional<memory::Slice> allocate(priv::bytes_t) noexcept;
+		Optional<memory::Slice> allocate(sh::priv::bytes_t) noexcept;
 		bool deallocate(const memory::Slice &) noexcept;
-		memory::Slice _alloc(priv::bytes_t) noexcept;
+		memory::Slice _alloc(sh::priv::bytes_t) noexcept;
 
 		bool isEmpty() const noexcept{
 			if (!_refCounter)
@@ -32,14 +32,14 @@ namespace gc{
 	}
 
 	template<size_t StackSize>
-	inline Optional<memory::Slice> StackAllocator<StackSize>::allocate(priv::bytes_t bs) noexcept{
+	inline Optional<memory::Slice> StackAllocator<StackSize>::allocate(sh::priv::bytes_t bs) noexcept{
 		auto res = _alloc(bs);
 		if (res.begin)
 			return res;
 		else return std::bad_alloc();
 	}
 	template<size_t StackSize>
-	memory::Slice StackAllocator<StackSize>::_alloc(priv::bytes_t bs) noexcept{
+	memory::Slice StackAllocator<StackSize>::_alloc(sh::priv::bytes_t bs) noexcept{
 		panicAssert(_ptr >= _data && _ptr <= &_data[StackSize - 1]);
 
 		size_t freeVolume = &_data[StackSize - 1] - _ptr;

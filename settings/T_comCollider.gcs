@@ -2,7 +2,7 @@ Com:Collider:Vars
 	typedef ::gc::Collider<#ColliderType#> #ColliderTypeName#;
 	#ColliderTypeName# #ColliderName#;
 Com:Collider:Constructor
-	#ColliderName#(#Pos#, #Size#)
+	#ColliderName#(pos, #Size#)
 Com:Collider:ConstructorBody
 Com:Collider:OnUpdate
 Com:Collider:OnStart

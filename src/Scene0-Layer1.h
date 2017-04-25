@@ -16,6 +16,7 @@ class Layer1 : public ::gc::ClassTraits<Layer1>{
 	;PhysicalObject2 ObjPhysicalObject2;
 	private:
 	;
+	Layer1 & self;
 	public:
 	Layer1(Scene0 &);
 	~Layer1();
@@ -23,6 +24,8 @@ class Layer1 : public ::gc::ClassTraits<Layer1>{
 	void onUpdate(const float & dt);
 	public:
 	private:
+	template<class F>
+	void foreach(F &&);
 	template<class T>
 	T & getObject();
 	template<class T>

@@ -11,7 +11,7 @@
 #include "Scene0.h"
 Number2::Number2(Scene0 & sc, Layer0 & lr):
 self(*this), pos(50, 100), scene(sc), layer(lr)
-, collider(::gc::Vec2(50,  100),  ::gc::Vec2(50,  50))
+, collider(pos,  ::gc::Vec2(50,  50))
 , animation()
 {
 	animation.emplaceFrame("resources\\n\\1.jpg", 500.00f);
@@ -30,6 +30,14 @@ void Number2::onStart(){
 void Number2::onUpdate(const float & dt){
 	if (_count == 2)
 	layer.isDone = true;
+	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::I))
+	--pos.y;
+	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::K))
+	++pos.y;
+	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::J))
+	--pos.x;
+	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::L))
+	++pos.x;
 	animation.update(dt);
 }
 const ::gc::Sprite Number2::getCurrentSprite() const{
@@ -37,6 +45,9 @@ const ::gc::Sprite Number2::getCurrentSprite() const{
 }
 ::gc::Sprite Number2::getCurrentSprite(){
 	return animation.getCurrentSprite();
+}
+::gc::Vec2 Number2::getPosition(){
+	return self.pos;
 }
 void Number2::kek(Number1 & a){if(a.pos.x > pos.x)
 	{
