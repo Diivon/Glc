@@ -11,16 +11,13 @@ namespace gc
 		sf::Texture _tex;
 		sf::Sprite _sprite;
 		Sprite() = delete;
+		Sprite(const Sprite &) = delete;
+		Sprite(Sprite &&) = delete;
+		void operator = (const Sprite &) = delete;
+		void operator = (Sprite &&) = delete;
 	public:
-		//Basis
-		inline Sprite(c_lref_t);
-		inline Sprite(rref_t);
-		inline c_lref_t operator = (c_lref_t);
-		inline c_lref_t operator = (rref_t);
-		//End Basis
-
 		inline Sprite(const std::string & fileName);
-		inline const ::sf::Sprite & getSfSprite() const noexcept;
+		inline ::sf::Sprite getSfSprite() const noexcept;
 
 		inline lref_t setPosition(Vec2::c_lref_t) noexcept;
 		inline lref_t setOrigin(Vec2::c_lref_t) noexcept;
@@ -30,24 +27,6 @@ namespace gc
 
 	};
 	/*--------------------------------------------------IMPLEMENTATION--------------------------------------------------------*/
-	//Basis
-	Sprite::Sprite(Sprite::c_lref_t s):
-		_tex(s._tex), _sprite(s._sprite)
-	{}
-	Sprite::Sprite(Sprite::rref_t s):
-		_tex(s._tex), _sprite(s._sprite)
-	{}
-	Sprite::c_lref_t Sprite::operator = (Sprite::c_lref_t s){
-		_tex = s._tex;
-		_sprite = s._sprite;
-		return *this;
-	}
-	Sprite::c_lref_t Sprite::operator = (Sprite::rref_t s){
-		_tex = s._tex;
-		_sprite = s._sprite;
-		return *this;
-	}
-	//End Basis
 	Sprite::Sprite(const std::string & file):
 		_tex(), _sprite()
 	{
@@ -55,7 +34,7 @@ namespace gc
 		_tex.loadFromMemory(v.data(), v.size());
 		_sprite.setTexture(_tex);
 	}
-	const ::sf::Sprite & Sprite::getSfSprite() const noexcept{
+	::sf::Sprite Sprite::getSfSprite() const noexcept{
 		return _sprite;
 	}
 

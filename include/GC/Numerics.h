@@ -109,3 +109,4 @@ typedef gc::priv::numeric_base<i64> I64;
 typedef gc::priv::numeric_base<int> Int;
 typedef gc::priv::numeric_base<size_t> Size_t;
 typedef gc::priv::Bool Bool;
+#undef ASSERT_INTEGRAL

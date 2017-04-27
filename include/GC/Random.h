@@ -3,8 +3,7 @@
 #include <ctime>
 #include <GC/Utils.h>
 
-namespace gc
-{
+namespace gc{
 	enum class Distribution{
 		Normal,
 		Float

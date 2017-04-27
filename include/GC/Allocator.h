@@ -19,11 +19,12 @@ namespace gc {
 		static StackAllocator<GC_FAST_ALLOCATION_AREA_SIZE> & _fast;
 		static ListAllocator<GC_SLOW_ALLOCATION_AREA_SIZE> & _slow;
 		static Mallocator & _other;
-	public:
-		template<AllocationType T = AllocationType::Default>
-		inline static Optional<memory::Slice> allocate(sh::priv::bytes_t);
 		template<AllocationType T>
-		inline static memory::Slice _alloc(sh::priv::bytes_t);
+		inline static memory::Slice _alloc(sh::priv::bytes_t) noexcept;
+	public:
+		//
+		template<AllocationType T = AllocationType::Default>
+		inline static Optional<memory::Slice> allocate(sh::priv::bytes_t) noexcept;
 		inline static bool deallocate(const memory::Slice &) noexcept;
 	};
 	template<>
@@ -84,7 +85,6 @@ namespace gc {
 		}
 		return std::bad_alloc();
 	}
-
 
 	inline bool Allocator::deallocate(const memory::Slice & blk) noexcept{
 		if (!blk.begin)
