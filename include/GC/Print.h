@@ -5,34 +5,39 @@
 
 namespace gc{	
 	namespace priv{
+		template<class T>
+		void print(const T & t){std::cout << t;}
 		struct printer{
 			printer() {}
 			template<class T, class Y, class ... Args>
-			void operator () (T && , Y &&, Args && ...);
-			template<class T>
-			void operator () (T &&);
-			void operator () (const gc::Vec2 & v){
-				std::cout << '{' << v.x << ", " << v.y << '}';
+			void operator () (const T & t, const Y & y, const Args & ... args){
+				print(t);
+				this->operator()(y, args ...);
 			}
-			void operator () ();
+			template<class T>
+			void operator () (const T & t){
+				print(t);
+			}
+			void operator () (){}
 		};
 		struct printLiner{
 			printLiner() {}
 			template<class T, class Y, class ... Args>
-			void operator () (T &&, Y &&, Args && ...);
-			template<class T>
-			void operator () (T &&);
-			void operator () (const gc::Vec2 & v){
-				std::cout << '{' << v.x << ", " << v.y << '}' << std::endl;
+			void operator () (const T & t,const Y & y,const Args & ... args){
+				print(t);
+				this->operator() (y, args ...);
 			}
-			void operator () ();
+			template<class T>
+			void operator () (T && t){
+				print(t);
+				std::cout << std::endl;
+			}
+			void operator () (){std::cout <<std::endl;}
 		};
 	}
-	extern priv::printer 	print;
-	extern priv::printLiner println;
 	template<class T>
-	void dump(T && t){
-		std::cout << "type: " << TypeName<T>::get() << ", " << "value: " << std::forward<T>(t);
+	void dump(const T & t){
+		print("type: ", TypeName<T>::get(), ", value: ", t);
 	}
 	template<class T>
 	struct TypeName
@@ -45,29 +50,7 @@ namespace gc{
 			return StringSlice(firstPtr, lastPtr);
 		}
 	};
-	//----------------IMPLEMENTATION-------------------------
-	namespace priv{
-		template<class T, class Y, class ... Args>
-		void printer::operator () (T && t, Y && y, Args && ... args){
-			std::cout << t;
-			this->operator() (std::forward<Y>(y), std::forward<Args>(args)...);
-		}
-		template<class T>
-		void printer::operator () (T && t){
-			std::cout << t;
-		}
-		inline void printer::operator () (){}
-		template<class T, class Y, class ... Args>
-		void priv::printLiner::operator () (T && t, Y && y, Args && ... args){
-			std::cout << t;
-			this->operator() (std::forward<Y>(y), std::forward<Args>(args)...);
-		}
-		template<class T>
-		void priv::printLiner::operator () (T && t){
-			std::cout << t << std::endl;
-		}
-		inline void priv::printLiner::operator () (){
-			std::cout << std::endl;
-		}
-	}
+	#define GC_SPECIALIZE_PRINT(_arg_type) template<> void ::gc::priv::print(##_arg_type##)
+	extern priv::printer 	print;
+	extern priv::printLiner println;
 }

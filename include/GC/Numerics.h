@@ -1,5 +1,6 @@
 #pragma once
 #include "GC/Utils.h"
+#include "GC/Optional.h"
 #include <limits>
 
 namespace gc{
@@ -83,19 +84,21 @@ namespace gc{
 		
 			//inline operator T() const noexcept{return _data;}
 			template<class Y>
-			Y as() const noexcept {return static_cast<Y>(_data);}
+			Optional<Y> as() const noexcept {return static_cast<Y>(_data);}
 			template<>
-			T as<T>() const noexcept {return _data;}
+			Optional<T> as<T>() const noexcept {return _data;}
+			template<>
+			Optional<std::string> as<std::string>() const noexcept {return std::to_string(_data);}
 
 			inline static const numeric_base<T> getMaxValue(){return std::numeric_limits<T>::max();}
 			friend std::ostream & operator << (std::ostream & s, numeric_base<T> const & n){
 				return s << n._data;
 			}
 			inline void print() const {
-				std::cout << _data;
+				gc::print(_data);
 			}
 			inline void debug() const{
-				gc::debug::log.write(_data);
+				gc::debug.write(_data);
 			}
 		};
 	}

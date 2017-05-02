@@ -46,7 +46,7 @@ namespace gc {
 			if (_success)
 				return std::move(_data);
 			else
-				debug::panic();
+				panic();
 		}
 		template<class Y>
 		T map(Y && y) const noexcept(noexcept(std::declval<Y>()(std::declval<std::exception>()))) {

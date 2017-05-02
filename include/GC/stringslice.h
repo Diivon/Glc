@@ -27,16 +27,6 @@ namespace gc{
 	private:
 	};
 	using StringSlice = BasicStringSlice<char>;
-	namespace priv{
-		template<class I, template<class T, class A> class C>
-		struct BasicStringMake2{
-			gc::Optional<C<I, void>> get();
-		};
-		template<class I, template<class T> class C>
-		struct BasicStringMake1{
-			gc::Optional<C<I>> get();
-		};
-	}
 	inline std::ostream & operator << (std::ostream & os, const BasicStringSlice<char> & sl){
 			if (!sl.isReversed())
 				for(const char * ptr = static_cast<decltype(ptr)>(sl._begin); ptr <= sl._end; ++ptr)

@@ -10,13 +10,29 @@
 
 namespace gc
 {
+	namespace priv{
+		template<class I, template<class T, class A> class C>
+		struct splitHelper{
+			gc::Optional<C<I, void>> get();
+		};
+		template<class I, template<class T, class A> class C>
+		struct BasicStringMake2{
+			gc::Optional<C<I, void>> get();
+		};
+		template<class I, template<class T> class C>
+		struct BasicStringMake1{
+			gc::Optional<C<I>> get();
+		};
+	}
 	template<class T, class Alloc>
 	class BasicString: public ClassTraits<BasicString<T, Alloc>>
 	{
+		using this_t = BasicString<T, Alloc>;
 	public:
 		BasicString();
 		BasicString(const T *);
 		BasicString(const T *, size_t);
+		BasicString(const T *, const T *);
 		BasicString(c_lref_t s);
 		BasicString(rref_t s) noexcept;
 		~BasicString() noexcept;
@@ -40,6 +56,9 @@ namespace gc
 			  T & 				operator [] (Size_t);
 		const Bool 				operator == (c_lref_t) const noexcept;
 		const Bool 				operator != (c_lref_t) const noexcept;
+		operator const char * () const noexcept{
+			return static_cast<T *>(_data.begin);
+		}
 
 		Optional<BasicStringSlice<T>> getSubstring(sh::priv::to_t<int>) const noexcept;
 		Optional<BasicStringSlice<T>> getSubstring(sh::priv::from_t<int>) const noexcept;
@@ -66,11 +85,15 @@ namespace gc
 		Optional<BasicStringSlice<T>> getSubstring(sh::priv::fromFirst_t<T>, sh::priv::toLast_t<T>) const noexcept;
 		Optional<BasicStringSlice<T>> getSubstring(sh::priv::fromLast_t<T>, sh::priv::toLast_t<T>) const noexcept;
 		
-		template<template<class Y> class C>
-		C<T> 					split()const;
-		std::pair<BasicStringSlice<T>, BasicStringSlice<T>> spiltAt(size_t)const;
-		std::pair<BasicStringSlice<T>, BasicStringSlice<T>> spiltAt(sh::priv::first_t<T>)const;
-		std::pair<BasicStringSlice<T>, BasicStringSlice<T>> spiltAt(sh::priv::last_t<T>)const;
+		template<template<class Y, class All> class C>
+		auto split(T delimiter) const noexcept{
+			return gc::priv::splitHelper<this_t, C>::get(*this, delimiter);
+		}
+		Optional<std::pair<this_t, this_t>> spiltAt(size_t) const;
+		Optional<std::pair<this_t, this_t>> spiltAt(sh::priv::first_t<T>)const;
+		Optional<std::pair<this_t, this_t>> spiltAt(sh::priv::last_t<T>)const;
+		Optional<std::pair<this_t, this_t>> spiltAt(sh::priv::first_t<T *>)const;
+		Optional<std::pair<this_t, this_t>> spiltAt(sh::priv::last_t<T *>)const;
 		BasicStringSlice<T> 	trim() const noexcept;
 		BasicStringSlice<T> 	trimBegin() const noexcept;
 		BasicStringSlice<T> 	trimEnd() const noexcept;
@@ -78,14 +101,16 @@ namespace gc
 		template<class Y>
 		Optional<Y> as() const {return _AsHelper<Y>::get(*this);}
 		template<template<class I, class A>class C>
-		auto as(){return sh::priv::BasicStringMake2<T, C>::get(*this);}
+		auto as(){return gc::priv::BasicStringMake2<T, C>::get(*this);}
 		template<template<class I>class C>
-		auto as() {return sh::priv::BasicStringMake1<T, C>::get(*this);}
+		auto as() {return gc::priv::BasicStringMake1<T, C>::get(*this);}
 
 		inline rref_t move() noexcept {return std::move(*this);}
 		private: 
 		memory::Slice _data;
 		//friends
+		template<class I, template<class T, class A> class C>
+		friend struct priv::splitHelper;
 		template<class I, template<class T, class A> class C>
 		friend struct priv::BasicStringMake2;
 		template<class I, template<class T> class C>
@@ -95,25 +120,8 @@ namespace gc
 		struct _AsHelper {
 			inline static Y get(BasicString<T, Alloc> const &);
 		};
-		#define REGISTER_SIGNED_AS_HELPER(_arg_type_)\
-		template<>\
-		struct _AsHelper<_arg_type_> {\
-			static inline Optional<_arg_type_> get(BasicString<T, Alloc> const & str) {\
-				IF_FAIL( return _arg_type_(std::stoi(static_cast<T *>(str._data.begin))) ){\
-					return fail_exception;\
-				}\
-			}\
-		};
-
-		#define REGISTER_UNSIGNED_AS_HELPER(_arg_type_)\
-		template<>\
-		struct _AsHelper<_arg_type_> {\
-			static inline Optional<_arg_type_> get(BasicString<T, Alloc> const & str) {\
-				IF_FAIL( _arg_type_(std::stoul(static_cast<char *>(str._data.begin))) ){\
-					return fail_exception;\
-				}\
-			}\
-		};
+		#define REGISTER_SIGNED_AS_HELPER(_arg_type_)template<>struct _AsHelper<_arg_type_> {static inline Optional<_arg_type_> get(BasicString<T, Alloc> const & str) {IF_FAIL( return _arg_type_(std::stoi(static_cast<T *>(str._data.begin))) ){return fail_exception;}}};
+		#define REGISTER_UNSIGNED_AS_HELPER(_arg_type_)template<>struct _AsHelper<_arg_type_> {static inline Optional<_arg_type_> get(BasicString<T, Alloc> const & str) {IF_FAIL( _arg_type_(std::stoul(static_cast<char *>(str._data.begin))) ){return fail_exception;}}};
 
 		REGISTER_SIGNED_AS_HELPER(I16)
 		REGISTER_SIGNED_AS_HELPER(I32)
@@ -172,6 +180,30 @@ namespace gc
 	};
 	namespace priv{
 		template<class T>
+		struct splitHelper<T, std::vector>{
+			template<class Y>
+			static inline gc::Optional<std::vector<T>> get(const T & s, const Y & delimiter){
+				try{
+					std::vector<T> result;
+					const auto * str = s._data.begin;
+					do
+					{
+						const char * begin = static_cast<const char *>(str);
+						while ( *str != delimiter && *str )
+						{
+							str++;
+						}
+						result.push_back( T( begin, str ));
+					} while ( 0 != *str++ );
+					return result;
+				}
+				catch(std::exception & e){
+					return e;
+				}
+			}
+		};
+
+		template<class T>
 		struct BasicStringMake1<T, gc::BasicStringSlice> {
 			template<class Y>
 			static inline gc::Optional<gc::BasicStringSlice<T>> get(Y const & s) {
@@ -229,6 +261,13 @@ namespace gc
 		_data(Alloc::allocate(sh::bytes(len + 1)).unwrap())
 	{
 		memcpy(_data.begin, ptr, len + 1);
+	}
+	//												const char *, T * ctor
+	template<class T, class Alloc>
+	inline BasicString<T, Alloc>::BasicString(const T * ptr, const T * end):
+		_data(Alloc::allocate(sh::bytes(end - ptr)).unwrap())
+	{
+		memcpy(_data.begin, ptr, _data.getDifference());
 	}
 	//												copy ctor
 	template<class T, class Alloc>
@@ -463,9 +502,8 @@ namespace gc
 	}
 	
 	//+-------------------------------------------------------------------------------------------+
-	//|                             Get SubBasicString Area End                                        |
+	//|                             Get SubBasicString Area End                                   |
 	//+-------------------------------------------------------------------------------------------+
-
 
 	template<class T, class Alloc>
 	inline BasicStringSlice<T> BasicString<T, Alloc>::trim() const noexcept{

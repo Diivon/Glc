@@ -31,7 +31,11 @@ namespace gc{
 		};
 	}
 	template<class T>
-	priv::OwnerIterator<T> iterateConsume(T && v){
+	priv::OwnerIterator<T> iterateConsume(Optional<T> && t) noexcept{
+		static_assert(false, "look like you forget to unwrap Optional");
+	}
+	template<class T>
+	priv::OwnerIterator<T> iterateConsume(T && v) noexcept{
 		//assertions
 			static_assert(
 				std::is_nothrow_move_constructible<T>::value,
@@ -60,7 +64,6 @@ namespace gc{
 			static_assert(
 				traits::container::is_has_typedef_size_type<T>::value, 
 				"iterateConsume argument must have 'size_type' typedef");
-
 		//end assertions
 		return priv::OwnerIterator<T>(std::move(v));
 	}
