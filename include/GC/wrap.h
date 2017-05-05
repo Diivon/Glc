@@ -55,16 +55,14 @@ namespace gc{
 		#define GC_REGISTER_STRING_WRAPPER_AS0_HELPER(_arg_type_, _func_name_)\
 		template<class T, class Tr, class All>struct StringWrapperAsHelper0<T, Tr, All, _arg_type_>{\
 			static inline Optional<_arg_type_> get(const std::basic_string<T, Tr, All> & str){\
-				IF_FAIL( return _func_name_(str) )\
-				{return fail_exception;}}}
+				IF_FAIL( return _func_name_(str) ){return fail_exception;}}}
 		#define GC_REGISTER_STRING_WRAPPER_AS2_HELPER(_arg_type_)\
 		template<class T, class Tr, class All>\
 		struct StringWrapperAsHelper2<T, Tr, All, _arg_type_>{\
 			template<class Y>static inline gc::Optional<_arg_type_<T>> get(Y const & s){\
 				try{_arg_type_<T> result;\
 					for (const auto & i : s) result.emplace_back(i);\
-					return result;\
-				}catch(std::exception & e){return e;}}}
+					return result;}catch(std::exception & e){return e;}}}
 		#define GC_REGISTER_STRING_WRAPPER_SPLIT_HELPER(_arg_type_)\
 		template<class T, class Tr, class All>\
 		struct StringWrapperSplitHelper<T, Tr, All, _arg_type_>{\
@@ -74,10 +72,7 @@ namespace gc{
 					do{	const char *begin = str;\
 						while ( *str != delimiter && *str )	str++;\
 						result.push_back( std::basic_string<T, Tr, All>( begin, str ));\
-					} while ( 0 != *str++ );\
-					return result;\
-				}\
-				catch(std::exception & e){return e;}}};
+					} while ( 0 != *str++ );return result;}catch(std::exception & e){return e;}}};
 
 		GC_REGISTER_STRING_WRAPPER_AS0_HELPER(float, 		std::stof);
 		GC_REGISTER_STRING_WRAPPER_AS0_HELPER(double, 		std::stod);
@@ -88,6 +83,15 @@ namespace gc{
 		GC_REGISTER_STRING_WRAPPER_AS0_HELPER(U16,			std::stoul);
 		GC_REGISTER_STRING_WRAPPER_AS0_HELPER(U32,			std::stoul);
 		GC_REGISTER_STRING_WRAPPER_AS0_HELPER(U64,			std::stoul);
+		GC_REGISTER_STRING_WRAPPER_AS0_HELPER(short, 		std::stoi);
+		GC_REGISTER_STRING_WRAPPER_AS0_HELPER(int, 			std::stoi);
+		GC_REGISTER_STRING_WRAPPER_AS0_HELPER(long, 		std::stoi);
+		GC_REGISTER_STRING_WRAPPER_AS0_HELPER(long long, 	std::stoi);
+		GC_REGISTER_STRING_WRAPPER_AS0_HELPER(unsigned short,std::stoul);
+		GC_REGISTER_STRING_WRAPPER_AS0_HELPER(unsigned int,	std::stoul);
+		GC_REGISTER_STRING_WRAPPER_AS0_HELPER(unsigned long,std::stoul);
+		GC_REGISTER_STRING_WRAPPER_AS0_HELPER(unsigned long long,std::stoul);
+
 		#ifdef _VECTOR_	
 			GC_REGISTER_STRING_WRAPPER_SPLIT_HELPER(std::vector);
 			GC_REGISTER_STRING_WRAPPER_AS2_HELPER(std::vector);

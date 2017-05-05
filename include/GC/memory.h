@@ -6,7 +6,26 @@ namespace gc{
 		{
 			void * begin;
 			void * end;
+			inline ptrdiff_t getByteDifference() const noexcept {
+				return static_cast<u8 *>(end) - static_cast<u8 *>(begin);
+			}
+			inline bool operator == (const Slice & other) const noexcept {
+				return begin == other.begin && end == other.end;
+			}
+			inline bool operator != (const Slice & other) const noexcept {
+				return begin != other.begin && end != other.end;
+			}
+			static Slice null;
+		};
+		template<class T>
+		struct RangeSlice
+		{
+			T * begin;
+			T * end;
 			inline ptrdiff_t getDifference() const noexcept {
+				return end - begin;
+			}
+			inline ptrdiff_t getByteDifference() const noexcept {
 				return static_cast<u8 *>(end) - static_cast<u8 *>(begin);
 			}
 			inline bool operator == (const Slice & other) const noexcept {

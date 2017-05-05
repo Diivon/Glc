@@ -14,7 +14,6 @@ self(*this), pos(50, 50), scene(sc), layer(lr)
 , distance(0), collider(pos,  ::gc::Vec2(50,  50))
 , sprite("resources\\n\\1.jpg")
 {
-	gc::debug.write("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 }
 Number1::~Number1(){
 }
@@ -51,12 +50,12 @@ void Number1::onUpdate(const float & dt){
 	.newLine()
 	.write( (scene.getLayer<Layer1>().getObject<PhysicalObject2>().pos - pos).getLength() );
 }
-const ::gc::Sprite Number1::getCurrentSprite() const{
+const ::gc::Sprite & Number1::getCurrentSprite() const{
 	return sprite;
 }
-::gc::Sprite Number1::getCurrentSprite(){
-	return sprite;
-}
-::gc::Vec2 Number1::getPosition(){
+::gc::Vec2 Number1::getPosition() const noexcept {
 	return self.pos;
+}
+::gc::Vec2 Number1::getSize() const noexcept{
+	return self.getCurrentSprite().getSize();
 }

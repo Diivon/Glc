@@ -10,6 +10,7 @@ methods:
 		elapsed = 0.0f;
 		_times = 0;
 		dir = ::gc::AnimationDirection::Forward;
+		
 	}
 	void onUpdate(const float & dt){
 		if (gc::Keyboard::isKeyPressed(gc::Keyboard::W))

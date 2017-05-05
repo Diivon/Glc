@@ -1,7 +1,7 @@
 #pragma once
 #include <iomanip>
 #include <sstream>
-#include "GC/Utils.h"
+#include "Utils.h"
 #include "SFML/Graphics.hpp"
 
 namespace gc{
@@ -26,6 +26,10 @@ namespace gc{
 			inline lref_t clear();
 			inline lref_t newLine();
 			inline const sf::Text getSFText() const;
+			template<class T>
+			void dump(const T & t){
+				print("type: ", TypeName<T>::get(), ", value: ", t);
+			}
 		};
 		template<class T, class ... Args>
 		inline Debug::lref_t Debug::write (T && t, Args && ... args){

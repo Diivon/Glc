@@ -1,7 +1,7 @@
 #pragma once
 #include <memory>
-#include "GC/Delegate.h"
-#include "GC/Utils.h"
+#include "Delegate.h"
+#include "Utils.h"
 
 //sorry, i just cannot comment this shit
 

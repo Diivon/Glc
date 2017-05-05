@@ -40,14 +40,14 @@ void Number2::onUpdate(const float & dt){
 	++pos.x;
 	animation.update(dt);
 }
-const ::gc::Sprite Number2::getCurrentSprite() const{
+const ::gc::Sprite & Number2::getCurrentSprite() const{
 	return animation.getCurrentSprite();
 }
-::gc::Sprite Number2::getCurrentSprite(){
-	return animation.getCurrentSprite();
-}
-::gc::Vec2 Number2::getPosition(){
+::gc::Vec2 Number2::getPosition() const noexcept {
 	return self.pos;
+}
+::gc::Vec2 Number2::getSize() const noexcept{
+	return self.getCurrentSprite().getSize();
 }
 void Number2::kek(Number1 & a){if(a.pos.x > pos.x)
 	{

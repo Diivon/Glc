@@ -15,6 +15,7 @@ void Layer0::onStart(){
 	ObjRenderableObject1.onStart();
 }
 void Layer0::onUpdate(const float & dt){
+	gc::println.dump(self.getObject<Number1>().getPosition());
 	ObjRenderableObject0.onUpdate(dt);
 	ObjRenderableObject1.onUpdate(dt);
 }
@@ -39,7 +40,6 @@ self(*this), pos(50, 50), scene(sc), layer(lr)
 , distance(0), collider(pos,  ::gc::Vec2(50,  50))
 , sprite("resources\\n\\1.jpg")
 {
-	gc::debug.write("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 }
 Number1::~Number1(){
 }
@@ -76,14 +76,14 @@ void Number1::onUpdate(const float & dt){
 	.newLine()
 	.write( (scene.getLayer<Layer1>().getObject<PhysicalObject2>().pos - pos).getLength() );
 }
-const ::gc::Sprite Number1::getCurrentSprite() const{
+const ::gc::Sprite & Number1::getCurrentSprite() const{
 	return sprite;
 }
-::gc::Sprite Number1::getCurrentSprite(){
-	return sprite;
-}
-::gc::Vec2 Number1::getPosition(){
+::gc::Vec2 Number1::getPosition() const noexcept {
 	return self.pos;
+}
+::gc::Vec2 Number1::getSize() const noexcept{
+	return self.getCurrentSprite().getSize();
 }
 #pragma once
 #include <string>
@@ -127,14 +127,14 @@ void Number2::onUpdate(const float & dt){
 	++pos.x;
 	animation.update(dt);
 }
-const ::gc::Sprite Number2::getCurrentSprite() const{
+const ::gc::Sprite & Number2::getCurrentSprite() const{
 	return animation.getCurrentSprite();
 }
-::gc::Sprite Number2::getCurrentSprite(){
-	return animation.getCurrentSprite();
-}
-::gc::Vec2 Number2::getPosition(){
+::gc::Vec2 Number2::getPosition() const noexcept {
 	return self.pos;
+}
+::gc::Vec2 Number2::getSize() const noexcept{
+	return self.getCurrentSprite().getSize();
 }
 void Number2::kek(Number1 & a){if(a.pos.x > pos.x)
 	{

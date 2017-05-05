@@ -31,16 +31,18 @@ class Number2 : public ::gc::ClassTraits<Number2>{
 	~Number2();
 	void onStart();
 	void onUpdate(const float & dt);
-	const ::gc::Sprite getCurrentSprite() const;
-	::gc::Sprite getCurrentSprite();
+	const ::gc::Sprite & getCurrentSprite() const;
 	public:
 	void kek(Number1 & a);
 	private:
 	public:
-	gc::Vec2 getPosition();
-	private:
-	Number2(const Number2 &) = delete;
-	Number2(Number2 &&) = delete;
-	void operator = (const Number2 &) = delete;
-	void operator = (Number2 &&) = delete;
-};
+	gc::Vec2 getPosition() const noexcept;
+	gc::Vec2 getSize() const noexcept;
+	lref_t	 moveOn(const gc::Vec2 & v)noexcept {pos += v;}
+		lref_t	 moveTo(const gc::Vec2 & v)noexcept {pos = v;}
+			private:
+			Number2(const Number2 &) = delete;
+			Number2(Number2 &&) = delete;
+			void operator = (const Number2 &) = delete;
+			void operator = (Number2 &&) = delete;
+		};

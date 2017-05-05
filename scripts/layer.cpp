@@ -12,5 +12,7 @@ methods:
 	}
 	void onUpdate(const float & dt){
 		//onUpdate called once per frame
+		gc::println.dump(self.getObject<Number1>().getPosition());
 	}
 	//else methods here
+constructor_body:

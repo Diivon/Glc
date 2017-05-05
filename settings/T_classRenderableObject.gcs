@@ -15,12 +15,11 @@ Class:RenderableObject:Declaration
 		~#ClassName#();
 		void onStart();
 		void onUpdate(const float & dt);
-		const ::gc::Sprite getCurrentSprite() const;
-		::gc::Sprite getCurrentSprite();
+		const ::gc::Sprite & getCurrentSprite() const;
 		#ComponentsMethods#
 	public:
-		gc::Vec2 getPosition()const noexcept {return pos;}
-		gc::Vec2 getSize()const noexcept {return getCurrentSprite().getSize();}
+		gc::Vec2 getPosition() const noexcept;
+		gc::Vec2 getSize() const noexcept;
 		lref_t	 moveOn(const gc::Vec2 & v)noexcept {pos += v;}
 		lref_t	 moveTo(const gc::Vec2 & v)noexcept {pos = v;}
 	private:
@@ -45,13 +44,13 @@ Class:RenderableObject:Implementation
 	void #ClassName#::onUpdate(const float & dt){
 		#OnUpdate#
 	}
-	const ::gc::Sprite #ClassName#::getCurrentSprite() const{
+	const ::gc::Sprite & #ClassName#::getCurrentSprite() const{
 		#GetCurrentSprite#
 	}
-	::gc::Sprite #ClassName#::getCurrentSprite(){
-		#GetCurrentSprite#
-	}
-	::gc::Vec2 #ClassName#::getPosition(){
+	::gc::Vec2 #ClassName#::getPosition() const noexcept {
 		return self.pos;
+	}
+	::gc::Vec2 #ClassName#::getSize() const noexcept{
+		return self.getCurrentSprite().getSize();
 	}
 	#ComponentsMethods#

@@ -1,7 +1,8 @@
-#include "GC/Utils.h"
-#include "GC/SpriteFrame.h"
-#include "GC/Numerics.h"
-#include "GC/Event.h"
+#pragma once
+#include "Utils.h"
+#include "SpriteFrame.h"
+#include "Numerics.h"
+#include "Event.h"
 
 namespace gc{
 	enum class AnimationType
@@ -111,7 +112,7 @@ namespace gc{
 	//--------------------------------implementation-----------------------------------------
 namespace gc{
 	namespace priv{
-		void _Animation_Update_Helper<AnimationType::Single>::update(Animation<AnimationType::Single> & a, float dt){
+		inline void _Animation_Update_Helper<AnimationType::Single>::update(Animation<AnimationType::Single> & a, float dt){
 			if(!a._isPlays) return;
 	
 			a._currentAnimationTime += dt;
@@ -130,7 +131,7 @@ namespace gc{
 			}
 			return;
 		}
-		void _Animation_Update_Helper<AnimationType::Cyclic>::update(Animation<AnimationType::Cyclic> & a, float dt){
+		inline void _Animation_Update_Helper<AnimationType::Cyclic>::update(Animation<AnimationType::Cyclic> & a, float dt){
 			if (!a._isPlays) return;
 	
 			a._currentAnimationTime += dt;
@@ -148,7 +149,7 @@ namespace gc{
 			}
 			return;
 		}
-		void _Animation_Update_Helper<AnimationType::PingPong>::update(Animation<AnimationType::PingPong> & a, float dt){
+		inline void _Animation_Update_Helper<AnimationType::PingPong>::update(Animation<AnimationType::PingPong> & a, float dt){
 			if(!a._isPlays) return;
 	
 			a._currentAnimationTime += dt;

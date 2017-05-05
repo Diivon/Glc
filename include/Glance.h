@@ -1,3 +1,4 @@
+#pragma once
 #include "GC/Vec2.h"
 #include "GC/Animation.h"
 #include "GC/Debug.h"
@@ -11,11 +12,9 @@
 #include "GC/Keyboard.h"
 #include "GC/Utils.h"
 #include "GC/Random.h"
-#include "GC/Allocator.h"
 #include "GC/Memory.h"
 #include "GC/SemanticHelpers.h"
 #include "GC/Numerics.h"
-//#include "GC/String.h"
 #include "GC/Wrap.h"
 #include "GC/Iterate.h"
 #include "GC/Print.h"

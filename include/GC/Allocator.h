@@ -1,13 +1,13 @@
 #pragma once
-#include "GC/Utils.h"
-#include "GC/Memory.h"
-#include "GC/SemanticHelpers.h"
-#include "GC/Settings.h"
-#include "GC/Optional.h"
+#include "Utils.h"
+#include "Memory.h"
+#include "SemanticHelpers.h"
+#include "Settings.h"
+#include "Optional.h"
 
-#include "GC/Allocator/StackAllocator.h"
-#include "GC/Allocator/ListAllocator.h"
-#include "GC/Allocator/Mallocator.h"
+#include "Allocator/StackAllocator.h"
+#include "Allocator/ListAllocator.h"
+#include "Allocator/Mallocator.h"
 
 namespace gc {
 	enum class AllocationType{

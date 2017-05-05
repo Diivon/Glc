@@ -1,6 +1,5 @@
 #pragma once
 #include <iostream>
-#include "GC/StringSlice.h"
 #include "GC/Vec2.h"
 
 namespace gc{	
@@ -19,6 +18,10 @@ namespace gc{
 				print(t);
 			}
 			void operator () (){}
+			template<class T>
+			void dump(const T & t){
+				this->operator()("type: ", TypeName<T>::get(), ", value: ", t);
+			}
 		};
 		struct printLiner{
 			printLiner() {}
@@ -33,24 +36,24 @@ namespace gc{
 				std::cout << std::endl;
 			}
 			void operator () (){std::cout <<std::endl;}
+			template<class T>
+			void dump(const T & t){
+				this->operator()("type: ", TypeName<T>::get(), ", value: ", t);
+			}
 		};
-	}
-	template<class T>
-	void dump(const T & t){
-		print("type: ", TypeName<T>::get(), ", value: ", t);
 	}
 	template<class T>
 	struct TypeName
 	{
-		inline static const StringSlice get(){
+		inline static const std::string get(){
 			static constexpr size_t FRONT_SIZE = sizeof("gc::TypeName<");
 			static constexpr size_t BACK_SIZE = sizeof(">::get");
 			static const char * firstPtr = __FUNCTION__ + FRONT_SIZE - 1;
-			static const char * lastPtr = __FUNCTION__ + sizeof(__FUNCTION__) - BACK_SIZE - 2;
-			return StringSlice(firstPtr, lastPtr);
+			static const char * lastPtr = __FUNCTION__ + sizeof(__FUNCTION__) - BACK_SIZE;
+			return std::string(firstPtr, lastPtr - firstPtr);
 		}
 	};
-	#define GC_SPECIALIZE_PRINT(_arg_type) template<> void ::gc::priv::print(##_arg_type##)
+	#define GC_SPECIALIZE_PRINT(_arg_type) template<> inline void ::gc::priv::print(##_arg_type##)
 	extern priv::printer 	print;
 	extern priv::printLiner println;
 }

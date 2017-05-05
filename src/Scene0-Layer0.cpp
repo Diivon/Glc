@@ -15,6 +15,7 @@ void Layer0::onStart(){
 	ObjRenderableObject1.onStart();
 }
 void Layer0::onUpdate(const float & dt){
+	gc::println.dump(self.getObject<Number1>().getPosition());
 	ObjRenderableObject0.onUpdate(dt);
 	ObjRenderableObject1.onUpdate(dt);
 }

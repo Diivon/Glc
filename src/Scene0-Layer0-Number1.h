@@ -33,15 +33,17 @@ class Number1 : public ::gc::ClassTraits<Number1>{
 	~Number1();
 	void onStart();
 	void onUpdate(const float & dt);
-	const ::gc::Sprite getCurrentSprite() const;
-	::gc::Sprite getCurrentSprite();
+	const ::gc::Sprite & getCurrentSprite() const;
 	public:
 	private:
 	public:
-	gc::Vec2 getPosition();
-	private:
-	Number1(const Number1 &) = delete;
-	Number1(Number1 &&) = delete;
-	void operator = (const Number1 &) = delete;
-	void operator = (Number1 &&) = delete;
-};
+	gc::Vec2 getPosition() const noexcept;
+	gc::Vec2 getSize() const noexcept;
+	lref_t	 moveOn(const gc::Vec2 & v)noexcept {pos += v;}
+		lref_t	 moveTo(const gc::Vec2 & v)noexcept {pos = v;}
+			private:
+			Number1(const Number1 &) = delete;
+			Number1(Number1 &&) = delete;
+			void operator = (const Number1 &) = delete;
+			void operator = (Number1 &&) = delete;
+		};

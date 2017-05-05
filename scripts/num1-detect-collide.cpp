@@ -32,4 +32,3 @@ constructors:
 constructor_body:
 	//this code will be runned when constructor of object will be called
 	//use it for primary initialization only!!!
-	gc::debug.write("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
