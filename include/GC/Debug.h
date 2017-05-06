@@ -7,7 +7,6 @@
 namespace gc{
 	namespace priv{
 		class Debug: public ClassTraits<Debug>{
-			static const sf::Font _font;
 			template<class T, class Y, class ... Args>
 			inline void _write_helper(T && t, Y && y, Args && ... args);
 			template<class T>
@@ -20,6 +19,7 @@ namespace gc{
 			inline lref_t _write(const gc::Vec2 &);
 			inline void _try_clear();
 		public:
+			static const sf::Font _font;
 			std::string _text;
 			template<class T, class ... Args>
 			inline lref_t write(T && t, Args && ...);

@@ -5,17 +5,7 @@
 namespace gc{
 	class Keyboard : public ClassTraits<Keyboard>
 	{
-		Keyboard() = delete;
-		this_t(c_lref_t) = delete;
-		this_t(rref_t) = delete;
-		void operator = (c_lref_t) = delete;
-		void operator = (rref_t) = delete;
-		~Keyboard() = delete;
 	public:
-		enum Key;
-		inline static bool isKeyPressed(Key key){
-			return sf::Keyboard::isKeyPressed(static_cast<sf::Keyboard::Key>(static_cast<int>(key)));
-		}
 		enum Key{
 			Unknown = -1,
 			A = 0,
@@ -27,6 +17,17 @@ namespace gc{
 			Numpad1,Numpad2,Numpad3,Numpad4,Numpad5,Numpad6,Numpad7,Numpad8,Numpad9,
 			F1,F2,F3,F4,F5,F6,F7,F8,F9,F10,F11,F12,F13,F14,F15,Pause,KeyCount
 		};
+		inline static bool isKeyPressed(Key key){
+			return sf::Keyboard::isKeyPressed(static_cast<sf::Keyboard::Key>(static_cast<int>(key)));
+		}
+		static const Event<Key> onKeyPressed;//when it's const no one else able to emit it
+	private:
+		Keyboard() = delete;
+		this_t(c_lref_t) = delete;
+		this_t(rref_t) = delete;
+		void operator = (c_lref_t) = delete;
+		void operator = (rref_t) = delete;
+		~Keyboard() = delete;
 	};
 
 }

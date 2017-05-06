@@ -18,6 +18,7 @@
 #include "GC/Wrap.h"
 #include "GC/Iterate.h"
 #include "GC/Print.h"
+#include "GC/Mouse.h"
 
 GC_SPECIALIZE_PRINT(const ::gc::Vec2 & v) {
 	gc::print("{x: ", v.x, ", y: ", v.y, "}");
