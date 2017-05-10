@@ -1,102 +1,113 @@
 #pragma once
 #include <iomanip>
 #include <sstream>
-#include "Utils.h"
+#include <list>
 #include "SFML/Graphics.hpp"
+#include "SFML/System/String.hpp"
+#include "Utils.h"
+#include "Settings.h"
+#include "Vec2.h"
 
 namespace gc{
 	namespace priv{
-		class Debug: public ClassTraits<Debug>{
-			template<class T, class Y, class ... Args>
-			inline void _write_helper(T && t, Y && y, Args && ... args);
-			template<class T>
-			inline void _write_helper(T && t);
-			inline lref_t _write(const char * const);
-			inline lref_t _write(bool);
-			inline lref_t _write(char);
-			inline lref_t _write(float);
-			inline lref_t _write(int);
-			inline lref_t _write(const gc::Vec2 &);
-			inline void _try_clear();
-		public:
-			static const sf::Font _font;
-			std::string _text;
-			template<class T, class ... Args>
-			inline lref_t write(T && t, Args && ...);
-			inline lref_t clear();
-			inline lref_t newLine();
-			inline const sf::Text getSFText() const;
-			template<class T>
-			void dump(const T & t){
-				print("type: ", TypeName<T>::get(), ", value: ", t);
-			}
-		};
-		template<class T, class ... Args>
-		inline Debug::lref_t Debug::write (T && t, Args && ... args){
-			_write_helper(std::forward<T>(t), std::forward<Args>(args)...);
-			return *this;
+		template<class T> 
+		inline void _user_write(sf::String & str, const T & t);
+		template<>
+		inline void _user_write(sf::String & str, const float & f){
+			str += std::to_string(f);
 		}
-		template<class T, class Y, class ... Args>
-		inline void Debug::_write_helper(T && t, Y && y, Args && ... args){
-			_write(std::forward<T>(t));
-			_write_helper(std::forward<Y>(y), std::forward<Args>(args)...);
+		template<>
+		inline void _user_write(sf::String & str, const ::gc::Vec2 & v){
+			str += "{x: ";
+			str += std::to_string(v.x);
+			str += ", y: ";
+			str += std::to_string(v.y);
+			str += '}';
+		}
+		class Debug{
+		public:
+			using this_string = sf::String;
+			std::list<this_string> _text;
+			size_t _lines_count;
+		private:
+			inline void _try_clear();
+			void _newLine();
+			this_string & _getCurrent();
+			template<class T> void _write(const T &);
+			template<class T, class Y, class ... Args> void _write(const T &, const Y &, const Args & ...);
+		public:
+			Debug();
+			template<class T> void dump(const T & t);
+
+			template<class T, class Y, class ... Args> 
+			Debug & log(const T &, const Y &, const Args & ...);
+			template<class T> 
+			Debug & log(const T &);
+			Debug & log();
+
+			const sf::Text getSFText() const;
+			static const sf::Font _font;
+		};
+		inline Debug::Debug():
+			_text(), _lines_count(0)
+		{
+			_text.emplace_back("awd");
+		}
+		//called once before we write things
+		inline void Debug::_try_clear(){
+			if (_text.size() == GC_DEBUG_MAX_LINES_COUNT)
+				_text.pop_front();
+		}
+		inline void Debug::_newLine(){
+			_text.emplace_back();
+			++_lines_count;
+		}
+		inline Debug::this_string & Debug::_getCurrent(){
+			return _text.back();
 		}
 		template<class T>
-		inline void Debug::_write_helper(T && t){
-			_write(std::forward<T>(t));
+		void Debug::_write(const T & t){
+			_user_write(_getCurrent(), t);
 		}
-		inline Debug::lref_t Debug::_write (bool b){
-			if (b)
-				_text += "true";
-			else _text += "false";
-			return *this;
+		template<class T, class Y, class ... Args>
+		void Debug::_write(const T & t, const Y & y, const Args & ... args){
+			_user_write(_getCurrent(), t);
+			_write(y, args ...);
 		}
-		inline void Debug::_try_clear (){
-			if (_text.size() > 50)
-				_text.clear();
-		}
-		inline Debug::lref_t Debug::_write (const char * const s){
+		inline Debug & Debug::log(){
 			_try_clear();
-			_text += s;
+			_newLine();
 			return *this;
 		}
-		inline Debug::lref_t Debug::_write (char s){
+		template<class T>
+		Debug & Debug::log(const T & t){
 			_try_clear();
-			_text += s;
+			_write(t);
+			_newLine();
 			return *this;
 		}
-		inline Debug::lref_t Debug::_write (float s){
+		template<class T, class Y, class ... Args> 
+		Debug & Debug::log(const T & t, const Y & y, const Args & ... args){
 			_try_clear();
-			std::stringstream stream;
-			stream << std::fixed << std::setprecision(2) << s;
-			_text += stream.str();
-			return *this;
-		}
-		inline Debug::lref_t Debug::_write (int s){
-			_try_clear();
-			_text += std::to_string(s);
-			return *this;
-		}
-		inline Debug::lref_t Debug::_write(const gc::Vec2 & v){
-			_try_clear();
-			_text += '{';
-			_text += std::to_string(v.x);
-			_text += ' ';
-			_text += std::to_string(v.y);
-			_text += '}';
-			return *this;
-		}
-		inline Debug::lref_t Debug::clear(){
-			_text.clear();
-			return *this;
-		}
-		inline Debug::lref_t Debug::newLine(){
-			_text += '\n'; 
+			_write(t);
+			_write(y, args ...);
+			_newLine();
 			return *this;
 		}
 		inline const sf::Text Debug::getSFText() const{
+			size_t capacity = 0;
+			for (const auto & i : _text)
+				capacity += i.getSize();		//calculate capacity
+			
+			std::string resultedString;
+			resultedString.reserve(capacity);
+
+			for (const auto & i : _text)
+				resultedString += (i);
+
 			sf::Text result;
-			result.setString(_text);
+			
+			result.setString(resultedString);
 			result.setFont(_font);
 			result.setOutlineColor(sf::Color::White);
 			result.setCharacterSize(20);
@@ -104,5 +115,6 @@ namespace gc{
 			return result;
 		}
 	}
+	#define GC_SPECIALIZE_DEBUG_LOG(_arg_type) inline void _user_write(sf::String & str, _arg_type)
 	extern priv::Debug debug;
 }//namespace gc

@@ -3,6 +3,7 @@
 #include "SpriteFrame.h"
 #include "Numerics.h"
 #include "Event.h"
+#include "Optional.h"
 
 namespace gc{
 	enum class AnimationType
@@ -47,7 +48,7 @@ namespace gc{
 
 		//get arguments, and emplace SpriteFrame in self
 		template<class ... Args>
-		Animation & emplaceFrame(Args && ... args);
+		Optional<Animation &> emplaceFrame(Args && ... args) noexcept;
 
 
 		//return true if animation is player right now
@@ -186,9 +187,11 @@ namespace gc{
 	{}
 	template<AnimationType T>
 	template<class ... Args>
-	Animation<T> & Animation<T>::emplaceFrame(Args && ... args){
-		_SFlist.emplace_back(std::forward<Args>(args)...);
-		return *this;
+	Optional<Animation<T> &> Animation<T>::emplaceFrame(Args && ... args) noexcept{
+		IF_FAIL(
+			_SFlist.emplace_back(std::forward<Args>(args)...);
+			return *this;
+		){return fail_exception;}
 	}
 	template<AnimationType T>
 	const Bool Animation<T>::isPlay() const noexcept{

@@ -20,6 +20,8 @@
 #include "GC/Print.h"
 #include "GC/Mouse.h"
 
+using namespace std::string_literals;
+
 GC_SPECIALIZE_PRINT(const ::gc::Vec2 & v) {
 	gc::print("{x: ", v.x, ", y: ", v.y, "}");
 }

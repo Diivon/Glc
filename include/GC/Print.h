@@ -5,7 +5,7 @@
 namespace gc{	
 	namespace priv{
 		template<class T>
-		void print(const T & t){std::cout << t;}
+		auto print(const T & t) -> void {std::cout << t;}
 		struct printer{
 			printer() {}
 			template<class T, class Y, class ... Args>
@@ -53,7 +53,7 @@ namespace gc{
 			return std::string(firstPtr, lastPtr - firstPtr);
 		}
 	};
-	#define GC_SPECIALIZE_PRINT(_arg_type) template<> inline void ::gc::priv::print(##_arg_type##)
+	#define GC_SPECIALIZE_PRINT(_arg_type) template<> inline auto ::gc::priv::print(_arg_type) -> void
 	extern priv::printer 	print;
 	extern priv::printLiner println;
 }
