@@ -56,22 +56,22 @@ namespace gc
 	template<>
 	class Collider<ColliderType::Circle>;
 	template<>
-	class Collider<ColliderType::Rectangle> : public gc::ClassTraits<Collider<ColliderType::Rectangle>>
+	class Collider<ColliderType::Rectangle>
 	{
 		const Vec2 & _pos;//left up corner;
 		Vec2 _size;//where x is width, and y is height
 	public:
-		inline this_t(const lref_t c);
-		inline this_t(rref_t c);
-		inline this_t(Vec2::c_lref_t pos, Vec2::c_lref_t size);
-		inline this_t(Vec2::c_lref_t pos, float width = 0, float height = 0);
-		inline Vec2::c_lref_t getPosition() const;
+		inline Collider(Collider const & c);
+		inline Collider(Collider && c);
+		inline Collider(Vec2 const & pos, Vec2 const & size);
+		inline Collider(Vec2 const & pos, float width = 0, float height = 0);
+		inline Vec2 const & getPosition() const;
 
-		inline Vec2::c_lref_t getSize() const { return _size; }
-		inline lref_t changeSize(Vec2::c_lref_t v);
-		inline lref_t changeSize(const float & dw, const float & dh);
-		inline lref_t setSize(Vec2::c_lref_t s);
-		inline lref_t setSize(const float & width, const float & height);
+		inline Vec2 const & getSize() const { return _size; }
+		inline Collider & changeSize(Vec2 const & v);
+		inline Collider & changeSize(const float & dw, const float & dh);
+		inline Collider & setSize(Vec2 const & s);
+		inline Collider & setSize(const float & width, const float & height);
 		inline const float getTopLevel() const;
 		inline const float getLowLevel() const;
 		inline const float getLeftLevel() const;
@@ -80,44 +80,41 @@ namespace gc
 		inline const Vec2 getLowLeftCorner() const;
 		inline const Vec2 getTopRightCorner() const;
 		inline const Vec2 getLowRightCorner() const;
-		inline const bool isCollide(const lref_t c) const;
+		inline const bool isCollide(const Collider & c) const;
 		inline const bool isCollide(const Collider<ColliderType::Circle> & a) const;
 	};
 	template<>
-	class Collider<ColliderType::Circle> : public ClassTraits<Collider<ColliderType::Circle>>
+	class Collider<ColliderType::Circle>
 	{
 		const Vec2 & _pos;
 		float _radius;
 	public:
-		inline this_t(c_lref_t c);
-		inline this_t(rref_t c);
-		inline this_t(Vec2::c_lref_t pos, const float & radius = 0.0f);
+		inline Collider(Collider const & c);
+		inline Collider(Collider && c);
+		inline Collider(Vec2 const & pos, const float & radius = 0.0f);
 
-		inline Vec2::c_lref_t getPosition() const;
+		inline Vec2 const & getPosition() const;
 
 		inline const float & getRadius() const;
-		inline lref_t changeRadius(const float & dr);
-		inline lref_t setRadius(const float & r);
+		inline Collider & changeRadius(const float & dr);
+		inline Collider & setRadius(const float & r);
 		inline const float getTopLevel();
 		inline const float getLowLevel();
 		inline const float getLeftLevel();
 		inline const float getRightLevel();
-		inline const bool isCollide(c_lref_t a) const;
-		inline const bool isCollide(Collider<ColliderType::Rectangle>::c_lref_t a) const;
+		inline const bool isCollide(Collider const & a) const;
+		inline const bool isCollide(Collider<ColliderType::Rectangle> const & a) const;
 	};
 
 	/*--------------------------------------------------IMPLEMENTATION--------------------------------------------------------*/
 
-	
-#pragma region GC_COLLIDER_RECT_REGION
-	#define GC_COLLIDER_RECT Collider<ColliderType::Rectangle>
-	GC_COLLIDER_RECT::Collider(const lref_t c) :
+	Collider<ColliderType::Rectangle>::Collider(const Collider<ColliderType::Rectangle> & c) :
 		_pos(c._pos), _size(c._size)
 	{}
-	GC_COLLIDER_RECT::Collider(rref_t c):
-		this_t(c)
+	Collider<ColliderType::Rectangle>::Collider(Collider<ColliderType::Rectangle> && c):
+		Collider(c)
 	{}
-	GC_COLLIDER_RECT::Collider(Vec2::c_lref_t pos, Vec2::c_lref_t size) :
+	Collider<ColliderType::Rectangle>::Collider(Vec2 const & pos, Vec2 const & size) :
 		_pos(pos), _size(size)
 	{
 		#ifndef GC_COLLIDER_RECT_NEGATIVE_SIZE_ENABLE
@@ -125,7 +122,7 @@ namespace gc
 				throw 228;
 		#endif
 	}
-	GC_COLLIDER_RECT::Collider(Vec2::c_lref_t pos, float width, float height) :
+	Collider<ColliderType::Rectangle>::Collider(Vec2 const & pos, float width, float height) :
 		_pos(pos), _size(width, height)
 	{
 		#ifndef GC_COLLIDER_RECT_NEGATIVE_SIZE_ENABLE
@@ -133,62 +130,62 @@ namespace gc
 				throw 228;
 		#endif
 	}
-	Vec2::c_lref_t GC_COLLIDER_RECT::getPosition() const {
+	Vec2 const & Collider<ColliderType::Rectangle>::getPosition() const {
 		return _pos; 
 	}
-	GC_COLLIDER_RECT::lref_t GC_COLLIDER_RECT::changeSize(Vec2::c_lref_t v) { 
+	Collider<ColliderType::Rectangle> & Collider<ColliderType::Rectangle>::changeSize(Vec2 const & v) { 
 		_size += v; return *this; 
 	}
-	GC_COLLIDER_RECT::lref_t GC_COLLIDER_RECT::changeSize(const float & dw, const float & dh) {
+	Collider<ColliderType::Rectangle> & Collider<ColliderType::Rectangle>::changeSize(const float & dw, const float & dh) {
 		_size.x += dw; _size.y += dh; return *this;
 	}
-	GC_COLLIDER_RECT::lref_t GC_COLLIDER_RECT::setSize(Vec2::c_lref_t s) {
+	Collider<ColliderType::Rectangle> & Collider<ColliderType::Rectangle>::setSize(Vec2 const & s) {
 		_size = s; return *this; 
 	}
-	GC_COLLIDER_RECT::lref_t GC_COLLIDER_RECT::setSize(const float & width, const float & height) { 
+	Collider<ColliderType::Rectangle> & Collider<ColliderType::Rectangle>::setSize(const float & width, const float & height) { 
 		_size.x = width; _size.y = height; return *this; 
 	}
-	const float GC_COLLIDER_RECT::getTopLevel() const	{
+	const float Collider<ColliderType::Rectangle>::getTopLevel() const	{
 		#ifdef GC_COLLIDER_RECT_NEGATIVE_SIZE_ENABLE
 			return (_size.y > 0 ? _pos.y : _pos.y + _size.y);
 		#else
 			return _pos.y;
 		#endif
 	}
-	const float GC_COLLIDER_RECT::getLowLevel() const	{
+	const float Collider<ColliderType::Rectangle>::getLowLevel() const	{
 		#ifdef GC_COLLIDER_RECT_NEGATIVE_SIZE_ENABLE
 			return (_size.y > 0 ? _pos.y + _size.y : _pos.y);//just inverted
 		#else
 			return _pos.y + _size.y;
 		#endif
 	}
-	const float GC_COLLIDER_RECT::getLeftLevel() const	{
+	const float Collider<ColliderType::Rectangle>::getLeftLevel() const	{
 		#ifdef GC_COLLIDER_RECT_NEGATIVE_SIZE_ENABLE
 			return (_size.x > 0 ? _pos.x : _pos.x + _size.x);
 		#else
 			return _pos.x;
 		#endif
 	}
-	const float GC_COLLIDER_RECT::getRightLevel() const	{
+	const float Collider<ColliderType::Rectangle>::getRightLevel() const	{
 		#ifdef GC_COLLIDER_RECT_NEGATIVE_SIZE_ENABLE
 			return (_size.x > 0 ? _pos.x + _size.x : _pos.x);
 		#else
 			return _pos.x + _size.x;
 		#endif
 	}
-	const Vec2 GC_COLLIDER_RECT::getTopLeftCorner() const{
+	const Vec2 Collider<ColliderType::Rectangle>::getTopLeftCorner() const{
 		return Vec2(this->getLeftLevel(), this->getTopLevel());
 	}
-	const Vec2 GC_COLLIDER_RECT::getLowLeftCorner() const {
+	const Vec2 Collider<ColliderType::Rectangle>::getLowLeftCorner() const {
 		return Vec2(this->getLeftLevel(), this->getLowLevel());
 	}
-	const Vec2 GC_COLLIDER_RECT::getTopRightCorner() const {
+	const Vec2 Collider<ColliderType::Rectangle>::getTopRightCorner() const {
 		return Vec2(this->getRightLevel(), this->getTopLevel());
 	}
-	const Vec2 GC_COLLIDER_RECT::getLowRightCorner() const {
+	const Vec2 Collider<ColliderType::Rectangle>::getLowRightCorner() const {
 		return Vec2(this->getRightLevel(), this->getLowLevel());
 	}
-	const bool GC_COLLIDER_RECT::isCollide(const lref_t c) const
+	const bool Collider<ColliderType::Rectangle>::isCollide(const Collider<ColliderType::Rectangle> & c) const
 	{
 		auto selfTop = this->getTopLevel();
 		auto selfBot = this->getLowLevel();
@@ -205,80 +202,76 @@ namespace gc
 				return true;
 		return false;
 	}
-	const bool GC_COLLIDER_RECT::isCollide(Collider<ColliderType::Circle>::c_lref_t a) const {
+	const bool Collider<ColliderType::Rectangle>::isCollide(Collider<ColliderType::Circle> const & a) const {
 		return a.isCollide(*this);
 	}
-	#undef GC_COLLIDER_RECT
-#pragma endregion
 
+//-----------------------------------------------------------------------------------
 
-
-#pragma region GC_COLLIDER_CIRCLE_REGION
-	#define GC_COLLIDER_CIRCLE Collider<ColliderType::Circle>
-	GC_COLLIDER_CIRCLE::Collider(c_lref_t c) :
+	Collider<ColliderType::Circle>::Collider(Collider<ColliderType::Circle> const & c) :
 		_pos(c._pos), _radius(c._radius)
 	{}
-	GC_COLLIDER_CIRCLE::Collider(rref_t c):
-		this_t(c)
+	Collider<ColliderType::Circle>::Collider(Collider<ColliderType::Circle> && c):
+		Collider(c)
 	{}
-	GC_COLLIDER_CIRCLE::Collider(Vec2::c_lref_t pos, const float & radius) :
+	Collider<ColliderType::Circle>::Collider(Vec2 const & pos, const float & radius) :
 		_pos(pos), _radius(radius)
 	{
-		#ifndef GC_COLLIDER_CIRCLE_NEGATIVE_RADIUS_ENABLE
+		#ifndef GC_COLLIDER_CIRCLE_NEGATIVE_SIZE_ENABLE
 			if (radius < 0)
 				throw 228;
 		#endif
 	}
-	Vec2::c_lref_t GC_COLLIDER_CIRCLE::getPosition() const {
+	Vec2 const & Collider<ColliderType::Circle>::getPosition() const {
 		return _pos;
 	}
-	const float & GC_COLLIDER_CIRCLE::getRadius() const { 
+	const float & Collider<ColliderType::Circle>::getRadius() const { 
 		return _radius; 
 	}
-	GC_COLLIDER_CIRCLE::lref_t GC_COLLIDER_CIRCLE::changeRadius(const float & dr) {
-		#ifndef GC_COLLIDER_CIRCLE_NEGATIVE_RADIUS_ENABLE
+	Collider<ColliderType::Circle> & Collider<ColliderType::Circle>::changeRadius(const float & dr) {
+		#ifndef GC_COLLIDER_CIRCLE_NEGATIVE_SIZE_ENABLE
 			if (dr < 0 && _radius < dr)
 				throw 228;
 		#endif
 			_radius += dr; return *this;
 	}
-	GC_COLLIDER_CIRCLE::lref_t GC_COLLIDER_CIRCLE::setRadius(const float & r) {
-		#ifndef GC_COLLIDER_CIRCLE_NEGATIVE_RADIUS_ENABLE
+	Collider<ColliderType::Circle> & Collider<ColliderType::Circle>::setRadius(const float & r) {
+		#ifndef GC_COLLIDER_CIRCLE_NEGATIVE_SIZE_ENABLE
 			if (r < 0)
 				throw 228;
 		#endif
 			_radius = r;
 		return *this;
 	}
-	const float GC_COLLIDER_CIRCLE::getRightLevel() {
-		#ifdef GC_COLLIDER_CIRCLE_NEGATIVE_RADIUS_ENABLE
+	const float Collider<ColliderType::Circle>::getRightLevel() {
+		#ifdef GC_COLLIDER_CIRCLE_NEGATIVE_SIZE_ENABLE
 			return (_radius < 0 ? _pos.x - _radius : _pos.x + _radius);
 		#else
 			return _pos.x + _radius;
 		#endif
 	}
-	const float GC_COLLIDER_CIRCLE::getLeftLevel() {
-		#ifdef GC_COLLIDER_CIRCLE_NEGATIVE_RADIUS_ENABLE
+	const float Collider<ColliderType::Circle>::getLeftLevel() {
+		#ifdef GC_COLLIDER_CIRCLE_NEGATIVE_SIZE_ENABLE
 			return (_radius < 0 ? _pos.x + _radius : _pos.x - _radius);
 		#else
 			return _pos.x - _radius;
 		#endif
 	}
-	const float GC_COLLIDER_CIRCLE::getTopLevel() {
-		#ifdef GC_COLLIDER_CIRCLE_NEGATIVE_RADIUS_ENABLE
+	const float Collider<ColliderType::Circle>::getTopLevel() {
+		#ifdef GC_COLLIDER_CIRCLE_NEGATIVE_SIZE_ENABLE
 			return (_radius < 0 ? _pos.y + _radius : _pos.y - _radius);
 		#else
 			return _pos.y - _radius;
 		#endif
 	}
-	const float GC_COLLIDER_CIRCLE::getLowLevel() {
-		#ifdef GC_COLLIDER_CIRCLE_NEGATIVE_RADIUS_ENABLE
+	const float Collider<ColliderType::Circle>::getLowLevel() {
+		#ifdef GC_COLLIDER_CIRCLE_NEGATIVE_SIZE_ENABLE
 			return (_radius < 0 ? _pos.y - _radius : _pos.y + _radius);
 		#else
 			return _pos.y + _radius;
 		#endif
 	}
-	const bool GC_COLLIDER_CIRCLE::isCollide(c_lref_t a) const {
+	const bool Collider<ColliderType::Circle>::isCollide(Collider<ColliderType::Circle> const & a) const {
 		float dx = a._pos.x - _pos.x;
 		float dy = a._pos.y - _pos.y;
 		float distance = abs(sqrt(dx * dx + dy * dy));
@@ -286,7 +279,7 @@ namespace gc
 			return true;
 		return false;
 	}
-	const bool GC_COLLIDER_CIRCLE::isCollide(Collider<ColliderType::Rectangle>::c_lref_t a) const {
+	const bool Collider<ColliderType::Circle>::isCollide(Collider<ColliderType::Rectangle> const & a) const {
 		if (_pos.x < a.getLeftLevel()) {//we left than argument
 			if (_pos.y < a.getTopLevel()) //nearest is Top, Left corner
 				return  (_pos - a.getTopLeftCorner()).getLength() < _radius;
@@ -312,6 +305,4 @@ namespace gc
 				return true;
 		}
 	}
-	#undef GC_COLLIDER_CIRCLE
-#pragma endregion
 }

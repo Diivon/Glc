@@ -5,43 +5,43 @@
 
 namespace gc
 {
-	class Renderer : public ClassTraits<Renderer>
+	class Renderer
 	{
 		Camera * _cam;
 		::sf::RenderWindow * _win;
 	public:
-		inline this_t() noexcept;
-		inline lref_t setCamera(Camera &) noexcept;
-		inline lref_t setWindow(::sf::RenderWindow &) noexcept;
-		inline c_lref_t render(Sprite::c_lref_t, Vec2::c_lref_t) const noexcept;
+		inline Renderer() noexcept;
+		inline Renderer & setCamera(Camera &) noexcept;
+		inline Renderer & setWindow(::sf::RenderWindow &) noexcept;
+		inline const Renderer & render(Sprite const &, Vec2 const &) const noexcept;
 		template<class T>
 		inline void renderScene(const T &);
 		template<class T>
 		inline void renderLayer(const T &);
-		inline c_lref_t show() const noexcept;
+		inline const Renderer & show() const noexcept;
 	};
 	Renderer::Renderer() noexcept:
 		_cam(nullptr), _win(nullptr)
 	{}
-	Renderer::lref_t Renderer::setCamera(Camera & a) noexcept{
+	Renderer & Renderer::setCamera(Camera & a) noexcept{
 		_cam = &a;
 		if (_win)
 			_win->setView(_cam->_view);
 		return *this;
 	}
-	Renderer::lref_t Renderer::setWindow(::sf::RenderWindow & a) noexcept{
+	Renderer & Renderer::setWindow(::sf::RenderWindow & a) noexcept{
 		_win = &a;
 		if (_cam)
 			_win->setView(_cam->_view);
 		return *this;
 	}
-	Renderer::c_lref_t Renderer::render(Sprite::c_lref_t s, Vec2::c_lref_t pos) const noexcept{
+	Renderer const & Renderer::render(Sprite const & s, Vec2 const & pos) const noexcept{
 		auto spr = s.getSfSprite();
 		spr.setPosition(pos.x, pos.y);
 		_win->draw(spr);
 		return *this;
 	}
-	Renderer::c_lref_t Renderer::show() const noexcept{
+	Renderer const & Renderer::show() const noexcept{
 		_win->display();
 		return *this;
 	}

@@ -64,7 +64,7 @@ namespace gc {
 	};
 	//specialization for l-reference
 	template<class T>
-	class Optional<T &> : ClassTraits<Optional<T>> {
+	class Optional<T &>{
 		bool _success;
 		union {
 			T * _data;

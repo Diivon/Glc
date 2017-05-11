@@ -8,30 +8,30 @@
 #include <SFML/Graphics.hpp>
 namespace gc
 {
-	class Camera : ClassTraits<Camera>
+	class Camera
 	{
 		::sf::View _view;
 		friend class Renderer;
 	public:
 		inline Camera() noexcept;
 		inline Camera(const Vec2 & pos, const Vec2 & size) noexcept;
-		inline lref_t moveTo(float x, float y) noexcept;		//set
-		inline lref_t moveTo(const Vec2 & pos) noexcept;		//set
-		inline lref_t moveOn(float dx, float dy) noexcept;		//change
-		inline lref_t moveOn(const Vec2 & dp) noexcept;
-		inline lref_t setSize(float w, float h) noexcept;		//set
-		inline lref_t setSize(const Vec2 & size) noexcept;
-		inline lref_t changeSize(float dw, float dh) noexcept;	//change
-		inline lref_t changeSize(const Vec2 & ds) noexcept;
-		inline lref_t setRotation(float r) noexcept;			//set
-		inline lref_t rotate(float dr) noexcept;				//change
-		inline lref_t zoom(float z) noexcept;					//change (deprecated)
+		inline Camera & moveTo(float x, float y) noexcept;		//set
+		inline Camera & moveTo(const Vec2 & pos) noexcept;		//set
+		inline Camera & moveOn(float dx, float dy) noexcept;		//change
+		inline Camera & moveOn(const Vec2 & dp) noexcept;
+		inline Camera & setSize(float w, float h) noexcept;		//set
+		inline Camera & setSize(const Vec2 & size) noexcept;
+		inline Camera & changeSize(float dw, float dh) noexcept;	//change
+		inline Camera & changeSize(const Vec2 & ds) noexcept;
+		inline Camera & setRotation(float r) noexcept;			//set
+		inline Camera & rotate(float dr) noexcept;				//change
+		inline Camera & zoom(float z) noexcept;					//change (deprecated)
 
 		
 		
 		//getters
-		inline Vec2::c_lref_t getPosition() const noexcept;
-		inline Vec2::c_lref_t getSize() const noexcept;
+		inline Vec2 const & getPosition() const noexcept;
+		inline Vec2 const & getSize() const noexcept;
 		inline const float getRotation() const noexcept;
 	};
 	/*----------------------------------------------IMPLEMENTATION--------------------------------------------*/
@@ -42,37 +42,37 @@ namespace gc
 	inline Camera::Camera(const Vec2 & pos, const Vec2 & size) noexcept :
 		_view(pos, size)
 	{}
-	inline Camera::lref_t Camera::moveTo(float x, float y) noexcept {
+	inline Camera & Camera::moveTo(float x, float y) noexcept {
 		_view.setCenter(x, y);
 		return *this;
 	}
 
-	inline Camera::lref_t Camera::moveTo(const Vec2 & pos) noexcept {
+	inline Camera & Camera::moveTo(const Vec2 & pos) noexcept {
 		_view.setCenter(pos);
 		return *this;
 	}
 
-	inline Camera::lref_t Camera::moveOn(float dx, float dy) noexcept {
+	inline Camera & Camera::moveOn(float dx, float dy) noexcept {
 		_view.move(dx, dy);
 		return *this;
 	}
 
-	inline Camera::lref_t Camera::moveOn(const Vec2 & dp) noexcept {
+	inline Camera & Camera::moveOn(const Vec2 & dp) noexcept {
 		_view.move(dp);
 		return *this;
 	}
 
-	inline Camera::lref_t Camera::setSize(float w, float h) noexcept {
+	inline Camera & Camera::setSize(float w, float h) noexcept {
 		_view.setSize(w, h);
 		return *this;
 	}
 
-	inline Camera::lref_t Camera::setSize(const Vec2 & size) noexcept {
+	inline Camera & Camera::setSize(const Vec2 & size) noexcept {
 		_view.setSize(size);
 		return *this;
 	}
 
-	inline Camera::lref_t Camera::changeSize(float dw, float dh) noexcept {
+	inline Camera & Camera::changeSize(float dw, float dh) noexcept {
 		//_view.m_size.x += dw;
 		//_view.m_size.y += dh;
 		auto size = _view.getSize();
@@ -80,32 +80,32 @@ namespace gc
 		return *this;
 	}
 
-	inline Camera::lref_t Camera::changeSize(const Vec2 & ds) noexcept {
+	inline Camera & Camera::changeSize(const Vec2 & ds) noexcept {
 		//_view.m_size += static_cast<::sf::Vector2f>(ds);
 		auto size = _view.getSize();
 		_view.setSize(size.x + ds.x, size.y + ds.y);
 		return *this;
 	}
 
-	inline Camera::lref_t Camera::setRotation(float r) noexcept {
+	inline Camera & Camera::setRotation(float r) noexcept {
 		_view.setRotation(r);
 		return *this;
 	}
 
-	inline Camera::lref_t Camera::rotate(float dr) noexcept {
+	inline Camera & Camera::rotate(float dr) noexcept {
 		_view.rotate(dr);
 		return *this;
 	}
 
-	inline Camera::lref_t Camera::zoom(float z) noexcept {
+	inline Camera & Camera::zoom(float z) noexcept {
 		_view.zoom(z);
 	}
 
-	inline Vec2::c_lref_t Camera::getPosition() const noexcept {
+	inline Vec2 const & Camera::getPosition() const noexcept {
 		return _view.getCenter();
 	}
 
-	inline Vec2::c_lref_t Camera::getSize() const noexcept {
+	inline Vec2 const & Camera::getSize() const noexcept {
 		return _view.getSize();
 	}
 

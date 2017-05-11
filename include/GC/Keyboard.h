@@ -3,7 +3,7 @@
 #include "Utils.h"
 
 namespace gc{
-	class Keyboard : public ClassTraits<Keyboard>
+	class Keyboard
 	{
 	public:
 		enum Key{
@@ -23,10 +23,10 @@ namespace gc{
 		static const Event<Key> onKeyPressed;//when it's const no one else able to emit it
 	private:
 		Keyboard() = delete;
-		this_t(c_lref_t) = delete;
-		this_t(rref_t) = delete;
-		void operator = (c_lref_t) = delete;
-		void operator = (rref_t) = delete;
+		Keyboard(Keyboard const &) = delete;
+		Keyboard(Keyboard &&) = delete;
+		void operator = (Keyboard const &) = delete;
+		void operator = (Keyboard &&) = delete;
 		~Keyboard() = delete;
 	};
 

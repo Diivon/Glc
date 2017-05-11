@@ -6,7 +6,7 @@
 #include "SFML/Graphics.hpp"
 namespace gc
 {
-	class Sprite : public ClassTraits<Sprite>
+	class Sprite
 	{
 		sf::Texture _tex;
 		sf::Sprite _sprite;
@@ -19,8 +19,8 @@ namespace gc
 		inline Sprite(const std::string & fileName);
 		inline ::sf::Sprite getSfSprite() const noexcept;
 
-		inline lref_t setPosition(Vec2::c_lref_t) noexcept;
-		inline lref_t setOrigin(Vec2::c_lref_t) noexcept;
+		inline Sprite & setPosition(Vec2 const &) noexcept;
+		inline Sprite & setOrigin(Vec2 const &) noexcept;
 
 		inline Vec2 getPosition() const noexcept;
 		inline Vec2 getSize() const noexcept;
@@ -38,11 +38,11 @@ namespace gc
 		return _sprite;
 	}
 
-	Sprite::lref_t Sprite::setPosition(Vec2::c_lref_t p) noexcept{
+	Sprite & Sprite::setPosition(Vec2 const & p) noexcept{
 		_sprite.setPosition(p.x, p.y);
 		return *this;
 	}
-	Sprite::lref_t Sprite::setOrigin(Vec2::c_lref_t v) noexcept{
+	Sprite & Sprite::setOrigin(Vec2 const & v) noexcept{
 		_sprite.setOrigin(v.x, v.y);
 		return *this;
 	}

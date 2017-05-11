@@ -25,9 +25,3 @@ using namespace std::string_literals;
 GC_SPECIALIZE_PRINT(const ::gc::Vec2 & v) {
 	gc::print("{x: ", v.x, ", y: ", v.y, "}");
 }
-GC_SPECIALIZE_PRINT(const gc::Collider<gc::ColliderType::Circle> & c) {
-	gc::print("position: ", c.getPosition(), ", radius: ", c.getRadius());
-}
-GC_SPECIALIZE_PRINT(const gc::Collider<gc::ColliderType::Rectangle> & c) {
-	gc::print("position: ", c.getPosition(), ", size: ", c.getSize());
-}

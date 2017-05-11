@@ -14,7 +14,7 @@ namespace gc{
 		inline void _user_write(sf::String & str, const T & t);
 		template<>
 		inline void _user_write(sf::String & str, const float & f){
-			str += std::to_string(f);
+			str += std::to_string(f).data();
 		}
 		template<>
 		inline void _user_write(sf::String & str, const ::gc::Vec2 & v){
@@ -29,6 +29,7 @@ namespace gc{
 			using this_string = sf::String;
 			std::list<this_string> _text;
 			size_t _lines_count;
+			static const sf::Font _font;
 		private:
 			inline void _try_clear();
 			void _newLine();
@@ -46,7 +47,6 @@ namespace gc{
 			Debug & log();
 
 			const sf::Text getSFText() const;
-			static const sf::Font _font;
 		};
 		inline Debug::Debug():
 			_text(), _lines_count(0)
@@ -99,8 +99,8 @@ namespace gc{
 			for (const auto & i : _text)
 				capacity += i.getSize();		//calculate capacity
 			
-			std::string resultedString;
-			resultedString.reserve(capacity);
+			sf::String resultedString;
+			//resultedString.reserve(capacity);
 
 			for (const auto & i : _text)
 				resultedString += (i);
