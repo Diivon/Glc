@@ -1,7 +1,7 @@
 Class:RenderableObject:Declaration
 	class #SceneName#;
 	class #LayerName#;
-	class #ClassName# : public ::gc::ClassTraits<#ClassName#>{
+	class #ClassName# : public ::gc::TypeAliases<#ClassName#>{
 		friend class ::gc::Camera;
 		friend class #LayerName#;
 		typedef #ClassName# this_t;

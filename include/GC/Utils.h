@@ -6,6 +6,7 @@
 #include <vector>
 #include <limits>
 #include "GC/Traits.h"
+#include "Optional.h" 
 
 #define GC_GET_WORD_SIZE (::gc::priv::size_if<std::numeric_limits<size_t>::max() == 0xffffffff, 4, 8>::value)
 #define IF_FAIL(expr) try{ expr ; }catch(std::exception & fail_exception)
@@ -17,6 +18,13 @@
 #define Lambda4(name1, name2, name3, name4) [](auto & name1, auto & name2, auto & name3, auto & name4)
 namespace gc
 {
+	template<class T>
+	struct TypeAliases{
+		using this_t = T;
+		using c_lref_t = const T &;
+		using lref_t = T &;
+		using rref_t = T &&;
+	};
 	typedef int8_t i8;
 	typedef uint8_t u8;
 	typedef int16_t i16;
@@ -26,33 +34,22 @@ namespace gc
 	typedef int64_t i64;
 	typedef uint64_t u64;
 	const float Pi = 3.14159265358979323846f;
-	inline std::vector<char> getByteVectorFromFile(const std::string & s) {
+	using c_string = const char *;
+	template<size_t Size>
+	using c_static_string = const char[Size];
+	inline Optional<std::vector<u8>> getByteVectorFromFile(const std::string & s) {
 		std::ifstream ifs(s, std::ios::in | std::ios::binary | std::ios::ate);//open file for reading
 		if (ifs.fail())
 			throw std::exception();
 		decltype(ifs)::pos_type pos;//position in file 
-		std::vector<char> data;		//file data which must be returned
+		std::vector<u8> data;		//file data which must be returned
 		
 		ifs.seekg(0, std::ios::end);//get length
 		size_t size = static_cast<size_t>(ifs.tellg());	//of file
 		data.resize(size);			//resize buffer to fit file data
 		ifs.seekg(0, std::ios::beg);//return position at start
-		ifs.read(&data[0], size);	//read it
+		ifs.read(reinterpret_cast<char * >(data.data()), size);	//read it
 		return data;				//..
-	}
-	namespace priv{
-		template<bool c, size_t t, size_t>
-		struct size_if {
-			static constexpr size_t value = 4;
-		};
-		template<size_t t, size_t f>
-		struct size_if<true, t, f> {
-			static constexpr size_t value = t;
-		};
-		template<size_t t, size_t f>
-		struct size_if<false, t, f> {
-			static constexpr size_t value = f;
-		};
 	}
 	[[noreturn]] 
 	//unwide the stack
@@ -73,6 +70,20 @@ namespace gc
 				throw Ex();
 		#endif
 		return expr;
+	}
+	namespace priv{
+		template<bool c, size_t t, size_t>
+		struct size_if {
+			static constexpr size_t value = 4;
+		};
+		template<size_t t, size_t f>
+		struct size_if<true, t, f> {
+			static constexpr size_t value = t;
+		};
+		template<size_t t, size_t f>
+		struct size_if<false, t, f> {
+			static constexpr size_t value = f;
+		};
 	}
 }
 typedef int8_t i8;

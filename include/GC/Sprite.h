@@ -30,7 +30,7 @@ namespace gc
 	Sprite::Sprite(const std::string & file):
 		_tex(), _sprite()
 	{
-		auto v = getByteVectorFromFile(file);
+		auto v = getByteVectorFromFile(file).unwrap();
 		_tex.loadFromMemory(v.data(), v.size());
 		_sprite.setTexture(_tex);
 	}

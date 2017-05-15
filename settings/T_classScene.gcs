@@ -1,6 +1,6 @@
 Сlass:Scene:FDef
 	#LayersDeclarationInclude#
-	class #ClassName# : public ::gc::ClassTraits<#ClassName#>{
+	class #ClassName# : public ::gc::TypeAliases<#ClassName#>{
 		#Layers#
 	public:
 		#ClassName#()

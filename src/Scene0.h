@@ -10,7 +10,7 @@
 #include <cmath>
 #include "Scene0-Layer0.h"
 #include "Scene0-Layer1.h"
-class Scene0 : public ::gc::ClassTraits<Scene0>{
+class Scene0 : public ::gc::TypeAliases<Scene0>{
 	Layer0 layerObject0;
 	Layer1 layerObject1;
 	public:

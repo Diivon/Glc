@@ -10,7 +10,7 @@
 #include <cmath>
 class Scene0;
 class Layer0;
-class Number2 : public ::gc::ClassTraits<Number2>{
+class Number2 : public ::gc::TypeAliases<Number2>{
 	friend class ::gc::Camera;
 	friend class Layer0;
 	typedef Number2 this_t;

@@ -6,30 +6,22 @@
 #include "SFML/System/String.hpp"
 #include "Utils.h"
 #include "Settings.h"
-#include "Vec2.h"
 
 namespace gc{
 	namespace priv{
 		template<class T> 
-		inline void _user_write(sf::String & str, const T & t);
-		template<>
-		inline void _user_write(sf::String & str, const float & f){
-			str += std::to_string(f).data();
+		inline void _user_write(sf::String & str, const T & t){
+			str += std::to_string(t).data();
 		}
-		template<>
-		inline void _user_write(sf::String & str, const ::gc::Vec2 & v){
-			str += "{x: ";
-			str += std::to_string(v.x);
-			str += ", y: ";
-			str += std::to_string(v.y);
-			str += '}';
+		template<size_t Size>
+		inline void _user_write(sf::String & str, const char (& c_str)[Size]){
+			str += c_str;
 		}
 		class Debug{
-		public:
 			using this_string = sf::String;
 			std::list<this_string> _text;
-			size_t _lines_count;
-			static const sf::Font _font;
+			sf::Font _font;
+			std::vector<u8> _font_data;
 		private:
 			inline void _try_clear();
 			void _newLine();
@@ -37,7 +29,7 @@ namespace gc{
 			template<class T> void _write(const T &);
 			template<class T, class Y, class ... Args> void _write(const T &, const Y &, const Args & ...);
 		public:
-			Debug();
+			Debug(c_string path);
 			template<class T> void dump(const T & t);
 
 			template<class T, class Y, class ... Args> 
@@ -47,11 +39,12 @@ namespace gc{
 			Debug & log();
 
 			const sf::Text getSFText() const;
+			const sf::String getSFString() const;
 		};
-		inline Debug::Debug():
-			_text(), _lines_count(0)
+		inline Debug::Debug(c_string path):
+			_text(GC_DEBUG_MAX_LINES_COUNT), _font_data(getByteVectorFromFile(path).unwrap())
 		{
-			_text.emplace_back("awd");
+			_font.loadFromMemory(_font_data.data(), _font_data.size());
 		}
 		//called once before we write things
 		inline void Debug::_try_clear(){
@@ -59,8 +52,8 @@ namespace gc{
 				_text.pop_front();
 		}
 		inline void Debug::_newLine(){
+			_getCurrent() += '\n';
 			_text.emplace_back();
-			++_lines_count;
 		}
 		inline Debug::this_string & Debug::_getCurrent(){
 			return _text.back();
@@ -94,19 +87,13 @@ namespace gc{
 			_newLine();
 			return *this;
 		}
-		inline const sf::Text Debug::getSFText() const{
-			size_t capacity = 0;
-			for (const auto & i : _text)
-				capacity += i.getSize();		//calculate capacity
-			
+		inline const sf::Text Debug::getSFText() const{			
 			sf::String resultedString;
-			//resultedString.reserve(capacity);
 
 			for (const auto & i : _text)
-				resultedString += (i);
+				resultedString += i;
 
 			sf::Text result;
-			
 			result.setString(resultedString);
 			result.setFont(_font);
 			result.setOutlineColor(sf::Color::White);
@@ -114,7 +101,14 @@ namespace gc{
 			result.setPosition(-400, -300);
 			return result;
 		}
+		inline const sf::String Debug::getSFString() const{
+			this_string res;
+			for (const auto & i : _text){
+				res += i;
+			}
+			return res;
+		}
 	}
-	#define GC_SPECIALIZE_DEBUG_LOG(_arg_type) inline void _user_write(sf::String & str, _arg_type)
+	#define GC_SPECIALIZE_DEBUG_LOG(_arg_type) template<> inline void ::gc::priv::_user_write(sf::String & str, _arg_type)
 	extern priv::Debug debug;
 }//namespace gc

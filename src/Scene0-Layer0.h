@@ -11,7 +11,7 @@
 #include "Scene0-Layer0-Number1.h"
 #include "Scene0-Layer0-Number2.h"
 class Scene0;
-class Layer0 : public ::gc::ClassTraits<Layer0>{
+class Layer0 : public ::gc::TypeAliases<Layer0>{
 	Scene0 & scene;
 	public:
 	bool isDone;Number1 ObjRenderableObject0;

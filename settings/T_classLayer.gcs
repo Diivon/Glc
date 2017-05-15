@@ -2,7 +2,7 @@ Class:Layer:Declaration
 	#ObjectsDeclarationInclude#	
 
 	class #SceneName#;
-	class #ClassName# : public ::gc::ClassTraits<#ClassName#>{
+	class #ClassName# : public ::gc::TypeAliases<#ClassName#>{
 		#SceneName# & scene;
 		#ObjectVariables#
 		#ComponentsVariables#

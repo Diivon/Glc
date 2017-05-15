@@ -37,18 +37,13 @@ void Number1::onUpdate(const float & dt){
 		pos.y += gc::Random<float>::get(-5, 5);
 	}
 	distance = (pos - layer.getObject<Number2>().pos).getLength();
-	gc::debug.
-	clear()
-	.write(distance)
-	.newLine()
-	.write(layer.getObject<Number2>().collider.isCollide(self.collider))
-	.write(self.collider.getPosition())
-	.write(' ')
-	.write(self.collider.getSize());
+	gc::debug
+	.log("----------------------------------------------")
+	.log(distance)
+	.log(layer.getObject<Number2>().collider.isCollide(self.collider), ' ', self.collider.getSize());
 	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Space))
 	gc::debug
-	.newLine()
-	.write( (scene.getLayer<Layer1>().getObject<PhysicalObject2>().pos - pos).getLength() );
+	.log( (scene.getLayer<Layer1>().getObject<PhysicalObject2>().pos - pos).getLength() );
 }
 const ::gc::Sprite & Number1::getCurrentSprite() const{
 	return sprite;

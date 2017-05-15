@@ -10,7 +10,7 @@
 #include <cmath>
 #include "Scene0-Layer1-PhysicalObject2.h"
 class Scene0;
-class Layer1 : public ::gc::ClassTraits<Layer1>{
+class Layer1 : public ::gc::TypeAliases<Layer1>{
 	Scene0 & scene;
 	public:
 	;PhysicalObject2 ObjPhysicalObject2;
