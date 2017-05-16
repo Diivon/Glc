@@ -12,13 +12,14 @@
 #include "GC/Keyboard.h"
 #include "GC/Utils.h"
 #include "GC/Random.h"
-#include "GC/Memory.h"
 #include "GC/SemanticHelpers.h"
 #include "GC/Numerics.h"
 #include "GC/Wrap.h"
 #include "GC/Iterate.h"
 #include "GC/Print.h"
 #include "GC/Mouse.h"
+#include "GC/Property.h"
+#include "GC/Line.h"
 
 using namespace std::string_literals;
 

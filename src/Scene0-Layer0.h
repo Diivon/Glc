@@ -8,14 +8,14 @@
 #include "SFML/Audio.hpp"
 #include "SFML/Network.hpp"
 #include <cmath>
-#include "Scene0-Layer0-Number1.h"
-#include "Scene0-Layer0-Number2.h"
+#include "Scene0-Layer0-Hero.h"
+#include "Scene0-Layer0-Bullet.h"
 class Scene0;
 class Layer0 : public ::gc::TypeAliases<Layer0>{
 	Scene0 & scene;
 	public:
-	bool isDone;Number1 ObjRenderableObject0;
-	Number2 ObjRenderableObject1;
+	;Hero ObjRenderableObject0;
+	Bullet ObjRenderableObject1;
 	private:
 	;
 	Layer0 & self;
@@ -34,19 +34,19 @@ class Layer0 : public ::gc::TypeAliases<Layer0>{
 	const T & getObject() const;
 	public:
 	template<>
-	Number1 & getObject(){
+	Hero & getObject(){
 		return ObjRenderableObject0;
 	}
 	template<>
-	const Number1 & getObject() const{
+	const Hero & getObject() const{
 		return ObjRenderableObject0;
 	}
 	template<>
-	Number2 & getObject(){
+	Bullet & getObject(){
 		return ObjRenderableObject1;
 	}
 	template<>
-	const Number2 & getObject() const{
+	const Bullet & getObject() const{
 		return ObjRenderableObject1;
 	}
 	private:
@@ -57,6 +57,6 @@ class Layer0 : public ::gc::TypeAliases<Layer0>{
 };
 template<>
 inline void ::gc::Renderer::renderLayer(const Layer0 & l){
-	this->render(l.getObject<Number1>().getCurrentSprite(), l.getObject<Number1>().pos);
-	this->render(l.getObject<Number2>().getCurrentSprite(), l.getObject<Number2>().pos);
+	this->render(l.getObject<Hero>().getCurrentSprite(), l.getObject<Hero>().pos);
+	this->render(l.getObject<Bullet>().getCurrentSprite(), l.getObject<Bullet>().pos);
 }

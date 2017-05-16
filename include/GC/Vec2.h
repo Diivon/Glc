@@ -14,6 +14,12 @@ namespace gc
 		float x, y;
 
 		static const Vec2 zero;
+		static const Vec2 right;
+		static const Vec2 left;
+		static const Vec2 up;
+		static const Vec2 down;
+
+
 		inline this_t(float x, float y);
 
 		inline this_t() noexcept;
