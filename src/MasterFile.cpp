@@ -32,7 +32,7 @@ void Layer0::foreach(F && f){
 #include "Scene0.h"
 Hero::Hero(Scene0 & sc, Layer0 & lr):
 self(*this), pos(0, 0), scene(sc), layer(lr)
-, sprite("resources\\1.jpg")
+, _lookvec(1,  0), sprite("resources\\1.jpg")
 {
 }
 Hero::~Hero(){
@@ -40,6 +40,19 @@ Hero::~Hero(){
 void Hero::onStart(){
 }
 void Hero::onUpdate(const float & dt){
+	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::F)){
+		layer.getObject<Bullet>()
+		.start(self.getCenter(), _lookvec);
+		layer.getObject<Bullet>().speed = 50.0f;
+	}
+	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::D))
+	_lookvec.rotateDeg(_rotateGrade);
+	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::A))
+	_lookvec.rotateDeg(-_rotateGrade);
+	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::W))
+	self.moveOn(_lookvec);
+	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::Space))
+	gc::debug.log(pos);
 }
 const ::gc::Sprite & Hero::getCurrentSprite() const{
 	return sprite;
@@ -49,6 +62,9 @@ const ::gc::Sprite & Hero::getCurrentSprite() const{
 }
 ::gc::Vec2 Hero::getSize() const noexcept{
 	return self.getCurrentSprite().getSize();
+}
+::gc::Vec2 Hero::getCenter() const noexcept{
+	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
 }
 #pragma once
 #include <string>
@@ -63,7 +79,7 @@ const ::gc::Sprite & Hero::getCurrentSprite() const{
 #include "Scene0.h"
 Bullet::Bullet(Scene0 & sc, Layer0 & lr):
 self(*this), pos(0, 0), scene(sc), layer(lr)
-, sprite("resources\\bullet.jpg")
+, _ttl(0.0f),  _isActive(false),  speed(5.0f), sprite("resources\\bullet.jpg")
 {
 }
 Bullet::~Bullet(){
@@ -71,6 +87,15 @@ Bullet::~Bullet(){
 void Bullet::onStart(){
 }
 void Bullet::onUpdate(const float & dt){
+	if (_isActive){
+		self.moveOn(_dir * speed);
+		_ttl += dt;
+	}
+	if (_ttl > 1500){
+		_isActive = false;
+		_ttl = 0.0f;
+		pos = gc::Vec2(-1000, -1000);
+	}
 }
 const ::gc::Sprite & Bullet::getCurrentSprite() const{
 	return sprite;
@@ -80,4 +105,13 @@ const ::gc::Sprite & Bullet::getCurrentSprite() const{
 }
 ::gc::Vec2 Bullet::getSize() const noexcept{
 	return self.getCurrentSprite().getSize();
+}
+::gc::Vec2 Bullet::getCenter() const noexcept{
+	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
+}
+void Bullet::start(gc::Vec2 const & pos, gc::Vec2 const & dir){if(_isActive) return;
+	self.moveTo(pos);
+	_isActive = true;
+	_dir = dir;
+	gc::debug.log("Shoot!");
 }

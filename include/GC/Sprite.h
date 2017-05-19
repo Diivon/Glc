@@ -1,9 +1,11 @@
 #pragma once
 
 #include <string>
-#include "GC/Utils.h"
-#include "GC/Vec2.h"
+#include "Utils.h"
+#include "Vec2.h"
+#include "SemanticHelpers.h"
 #include "SFML/Graphics.hpp"
+
 namespace gc
 {
 	class Sprite
@@ -21,10 +23,11 @@ namespace gc
 
 		inline Sprite & setPosition(Vec2 const &) noexcept;
 		inline Sprite & setOrigin(Vec2 const &) noexcept;
+		inline Sprite & rotate(sh::priv::degree_t<float> const &) noexcept;
+		inline Sprite & rotate(sh::priv::radian_t<float> const &) noexcept;
 
 		inline Vec2 getPosition() const noexcept;
 		inline Vec2 getSize() const noexcept;
-
 	};
 	/*--------------------------------------------------IMPLEMENTATION--------------------------------------------------------*/
 	Sprite::Sprite(const std::string & file):
@@ -45,6 +48,12 @@ namespace gc
 	Sprite & Sprite::setOrigin(Vec2 const & v) noexcept{
 		_sprite.setOrigin(v.x, v.y);
 		return *this;
+	}
+	Sprite & Sprite::rotate(sh::priv::degree_t<float> const & v) noexcept{
+		_sprite.rotate(v.value);
+	}
+	Sprite & Sprite::rotate(sh::priv::radian_t<float> const & v) noexcept{
+		_sprite.rotate(v.value);
 	}
 	Vec2 Sprite::getPosition() const noexcept{
 		return Vec2(_sprite.getPosition().x, _sprite.getPosition().y);

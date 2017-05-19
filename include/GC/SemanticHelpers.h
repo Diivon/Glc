@@ -48,6 +48,14 @@ namespace sh{
 		struct before_t{
 			T value;
 		};
+		template<class T>
+		struct degree_t{
+			T value;
+		};
+		template<class T>
+		struct radian_t{
+			T value;
+		};
 	}
 	inline priv::count_t count(::size_t d){
 		return priv::count_t{ d };
@@ -94,5 +102,13 @@ namespace sh{
 	template<class T>
 	inline auto before(T && t){
 		return priv::before_t<T>{std::forward<T>(t)};
+	}
+	template<class T>
+	inline auto degree(T && t){
+		return priv::degree_t<T>{std::forward<T>(t)};
+	}
+	template<class T>
+	inline auto radian(T && t){
+		return priv::radian_t<T>{std::forward<T>(t)};
 	}
 }

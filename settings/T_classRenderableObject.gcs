@@ -20,8 +20,9 @@ Class:RenderableObject:Declaration
 	public:
 		gc::Vec2 getPosition() const noexcept;
 		gc::Vec2 getSize() const noexcept;
-		lref_t	 moveOn(const gc::Vec2 & v)noexcept {pos += v;}
-		lref_t	 moveTo(const gc::Vec2 & v)noexcept {pos = v;}
+		gc::Vec2 getCenter() const noexcept;
+		lref_t	 moveOn(const gc::Vec2 & v)noexcept {pos += v; return *this;}
+		lref_t	 moveTo(const gc::Vec2 & v)noexcept {pos = v;  return *this;}
 	private:
 		#ClassName#(const #ClassName# &) = delete;
 		#ClassName#(#ClassName# &&) = delete;
@@ -52,5 +53,8 @@ Class:RenderableObject:Implementation
 	}
 	::gc::Vec2 #ClassName#::getSize() const noexcept{
 		return self.getCurrentSprite().getSize();
+	}
+	::gc::Vec2 #ClassName#::getCenter() const noexcept{
+		return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
 	}
 	#ComponentsMethods#

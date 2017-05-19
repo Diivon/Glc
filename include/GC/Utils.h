@@ -5,8 +5,8 @@
 #include <string>
 #include <vector>
 #include <limits>
-#include "GC/Traits.h"
-#include "Optional.h" 
+#include "Optional.h"
+#include "SemanticHelpers.h"
 
 #define GC_GET_WORD_SIZE (::gc::priv::size_if<std::numeric_limits<size_t>::max() == 0xffffffff, 4, 8>::value)
 #define IF_FAIL(expr) try{ expr ; }catch(std::exception & fail_exception)
@@ -39,17 +39,27 @@ namespace gc
 	using c_static_string = const char[Size];
 	inline Optional<std::vector<u8>> getByteVectorFromFile(const std::string & s) {
 		std::ifstream ifs(s, std::ios::in | std::ios::binary | std::ios::ate);//open file for reading
-		if (ifs.fail())
-			throw std::exception();
+		if (ifs.fail())	
+			return std::exception();
 		decltype(ifs)::pos_type pos;//position in file 
 		std::vector<u8> data;		//file data which must be returned
 		
 		ifs.seekg(0, std::ios::end);//get length
 		size_t size = static_cast<size_t>(ifs.tellg());	//of file
-		data.resize(size);			//resize buffer to fit file data
+		IF_FAIL (data.resize(size)){ return fail_exception; }	//resize buffer to fit file data
 		ifs.seekg(0, std::ios::beg);//return position at start
 		ifs.read(reinterpret_cast<char * >(data.data()), size);	//read it
 		return data;				//..
+	}
+	template<class T>
+	inline sh::priv::degree_t<T> toDegree(sh::priv::radian_t<T> const & v){
+		auto e = v.value / Pi * 180.0f;
+		return{ e };
+	}
+	template<class T>
+	inline sh::priv::radian_t<T> toRadian(sh::priv::degree_t<T> const & v){
+		auto e = v.value * Pi / 180.0f;
+		return{ e };
 	}
 	[[noreturn]] 
 	//unwide the stack

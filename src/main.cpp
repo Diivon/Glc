@@ -2,12 +2,17 @@
 inline void processEvents(sf::RenderWindow & w){
 	sf::Event event;
 	while (w.pollEvent(event)) {
-		if (event.type == sf::Event::Closed){
-			w.close(); continue;
-		}
-		if (event.type == sf::Event::KeyPressed)
-		if (event.key.code == sf::Keyboard::Escape)
+		if (event.type == sf::Event::Closed)
 		w.close();
+		if (event.type == sf::Event::KeyPressed) {
+			if (event.key.code == sf::Keyboard::Escape)
+			w.close();
+			const_cast<gc::Event<gc::Keyboard::Key> &>(gc::Keyboard::onKeyPressed).emit(static_cast<gc::Keyboard::Key>(event.key.code));
+		}
+		if (event.type == sf::Event::MouseMoved)
+		const_cast<gc::Event<gc::Vec2> &>(gc::Mouse::onMove).emit(gc::Vec2((float)event.mouseMove.x, (float)event.mouseMove.y));
+		if (event.type == sf::Event::MouseButtonPressed)
+		const_cast<gc::Event<gc::Mouse::Button> &>(gc::Mouse::onButtonPressed).emit(static_cast<gc::Mouse::Button>(event.mouseButton.button));
 	}
 }
 const int c_framesPerSecond = 30;

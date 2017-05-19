@@ -17,11 +17,11 @@ namespace gc
 		inline Camera(const Vec2 & pos, const Vec2 & size) noexcept;
 		inline Camera & moveTo(float x, float y) noexcept;		//set
 		inline Camera & moveTo(const Vec2 & pos) noexcept;		//set
-		inline Camera & moveOn(float dx, float dy) noexcept;		//change
+		inline Camera & moveOn(float dx, float dy) noexcept;	//change
 		inline Camera & moveOn(const Vec2 & dp) noexcept;
 		inline Camera & setSize(float w, float h) noexcept;		//set
 		inline Camera & setSize(const Vec2 & size) noexcept;
-		inline Camera & changeSize(float dw, float dh) noexcept;	//change
+		inline Camera & changeSize(float dw, float dh) noexcept;//change
 		inline Camera & changeSize(const Vec2 & ds) noexcept;
 		inline Camera & setRotation(float r) noexcept;			//set
 		inline Camera & rotate(float dr) noexcept;				//change
@@ -73,15 +73,12 @@ namespace gc
 	}
 
 	inline Camera & Camera::changeSize(float dw, float dh) noexcept {
-		//_view.m_size.x += dw;
-		//_view.m_size.y += dh;
 		auto size = _view.getSize();
 		_view.setSize(size.x + dw, size.y + dh);
 		return *this;
 	}
 
 	inline Camera & Camera::changeSize(const Vec2 & ds) noexcept {
-		//_view.m_size += static_cast<::sf::Vector2f>(ds);
 		auto size = _view.getSize();
 		_view.setSize(size.x + ds.x, size.y + ds.y);
 		return *this;

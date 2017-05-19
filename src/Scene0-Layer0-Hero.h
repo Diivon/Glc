@@ -20,7 +20,8 @@ class Hero : public ::gc::TypeAliases<Hero>{
 	public:
 	::gc::Sprite sprite;
 	private:
-	;
+	gc::Vec2 _lookvec;
+	const float _rotateGrade = .5f;
 	public:
 	::gc::Vec2 pos;
 	Hero(Scene0 &, Layer0 &);
@@ -33,8 +34,9 @@ class Hero : public ::gc::TypeAliases<Hero>{
 	public:
 	gc::Vec2 getPosition() const noexcept;
 	gc::Vec2 getSize() const noexcept;
-	lref_t	 moveOn(const gc::Vec2 & v)noexcept {pos += v;}
-		lref_t	 moveTo(const gc::Vec2 & v)noexcept {pos = v;}
+	gc::Vec2 getCenter() const noexcept;
+	lref_t	 moveOn(const gc::Vec2 & v)noexcept {pos += v; return *this;}
+		lref_t	 moveTo(const gc::Vec2 & v)noexcept {pos = v;  return *this;}
 			private:
 			Hero(const Hero &) = delete;
 			Hero(Hero &&) = delete;
