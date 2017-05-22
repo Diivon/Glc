@@ -24,9 +24,11 @@ const gc::Vec2 gc::Vec2::zero{0, 0};
 		const gc::Event<gc::Vec2> gc::Mouse::onMove;
 		const gc::Event<gc::Mouse::Button> gc::Mouse::onButtonPressed;
 		const gc::Event<gc::Keyboard::Key> gc::Keyboard::onKeyPressed;
+		sf::RenderWindow mainWindow(sf::VideoMode(800,600), "sfml", sf::Style::Close);
+		gc::Camera mainCamera(gc::Vec2(0, 0), gc::Vec2(800,600));
+		sf::RenderWindow * gc::Mouse::_win = &mainWindow;
+		gc::Camera * gc::Mouse::_cam = &mainCamera;
 		int main(){
-			sf::RenderWindow mainWindow(sf::VideoMode(800,600), "sfml", sf::Style::Close);
-			gc::Camera mainCamera(gc::Vec2(0, 0), gc::Vec2(800,600));
 			gc::Renderer renderer;
 			renderer.setWindow(mainWindow).setCamera(mainCamera);
 			float dt = 0.5f;

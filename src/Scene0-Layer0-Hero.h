@@ -21,7 +21,8 @@ class Hero : public ::gc::TypeAliases<Hero>{
 	::gc::Sprite sprite;
 	private:
 	gc::Vec2 _lookvec;
-	const float _rotateGrade = .5f;
+	const float _rotateGrade = 5.0f;
+	const float _speed = 5.0f;
 	public:
 	::gc::Vec2 pos;
 	Hero(Scene0 &, Layer0 &);

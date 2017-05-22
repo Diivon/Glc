@@ -11,7 +11,7 @@
 #include "Scene0.h"
 Hero::Hero(Scene0 & sc, Layer0 & lr):
 self(*this), pos(0, 0), scene(sc), layer(lr)
-, _lookvec(1,  0), sprite("resources\\1.jpg")
+, _lookvec(0,  -1), sprite("resources\\Hero.png")
 {
 }
 Hero::~Hero(){
@@ -19,19 +19,20 @@ Hero::~Hero(){
 void Hero::onStart(){
 }
 void Hero::onUpdate(const float & dt){
-	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::F)){
-		layer.getObject<Bullet>()
-		.start(self.getCenter(), _lookvec);
+	if (gc::Mouse::isButtonPressed(gc::Mouse::Button::Left)){
+		layer.getObject<Bullet>().start(self.getCenter(), _lookvec);
 		layer.getObject<Bullet>().speed = 50.0f;
 	}
-	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::D))
-	_lookvec.rotateDeg(_rotateGrade);
-	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::A))
-	_lookvec.rotateDeg(-_rotateGrade);
+	auto dir = gc::Mouse::getWorldPosition() - self.getCenter();
+	_lookvec = dir.getNormalized();
 	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::W))
-	self.moveOn(_lookvec);
-	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::Space))
-	gc::debug.log(pos);
+	self.moveOn(_lookvec * _speed);
+	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::S))
+	self.moveOn(_lookvec * -_speed);
+	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::D))
+	self.moveOn(_lookvec.getRotatedDeg(90) * _speed);
+	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::A))
+	self.moveOn(_lookvec.getRotatedDeg(-90) * _speed);
 }
 const ::gc::Sprite & Hero::getCurrentSprite() const{
 	return sprite;

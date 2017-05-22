@@ -3,7 +3,8 @@ variables:
 	//your public variables here
 	private:
 		gc::Vec2 _lookvec;
-		const float _rotateGrade = .5f;
+		const float _rotateGrade = 5.0f;
+		const float _speed = 5.0f;
 	//your private variables here
 methods:
 	void onStart(){
@@ -11,25 +12,32 @@ methods:
 	}
 	void onUpdate(const float & dt){
 	//onUpdate called once per frame
-		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::F)){
-			layer.getObject<Bullet>()
-				.start(self.getCenter(), _lookvec);
+		if (gc::Mouse::isButtonPressed(gc::Mouse::Button::Left)){
+			layer.getObject<Bullet>().start(self.getCenter(), _lookvec);
 			layer.getObject<Bullet>().speed = 50.0f;
 		}
-		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::D))
-			_lookvec.rotateDeg(_rotateGrade);
-		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::A))
-			_lookvec.rotateDeg(-_rotateGrade);
+
+		auto dir = gc::Mouse::getWorldPosition() - self.getCenter();
+		_lookvec = dir.getNormalized();
+
+		//forward
 		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::W))
-			self.moveOn(_lookvec);
-		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::Space))
-			gc::debug.log(pos);
+			self.moveOn(_lookvec * _speed);
+		//backward
+		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::S))
+			self.moveOn(_lookvec * -_speed);
+		//right strafe
+		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::D))
+			self.moveOn(_lookvec.getRotatedDeg(90) * _speed);
+		//left strafe
+		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::A))
+			self.moveOn(_lookvec.getRotatedDeg(-90) * _speed);
 	}
 	//else methods here
 constructors:
 	//this code will be in class constructor-specific synthax example is:
 	//str("awd"), dur(6)
-	_lookvec(1, 0)
+	_lookvec(0, -1)
 constructor_body:
 	//this code will be runned when constructor of object will be called
 	//use it for primary initialization only!!!

@@ -22,6 +22,10 @@ methods:
 			_ttl = 0.0f;
 			pos = gc::Vec2(-1000, -1000);
 		}
+		scene.getLayer<EnemyLayer>().foreach([this](auto & i){
+			if (i.collider.isCollide(self.collider))
+				i.moveTo(gc::Vec2(1000, 1000));
+		});
 	}
 	void start(gc::Vec2 const & pos, gc::Vec2 const & dir){
 		if(_isActive) return;

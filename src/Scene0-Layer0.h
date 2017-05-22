@@ -26,6 +26,7 @@ class Layer0 : public ::gc::TypeAliases<Layer0>{
 	void onUpdate(const float & dt);
 	public:
 	private:
+	public:
 	template<class F>
 	void foreach(F &&);
 	template<class T>

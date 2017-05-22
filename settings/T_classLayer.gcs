@@ -14,6 +14,7 @@ Class:Layer:Declaration
 		void onStart();
 		void onUpdate(const float & dt);
 		#ComponentsMethodsDeclaration#
+	public:
 		template<class F>
 		void foreach(F &&);
 		template<class T>

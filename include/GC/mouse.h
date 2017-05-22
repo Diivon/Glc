@@ -3,6 +3,7 @@
 #include "Numerics.h"
 #include "Event.h"
 #include "Camera.h"
+#include "Debug.h"
 #include "SFML/Window/Mouse.hpp"
 #include "SFML/Window.hpp"
 
@@ -47,9 +48,10 @@ namespace gc{
 		return Vec2(static_cast<float>(res.x), static_cast<float>(res.y));
 	}
 	inline Vec2 Mouse::getWorldPosition() noexcept{
-		auto res = sf::Mouse::getPosition(*_win);
-		return Vec2(static_cast<float>(res.x), static_cast<float>(res.y)) - _cam->getPosition();
-	}	
+		Vec2 mousePos = sf::Mouse::getPosition(*_win);
+		Vec2 camPos = _cam->getCenter() + (_cam->getSize() / 2);
+		return mousePos - camPos;
+	}
 	inline Bool Mouse::isButtonPressed(Button butt) noexcept{
 		return sf::Mouse::isButtonPressed(static_cast<sf::Mouse::Button>(butt));
 	}

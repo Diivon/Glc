@@ -11,7 +11,8 @@
 #include "Scene0.h"
 Bullet::Bullet(Scene0 & sc, Layer0 & lr):
 self(*this), pos(0, 0), scene(sc), layer(lr)
-, _ttl(0.0f),  _isActive(false),  speed(5.0f), sprite("resources\\bullet.jpg")
+, _ttl(0.0f),  _isActive(false),  speed(5.0f), collider(pos,  5.00f)
+, sprite("resources\\bullet.jpg")
 {
 }
 Bullet::~Bullet(){
@@ -28,6 +29,10 @@ void Bullet::onUpdate(const float & dt){
 		_ttl = 0.0f;
 		pos = gc::Vec2(-1000, -1000);
 	}
+	scene.getLayer<EnemyLayer>().foreach([this](auto & i){
+		if (i.collider.isCollide(self.collider))
+		i.moveTo(gc::Vec2(1000, 1000));
+	});
 }
 const ::gc::Sprite & Bullet::getCurrentSprite() const{
 	return sprite;

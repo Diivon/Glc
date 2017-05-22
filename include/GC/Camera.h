@@ -5,6 +5,7 @@
 	actually it is viewport, which limited visible part of scene
 */
 #include "Vec2.h"
+#include "Debug.h"
 #include <SFML/Graphics.hpp>
 namespace gc
 {
@@ -25,13 +26,12 @@ namespace gc
 		inline Camera & changeSize(const Vec2 & ds) noexcept;
 		inline Camera & setRotation(float r) noexcept;			//set
 		inline Camera & rotate(float dr) noexcept;				//change
-		inline Camera & zoom(float z) noexcept;					//change (deprecated)
-
-		
+		inline Camera & zoom(float z) noexcept;					//change (deprecated)		
 		
 		//getters
-		inline Vec2 const & getPosition() const noexcept;
-		inline Vec2 const & getSize() const noexcept;
+		inline Vec2 getPosition() const noexcept;
+		inline Vec2 getCenter() const noexcept;
+		inline Vec2 getSize() const noexcept;
 		inline const float getRotation() const noexcept;
 	};
 	/*----------------------------------------------IMPLEMENTATION--------------------------------------------*/
@@ -98,11 +98,22 @@ namespace gc
 		_view.zoom(z);
 	}
 
-	inline Vec2 const & Camera::getPosition() const noexcept {
+	inline Vec2 Camera::getPosition() const noexcept {
+		Vec2 center = _view.getCenter();
+		Vec2 halfSize = _view.getSize();
+		halfSize.x /= 2;
+		halfSize.y /= 2;
+		Vec2 result;
+		result.x = center.x - halfSize.x;
+		result.y = center.y - halfSize.y;
+		return result;
+	}
+
+	inline Vec2 Camera::getCenter() const noexcept {
 		return _view.getCenter();
 	}
 
-	inline Vec2 const & Camera::getSize() const noexcept {
+	inline Vec2 Camera::getSize() const noexcept {
 		return _view.getSize();
 	}
 

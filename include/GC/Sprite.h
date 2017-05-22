@@ -51,9 +51,11 @@ namespace gc
 	}
 	Sprite & Sprite::rotate(sh::priv::degree_t<float> const & v) noexcept{
 		_sprite.rotate(v.value);
+		return *this;
 	}
 	Sprite & Sprite::rotate(sh::priv::radian_t<float> const & v) noexcept{
 		_sprite.rotate(v.value);
+		return *this;
 	}
 	Vec2 Sprite::getPosition() const noexcept{
 		return Vec2(_sprite.getPosition().x, _sprite.getPosition().y);

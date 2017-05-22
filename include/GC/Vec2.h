@@ -31,6 +31,8 @@ namespace gc
 		#ifdef SFML_VECTOR2_HPP
 			inline this_t(const sf::Vector2f &) noexcept;
 			inline this_t(sf::Vector2f &&) noexcept;
+			inline this_t(const sf::Vector2i &) noexcept;
+			inline this_t(sf::Vector2i &&) noexcept;
 			inline lref_t operator = (const sf::Vector2f &) noexcept;
 			inline lref_t operator = (sf::Vector2f &&) noexcept;
 			inline operator sf::Vector2f() const noexcept;
@@ -93,6 +95,12 @@ namespace gc
 		{}
 		Vec2::Vec2(sf::Vector2f && a) noexcept :
 			x(a.x), y(a.y)
+		{}
+		Vec2::Vec2(const sf::Vector2i & a) noexcept:
+			x((float)a.x), y((float)a.y)
+		{}
+		Vec2::Vec2(sf::Vector2i && a) noexcept :
+			x((float)a.x), y((float)a.y)
 		{}
 		Vec2::lref_t Vec2::operator = (const sf::Vector2f & a) noexcept {
 			x = a.x;

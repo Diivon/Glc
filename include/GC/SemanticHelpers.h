@@ -104,11 +104,11 @@ namespace sh{
 		return priv::before_t<T>{std::forward<T>(t)};
 	}
 	template<class T>
-	inline auto degree(T && t){
-		return priv::degree_t<T>{std::forward<T>(t)};
+	inline auto degree(T const & t){
+		return priv::degree_t<T>{t};
 	}
 	template<class T>
-	inline auto radian(T && t){
-		return priv::radian_t<T>{std::forward<T>(t)};
+	inline auto radian(T const & t){
+		return priv::radian_t<T>{t};
 	}
 }

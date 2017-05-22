@@ -19,6 +19,8 @@ class Bullet : public ::gc::TypeAliases<Bullet>{
 	Layer0 & layer;
 	public:
 	float speed;
+	typedef ::gc::Collider<::gc::ColliderType::Circle> collider_t;
+	collider_t collider;
 	::gc::Sprite sprite;
 	private:
 	float _ttl;
