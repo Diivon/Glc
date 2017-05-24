@@ -20,7 +20,11 @@ File:Main:Def
 	const int c_framesPerSecond = 30;
 	const float c_MillisecondsForOneFrame = 1'000 / c_framesPerSecond;
 
-	const gc::Vec2 gc::Vec2::zero{0, 0};
+	const gc::Vec2 gc::Vec2::zero	{0, 0 };
+	const gc::Vec2 gc::Vec2::right	{1, 0 };
+	const gc::Vec2 gc::Vec2::left 	{-1, 0};
+	const gc::Vec2 gc::Vec2::up   	{0, -1};
+	const gc::Vec2 gc::Vec2::down 	{0, 1 };
 	gc::priv::Debug gc::debug{ R"(resources\DebugFont.ttf)" };
 	gc::priv::printer gc::print;
 	gc::priv::printLiner gc::println;
@@ -38,6 +42,7 @@ File:Main:Def
 		
 		float dt = 0.5f;
 		auto & currentScene = #FirstSceneClassName#();
+		currentScene.setRenderer(renderer);
 		currentScene.start();
 
 		sf::Clock clock;

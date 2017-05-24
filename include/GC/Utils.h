@@ -52,13 +52,13 @@ namespace gc
 		return data;				//..
 	}
 	template<class T>
-	inline sh::priv::degree_t<T> toDegree(sh::priv::radian_t<T> const & v){
-		auto e = v.value / Pi * 180.0f;
+	inline sh::priv::degree_t<T> toDegree(T const & v){
+		auto e = v / Pi * 180.0f;
 		return{ e };
 	}
 	template<class T>
-	inline sh::priv::radian_t<T> toRadian(sh::priv::degree_t<T> const & v){
-		auto e = v.value * Pi / 180.0f;
+	inline sh::priv::radian_t<T> toRadian(T const & v){
+		auto e = v * Pi / 180.0f;
 		return{ e };
 	}
 	[[noreturn]] 

@@ -2,7 +2,10 @@
 	#LayersDeclarationInclude#
 	class #ClassName# : public ::gc::TypeAliases<#ClassName#>{
 		#Layers#
+		gc::Renderer * _rend;
 	public:
+		gc::Renderer & getRenderer(){return *_rend;}
+		void setRenderer(gc::Renderer & r){_rend = &r;}
 		#ClassName#()
 			#Ctors#
 		{}

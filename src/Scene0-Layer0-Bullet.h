@@ -19,6 +19,7 @@ class Bullet : public ::gc::TypeAliases<Bullet>{
 	Layer0 & layer;
 	public:
 	float speed;
+	float lifeTime;
 	typedef ::gc::Collider<::gc::ColliderType::Circle> collider_t;
 	collider_t collider;
 	::gc::Sprite sprite;
@@ -28,6 +29,7 @@ class Bullet : public ::gc::TypeAliases<Bullet>{
 	gc::Vec2 _dir;
 	public:
 	::gc::Vec2 pos;
+	bool isVisible = true;
 	Bullet(Scene0 &, Layer0 &);
 	~Bullet();
 	void onStart();

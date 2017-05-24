@@ -2,14 +2,16 @@ variables:
 	public: 
 		//your public variables here
 		float speed;
+		float lifeTime;
 	private: 
-		//your private variables here
 		float _ttl;
+		//your private variables here
 		bool _isActive;
 		gc::Vec2 _dir;
 methods:
 	void onStart(){
 		//it's called once, before game cycle begins
+		self.isVisible = false;
 	}
 	void onUpdate(const float & dt){
 		//onUpdate called once per frame
@@ -17,18 +19,19 @@ methods:
 			self.moveOn(_dir * speed);
 			_ttl += dt;
 		}
-		if (_ttl > 1500){
+		if (_ttl > lifeTime){
 			_isActive = false;
 			_ttl = 0.0f;
-			pos = gc::Vec2(-1000, -1000);
 		}
 		scene.getLayer<EnemyLayer>().foreach([this](auto & i){
 			if (i.collider.isCollide(self.collider))
-				i.moveTo(gc::Vec2(1000, 1000));
+				i.isVisible = false;
 		});
 	}
 	void start(gc::Vec2 const & pos, gc::Vec2 const & dir){
 		if(_isActive) return;
+		
+		self.isVisible = true;
 		self.moveTo(pos);
 		_isActive = true;
 		_dir = dir;
@@ -39,7 +42,7 @@ methods:
 constructors:
 	//this code will be in class constructor-specific synthax example is: 
 	//str("awd"), dur(6)
-	_ttl(0.0f), _isActive(false), speed(5.0f)
+	_ttl(0.0f), _isActive(false), speed(5.0f), lifeTime(0.0f)
 constructor_body:
 	//this code will be runned when constructor of object will be called
 	//use it for primary initialization only!!!

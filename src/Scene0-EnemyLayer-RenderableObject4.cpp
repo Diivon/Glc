@@ -10,7 +10,7 @@
 #include <cmath>
 #include "Scene0.h"
 RenderableObject4::RenderableObject4(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(-194, -104), scene(sc), layer(lr)
+self(*this), pos(-48, 220), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(50,  50))
 , sprite("resources\\n\\1.jpg")
 {

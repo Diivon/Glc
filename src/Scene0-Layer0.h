@@ -58,6 +58,6 @@ class Layer0 : public ::gc::TypeAliases<Layer0>{
 };
 template<>
 inline void ::gc::Renderer::renderLayer(const Layer0 & l){
-	this->render(l.getObject<Hero>().getCurrentSprite(), l.getObject<Hero>().pos);
-	this->render(l.getObject<Bullet>().getCurrentSprite(), l.getObject<Bullet>().pos);
+	if (l.getObject<Hero>().isVisible) this->render(l.getObject<Hero>().getCurrentSprite(), l.getObject<Hero>().pos);
+	if (l.getObject<Bullet>().isVisible) this->render(l.getObject<Bullet>().getCurrentSprite(), l.getObject<Bullet>().pos);
 }

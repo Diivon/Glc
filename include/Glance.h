@@ -22,6 +22,9 @@
 #include "GC/Line.h"
 
 using namespace std::string_literals;
+namespace gc{
+	using Color = sf::Color;
+}
 
 GC_SPECIALIZE_PRINT(const ::gc::Vec2 & v) {
 	gc::print("{x: ", v.x, ", y: ", v.y, "}");

@@ -58,8 +58,8 @@ namespace gc
 			return *this;
 		if(line._thickness == 1){
 			sf::Vertex l[] = {
-				sf::Vertex(line._data[0]),
-				sf::Vertex(line._data[1])
+				sf::Vertex(line._data[0], line._color),
+				sf::Vertex(line._data[1], line._color)
 			};
 			_win->draw(l, 2, sf::LinesStrip);
 		}

@@ -11,7 +11,7 @@
 #include "Scene0.h"
 Hero::Hero(Scene0 & sc, Layer0 & lr):
 self(*this), pos(0, 0), scene(sc), layer(lr)
-, _lookvec(0,  -1), sprite("resources\\Hero.png")
+, _lookvec(0,  -1), sprite("resources\\soldier\\Soldier1.png")
 {
 }
 Hero::~Hero(){
@@ -20,11 +20,12 @@ void Hero::onStart(){
 }
 void Hero::onUpdate(const float & dt){
 	if (gc::Mouse::isButtonPressed(gc::Mouse::Button::Left)){
-		layer.getObject<Bullet>().start(self.getCenter(), _lookvec);
-		layer.getObject<Bullet>().speed = 50.0f;
+		self.shoot(_lookvec);
 	}
-	auto dir = gc::Mouse::getWorldPosition() - self.getCenter();
-	_lookvec = dir.getNormalized();
+	_lookvec = (gc::Mouse::getWorldPosition() - self.getCenter()).normalize();
+	auto deg = gc::toDegree(acos(-_lookvec.y));
+	if (_lookvec.x < 0)	deg.value *= -1;
+	sprite.setRotation(deg);
 	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::W))
 	self.moveOn(_lookvec * _speed);
 	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::S))
@@ -33,6 +34,14 @@ void Hero::onUpdate(const float & dt){
 	self.moveOn(_lookvec.getRotatedDeg(90) * _speed);
 	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::A))
 	self.moveOn(_lookvec.getRotatedDeg(-90) * _speed);
+	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::Num1)){
+		self._isFirstWeapon = true;
+		gc::debug.log("first weapon choosed");
+	}
+	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::Num2)){
+		self._isFirstWeapon = false;
+		gc::debug.log("second weapon choosed");
+	}
 }
 const ::gc::Sprite & Hero::getCurrentSprite() const{
 	return sprite;
@@ -45,4 +54,15 @@ const ::gc::Sprite & Hero::getCurrentSprite() const{
 }
 ::gc::Vec2 Hero::getCenter() const noexcept{
 	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
+}
+void Hero::shoot(gc::Vec2 const & dir){if (_isFirstWeapon){
+	layer.getObject<Bullet>().start(self.getCenter(), dir);
+	layer.getObject<Bullet>().speed = 50.0f;
+	layer.getObject<Bullet>().lifeTime = 1000.0f;
+}
+else{
+	layer.getObject<Bullet>().start(self.getCenter(), dir.getRotatedDeg(gc::Random<float>::get(-50, 50)));
+	layer.getObject<Bullet>().speed = 250.0f;
+	layer.getObject<Bullet>().lifeTime = 100.0f;
+}
 }

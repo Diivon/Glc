@@ -5,21 +5,34 @@ variables:
 		gc::Vec2 _lookvec;
 		const float _rotateGrade = 5.0f;
 		const float _speed = 5.0f;
+		bool _isFirstWeapon = true;
 	//your private variables here
 methods:
 	void onStart(){
 	//it's called once, before game cycle begins
 	}
+	void shoot(gc::Vec2 const & dir){
+		if (_isFirstWeapon){
+			layer.getObject<Bullet>().start(self.getCenter(), dir);
+			layer.getObject<Bullet>().speed = 50.0f;
+			layer.getObject<Bullet>().lifeTime = 1000.0f;
+		}
+		else{
+			layer.getObject<Bullet>().start(self.getCenter(), dir.getRotatedDeg(gc::Random<float>::get(-50, 50)));
+			layer.getObject<Bullet>().speed = 250.0f;
+			layer.getObject<Bullet>().lifeTime = 100.0f;
+		}
+	}
 	void onUpdate(const float & dt){
 	//onUpdate called once per frame
-		if (gc::Mouse::isButtonPressed(gc::Mouse::Button::Left)){
-			layer.getObject<Bullet>().start(self.getCenter(), _lookvec);
-			layer.getObject<Bullet>().speed = 50.0f;
-		}
-
-		auto dir = gc::Mouse::getWorldPosition() - self.getCenter();
-		_lookvec = dir.getNormalized();
-
+		if (gc::Mouse::isButtonPressed(gc::Mouse::Button::Left))
+			self.shoot(_lookvec);
+		
+		_lookvec = (gc::Mouse::getWorldPosition() - self.getCenter()).normalize();
+		auto deg = gc::toDegree(acos(-_lookvec.y));
+		if (_lookvec.x < 0)	deg.value *= -1;
+		sprite.setRotation(deg);
+		
 		//forward
 		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::W))
 			self.moveOn(_lookvec * _speed);
@@ -32,6 +45,16 @@ methods:
 		//left strafe
 		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::A))
 			self.moveOn(_lookvec.getRotatedDeg(-90) * _speed);
+
+		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::Num1)){
+			self._isFirstWeapon = true;
+			gc::debug.log("first weapon choosed");
+		}
+		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::Num2)){
+			self._isFirstWeapon = false;
+			gc::debug.log("second weapon choosed");
+		}
+		//if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::Space)) gc::debug.log();
 	}
 	//else methods here
 constructors:

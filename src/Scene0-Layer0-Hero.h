@@ -23,14 +23,17 @@ class Hero : public ::gc::TypeAliases<Hero>{
 	gc::Vec2 _lookvec;
 	const float _rotateGrade = 5.0f;
 	const float _speed = 5.0f;
+	bool _isFirstWeapon = true;
 	public:
 	::gc::Vec2 pos;
+	bool isVisible = true;
 	Hero(Scene0 &, Layer0 &);
 	~Hero();
 	void onStart();
 	void onUpdate(const float & dt);
 	const ::gc::Sprite & getCurrentSprite() const;
 	public:
+	void shoot(gc::Vec2 const & dir);
 	private:
 	public:
 	gc::Vec2 getPosition() const noexcept;

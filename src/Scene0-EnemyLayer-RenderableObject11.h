@@ -25,6 +25,7 @@ class RenderableObject11 : public ::gc::TypeAliases<RenderableObject11>{
 	;
 	public:
 	::gc::Vec2 pos;
+	bool isVisible = true;
 	RenderableObject11(Scene0 &, EnemyLayer &);
 	~RenderableObject11();
 	void onStart();

@@ -138,14 +138,14 @@ class EnemyLayer : public ::gc::TypeAliases<EnemyLayer>{
 };
 template<>
 inline void ::gc::Renderer::renderLayer(const EnemyLayer & l){
-	this->render(l.getObject<RenderableObject2>().getCurrentSprite(), l.getObject<RenderableObject2>().pos);
-	this->render(l.getObject<RenderableObject3>().getCurrentSprite(), l.getObject<RenderableObject3>().pos);
-	this->render(l.getObject<RenderableObject4>().getCurrentSprite(), l.getObject<RenderableObject4>().pos);
-	this->render(l.getObject<RenderableObject5>().getCurrentSprite(), l.getObject<RenderableObject5>().pos);
-	this->render(l.getObject<RenderableObject6>().getCurrentSprite(), l.getObject<RenderableObject6>().pos);
-	this->render(l.getObject<RenderableObject7>().getCurrentSprite(), l.getObject<RenderableObject7>().pos);
-	this->render(l.getObject<RenderableObject8>().getCurrentSprite(), l.getObject<RenderableObject8>().pos);
-	this->render(l.getObject<RenderableObject9>().getCurrentSprite(), l.getObject<RenderableObject9>().pos);
-	this->render(l.getObject<RenderableObject10>().getCurrentSprite(), l.getObject<RenderableObject10>().pos);
-	this->render(l.getObject<RenderableObject11>().getCurrentSprite(), l.getObject<RenderableObject11>().pos);
+	if (l.getObject<RenderableObject2>().isVisible) this->render(l.getObject<RenderableObject2>().getCurrentSprite(), l.getObject<RenderableObject2>().pos);
+	if (l.getObject<RenderableObject3>().isVisible) this->render(l.getObject<RenderableObject3>().getCurrentSprite(), l.getObject<RenderableObject3>().pos);
+	if (l.getObject<RenderableObject4>().isVisible) this->render(l.getObject<RenderableObject4>().getCurrentSprite(), l.getObject<RenderableObject4>().pos);
+	if (l.getObject<RenderableObject5>().isVisible) this->render(l.getObject<RenderableObject5>().getCurrentSprite(), l.getObject<RenderableObject5>().pos);
+	if (l.getObject<RenderableObject6>().isVisible) this->render(l.getObject<RenderableObject6>().getCurrentSprite(), l.getObject<RenderableObject6>().pos);
+	if (l.getObject<RenderableObject7>().isVisible) this->render(l.getObject<RenderableObject7>().getCurrentSprite(), l.getObject<RenderableObject7>().pos);
+	if (l.getObject<RenderableObject8>().isVisible) this->render(l.getObject<RenderableObject8>().getCurrentSprite(), l.getObject<RenderableObject8>().pos);
+	if (l.getObject<RenderableObject9>().isVisible) this->render(l.getObject<RenderableObject9>().getCurrentSprite(), l.getObject<RenderableObject9>().pos);
+	if (l.getObject<RenderableObject10>().isVisible) this->render(l.getObject<RenderableObject10>().getCurrentSprite(), l.getObject<RenderableObject10>().pos);
+	if (l.getObject<RenderableObject11>().isVisible) this->render(l.getObject<RenderableObject11>().getCurrentSprite(), l.getObject<RenderableObject11>().pos);
 }
