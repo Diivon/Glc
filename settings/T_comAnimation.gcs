@@ -1,6 +1,8 @@
 Com:Animation:Vars
 	typedef ::gc::Animation<#AnimationType#> #AnimationTypeName#;
 	#AnimationTypeName# #AnimationName#;
+	#AnimationTypeName# & getGraphicalComponent() noexcept {return #AnimationName#;}
+	#AnimationTypeName# const & getGraphicalComponent() const noexcept {return #AnimationName#;}
 Com:Animation:Constructor
 	#AnimationName#()
 Com:Animation:ConstructorBody

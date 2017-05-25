@@ -46,10 +46,9 @@ const ::gc::Sprite & Bullet::getCurrentSprite() const{
 ::gc::Vec2 Bullet::getCenter() const noexcept{
 	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
 }
-void Bullet::start(gc::Vec2 const & pos, gc::Vec2 const & dir){self.isVisible = true;
-	if(_isActive) return;
+void Bullet::start(gc::Vec2 const & pos, gc::Vec2 const & dir){if(_isActive) return;
+	self.isVisible = true;
 	self.moveTo(pos);
 	_isActive = true;
 	_dir = dir;
-	gc::debug.log("Shoot!");
 }

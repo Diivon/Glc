@@ -19,6 +19,10 @@ class Hero : public ::gc::TypeAliases<Hero>{
 	Layer0 & layer;
 	public:
 	::gc::Sprite sprite;
+	::gc::Sprite & getGraphicalComponent() noexcept {return sprite;
+	}
+	::gc::Sprite const & getGraphicalComponent() const noexcept{return sprite;
+	};
 	private:
 	gc::Vec2 _lookvec;
 	const float _rotateGrade = 5.0f;

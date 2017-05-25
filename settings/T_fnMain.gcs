@@ -52,11 +52,14 @@ File:Main:Def
 			processEvents(mainWindow);
 
 			mainWindow.clear();
+			mainWindow.setView(mainCamera.getView());
 
 			currentScene.update(c_MillisecondsForOneFrame);
 			renderer.renderScene(currentScene);
 
-			mainWindow.draw(gc::debug.getSFText());
+			auto debText = gc::debug.getSFText();
+			debText.setPosition(mainCamera.getCenter() - (mainCamera.getSize() / 2));
+			mainWindow.draw(debText);
 
 			renderer.show();
 

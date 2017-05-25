@@ -4,6 +4,8 @@
 #endif
 #include <cmath>
 #include "Utils.h"
+#include "SemanticHelpers.h"
+
 #include "SFML/Graphics.hpp"
 
 namespace gc
@@ -55,15 +57,19 @@ namespace gc
 		inline c_lref_t operator /= (float a) noexcept;
 		
 		//getters
-		inline this_t getRotatedDeg(float) const noexcept;
-		inline this_t getRotatedRad(float) const noexcept;
+		template<class T>
+		inline this_t getRotated(sh::priv::degree_t<T> const &) const noexcept;
+		template<class T>
+		inline this_t getRotated(sh::priv::radian_t<T> const &) const noexcept;
 		inline this_t getRotatedCS(float coss, float sinn) const noexcept;
 		inline this_t getNormalized() const noexcept;
 		inline const float getLength() const noexcept;
 
 		//changers
-		inline c_lref_t rotateDeg(float) noexcept;
-		inline c_lref_t rotateRad(float) noexcept;
+		template<class T>
+		inline c_lref_t rotate(sh::priv::degree_t<T> const &) noexcept;
+		template<class T>
+		inline c_lref_t rotate(sh::priv::radian_t<T> const &) noexcept;
 		inline c_lref_t rotateCS(float coss, float sinn) noexcept;
 		inline c_lref_t normalize() noexcept;
 		inline c_lref_t setLength(float) noexcept;
@@ -155,15 +161,17 @@ namespace gc
 	Vec2::c_lref_t Vec2::operator /= (float a) noexcept{
 		return *this;
 	}
-	Vec2::this_t Vec2::getRotatedDeg(float a) const noexcept{
-		a = a / 180 * Pi;
+	template<class T>
+	Vec2::this_t Vec2::getRotated(sh::priv::degree_t<T> const & d) const noexcept{
+		auto a = ((float)d.value) / 180 * Pi;
 		float coss = cos(a);
 		float sinn = sin(a);
 		return Vec2(x * coss - y * sinn, x * sinn + y * coss);
 	}
-	Vec2::this_t Vec2::getRotatedRad(float a) const noexcept{
-		float coss = cos(a);
-		float sinn = sin(a);
+	template<class T>
+	Vec2::this_t Vec2::getRotated(sh::priv::radian_t<T> const & a) const noexcept{
+		float coss = cos((float)a.value);
+		float sinn = sin((float)a.value);
 		return Vec2(x * coss - y * sinn, x * sinn + y * coss);
 	}
 	Vec2::this_t Vec2::getRotatedCS(float coss, float sinn) const noexcept{
@@ -180,8 +188,9 @@ namespace gc
 	const float Vec2::getLength() const noexcept{
 		return sqrt(x * x + y * y);
 	}
-	Vec2::c_lref_t Vec2::rotateDeg(float a) noexcept{
-		a = a / 180 * Pi;
+	template<class T>
+	Vec2::c_lref_t Vec2::rotate(sh::priv::degree_t<T> const & d) noexcept{
+		auto a = ((float)d.value) / 180 * Pi;
 		float coss = cos(a);
 		float sinn = sin(a);
 		float newX = x * coss - y * sinn;	//x*coss - y*sinn
@@ -189,9 +198,10 @@ namespace gc
 		x = newX;
 		return *this;
 	}
-	Vec2::c_lref_t Vec2::rotateRad(float a) noexcept{
-		float coss = std::cos(a);
-		float sinn = std::sin(a);
+	template<class T>
+	Vec2::c_lref_t Vec2::rotate(sh::priv::radian_t<T> const & a) noexcept{
+		float coss = std::cos((float)a.value);
+		float sinn = std::sin((float)a.value);
 		float newX = x * coss - y * sinn;		//x*coss - y*sinn
 		y = x * sinn + y * coss;		//x*sinn + y*coss
 		x = newX;

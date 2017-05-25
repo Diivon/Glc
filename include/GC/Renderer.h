@@ -17,6 +17,8 @@ namespace gc
 		inline Renderer() noexcept;
 		inline Renderer & setCamera(Camera &) noexcept;
 		inline Renderer & setWindow(::sf::RenderWindow &) noexcept;
+		inline Camera & getCamera() noexcept;
+
 		template<class T>
 		inline const Renderer & render(T const &) const noexcept;
 		inline const Renderer & render(Sprite const & sprite, Vec2 const & pos) const noexcept;
@@ -30,18 +32,19 @@ namespace gc
 	inline Renderer::Renderer() noexcept:
 		_cam(nullptr), _win(nullptr)
 	{}
-	inline Renderer & Renderer::setCamera(Camera & a) noexcept{
-		_cam = &a;
-		if (_win)
-			_win->setView(_cam->_view);
-		return *this;
-	}
 	inline Renderer & Renderer::setWindow(::sf::RenderWindow & a) noexcept{
 		_win = &a;
-		if (_cam)
-			_win->setView(_cam->_view);
 		return *this;
 	}
+	inline Renderer & Renderer::setCamera(Camera & a) noexcept{
+		_cam = &a;
+		return *this;
+	}
+
+	inline Camera & Renderer::getCamera() noexcept{
+		return *_cam;
+	}
+	
 	template<class T>
 	inline const Renderer & Renderer::render(T const & t) const noexcept{
 		_win->draw(t);

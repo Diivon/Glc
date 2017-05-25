@@ -17,31 +17,30 @@ self(*this), pos(0, 0), scene(sc), layer(lr)
 Hero::~Hero(){
 }
 void Hero::onStart(){
+	scene.getRenderer().getCamera().followSpeed = 0.2;
 }
 void Hero::onUpdate(const float & dt){
-	if (gc::Mouse::isButtonPressed(gc::Mouse::Button::Left)){
-		self.shoot(_lookvec);
-	}
+	if (gc::Mouse::isButtonPressed(gc::Mouse::Button::Left))
+	self.shoot(_lookvec);
 	_lookvec = (gc::Mouse::getWorldPosition() - self.getCenter()).normalize();
 	auto deg = gc::toDegree(acos(-_lookvec.y));
 	if (_lookvec.x < 0)	deg.value *= -1;
-	sprite.setRotation(deg);
+	self.getGraphicalComponent().setRotation(deg);
 	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::W))
 	self.moveOn(_lookvec * _speed);
 	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::S))
 	self.moveOn(_lookvec * -_speed);
 	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::D))
-	self.moveOn(_lookvec.getRotatedDeg(90) * _speed);
+	self.moveOn(_lookvec.getRotated(sh::degree(90)) * _speed);
 	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::A))
-	self.moveOn(_lookvec.getRotatedDeg(-90) * _speed);
+	self.moveOn(_lookvec.getRotated(sh::degree(-90)) * _speed);
 	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::Num1)){
 		self._isFirstWeapon = true;
-		gc::debug.log("first weapon choosed");
 	}
 	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::Num2)){
 		self._isFirstWeapon = false;
-		gc::debug.log("second weapon choosed");
 	}
+	scene.getRenderer().getCamera().follow(self.getCenter());
 }
 const ::gc::Sprite & Hero::getCurrentSprite() const{
 	return sprite;
@@ -61,7 +60,7 @@ void Hero::shoot(gc::Vec2 const & dir){if (_isFirstWeapon){
 	layer.getObject<Bullet>().lifeTime = 1000.0f;
 }
 else{
-	layer.getObject<Bullet>().start(self.getCenter(), dir.getRotatedDeg(gc::Random<float>::get(-50, 50)));
+	layer.getObject<Bullet>().start(self.getCenter(), dir.getRotated(sh::degree(gc::Random<float>::get(-50, 50))));
 	layer.getObject<Bullet>().speed = 250.0f;
 	layer.getObject<Bullet>().lifeTime = 100.0f;
 }

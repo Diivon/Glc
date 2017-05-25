@@ -6,6 +6,8 @@
 */
 #include "Vec2.h"
 #include "Debug.h"
+#include "SemanticHelpers.h"
+
 #include <SFML/Graphics.hpp>
 namespace gc
 {
@@ -14,6 +16,7 @@ namespace gc
 		::sf::View _view;
 		friend class Renderer;
 	public:
+		float followSpeed;
 		inline Camera() noexcept;
 		inline Camera(const Vec2 & pos, const Vec2 & size) noexcept;
 		inline Camera & moveTo(float x, float y) noexcept;		//set
@@ -26,13 +29,14 @@ namespace gc
 		inline Camera & changeSize(const Vec2 & ds) noexcept;
 		inline Camera & setRotation(float r) noexcept;			//set
 		inline Camera & rotate(float dr) noexcept;				//change
-		inline Camera & zoom(float z) noexcept;					//change (deprecated)		
+		inline Camera & zoom(float z) noexcept;					//change (deprecated)
+		inline Camera & follow(Vec2 const & pos) noexcept;
 		
 		//getters
-		inline Vec2 getPosition() const noexcept;
 		inline Vec2 getCenter() const noexcept;
 		inline Vec2 getSize() const noexcept;
 		inline const float getRotation() const noexcept;
+		inline const sf::View & getView() const noexcept{return _view;}
 	};
 	/*----------------------------------------------IMPLEMENTATION--------------------------------------------*/
 #pragma region GC_CAMERA
@@ -96,17 +100,14 @@ namespace gc
 
 	inline Camera & Camera::zoom(float z) noexcept {
 		_view.zoom(z);
+		return *this;
 	}
-
-	inline Vec2 Camera::getPosition() const noexcept {
-		Vec2 center = _view.getCenter();
-		Vec2 halfSize = _view.getSize();
-		halfSize.x /= 2;
-		halfSize.y /= 2;
-		Vec2 result;
-		result.x = center.x - halfSize.x;
-		result.y = center.y - halfSize.y;
-		return result;
+	inline Camera & Camera::follow(Vec2 const & pos) noexcept{
+		auto distance = pos - this->getCenter();
+		if (distance.getLength() < 50) return *this;
+		Vec2 newPos = distance.normalize() / this->followSpeed;
+		_view.move(newPos);
+		return *this;
 	}
 
 	inline Vec2 Camera::getCenter() const noexcept {

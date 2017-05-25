@@ -21,6 +21,10 @@ class RenderableObject10 : public ::gc::TypeAliases<RenderableObject10>{
 	typedef ::gc::Collider<::gc::ColliderType::Rectangle> collider_t;
 	collider_t collider;
 	::gc::Sprite sprite;
+	::gc::Sprite & getGraphicalComponent() noexcept {return sprite;
+	}
+	::gc::Sprite const & getGraphicalComponent() const noexcept{return sprite;
+	};
 	private:
 	;
 	public:

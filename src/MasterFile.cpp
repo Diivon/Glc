@@ -55,7 +55,7 @@ void EnemyLayer::foreach(F && f){
 #include <cmath>
 #include "Scene0.h"
 RenderableObject2::RenderableObject2(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(-353, -163), scene(sc), layer(lr)
+self(*this), pos(-331, 172), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(50,  50))
 , sprite("resources\\n\\1.jpg")
 {
@@ -90,7 +90,7 @@ const ::gc::Sprite & RenderableObject2::getCurrentSprite() const{
 #include <cmath>
 #include "Scene0.h"
 RenderableObject3::RenderableObject3(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(373, 272), scene(sc), layer(lr)
+self(*this), pos(202, 149), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(50,  50))
 , sprite("resources\\n\\1.jpg")
 {
@@ -125,7 +125,7 @@ const ::gc::Sprite & RenderableObject3::getCurrentSprite() const{
 #include <cmath>
 #include "Scene0.h"
 RenderableObject4::RenderableObject4(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(-48, 220), scene(sc), layer(lr)
+self(*this), pos(-214, 249), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(50,  50))
 , sprite("resources\\n\\1.jpg")
 {
@@ -160,7 +160,7 @@ const ::gc::Sprite & RenderableObject4::getCurrentSprite() const{
 #include <cmath>
 #include "Scene0.h"
 RenderableObject5::RenderableObject5(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(-103, 145), scene(sc), layer(lr)
+self(*this), pos(-284, 163), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(50,  50))
 , sprite("resources\\n\\1.jpg")
 {
@@ -195,7 +195,7 @@ const ::gc::Sprite & RenderableObject5::getCurrentSprite() const{
 #include <cmath>
 #include "Scene0.h"
 RenderableObject6::RenderableObject6(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(47, -262), scene(sc), layer(lr)
+self(*this), pos(-68, -200), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(50,  50))
 , sprite("resources\\n\\1.jpg")
 {
@@ -230,7 +230,7 @@ const ::gc::Sprite & RenderableObject6::getCurrentSprite() const{
 #include <cmath>
 #include "Scene0.h"
 RenderableObject7::RenderableObject7(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(-106, -151), scene(sc), layer(lr)
+self(*this), pos(-71, -89), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(50,  50))
 , sprite("resources\\n\\1.jpg")
 {
@@ -265,7 +265,7 @@ const ::gc::Sprite & RenderableObject7::getCurrentSprite() const{
 #include <cmath>
 #include "Scene0.h"
 RenderableObject8::RenderableObject8(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(-66, -158), scene(sc), layer(lr)
+self(*this), pos(-28, 146), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(50,  50))
 , sprite("resources\\n\\1.jpg")
 {
@@ -300,7 +300,7 @@ const ::gc::Sprite & RenderableObject8::getCurrentSprite() const{
 #include <cmath>
 #include "Scene0.h"
 RenderableObject9::RenderableObject9(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(-22, 21), scene(sc), layer(lr)
+self(*this), pos(-4, -195), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(50,  50))
 , sprite("resources\\n\\1.jpg")
 {
@@ -335,7 +335,7 @@ const ::gc::Sprite & RenderableObject9::getCurrentSprite() const{
 #include <cmath>
 #include "Scene0.h"
 RenderableObject10::RenderableObject10(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(224, -147), scene(sc), layer(lr)
+self(*this), pos(-367, -228), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(50,  50))
 , sprite("resources\\n\\1.jpg")
 {
@@ -370,7 +370,7 @@ const ::gc::Sprite & RenderableObject10::getCurrentSprite() const{
 #include <cmath>
 #include "Scene0.h"
 RenderableObject11::RenderableObject11(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(-372, 115), scene(sc), layer(lr)
+self(*this), pos(-33, -165), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(50,  50))
 , sprite("resources\\n\\1.jpg")
 {
@@ -433,31 +433,30 @@ self(*this), pos(0, 0), scene(sc), layer(lr)
 Hero::~Hero(){
 }
 void Hero::onStart(){
+	scene.getRenderer().getCamera().followSpeed = 0.2;
 }
 void Hero::onUpdate(const float & dt){
-	if (gc::Mouse::isButtonPressed(gc::Mouse::Button::Left)){
-		self.shoot(_lookvec);
-	}
+	if (gc::Mouse::isButtonPressed(gc::Mouse::Button::Left))
+	self.shoot(_lookvec);
 	_lookvec = (gc::Mouse::getWorldPosition() - self.getCenter()).normalize();
 	auto deg = gc::toDegree(acos(-_lookvec.y));
 	if (_lookvec.x < 0)	deg.value *= -1;
-	sprite.setRotation(deg);
+	self.getGraphicalComponent().setRotation(deg);
 	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::W))
 	self.moveOn(_lookvec * _speed);
 	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::S))
 	self.moveOn(_lookvec * -_speed);
 	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::D))
-	self.moveOn(_lookvec.getRotatedDeg(90) * _speed);
+	self.moveOn(_lookvec.getRotated(sh::degree(90)) * _speed);
 	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::A))
-	self.moveOn(_lookvec.getRotatedDeg(-90) * _speed);
+	self.moveOn(_lookvec.getRotated(sh::degree(-90)) * _speed);
 	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::Num1)){
 		self._isFirstWeapon = true;
-		gc::debug.log("first weapon choosed");
 	}
 	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::Num2)){
 		self._isFirstWeapon = false;
-		gc::debug.log("second weapon choosed");
 	}
+	scene.getRenderer().getCamera().follow(self.getCenter());
 }
 const ::gc::Sprite & Hero::getCurrentSprite() const{
 	return sprite;
@@ -477,7 +476,7 @@ void Hero::shoot(gc::Vec2 const & dir){if (_isFirstWeapon){
 	layer.getObject<Bullet>().lifeTime = 1000.0f;
 }
 else{
-	layer.getObject<Bullet>().start(self.getCenter(), dir.getRotatedDeg(gc::Random<float>::get(-50, 50)));
+	layer.getObject<Bullet>().start(self.getCenter(), dir.getRotated(sh::degree(gc::Random<float>::get(-50, 50))));
 	layer.getObject<Bullet>().speed = 250.0f;
 	layer.getObject<Bullet>().lifeTime = 100.0f;
 }
@@ -530,10 +529,9 @@ const ::gc::Sprite & Bullet::getCurrentSprite() const{
 ::gc::Vec2 Bullet::getCenter() const noexcept{
 	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
 }
-void Bullet::start(gc::Vec2 const & pos, gc::Vec2 const & dir){self.isVisible = true;
-	if(_isActive) return;
+void Bullet::start(gc::Vec2 const & pos, gc::Vec2 const & dir){if(_isActive) return;
+	self.isVisible = true;
 	self.moveTo(pos);
 	_isActive = true;
 	_dir = dir;
-	gc::debug.log("Shoot!");
 }

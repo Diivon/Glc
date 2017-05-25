@@ -35,7 +35,6 @@ methods:
 		self.moveTo(pos);
 		_isActive = true;
 		_dir = dir;
-		gc::debug.log("Shoot!");
 	}
 
 	//else methods here

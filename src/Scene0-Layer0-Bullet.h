@@ -23,6 +23,10 @@ class Bullet : public ::gc::TypeAliases<Bullet>{
 	typedef ::gc::Collider<::gc::ColliderType::Circle> collider_t;
 	collider_t collider;
 	::gc::Sprite sprite;
+	::gc::Sprite & getGraphicalComponent() noexcept {return sprite;
+	}
+	::gc::Sprite const & getGraphicalComponent() const noexcept{return sprite;
+	};
 	private:
 	float _ttl;
 	bool _isActive;

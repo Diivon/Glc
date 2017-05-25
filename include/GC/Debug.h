@@ -98,7 +98,6 @@ namespace gc{
 			result.setFont(_font);
 			result.setOutlineColor(sf::Color::White);
 			result.setCharacterSize(20);
-			result.setPosition(-400, -300);
 			return result;
 		}
 		inline const sf::String Debug::getSFString() const{

@@ -1,5 +1,7 @@
 Com:Sprite:Vars
 	::gc::Sprite sprite;
+	::gc::Sprite & getGraphicalComponent() noexcept {return sprite;}
+	::gc::Sprite const & getGraphicalComponent() const noexcept{return sprite;}
 Com:Sprite:Constructor
 	sprite(#FileName#)
 Com:Sprite:ConstructorBody

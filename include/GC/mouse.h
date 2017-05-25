@@ -49,8 +49,8 @@ namespace gc{
 	}
 	inline Vec2 Mouse::getWorldPosition() noexcept{
 		Vec2 mousePos = sf::Mouse::getPosition(*_win);
-		Vec2 camPos = _cam->getCenter() + (_cam->getSize() / 2);
-		return mousePos - camPos;
+		Vec2 camPos = _cam->getCenter() - (_cam->getSize() / 2);
+		return camPos + mousePos;
 	}
 	inline Bool Mouse::isButtonPressed(Button butt) noexcept{
 		return sf::Mouse::isButtonPressed(static_cast<sf::Mouse::Button>(butt));
