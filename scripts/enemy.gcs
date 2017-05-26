@@ -1,0 +1,22 @@
+variables:
+	public: 
+		//your public variables here
+	private: 
+		//your private variables here
+		Hero & _hero;
+methods:
+	void onStart(){
+		//it's called once, before game cycle begins
+		gc::debug.log(_hero.getTag());
+	}
+	void onUpdate(const float & dt){
+		//onUpdate called once per frame
+	}
+	//else methods here
+constructors:
+	_hero(scene.getLayer<ObjectsLayer>().getObject<Hero>())
+	//this code will be in class constructor-specific synthax example is: 
+	//str("awd"), dur(6)
+constructor_body:
+	//this code will be runned when constructor of object will be called
+	//use it for primary initialization only!!!

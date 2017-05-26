@@ -9,10 +9,10 @@
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0-EnemyLayer.h"
-#include "Scene0-Layer0.h"
+#include "Scene0-ObjectsLayer.h"
 class Scene0 : public ::gc::TypeAliases<Scene0>{
 	EnemyLayer layerObject1;
-	Layer0 layerObject0;
+	ObjectsLayer layerObject0;
 	gc::Renderer * _rend;
 	public:
 	gc::Renderer & getRenderer(){return *_rend;}
@@ -44,16 +44,16 @@ class Scene0 : public ::gc::TypeAliases<Scene0>{
 					return layerObject1;
 				}
 				template<>
-				Layer0 & getLayer(){
+				ObjectsLayer & getLayer(){
 					return layerObject0;
 				}
 				template<>
-				const Layer0 & getLayer() const{
+				const ObjectsLayer & getLayer() const{
 					return layerObject0;
 				}
 			};
 			template<>
 			inline void ::gc::Renderer::renderScene(const Scene0 & s){
 				this->renderLayer(s.getLayer<EnemyLayer>());
-				this->renderLayer(s.getLayer<Layer0>());
+				this->renderLayer(s.getLayer<ObjectsLayer>());
 			}

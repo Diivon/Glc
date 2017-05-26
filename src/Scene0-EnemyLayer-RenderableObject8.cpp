@@ -10,9 +10,9 @@
 #include <cmath>
 #include "Scene0.h"
 RenderableObject8::RenderableObject8(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(-28, 146), scene(sc), layer(lr)
+self(*this), pos(-104, -249), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(50,  50))
-, sprite("resources\\n\\1.jpg")
+, _tag(gc::TypeName<this_t>::get()), sprite("resources\\n\\1.jpg")
 {
 }
 RenderableObject8::~RenderableObject8(){
@@ -32,4 +32,6 @@ const ::gc::Sprite & RenderableObject8::getCurrentSprite() const{
 }
 ::gc::Vec2 RenderableObject8::getCenter() const noexcept{
 	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
+}
+std::string const & RenderableObject8::getTag(){return _tag;
 }

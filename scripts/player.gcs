@@ -36,16 +36,16 @@ methods:
 		
 		//forward
 		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::W))
-			self.moveOn(_lookvec * _speed);
+			self.moveOn(gc::Vec2::up * _speed);
 		//backward
 		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::S))
-			self.moveOn(_lookvec * -_speed);
+			self.moveOn(gc::Vec2::down * _speed);
 		//right strafe
 		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::D))
-			self.moveOn(_lookvec.getRotated(sh::degree(90)) * _speed);
+			self.moveOn(gc::Vec2::right * _speed);
 		//left strafe
 		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::A))
-			self.moveOn(_lookvec.getRotated(sh::degree(-90)) * _speed);
+			self.moveOn(gc::Vec2::left * _speed);
 
 		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::Num1)){
 			self._isFirstWeapon = true;
@@ -55,7 +55,7 @@ methods:
 		}
 
 		//scene.getRenderer().getCamera().follow(self.getCenter());
-		scene.getRenderer().getCamera().follow(self.getCenter());
+		scene.getRenderer().getCamera().moveTo( (self.getCenter() + (_lookvec * _speed * 20)) );
 	}
 	//else methods here
 constructors:

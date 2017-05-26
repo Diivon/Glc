@@ -55,9 +55,9 @@ void EnemyLayer::foreach(F && f){
 #include <cmath>
 #include "Scene0.h"
 RenderableObject2::RenderableObject2(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(-331, 172), scene(sc), layer(lr)
+self(*this), pos(139, 159), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(50,  50))
-, sprite("resources\\n\\1.jpg")
+, _tag(gc::TypeName<this_t>::get()), sprite("resources\\n\\1.jpg")
 {
 }
 RenderableObject2::~RenderableObject2(){
@@ -78,6 +78,8 @@ const ::gc::Sprite & RenderableObject2::getCurrentSprite() const{
 ::gc::Vec2 RenderableObject2::getCenter() const noexcept{
 	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
 }
+std::string const & RenderableObject2::getTag(){return _tag;
+}
 #pragma once
 #include <string>
 #include <iostream>
@@ -90,9 +92,9 @@ const ::gc::Sprite & RenderableObject2::getCurrentSprite() const{
 #include <cmath>
 #include "Scene0.h"
 RenderableObject3::RenderableObject3(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(202, 149), scene(sc), layer(lr)
+self(*this), pos(75, 133), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(50,  50))
-, sprite("resources\\n\\1.jpg")
+, _tag(gc::TypeName<this_t>::get()), sprite("resources\\n\\1.jpg")
 {
 }
 RenderableObject3::~RenderableObject3(){
@@ -113,6 +115,8 @@ const ::gc::Sprite & RenderableObject3::getCurrentSprite() const{
 ::gc::Vec2 RenderableObject3::getCenter() const noexcept{
 	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
 }
+std::string const & RenderableObject3::getTag(){return _tag;
+}
 #pragma once
 #include <string>
 #include <iostream>
@@ -125,9 +129,9 @@ const ::gc::Sprite & RenderableObject3::getCurrentSprite() const{
 #include <cmath>
 #include "Scene0.h"
 RenderableObject4::RenderableObject4(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(-214, 249), scene(sc), layer(lr)
+self(*this), pos(184, -169), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(50,  50))
-, sprite("resources\\n\\1.jpg")
+, _tag(gc::TypeName<this_t>::get()), sprite("resources\\n\\1.jpg")
 {
 }
 RenderableObject4::~RenderableObject4(){
@@ -148,6 +152,8 @@ const ::gc::Sprite & RenderableObject4::getCurrentSprite() const{
 ::gc::Vec2 RenderableObject4::getCenter() const noexcept{
 	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
 }
+std::string const & RenderableObject4::getTag(){return _tag;
+}
 #pragma once
 #include <string>
 #include <iostream>
@@ -160,9 +166,9 @@ const ::gc::Sprite & RenderableObject4::getCurrentSprite() const{
 #include <cmath>
 #include "Scene0.h"
 RenderableObject5::RenderableObject5(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(-284, 163), scene(sc), layer(lr)
+self(*this), pos(131, -256), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(50,  50))
-, sprite("resources\\n\\1.jpg")
+, _tag(gc::TypeName<this_t>::get()), sprite("resources\\n\\1.jpg")
 {
 }
 RenderableObject5::~RenderableObject5(){
@@ -183,6 +189,8 @@ const ::gc::Sprite & RenderableObject5::getCurrentSprite() const{
 ::gc::Vec2 RenderableObject5::getCenter() const noexcept{
 	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
 }
+std::string const & RenderableObject5::getTag(){return _tag;
+}
 #pragma once
 #include <string>
 #include <iostream>
@@ -195,9 +203,9 @@ const ::gc::Sprite & RenderableObject5::getCurrentSprite() const{
 #include <cmath>
 #include "Scene0.h"
 RenderableObject6::RenderableObject6(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(-68, -200), scene(sc), layer(lr)
+self(*this), pos(209, 21), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(50,  50))
-, sprite("resources\\n\\1.jpg")
+, _tag(gc::TypeName<this_t>::get()), sprite("resources\\n\\1.jpg")
 {
 }
 RenderableObject6::~RenderableObject6(){
@@ -218,6 +226,8 @@ const ::gc::Sprite & RenderableObject6::getCurrentSprite() const{
 ::gc::Vec2 RenderableObject6::getCenter() const noexcept{
 	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
 }
+std::string const & RenderableObject6::getTag(){return _tag;
+}
 #pragma once
 #include <string>
 #include <iostream>
@@ -230,9 +240,9 @@ const ::gc::Sprite & RenderableObject6::getCurrentSprite() const{
 #include <cmath>
 #include "Scene0.h"
 RenderableObject7::RenderableObject7(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(-71, -89), scene(sc), layer(lr)
+self(*this), pos(252, 128), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(50,  50))
-, sprite("resources\\n\\1.jpg")
+, _tag(gc::TypeName<this_t>::get()), sprite("resources\\n\\1.jpg")
 {
 }
 RenderableObject7::~RenderableObject7(){
@@ -253,6 +263,8 @@ const ::gc::Sprite & RenderableObject7::getCurrentSprite() const{
 ::gc::Vec2 RenderableObject7::getCenter() const noexcept{
 	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
 }
+std::string const & RenderableObject7::getTag(){return _tag;
+}
 #pragma once
 #include <string>
 #include <iostream>
@@ -265,9 +277,9 @@ const ::gc::Sprite & RenderableObject7::getCurrentSprite() const{
 #include <cmath>
 #include "Scene0.h"
 RenderableObject8::RenderableObject8(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(-28, 146), scene(sc), layer(lr)
+self(*this), pos(-104, -249), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(50,  50))
-, sprite("resources\\n\\1.jpg")
+, _tag(gc::TypeName<this_t>::get()), sprite("resources\\n\\1.jpg")
 {
 }
 RenderableObject8::~RenderableObject8(){
@@ -288,6 +300,8 @@ const ::gc::Sprite & RenderableObject8::getCurrentSprite() const{
 ::gc::Vec2 RenderableObject8::getCenter() const noexcept{
 	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
 }
+std::string const & RenderableObject8::getTag(){return _tag;
+}
 #pragma once
 #include <string>
 #include <iostream>
@@ -300,9 +314,9 @@ const ::gc::Sprite & RenderableObject8::getCurrentSprite() const{
 #include <cmath>
 #include "Scene0.h"
 RenderableObject9::RenderableObject9(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(-4, -195), scene(sc), layer(lr)
+self(*this), pos(189, -11), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(50,  50))
-, sprite("resources\\n\\1.jpg")
+, _tag(gc::TypeName<this_t>::get()), sprite("resources\\n\\1.jpg")
 {
 }
 RenderableObject9::~RenderableObject9(){
@@ -323,6 +337,8 @@ const ::gc::Sprite & RenderableObject9::getCurrentSprite() const{
 ::gc::Vec2 RenderableObject9::getCenter() const noexcept{
 	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
 }
+std::string const & RenderableObject9::getTag(){return _tag;
+}
 #pragma once
 #include <string>
 #include <iostream>
@@ -335,9 +351,9 @@ const ::gc::Sprite & RenderableObject9::getCurrentSprite() const{
 #include <cmath>
 #include "Scene0.h"
 RenderableObject10::RenderableObject10(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(-367, -228), scene(sc), layer(lr)
+self(*this), pos(-16, -281), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(50,  50))
-, sprite("resources\\n\\1.jpg")
+, _tag(gc::TypeName<this_t>::get()), sprite("resources\\n\\1.jpg")
 {
 }
 RenderableObject10::~RenderableObject10(){
@@ -358,6 +374,8 @@ const ::gc::Sprite & RenderableObject10::getCurrentSprite() const{
 ::gc::Vec2 RenderableObject10::getCenter() const noexcept{
 	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
 }
+std::string const & RenderableObject10::getTag(){return _tag;
+}
 #pragma once
 #include <string>
 #include <iostream>
@@ -370,9 +388,9 @@ const ::gc::Sprite & RenderableObject10::getCurrentSprite() const{
 #include <cmath>
 #include "Scene0.h"
 RenderableObject11::RenderableObject11(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(-33, -165), scene(sc), layer(lr)
+self(*this), pos(-117, -261), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(50,  50))
-, sprite("resources\\n\\1.jpg")
+, _tag(gc::TypeName<this_t>::get()), sprite("resources\\n\\1.jpg")
 {
 }
 RenderableObject11::~RenderableObject11(){
@@ -393,24 +411,26 @@ const ::gc::Sprite & RenderableObject11::getCurrentSprite() const{
 ::gc::Vec2 RenderableObject11::getCenter() const noexcept{
 	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
 }
+std::string const & RenderableObject11::getTag(){return _tag;
+}
 #include "Scene0.h"
-Layer0::Layer0(Scene0 & sc):
+ObjectsLayer::ObjectsLayer(Scene0 & sc):
 scene(sc), self(*this)
 , ObjRenderableObject0(scene, *this), ObjRenderableObject1(scene, *this)
 {
 }
-Layer0::~Layer0(){
+ObjectsLayer::~ObjectsLayer(){
 }
-void Layer0::onStart(){
+void ObjectsLayer::onStart(){
 	ObjRenderableObject0.onStart();
 	ObjRenderableObject1.onStart();
 }
-void Layer0::onUpdate(const float & dt){
+void ObjectsLayer::onUpdate(const float & dt){
 	ObjRenderableObject0.onUpdate(dt);
 	ObjRenderableObject1.onUpdate(dt);
 }
 template<class F>
-void Layer0::foreach(F && f){
+void ObjectsLayer::foreach(F && f){
 	f(this->getObject<Hero>());
 	f(this->getObject<Bullet>());
 }
@@ -425,9 +445,9 @@ void Layer0::foreach(F && f){
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-Hero::Hero(Scene0 & sc, Layer0 & lr):
+Hero::Hero(Scene0 & sc, ObjectsLayer & lr):
 self(*this), pos(0, 0), scene(sc), layer(lr)
-, _lookvec(0,  -1), sprite("resources\\soldier\\Soldier1.png")
+, _lookvec(0,  -1), _tag(gc::TypeName<this_t>::get()), sprite("resources\\soldier\\Soldier1.png")
 {
 }
 Hero::~Hero(){
@@ -443,20 +463,20 @@ void Hero::onUpdate(const float & dt){
 	if (_lookvec.x < 0)	deg.value *= -1;
 	self.getGraphicalComponent().setRotation(deg);
 	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::W))
-	self.moveOn(_lookvec * _speed);
+	self.moveOn(gc::Vec2::up * _speed);
 	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::S))
-	self.moveOn(_lookvec * -_speed);
+	self.moveOn(gc::Vec2::down * _speed);
 	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::D))
-	self.moveOn(_lookvec.getRotated(sh::degree(90)) * _speed);
+	self.moveOn(gc::Vec2::right * _speed);
 	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::A))
-	self.moveOn(_lookvec.getRotated(sh::degree(-90)) * _speed);
+	self.moveOn(gc::Vec2::left * _speed);
 	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::Num1)){
 		self._isFirstWeapon = true;
 	}
 	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::Num2)){
 		self._isFirstWeapon = false;
 	}
-	scene.getRenderer().getCamera().follow(self.getCenter());
+	scene.getRenderer().getCamera().moveTo( (self.getCenter() + (_lookvec * _speed * 20)) );
 }
 const ::gc::Sprite & Hero::getCurrentSprite() const{
 	return sprite;
@@ -481,6 +501,8 @@ else{
 	layer.getObject<Bullet>().lifeTime = 100.0f;
 }
 }
+std::string const & Hero::getTag(){return _tag;
+}
 #pragma once
 #include <string>
 #include <iostream>
@@ -492,9 +514,9 @@ else{
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-Bullet::Bullet(Scene0 & sc, Layer0 & lr):
+Bullet::Bullet(Scene0 & sc, ObjectsLayer & lr):
 self(*this), pos(0, 0), scene(sc), layer(lr)
-, _ttl(0.0f),  _isActive(false),  speed(5.0f),  lifeTime(0.0f), collider(pos,  5.00f)
+, _ttl(0.0f),  _isActive(false),  speed(5.0f),  lifeTime(0.0f), _tag(gc::TypeName<this_t>::get()), collider(pos,  5.00f)
 , sprite("resources\\bullet.jpg")
 {
 }
@@ -513,8 +535,10 @@ void Bullet::onUpdate(const float & dt){
 		_ttl = 0.0f;
 	}
 	scene.getLayer<EnemyLayer>().foreach([this](auto & i){
-		if (i.collider.isCollide(self.collider))
-		i.isVisible = false;
+		if (i.collider.isCollide(self.collider)){
+			i.isVisible = false;
+			gc::debug.log(i.getTag());
+		}
 	});
 }
 const ::gc::Sprite & Bullet::getCurrentSprite() const{
@@ -534,4 +558,6 @@ void Bullet::start(gc::Vec2 const & pos, gc::Vec2 const & dir){if(_isActive) ret
 	self.moveTo(pos);
 	_isActive = true;
 	_dir = dir;
+}
+std::string const & Bullet::getTag(){return _tag;
 }

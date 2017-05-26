@@ -24,8 +24,10 @@ methods:
 			_ttl = 0.0f;
 		}
 		scene.getLayer<EnemyLayer>().foreach([this](auto & i){
-			if (i.collider.isCollide(self.collider))
+			if (i.collider.isCollide(self.collider)){
 				i.isVisible = false;
+				gc::debug.log(i.getTag());
+			}
 		});
 	}
 	void start(gc::Vec2 const & pos, gc::Vec2 const & dir){

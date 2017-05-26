@@ -1,0 +1,24 @@
+variables:
+	public: 
+		//your public variables here
+	private:
+		std::string _tag;
+		//your private variables here
+methods:
+	void onStart(){
+		//it's called once, before game cycle begins
+	}
+	void onUpdate(const float & dt){
+		//onUpdate called once per frame
+	}
+	std::string const & getTag(){
+		return _tag;
+	}
+	//else methods here
+constructors:
+	_tag(gc::TypeName<this_t>::get())	
+	//this code will be in class constructor-specific synthax example is: 
+	//str("awd"), dur(6)
+constructor_body:
+	//this code will be runned when constructor of object will be called
+	//use it for primary initialization only!!!

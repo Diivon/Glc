@@ -26,7 +26,7 @@ class RenderableObject6 : public ::gc::TypeAliases<RenderableObject6>{
 	::gc::Sprite const & getGraphicalComponent() const noexcept{return sprite;
 	};
 	private:
-	;
+	std::string _tag;
 	public:
 	::gc::Vec2 pos;
 	bool isVisible = true;
@@ -36,7 +36,9 @@ class RenderableObject6 : public ::gc::TypeAliases<RenderableObject6>{
 	void onUpdate(const float & dt);
 	const ::gc::Sprite & getCurrentSprite() const;
 	public:
-	private:
+	;
+	std::string const & getTag();private:
+	;
 	public:
 	gc::Vec2 getPosition() const noexcept;
 	gc::Vec2 getSize() const noexcept;
