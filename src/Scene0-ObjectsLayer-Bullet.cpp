@@ -18,6 +18,7 @@ self(*this), pos(0, 0), scene(sc), layer(lr)
 Bullet::~Bullet(){
 }
 void Bullet::onStart(){
+	isVisible = false;
 	self.isVisible = false;
 }
 void Bullet::onUpdate(const float & dt){

@@ -17,6 +17,19 @@ File:Main:Def
 			const_cast<gc::Event<gc::Mouse::Button> &>(gc::Mouse::onButtonPressed).emit(static_cast<gc::Mouse::Button>(event.mouseButton.button));
 		}
 	}
+	inline void fillBackground(gc::Renderer & r){
+		static gc::Sprite spr(R"(resources\Background.jpg)");
+		auto camPos = r.getCamera().getCenter() - (r.getCamera().getSize() / 2);
+
+		for(float x = (int)(camPos.x - spr.getSize().x) / (int)spr.getSize().x ; //precond
+			x < camPos.x + r.getCamera().getSize().x + spr.getSize().x; //cond
+			x += spr.getSize().x)					//postcond
+		for(float y = (int)(camPos.y - spr.getSize().y) / (int)spr.getSize().y; //precond
+			y < camPos.y + r.getCamera().getSize().y + spr.getSize().y; //cond
+			y += spr.getSize().y){				//postcond
+			r.render(spr, {x, y});
+		}
+	}
 	const int c_framesPerSecond = 30;
 	const float c_MillisecondsForOneFrame = 1'000 / c_framesPerSecond;
 
@@ -52,7 +65,7 @@ File:Main:Def
 			processEvents(mainWindow);
 
 			mainWindow.clear();
-			mainWindow.setView(mainCamera.getView());
+			fillBackground(renderer);
 
 			currentScene.update(c_MillisecondsForOneFrame);
 			renderer.renderScene(currentScene);
@@ -60,6 +73,8 @@ File:Main:Def
 			auto debText = gc::debug.getSFText();
 			debText.setPosition(mainCamera.getCenter() - (mainCamera.getSize() / 2));
 			mainWindow.draw(debText);
+
+			mainWindow.setView(mainCamera.getView());
 
 			renderer.show();
 

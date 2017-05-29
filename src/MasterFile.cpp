@@ -55,7 +55,7 @@ void EnemyLayer::foreach(F && f){
 #include <cmath>
 #include "Scene0.h"
 RenderableObject2::RenderableObject2(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(139, 159), scene(sc), layer(lr)
+self(*this), pos(69, 330), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(50,  50))
 , _tag(gc::TypeName<this_t>::get()), sprite("resources\\n\\1.jpg")
 {
@@ -92,7 +92,7 @@ std::string const & RenderableObject2::getTag(){return _tag;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject3::RenderableObject3(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(75, 133), scene(sc), layer(lr)
+self(*this), pos(297, 500), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(50,  50))
 , _tag(gc::TypeName<this_t>::get()), sprite("resources\\n\\1.jpg")
 {
@@ -129,7 +129,7 @@ std::string const & RenderableObject3::getTag(){return _tag;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject4::RenderableObject4(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(184, -169), scene(sc), layer(lr)
+self(*this), pos(76, 590), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(50,  50))
 , _tag(gc::TypeName<this_t>::get()), sprite("resources\\n\\1.jpg")
 {
@@ -166,7 +166,7 @@ std::string const & RenderableObject4::getTag(){return _tag;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject5::RenderableObject5(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(131, -256), scene(sc), layer(lr)
+self(*this), pos(367, 501), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(50,  50))
 , _tag(gc::TypeName<this_t>::get()), sprite("resources\\n\\1.jpg")
 {
@@ -203,7 +203,7 @@ std::string const & RenderableObject5::getTag(){return _tag;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject6::RenderableObject6(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(209, 21), scene(sc), layer(lr)
+self(*this), pos(710, 103), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(50,  50))
 , _tag(gc::TypeName<this_t>::get()), sprite("resources\\n\\1.jpg")
 {
@@ -240,7 +240,7 @@ std::string const & RenderableObject6::getTag(){return _tag;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject7::RenderableObject7(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(252, 128), scene(sc), layer(lr)
+self(*this), pos(722, 133), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(50,  50))
 , _tag(gc::TypeName<this_t>::get()), sprite("resources\\n\\1.jpg")
 {
@@ -277,7 +277,7 @@ std::string const & RenderableObject7::getTag(){return _tag;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject8::RenderableObject8(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(-104, -249), scene(sc), layer(lr)
+self(*this), pos(325, 255), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(50,  50))
 , _tag(gc::TypeName<this_t>::get()), sprite("resources\\n\\1.jpg")
 {
@@ -314,7 +314,7 @@ std::string const & RenderableObject8::getTag(){return _tag;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject9::RenderableObject9(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(189, -11), scene(sc), layer(lr)
+self(*this), pos(760, 41), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(50,  50))
 , _tag(gc::TypeName<this_t>::get()), sprite("resources\\n\\1.jpg")
 {
@@ -351,7 +351,7 @@ std::string const & RenderableObject9::getTag(){return _tag;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject10::RenderableObject10(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(-16, -281), scene(sc), layer(lr)
+self(*this), pos(14, 366), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(50,  50))
 , _tag(gc::TypeName<this_t>::get()), sprite("resources\\n\\1.jpg")
 {
@@ -388,7 +388,7 @@ std::string const & RenderableObject10::getTag(){return _tag;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject11::RenderableObject11(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(-117, -261), scene(sc), layer(lr)
+self(*this), pos(658, 398), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(50,  50))
 , _tag(gc::TypeName<this_t>::get()), sprite("resources\\n\\1.jpg")
 {
@@ -446,7 +446,7 @@ void ObjectsLayer::foreach(F && f){
 #include <cmath>
 #include "Scene0.h"
 Hero::Hero(Scene0 & sc, ObjectsLayer & lr):
-self(*this), pos(0, 0), scene(sc), layer(lr)
+self(*this), pos(400, 300), scene(sc), layer(lr)
 , _lookvec(0,  -1), _tag(gc::TypeName<this_t>::get()), sprite("resources\\soldier\\Soldier1.png")
 {
 }
@@ -454,52 +454,61 @@ Hero::~Hero(){
 }
 void Hero::onStart(){
 	scene.getRenderer().getCamera().followSpeed = 0.2;
-}
-void Hero::onUpdate(const float & dt){
-	if (gc::Mouse::isButtonPressed(gc::Mouse::Button::Left))
-	self.shoot(_lookvec);
-	_lookvec = (gc::Mouse::getWorldPosition() - self.getCenter()).normalize();
-	auto deg = gc::toDegree(acos(-_lookvec.y));
-	if (_lookvec.x < 0)	deg.value *= -1;
-	self.getGraphicalComponent().setRotation(deg);
-	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::W))
-	self.moveOn(gc::Vec2::up * _speed);
-	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::S))
-	self.moveOn(gc::Vec2::down * _speed);
-	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::D))
-	self.moveOn(gc::Vec2::right * _speed);
-	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::A))
-	self.moveOn(gc::Vec2::left * _speed);
-	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::Num1)){
-		self._isFirstWeapon = true;
+	scene.getRenderer().getCamera().moveTo({400, 300});
 	}
-	if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::Num2)){
-		self._isFirstWeapon = false;
+	void Hero::onUpdate(const float & dt){
+		if (gc::Mouse::isButtonPressed(gc::Mouse::Button::Left))
+		self.shoot(_lookvec);
+		_lookvec = (gc::Mouse::getWorldPosition() - self.getCenter()).normalize();
+		auto deg = gc::toDegree(acos(-_lookvec.y));
+		if (_lookvec.x < 0)	deg.value *= -1;
+		self.getGraphicalComponent().setRotation(deg);
+		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::W))
+		self.tryMove(_lookvec * _speed);
+		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::S))
+		self.tryMove(_lookvec * -_speed);
+		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::D))
+		self.tryMove(_lookvec.getRotated(sh::degree(90.0f)) * _speed);
+		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::A))
+		self.tryMove(_lookvec.getRotated(sh::degree(-90.0f)) * _speed);
+		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::Num1)){
+			self._isFirstWeapon = true;
+		}
+		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::Num2)){
+			self._isFirstWeapon = false;
+		}
 	}
-	scene.getRenderer().getCamera().moveTo( (self.getCenter() + (_lookvec * _speed * 20)) );
+	const ::gc::Sprite & Hero::getCurrentSprite() const{
+		return sprite;
+	}
+	::gc::Vec2 Hero::getPosition() const noexcept {
+		return self.pos;
+	}
+	::gc::Vec2 Hero::getSize() const noexcept{
+		return self.getCurrentSprite().getSize();
+	}
+	::gc::Vec2 Hero::getCenter() const noexcept{
+		return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
+	}
+	void Hero::shoot(gc::Vec2 const & dir){if (_isFirstWeapon){
+		layer.getObject<Bullet>().start(self.getCenter(), dir);
+		layer.getObject<Bullet>().speed = 50.0f;
+		layer.getObject<Bullet>().lifeTime = 1000.0f;
+	}
+	else{
+		layer.getObject<Bullet>().start(self.getCenter(), dir.getRotated(sh::degree(gc::Random<float>::get(-50, 50))));
+		layer.getObject<Bullet>().speed = 250.0f;
+		layer.getObject<Bullet>().lifeTime = 100.0f;
+	}
 }
-const ::gc::Sprite & Hero::getCurrentSprite() const{
-	return sprite;
-}
-::gc::Vec2 Hero::getPosition() const noexcept {
-	return self.pos;
-}
-::gc::Vec2 Hero::getSize() const noexcept{
-	return self.getCurrentSprite().getSize();
-}
-::gc::Vec2 Hero::getCenter() const noexcept{
-	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
-}
-void Hero::shoot(gc::Vec2 const & dir){if (_isFirstWeapon){
-	layer.getObject<Bullet>().start(self.getCenter(), dir);
-	layer.getObject<Bullet>().speed = 50.0f;
-	layer.getObject<Bullet>().lifeTime = 1000.0f;
-}
-else{
-	layer.getObject<Bullet>().start(self.getCenter(), dir.getRotated(sh::degree(gc::Random<float>::get(-50, 50))));
-	layer.getObject<Bullet>().speed = 250.0f;
-	layer.getObject<Bullet>().lifeTime = 100.0f;
-}
+void Hero::tryMove(gc::Vec2 const & dir){auto newPos = self.getCenter() + dir;
+	auto selfHalfSize = self.getSize() / 2;
+	if (newPos.x - selfHalfSize.x < 0 ||
+	newPos.x + selfHalfSize.x > scene.getRenderer().getCamera().getSize().x ||
+	newPos.y - selfHalfSize.y < 0 ||
+	newPos.y + selfHalfSize.y > scene.getRenderer().getCamera().getSize().y
+	) return;
+	self.moveOn(dir);
 }
 std::string const & Hero::getTag(){return _tag;
 }
@@ -523,6 +532,7 @@ self(*this), pos(0, 0), scene(sc), layer(lr)
 Bullet::~Bullet(){
 }
 void Bullet::onStart(){
+	isVisible = false;
 	self.isVisible = false;
 }
 void Bullet::onUpdate(const float & dt){

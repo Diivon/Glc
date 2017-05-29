@@ -39,6 +39,7 @@ class Hero : public ::gc::TypeAliases<Hero>{
 	const ::gc::Sprite & getCurrentSprite() const;
 	public:
 	void shoot(gc::Vec2 const & dir);
+	void tryMove(gc::Vec2 const & dir);
 	std::string const & getTag();
 	;private:
 	;

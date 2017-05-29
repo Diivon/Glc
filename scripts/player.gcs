@@ -11,6 +11,7 @@ methods:
 	void onStart(){
 	//it's called once, before game cycle begins
 		scene.getRenderer().getCamera().followSpeed = 0.2;
+		scene.getRenderer().getCamera().moveTo({400, 300});
 	}
 	void shoot(gc::Vec2 const & dir){
 		if (_isFirstWeapon){
@@ -24,6 +25,16 @@ methods:
 			layer.getObject<Bullet>().lifeTime = 100.0f;
 		}
 	}
+	void tryMove(gc::Vec2 const & dir){
+		auto newPos = self.getCenter() + dir;
+		auto selfHalfSize = self.getSize() / 2;
+		if (newPos.x - selfHalfSize.x < 0 ||
+			newPos.x + selfHalfSize.x > scene.getRenderer().getCamera().getSize().x ||
+			newPos.y - selfHalfSize.y < 0 ||
+			newPos.y + selfHalfSize.y > scene.getRenderer().getCamera().getSize().y
+			) return;
+		self.moveOn(dir);
+	}
 	void onUpdate(const float & dt){
 	//onUpdate called once per frame
 		if (gc::Mouse::isButtonPressed(gc::Mouse::Button::Left))
@@ -36,16 +47,16 @@ methods:
 		
 		//forward
 		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::W))
-			self.moveOn(gc::Vec2::up * _speed);
+			self.tryMove(_lookvec * _speed);
 		//backward
 		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::S))
-			self.moveOn(gc::Vec2::down * _speed);
+			self.tryMove(_lookvec * -_speed);
 		//right strafe
 		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::D))
-			self.moveOn(gc::Vec2::right * _speed);
+			self.tryMove(_lookvec.getRotated(sh::degree(90.0f)) * _speed);
 		//left strafe
 		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::A))
-			self.moveOn(gc::Vec2::left * _speed);
+			self.tryMove(_lookvec.getRotated(sh::degree(-90.0f)) * _speed);
 
 		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::Num1)){
 			self._isFirstWeapon = true;
@@ -53,9 +64,6 @@ methods:
 		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::Num2)){
 			self._isFirstWeapon = false;
 		}
-
-		//scene.getRenderer().getCamera().follow(self.getCenter());
-		scene.getRenderer().getCamera().moveTo( (self.getCenter() + (_lookvec * _speed * 20)) );
 	}
 	//else methods here
 constructors:
