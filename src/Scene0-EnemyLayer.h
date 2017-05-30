@@ -18,6 +18,46 @@
 #include "Scene0-EnemyLayer-RenderableObject9.h"
 #include "Scene0-EnemyLayer-RenderableObject10.h"
 #include "Scene0-EnemyLayer-RenderableObject11.h"
+#include "Scene0-EnemyLayer-RenderableObject12.h"
+#include "Scene0-EnemyLayer-RenderableObject13.h"
+#include "Scene0-EnemyLayer-RenderableObject14.h"
+#include "Scene0-EnemyLayer-RenderableObject15.h"
+#include "Scene0-EnemyLayer-RenderableObject16.h"
+#include "Scene0-EnemyLayer-RenderableObject17.h"
+#include "Scene0-EnemyLayer-RenderableObject18.h"
+#include "Scene0-EnemyLayer-RenderableObject19.h"
+#include "Scene0-EnemyLayer-RenderableObject20.h"
+#include "Scene0-EnemyLayer-RenderableObject21.h"
+#include "Scene0-EnemyLayer-RenderableObject22.h"
+#include "Scene0-EnemyLayer-RenderableObject23.h"
+#include "Scene0-EnemyLayer-RenderableObject24.h"
+#include "Scene0-EnemyLayer-RenderableObject25.h"
+#include "Scene0-EnemyLayer-RenderableObject26.h"
+#include "Scene0-EnemyLayer-RenderableObject27.h"
+#include "Scene0-EnemyLayer-RenderableObject28.h"
+#include "Scene0-EnemyLayer-RenderableObject29.h"
+#include "Scene0-EnemyLayer-RenderableObject30.h"
+#include "Scene0-EnemyLayer-RenderableObject31.h"
+#include "Scene0-EnemyLayer-RenderableObject32.h"
+#include "Scene0-EnemyLayer-RenderableObject33.h"
+#include "Scene0-EnemyLayer-RenderableObject34.h"
+#include "Scene0-EnemyLayer-RenderableObject35.h"
+#include "Scene0-EnemyLayer-RenderableObject36.h"
+#include "Scene0-EnemyLayer-RenderableObject37.h"
+#include "Scene0-EnemyLayer-RenderableObject38.h"
+#include "Scene0-EnemyLayer-RenderableObject39.h"
+#include "Scene0-EnemyLayer-RenderableObject40.h"
+#include "Scene0-EnemyLayer-RenderableObject41.h"
+#include "Scene0-EnemyLayer-RenderableObject42.h"
+#include "Scene0-EnemyLayer-RenderableObject43.h"
+#include "Scene0-EnemyLayer-RenderableObject44.h"
+#include "Scene0-EnemyLayer-RenderableObject45.h"
+#include "Scene0-EnemyLayer-RenderableObject46.h"
+#include "Scene0-EnemyLayer-RenderableObject47.h"
+#include "Scene0-EnemyLayer-RenderableObject48.h"
+#include "Scene0-EnemyLayer-RenderableObject49.h"
+#include "Scene0-EnemyLayer-RenderableObject50.h"
+#include "Scene0-EnemyLayer-RenderableObject51.h"
 class Scene0;
 class EnemyLayer : public ::gc::TypeAliases<EnemyLayer>{
 	Scene0 & scene;
@@ -32,6 +72,46 @@ class EnemyLayer : public ::gc::TypeAliases<EnemyLayer>{
 	RenderableObject9 ObjRenderableObject9;
 	RenderableObject10 ObjRenderableObject10;
 	RenderableObject11 ObjRenderableObject11;
+	RenderableObject12 ObjRenderableObject12;
+	RenderableObject13 ObjRenderableObject13;
+	RenderableObject14 ObjRenderableObject14;
+	RenderableObject15 ObjRenderableObject15;
+	RenderableObject16 ObjRenderableObject16;
+	RenderableObject17 ObjRenderableObject17;
+	RenderableObject18 ObjRenderableObject18;
+	RenderableObject19 ObjRenderableObject19;
+	RenderableObject20 ObjRenderableObject20;
+	RenderableObject21 ObjRenderableObject21;
+	RenderableObject22 ObjRenderableObject22;
+	RenderableObject23 ObjRenderableObject23;
+	RenderableObject24 ObjRenderableObject24;
+	RenderableObject25 ObjRenderableObject25;
+	RenderableObject26 ObjRenderableObject26;
+	RenderableObject27 ObjRenderableObject27;
+	RenderableObject28 ObjRenderableObject28;
+	RenderableObject29 ObjRenderableObject29;
+	RenderableObject30 ObjRenderableObject30;
+	RenderableObject31 ObjRenderableObject31;
+	RenderableObject32 ObjRenderableObject32;
+	RenderableObject33 ObjRenderableObject33;
+	RenderableObject34 ObjRenderableObject34;
+	RenderableObject35 ObjRenderableObject35;
+	RenderableObject36 ObjRenderableObject36;
+	RenderableObject37 ObjRenderableObject37;
+	RenderableObject38 ObjRenderableObject38;
+	RenderableObject39 ObjRenderableObject39;
+	RenderableObject40 ObjRenderableObject40;
+	RenderableObject41 ObjRenderableObject41;
+	RenderableObject42 ObjRenderableObject42;
+	RenderableObject43 ObjRenderableObject43;
+	RenderableObject44 ObjRenderableObject44;
+	RenderableObject45 ObjRenderableObject45;
+	RenderableObject46 ObjRenderableObject46;
+	RenderableObject47 ObjRenderableObject47;
+	RenderableObject48 ObjRenderableObject48;
+	RenderableObject49 ObjRenderableObject49;
+	RenderableObject50 ObjRenderableObject50;
+	RenderableObject51 ObjRenderableObject51;
 	private:
 	;
 	EnemyLayer & self;
@@ -130,6 +210,326 @@ class EnemyLayer : public ::gc::TypeAliases<EnemyLayer>{
 	const RenderableObject11 & getObject() const{
 		return ObjRenderableObject11;
 	}
+	template<>
+	RenderableObject12 & getObject(){
+		return ObjRenderableObject12;
+	}
+	template<>
+	const RenderableObject12 & getObject() const{
+		return ObjRenderableObject12;
+	}
+	template<>
+	RenderableObject13 & getObject(){
+		return ObjRenderableObject13;
+	}
+	template<>
+	const RenderableObject13 & getObject() const{
+		return ObjRenderableObject13;
+	}
+	template<>
+	RenderableObject14 & getObject(){
+		return ObjRenderableObject14;
+	}
+	template<>
+	const RenderableObject14 & getObject() const{
+		return ObjRenderableObject14;
+	}
+	template<>
+	RenderableObject15 & getObject(){
+		return ObjRenderableObject15;
+	}
+	template<>
+	const RenderableObject15 & getObject() const{
+		return ObjRenderableObject15;
+	}
+	template<>
+	RenderableObject16 & getObject(){
+		return ObjRenderableObject16;
+	}
+	template<>
+	const RenderableObject16 & getObject() const{
+		return ObjRenderableObject16;
+	}
+	template<>
+	RenderableObject17 & getObject(){
+		return ObjRenderableObject17;
+	}
+	template<>
+	const RenderableObject17 & getObject() const{
+		return ObjRenderableObject17;
+	}
+	template<>
+	RenderableObject18 & getObject(){
+		return ObjRenderableObject18;
+	}
+	template<>
+	const RenderableObject18 & getObject() const{
+		return ObjRenderableObject18;
+	}
+	template<>
+	RenderableObject19 & getObject(){
+		return ObjRenderableObject19;
+	}
+	template<>
+	const RenderableObject19 & getObject() const{
+		return ObjRenderableObject19;
+	}
+	template<>
+	RenderableObject20 & getObject(){
+		return ObjRenderableObject20;
+	}
+	template<>
+	const RenderableObject20 & getObject() const{
+		return ObjRenderableObject20;
+	}
+	template<>
+	RenderableObject21 & getObject(){
+		return ObjRenderableObject21;
+	}
+	template<>
+	const RenderableObject21 & getObject() const{
+		return ObjRenderableObject21;
+	}
+	template<>
+	RenderableObject22 & getObject(){
+		return ObjRenderableObject22;
+	}
+	template<>
+	const RenderableObject22 & getObject() const{
+		return ObjRenderableObject22;
+	}
+	template<>
+	RenderableObject23 & getObject(){
+		return ObjRenderableObject23;
+	}
+	template<>
+	const RenderableObject23 & getObject() const{
+		return ObjRenderableObject23;
+	}
+	template<>
+	RenderableObject24 & getObject(){
+		return ObjRenderableObject24;
+	}
+	template<>
+	const RenderableObject24 & getObject() const{
+		return ObjRenderableObject24;
+	}
+	template<>
+	RenderableObject25 & getObject(){
+		return ObjRenderableObject25;
+	}
+	template<>
+	const RenderableObject25 & getObject() const{
+		return ObjRenderableObject25;
+	}
+	template<>
+	RenderableObject26 & getObject(){
+		return ObjRenderableObject26;
+	}
+	template<>
+	const RenderableObject26 & getObject() const{
+		return ObjRenderableObject26;
+	}
+	template<>
+	RenderableObject27 & getObject(){
+		return ObjRenderableObject27;
+	}
+	template<>
+	const RenderableObject27 & getObject() const{
+		return ObjRenderableObject27;
+	}
+	template<>
+	RenderableObject28 & getObject(){
+		return ObjRenderableObject28;
+	}
+	template<>
+	const RenderableObject28 & getObject() const{
+		return ObjRenderableObject28;
+	}
+	template<>
+	RenderableObject29 & getObject(){
+		return ObjRenderableObject29;
+	}
+	template<>
+	const RenderableObject29 & getObject() const{
+		return ObjRenderableObject29;
+	}
+	template<>
+	RenderableObject30 & getObject(){
+		return ObjRenderableObject30;
+	}
+	template<>
+	const RenderableObject30 & getObject() const{
+		return ObjRenderableObject30;
+	}
+	template<>
+	RenderableObject31 & getObject(){
+		return ObjRenderableObject31;
+	}
+	template<>
+	const RenderableObject31 & getObject() const{
+		return ObjRenderableObject31;
+	}
+	template<>
+	RenderableObject32 & getObject(){
+		return ObjRenderableObject32;
+	}
+	template<>
+	const RenderableObject32 & getObject() const{
+		return ObjRenderableObject32;
+	}
+	template<>
+	RenderableObject33 & getObject(){
+		return ObjRenderableObject33;
+	}
+	template<>
+	const RenderableObject33 & getObject() const{
+		return ObjRenderableObject33;
+	}
+	template<>
+	RenderableObject34 & getObject(){
+		return ObjRenderableObject34;
+	}
+	template<>
+	const RenderableObject34 & getObject() const{
+		return ObjRenderableObject34;
+	}
+	template<>
+	RenderableObject35 & getObject(){
+		return ObjRenderableObject35;
+	}
+	template<>
+	const RenderableObject35 & getObject() const{
+		return ObjRenderableObject35;
+	}
+	template<>
+	RenderableObject36 & getObject(){
+		return ObjRenderableObject36;
+	}
+	template<>
+	const RenderableObject36 & getObject() const{
+		return ObjRenderableObject36;
+	}
+	template<>
+	RenderableObject37 & getObject(){
+		return ObjRenderableObject37;
+	}
+	template<>
+	const RenderableObject37 & getObject() const{
+		return ObjRenderableObject37;
+	}
+	template<>
+	RenderableObject38 & getObject(){
+		return ObjRenderableObject38;
+	}
+	template<>
+	const RenderableObject38 & getObject() const{
+		return ObjRenderableObject38;
+	}
+	template<>
+	RenderableObject39 & getObject(){
+		return ObjRenderableObject39;
+	}
+	template<>
+	const RenderableObject39 & getObject() const{
+		return ObjRenderableObject39;
+	}
+	template<>
+	RenderableObject40 & getObject(){
+		return ObjRenderableObject40;
+	}
+	template<>
+	const RenderableObject40 & getObject() const{
+		return ObjRenderableObject40;
+	}
+	template<>
+	RenderableObject41 & getObject(){
+		return ObjRenderableObject41;
+	}
+	template<>
+	const RenderableObject41 & getObject() const{
+		return ObjRenderableObject41;
+	}
+	template<>
+	RenderableObject42 & getObject(){
+		return ObjRenderableObject42;
+	}
+	template<>
+	const RenderableObject42 & getObject() const{
+		return ObjRenderableObject42;
+	}
+	template<>
+	RenderableObject43 & getObject(){
+		return ObjRenderableObject43;
+	}
+	template<>
+	const RenderableObject43 & getObject() const{
+		return ObjRenderableObject43;
+	}
+	template<>
+	RenderableObject44 & getObject(){
+		return ObjRenderableObject44;
+	}
+	template<>
+	const RenderableObject44 & getObject() const{
+		return ObjRenderableObject44;
+	}
+	template<>
+	RenderableObject45 & getObject(){
+		return ObjRenderableObject45;
+	}
+	template<>
+	const RenderableObject45 & getObject() const{
+		return ObjRenderableObject45;
+	}
+	template<>
+	RenderableObject46 & getObject(){
+		return ObjRenderableObject46;
+	}
+	template<>
+	const RenderableObject46 & getObject() const{
+		return ObjRenderableObject46;
+	}
+	template<>
+	RenderableObject47 & getObject(){
+		return ObjRenderableObject47;
+	}
+	template<>
+	const RenderableObject47 & getObject() const{
+		return ObjRenderableObject47;
+	}
+	template<>
+	RenderableObject48 & getObject(){
+		return ObjRenderableObject48;
+	}
+	template<>
+	const RenderableObject48 & getObject() const{
+		return ObjRenderableObject48;
+	}
+	template<>
+	RenderableObject49 & getObject(){
+		return ObjRenderableObject49;
+	}
+	template<>
+	const RenderableObject49 & getObject() const{
+		return ObjRenderableObject49;
+	}
+	template<>
+	RenderableObject50 & getObject(){
+		return ObjRenderableObject50;
+	}
+	template<>
+	const RenderableObject50 & getObject() const{
+		return ObjRenderableObject50;
+	}
+	template<>
+	RenderableObject51 & getObject(){
+		return ObjRenderableObject51;
+	}
+	template<>
+	const RenderableObject51 & getObject() const{
+		return ObjRenderableObject51;
+	}
 	private:
 	EnemyLayer(c_lref_t) = delete;
 	EnemyLayer(rref_t) = delete;
@@ -148,4 +548,44 @@ inline void ::gc::Renderer::renderLayer(const EnemyLayer & l){
 	if (l.getObject<RenderableObject9>().isVisible) this->render(l.getObject<RenderableObject9>().getCurrentSprite(), l.getObject<RenderableObject9>().pos);
 	if (l.getObject<RenderableObject10>().isVisible) this->render(l.getObject<RenderableObject10>().getCurrentSprite(), l.getObject<RenderableObject10>().pos);
 	if (l.getObject<RenderableObject11>().isVisible) this->render(l.getObject<RenderableObject11>().getCurrentSprite(), l.getObject<RenderableObject11>().pos);
+	if (l.getObject<RenderableObject12>().isVisible) this->render(l.getObject<RenderableObject12>().getCurrentSprite(), l.getObject<RenderableObject12>().pos);
+	if (l.getObject<RenderableObject13>().isVisible) this->render(l.getObject<RenderableObject13>().getCurrentSprite(), l.getObject<RenderableObject13>().pos);
+	if (l.getObject<RenderableObject14>().isVisible) this->render(l.getObject<RenderableObject14>().getCurrentSprite(), l.getObject<RenderableObject14>().pos);
+	if (l.getObject<RenderableObject15>().isVisible) this->render(l.getObject<RenderableObject15>().getCurrentSprite(), l.getObject<RenderableObject15>().pos);
+	if (l.getObject<RenderableObject16>().isVisible) this->render(l.getObject<RenderableObject16>().getCurrentSprite(), l.getObject<RenderableObject16>().pos);
+	if (l.getObject<RenderableObject17>().isVisible) this->render(l.getObject<RenderableObject17>().getCurrentSprite(), l.getObject<RenderableObject17>().pos);
+	if (l.getObject<RenderableObject18>().isVisible) this->render(l.getObject<RenderableObject18>().getCurrentSprite(), l.getObject<RenderableObject18>().pos);
+	if (l.getObject<RenderableObject19>().isVisible) this->render(l.getObject<RenderableObject19>().getCurrentSprite(), l.getObject<RenderableObject19>().pos);
+	if (l.getObject<RenderableObject20>().isVisible) this->render(l.getObject<RenderableObject20>().getCurrentSprite(), l.getObject<RenderableObject20>().pos);
+	if (l.getObject<RenderableObject21>().isVisible) this->render(l.getObject<RenderableObject21>().getCurrentSprite(), l.getObject<RenderableObject21>().pos);
+	if (l.getObject<RenderableObject22>().isVisible) this->render(l.getObject<RenderableObject22>().getCurrentSprite(), l.getObject<RenderableObject22>().pos);
+	if (l.getObject<RenderableObject23>().isVisible) this->render(l.getObject<RenderableObject23>().getCurrentSprite(), l.getObject<RenderableObject23>().pos);
+	if (l.getObject<RenderableObject24>().isVisible) this->render(l.getObject<RenderableObject24>().getCurrentSprite(), l.getObject<RenderableObject24>().pos);
+	if (l.getObject<RenderableObject25>().isVisible) this->render(l.getObject<RenderableObject25>().getCurrentSprite(), l.getObject<RenderableObject25>().pos);
+	if (l.getObject<RenderableObject26>().isVisible) this->render(l.getObject<RenderableObject26>().getCurrentSprite(), l.getObject<RenderableObject26>().pos);
+	if (l.getObject<RenderableObject27>().isVisible) this->render(l.getObject<RenderableObject27>().getCurrentSprite(), l.getObject<RenderableObject27>().pos);
+	if (l.getObject<RenderableObject28>().isVisible) this->render(l.getObject<RenderableObject28>().getCurrentSprite(), l.getObject<RenderableObject28>().pos);
+	if (l.getObject<RenderableObject29>().isVisible) this->render(l.getObject<RenderableObject29>().getCurrentSprite(), l.getObject<RenderableObject29>().pos);
+	if (l.getObject<RenderableObject30>().isVisible) this->render(l.getObject<RenderableObject30>().getCurrentSprite(), l.getObject<RenderableObject30>().pos);
+	if (l.getObject<RenderableObject31>().isVisible) this->render(l.getObject<RenderableObject31>().getCurrentSprite(), l.getObject<RenderableObject31>().pos);
+	if (l.getObject<RenderableObject32>().isVisible) this->render(l.getObject<RenderableObject32>().getCurrentSprite(), l.getObject<RenderableObject32>().pos);
+	if (l.getObject<RenderableObject33>().isVisible) this->render(l.getObject<RenderableObject33>().getCurrentSprite(), l.getObject<RenderableObject33>().pos);
+	if (l.getObject<RenderableObject34>().isVisible) this->render(l.getObject<RenderableObject34>().getCurrentSprite(), l.getObject<RenderableObject34>().pos);
+	if (l.getObject<RenderableObject35>().isVisible) this->render(l.getObject<RenderableObject35>().getCurrentSprite(), l.getObject<RenderableObject35>().pos);
+	if (l.getObject<RenderableObject36>().isVisible) this->render(l.getObject<RenderableObject36>().getCurrentSprite(), l.getObject<RenderableObject36>().pos);
+	if (l.getObject<RenderableObject37>().isVisible) this->render(l.getObject<RenderableObject37>().getCurrentSprite(), l.getObject<RenderableObject37>().pos);
+	if (l.getObject<RenderableObject38>().isVisible) this->render(l.getObject<RenderableObject38>().getCurrentSprite(), l.getObject<RenderableObject38>().pos);
+	if (l.getObject<RenderableObject39>().isVisible) this->render(l.getObject<RenderableObject39>().getCurrentSprite(), l.getObject<RenderableObject39>().pos);
+	if (l.getObject<RenderableObject40>().isVisible) this->render(l.getObject<RenderableObject40>().getCurrentSprite(), l.getObject<RenderableObject40>().pos);
+	if (l.getObject<RenderableObject41>().isVisible) this->render(l.getObject<RenderableObject41>().getCurrentSprite(), l.getObject<RenderableObject41>().pos);
+	if (l.getObject<RenderableObject42>().isVisible) this->render(l.getObject<RenderableObject42>().getCurrentSprite(), l.getObject<RenderableObject42>().pos);
+	if (l.getObject<RenderableObject43>().isVisible) this->render(l.getObject<RenderableObject43>().getCurrentSprite(), l.getObject<RenderableObject43>().pos);
+	if (l.getObject<RenderableObject44>().isVisible) this->render(l.getObject<RenderableObject44>().getCurrentSprite(), l.getObject<RenderableObject44>().pos);
+	if (l.getObject<RenderableObject45>().isVisible) this->render(l.getObject<RenderableObject45>().getCurrentSprite(), l.getObject<RenderableObject45>().pos);
+	if (l.getObject<RenderableObject46>().isVisible) this->render(l.getObject<RenderableObject46>().getCurrentSprite(), l.getObject<RenderableObject46>().pos);
+	if (l.getObject<RenderableObject47>().isVisible) this->render(l.getObject<RenderableObject47>().getCurrentSprite(), l.getObject<RenderableObject47>().pos);
+	if (l.getObject<RenderableObject48>().isVisible) this->render(l.getObject<RenderableObject48>().getCurrentSprite(), l.getObject<RenderableObject48>().pos);
+	if (l.getObject<RenderableObject49>().isVisible) this->render(l.getObject<RenderableObject49>().getCurrentSprite(), l.getObject<RenderableObject49>().pos);
+	if (l.getObject<RenderableObject50>().isVisible) this->render(l.getObject<RenderableObject50>().getCurrentSprite(), l.getObject<RenderableObject50>().pos);
+	if (l.getObject<RenderableObject51>().isVisible) this->render(l.getObject<RenderableObject51>().getCurrentSprite(), l.getObject<RenderableObject51>().pos);
 }

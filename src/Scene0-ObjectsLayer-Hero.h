@@ -28,10 +28,13 @@ class Hero : public ::gc::TypeAliases<Hero>{
 	const float _rotateGrade = 5.0f;
 	const float _speed = 5.0f;
 	bool _isFirstWeapon = true;
+	i16 _hp;
+	bool _isAlive = true;
 	std::string _tag;
 	public:
 	::gc::Vec2 pos;
 	bool isVisible = true;
+	bool isActive = true;
 	Hero(Scene0 &, ObjectsLayer &);
 	~Hero();
 	void onStart();
@@ -40,6 +43,9 @@ class Hero : public ::gc::TypeAliases<Hero>{
 	public:
 	void shoot(gc::Vec2 const & dir);
 	void tryMove(gc::Vec2 const & dir);
+	void dealDamage(u16 dmg);
+	void die();
+	bool isAlive();
 	std::string const & getTag();
 	;private:
 	;

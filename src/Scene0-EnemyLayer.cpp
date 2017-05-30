@@ -1,7 +1,7 @@
 #include "Scene0.h"
 EnemyLayer::EnemyLayer(Scene0 & sc):
 scene(sc), self(*this)
-, ObjRenderableObject2(scene, *this), ObjRenderableObject3(scene, *this), ObjRenderableObject4(scene, *this), ObjRenderableObject5(scene, *this), ObjRenderableObject6(scene, *this), ObjRenderableObject7(scene, *this), ObjRenderableObject8(scene, *this), ObjRenderableObject9(scene, *this), ObjRenderableObject10(scene, *this), ObjRenderableObject11(scene, *this)
+, ObjRenderableObject2(scene, *this), ObjRenderableObject3(scene, *this), ObjRenderableObject4(scene, *this), ObjRenderableObject5(scene, *this), ObjRenderableObject6(scene, *this), ObjRenderableObject7(scene, *this), ObjRenderableObject8(scene, *this), ObjRenderableObject9(scene, *this), ObjRenderableObject10(scene, *this), ObjRenderableObject11(scene, *this), ObjRenderableObject12(scene, *this), ObjRenderableObject13(scene, *this), ObjRenderableObject14(scene, *this), ObjRenderableObject15(scene, *this), ObjRenderableObject16(scene, *this), ObjRenderableObject17(scene, *this), ObjRenderableObject18(scene, *this), ObjRenderableObject19(scene, *this), ObjRenderableObject20(scene, *this), ObjRenderableObject21(scene, *this), ObjRenderableObject22(scene, *this), ObjRenderableObject23(scene, *this), ObjRenderableObject24(scene, *this), ObjRenderableObject25(scene, *this), ObjRenderableObject26(scene, *this), ObjRenderableObject27(scene, *this), ObjRenderableObject28(scene, *this), ObjRenderableObject29(scene, *this), ObjRenderableObject30(scene, *this), ObjRenderableObject31(scene, *this), ObjRenderableObject32(scene, *this), ObjRenderableObject33(scene, *this), ObjRenderableObject34(scene, *this), ObjRenderableObject35(scene, *this), ObjRenderableObject36(scene, *this), ObjRenderableObject37(scene, *this), ObjRenderableObject38(scene, *this), ObjRenderableObject39(scene, *this), ObjRenderableObject40(scene, *this), ObjRenderableObject41(scene, *this), ObjRenderableObject42(scene, *this), ObjRenderableObject43(scene, *this), ObjRenderableObject44(scene, *this), ObjRenderableObject45(scene, *this), ObjRenderableObject46(scene, *this), ObjRenderableObject47(scene, *this), ObjRenderableObject48(scene, *this), ObjRenderableObject49(scene, *this), ObjRenderableObject50(scene, *this), ObjRenderableObject51(scene, *this)
 {
 }
 EnemyLayer::~EnemyLayer(){
@@ -17,18 +17,98 @@ void EnemyLayer::onStart(){
 	ObjRenderableObject9.onStart();
 	ObjRenderableObject10.onStart();
 	ObjRenderableObject11.onStart();
+	ObjRenderableObject12.onStart();
+	ObjRenderableObject13.onStart();
+	ObjRenderableObject14.onStart();
+	ObjRenderableObject15.onStart();
+	ObjRenderableObject16.onStart();
+	ObjRenderableObject17.onStart();
+	ObjRenderableObject18.onStart();
+	ObjRenderableObject19.onStart();
+	ObjRenderableObject20.onStart();
+	ObjRenderableObject21.onStart();
+	ObjRenderableObject22.onStart();
+	ObjRenderableObject23.onStart();
+	ObjRenderableObject24.onStart();
+	ObjRenderableObject25.onStart();
+	ObjRenderableObject26.onStart();
+	ObjRenderableObject27.onStart();
+	ObjRenderableObject28.onStart();
+	ObjRenderableObject29.onStart();
+	ObjRenderableObject30.onStart();
+	ObjRenderableObject31.onStart();
+	ObjRenderableObject32.onStart();
+	ObjRenderableObject33.onStart();
+	ObjRenderableObject34.onStart();
+	ObjRenderableObject35.onStart();
+	ObjRenderableObject36.onStart();
+	ObjRenderableObject37.onStart();
+	ObjRenderableObject38.onStart();
+	ObjRenderableObject39.onStart();
+	ObjRenderableObject40.onStart();
+	ObjRenderableObject41.onStart();
+	ObjRenderableObject42.onStart();
+	ObjRenderableObject43.onStart();
+	ObjRenderableObject44.onStart();
+	ObjRenderableObject45.onStart();
+	ObjRenderableObject46.onStart();
+	ObjRenderableObject47.onStart();
+	ObjRenderableObject48.onStart();
+	ObjRenderableObject49.onStart();
+	ObjRenderableObject50.onStart();
+	ObjRenderableObject51.onStart();
 }
 void EnemyLayer::onUpdate(const float & dt){
-	ObjRenderableObject2.onUpdate(dt);
-	ObjRenderableObject3.onUpdate(dt);
-	ObjRenderableObject4.onUpdate(dt);
-	ObjRenderableObject5.onUpdate(dt);
-	ObjRenderableObject6.onUpdate(dt);
-	ObjRenderableObject7.onUpdate(dt);
-	ObjRenderableObject8.onUpdate(dt);
-	ObjRenderableObject9.onUpdate(dt);
-	ObjRenderableObject10.onUpdate(dt);
-	ObjRenderableObject11.onUpdate(dt);
+	if(ObjRenderableObject2.isActive) ObjRenderableObject2.onUpdate(dt);
+	if(ObjRenderableObject3.isActive) ObjRenderableObject3.onUpdate(dt);
+	if(ObjRenderableObject4.isActive) ObjRenderableObject4.onUpdate(dt);
+	if(ObjRenderableObject5.isActive) ObjRenderableObject5.onUpdate(dt);
+	if(ObjRenderableObject6.isActive) ObjRenderableObject6.onUpdate(dt);
+	if(ObjRenderableObject7.isActive) ObjRenderableObject7.onUpdate(dt);
+	if(ObjRenderableObject8.isActive) ObjRenderableObject8.onUpdate(dt);
+	if(ObjRenderableObject9.isActive) ObjRenderableObject9.onUpdate(dt);
+	if(ObjRenderableObject10.isActive) ObjRenderableObject10.onUpdate(dt);
+	if(ObjRenderableObject11.isActive) ObjRenderableObject11.onUpdate(dt);
+	if(ObjRenderableObject12.isActive) ObjRenderableObject12.onUpdate(dt);
+	if(ObjRenderableObject13.isActive) ObjRenderableObject13.onUpdate(dt);
+	if(ObjRenderableObject14.isActive) ObjRenderableObject14.onUpdate(dt);
+	if(ObjRenderableObject15.isActive) ObjRenderableObject15.onUpdate(dt);
+	if(ObjRenderableObject16.isActive) ObjRenderableObject16.onUpdate(dt);
+	if(ObjRenderableObject17.isActive) ObjRenderableObject17.onUpdate(dt);
+	if(ObjRenderableObject18.isActive) ObjRenderableObject18.onUpdate(dt);
+	if(ObjRenderableObject19.isActive) ObjRenderableObject19.onUpdate(dt);
+	if(ObjRenderableObject20.isActive) ObjRenderableObject20.onUpdate(dt);
+	if(ObjRenderableObject21.isActive) ObjRenderableObject21.onUpdate(dt);
+	if(ObjRenderableObject22.isActive) ObjRenderableObject22.onUpdate(dt);
+	if(ObjRenderableObject23.isActive) ObjRenderableObject23.onUpdate(dt);
+	if(ObjRenderableObject24.isActive) ObjRenderableObject24.onUpdate(dt);
+	if(ObjRenderableObject25.isActive) ObjRenderableObject25.onUpdate(dt);
+	if(ObjRenderableObject26.isActive) ObjRenderableObject26.onUpdate(dt);
+	if(ObjRenderableObject27.isActive) ObjRenderableObject27.onUpdate(dt);
+	if(ObjRenderableObject28.isActive) ObjRenderableObject28.onUpdate(dt);
+	if(ObjRenderableObject29.isActive) ObjRenderableObject29.onUpdate(dt);
+	if(ObjRenderableObject30.isActive) ObjRenderableObject30.onUpdate(dt);
+	if(ObjRenderableObject31.isActive) ObjRenderableObject31.onUpdate(dt);
+	if(ObjRenderableObject32.isActive) ObjRenderableObject32.onUpdate(dt);
+	if(ObjRenderableObject33.isActive) ObjRenderableObject33.onUpdate(dt);
+	if(ObjRenderableObject34.isActive) ObjRenderableObject34.onUpdate(dt);
+	if(ObjRenderableObject35.isActive) ObjRenderableObject35.onUpdate(dt);
+	if(ObjRenderableObject36.isActive) ObjRenderableObject36.onUpdate(dt);
+	if(ObjRenderableObject37.isActive) ObjRenderableObject37.onUpdate(dt);
+	if(ObjRenderableObject38.isActive) ObjRenderableObject38.onUpdate(dt);
+	if(ObjRenderableObject39.isActive) ObjRenderableObject39.onUpdate(dt);
+	if(ObjRenderableObject40.isActive) ObjRenderableObject40.onUpdate(dt);
+	if(ObjRenderableObject41.isActive) ObjRenderableObject41.onUpdate(dt);
+	if(ObjRenderableObject42.isActive) ObjRenderableObject42.onUpdate(dt);
+	if(ObjRenderableObject43.isActive) ObjRenderableObject43.onUpdate(dt);
+	if(ObjRenderableObject44.isActive) ObjRenderableObject44.onUpdate(dt);
+	if(ObjRenderableObject45.isActive) ObjRenderableObject45.onUpdate(dt);
+	if(ObjRenderableObject46.isActive) ObjRenderableObject46.onUpdate(dt);
+	if(ObjRenderableObject47.isActive) ObjRenderableObject47.onUpdate(dt);
+	if(ObjRenderableObject48.isActive) ObjRenderableObject48.onUpdate(dt);
+	if(ObjRenderableObject49.isActive) ObjRenderableObject49.onUpdate(dt);
+	if(ObjRenderableObject50.isActive) ObjRenderableObject50.onUpdate(dt);
+	if(ObjRenderableObject51.isActive) ObjRenderableObject51.onUpdate(dt);
 }
 template<class F>
 void EnemyLayer::foreach(F && f){
@@ -42,4 +122,44 @@ void EnemyLayer::foreach(F && f){
 	f(this->getObject<RenderableObject9>());
 	f(this->getObject<RenderableObject10>());
 	f(this->getObject<RenderableObject11>());
+	f(this->getObject<RenderableObject12>());
+	f(this->getObject<RenderableObject13>());
+	f(this->getObject<RenderableObject14>());
+	f(this->getObject<RenderableObject15>());
+	f(this->getObject<RenderableObject16>());
+	f(this->getObject<RenderableObject17>());
+	f(this->getObject<RenderableObject18>());
+	f(this->getObject<RenderableObject19>());
+	f(this->getObject<RenderableObject20>());
+	f(this->getObject<RenderableObject21>());
+	f(this->getObject<RenderableObject22>());
+	f(this->getObject<RenderableObject23>());
+	f(this->getObject<RenderableObject24>());
+	f(this->getObject<RenderableObject25>());
+	f(this->getObject<RenderableObject26>());
+	f(this->getObject<RenderableObject27>());
+	f(this->getObject<RenderableObject28>());
+	f(this->getObject<RenderableObject29>());
+	f(this->getObject<RenderableObject30>());
+	f(this->getObject<RenderableObject31>());
+	f(this->getObject<RenderableObject32>());
+	f(this->getObject<RenderableObject33>());
+	f(this->getObject<RenderableObject34>());
+	f(this->getObject<RenderableObject35>());
+	f(this->getObject<RenderableObject36>());
+	f(this->getObject<RenderableObject37>());
+	f(this->getObject<RenderableObject38>());
+	f(this->getObject<RenderableObject39>());
+	f(this->getObject<RenderableObject40>());
+	f(this->getObject<RenderableObject41>());
+	f(this->getObject<RenderableObject42>());
+	f(this->getObject<RenderableObject43>());
+	f(this->getObject<RenderableObject44>());
+	f(this->getObject<RenderableObject45>());
+	f(this->getObject<RenderableObject46>());
+	f(this->getObject<RenderableObject47>());
+	f(this->getObject<RenderableObject48>());
+	f(this->getObject<RenderableObject49>());
+	f(this->getObject<RenderableObject50>());
+	f(this->getObject<RenderableObject51>());
 }

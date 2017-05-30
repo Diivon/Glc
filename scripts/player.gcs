@@ -6,6 +6,8 @@ variables:
 		const float _rotateGrade = 5.0f;
 		const float _speed = 5.0f;
 		bool _isFirstWeapon = true;
+		i16 _hp;
+		bool _isAlive = true;
 	//your private variables here
 methods:
 	void onStart(){
@@ -16,8 +18,8 @@ methods:
 	void shoot(gc::Vec2 const & dir){
 		if (_isFirstWeapon){
 			layer.getObject<Bullet>().start(self.getCenter(), dir);
-			layer.getObject<Bullet>().speed = 50.0f;
-			layer.getObject<Bullet>().lifeTime = 1000.0f;
+			layer.getObject<Bullet>().speed = 250.0f;
+			layer.getObject<Bullet>().lifeTime = 100.0f;
 		}
 		else{
 			layer.getObject<Bullet>().start(self.getCenter(), dir.getRotated(sh::degree(gc::Random<float>::get(-50, 50))));
@@ -35,16 +37,46 @@ methods:
 			) return;
 		self.moveOn(dir);
 	}
+	void dealDamage(u16 dmg){
+		_hp -= dmg;
+	}
+	void die(){
+		self.isActive = false;
+		self.isVisible = false;
+		self._isAlive = false;
+	}
+	bool isAlive(){
+		return self._isAlive;
+	}
 	void onUpdate(const float & dt){
 	//onUpdate called once per frame
+		if (self._hp <= 0){
+			self.die();
+			return;
+		}
+
 		if (gc::Mouse::isButtonPressed(gc::Mouse::Button::Left))
 			self.shoot(_lookvec);
-		
 		_lookvec = (gc::Mouse::getWorldPosition() - self.getCenter()).normalize();
 		auto deg = gc::toDegree(acos(-_lookvec.y));
 		if (_lookvec.x < 0)	deg.value *= -1;
 		self.getGraphicalComponent().setRotation(deg);
 		
+		scene.getRenderer().render(
+			gc::Line()
+				.setBegin(self.getCenter() + gc::Vec2{-50, -100})
+				.setEnd(self.getCenter() + gc::Vec2{50, -100})
+				.setColor(gc::Color::Red)
+				.setThickness(9)
+		);
+		scene.getRenderer().render(
+			gc::Line()
+				.setBegin(self.getCenter() + gc::Vec2{-50, -98})
+				.setEnd(self.getCenter() + gc::Vec2{-50.0f + _hp, -98})
+				.setColor(gc::Color::Green)
+				.setThickness(5)
+		);
+
 		//forward
 		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::W))
 			self.tryMove(_lookvec * _speed);
@@ -69,7 +101,7 @@ methods:
 constructors:
 	//this code will be in class constructor-specific synthax example is:
 	//str("awd"), dur(6)
-	_lookvec(0, -1)
+	_lookvec(0, -1), _hp(100)
 constructor_body:
 	//this code will be runned when constructor of object will be called
 	//use it for primary initialization only!!!

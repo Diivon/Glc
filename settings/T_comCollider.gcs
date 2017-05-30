@@ -1,6 +1,7 @@
 Com:Collider:Vars
 	typedef ::gc::Collider<#ColliderType#> #ColliderTypeName#;
 	#ColliderTypeName# #ColliderName#;
+	#ColliderTypeName# & getCollider(){return #ColliderName#;}
 Com:Collider:Constructor
 	#ColliderName#(pos, #Size#)
 Com:Collider:ConstructorBody

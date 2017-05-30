@@ -5,37 +5,68 @@ variables:
 		float lifeTime;
 	private: 
 		float _ttl;
-		//your private variables here
-		bool _isActive;
+		bool _alreadyFired;
 		gc::Vec2 _dir;
+		bool _isDied = false;
+		u8 _hitCount = 20;
 methods:
 	void onStart(){
 		//it's called once, before game cycle begins
 		self.isVisible = false;
 	}
+	void die(){
+		_alreadyFired = false;
+		_ttl = 0.0f;
+		_isDied = true;
+		isVisible = false;
+		isActive = false;
+	}
+	void wake(){
+		isVisible = true;
+		isActive = true;
+		_isDied = false;
+		_alreadyFired = false;
+		u8 _hitCount = 20;
+	}
 	void onUpdate(const float & dt){
 		//onUpdate called once per frame
-		if (_isActive){
-			self.moveOn(_dir * speed);
-			_ttl += dt;
-		}
 		if (_ttl > lifeTime){
-			_isActive = false;
-			_ttl = 0.0f;
+			self.die();
+			return;
 		}
+		_ttl += dt;
+
+		self.moveOn(_dir * speed);
+
 		scene.getLayer<EnemyLayer>().foreach([this](auto & i){
-			if (i.collider.isCollide(self.collider)){
-				i.isVisible = false;
-				gc::debug.log(i.getTag());
+			if (_hitCount == 0)	return;
+			bool a = gc::areAtDifferentSides(
+				self.getCenter(), 
+				self.getCenter() + (_dir * speed),
+				i.getCollider().getTopLeftCorner(),
+				i.getCollider().getLowRightCorner()
+			);
+			bool b = gc::areAtDifferentSides(
+				self.getCenter(), 
+				self.getCenter() + (_dir * speed),
+				i.getCollider().getTopRightCorner(),
+				i.getCollider().getLowLeftCorner()
+			);
+			bool c = a || b;
+			if (c && (i.getCenter() - self.getCenter()).getLength() < speed){
+				i.dealDamage(40);
+				--_hitCount;
 			}
 		});
+		if (_hitCount == 0)	self.die();
 	}
 	void start(gc::Vec2 const & pos, gc::Vec2 const & dir){
-		if(_isActive) return;
+		if(_alreadyFired) return;
 		
-		self.isVisible = true;
+		if (self._isDied)
+			wake();
 		self.moveTo(pos);
-		_isActive = true;
+		_alreadyFired = true;
 		_dir = dir;
 	}
 
@@ -43,7 +74,7 @@ methods:
 constructors:
 	//this code will be in class constructor-specific synthax example is: 
 	//str("awd"), dur(6)
-	_ttl(0.0f), _isActive(false), speed(5.0f), lifeTime(0.0f)
+	_ttl(0.0f), _alreadyFired(false), speed(5.0f), lifeTime(0.0f)
 constructor_body:
 	//this code will be runned when constructor of object will be called
 	//use it for primary initialization only!!!

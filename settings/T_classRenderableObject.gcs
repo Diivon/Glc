@@ -12,6 +12,7 @@ Class:RenderableObject:Declaration
 	public:
 		::gc::Vec2 pos;
 		bool isVisible = true;
+		bool isActive = true;
 		#ClassName#(#SceneName# &, #LayerName# &);
 		~#ClassName#();
 		void onStart();

@@ -20,16 +20,20 @@ class RenderableObject10 : public ::gc::TypeAliases<RenderableObject10>{
 	public:
 	typedef ::gc::Collider<::gc::ColliderType::Rectangle> collider_t;
 	collider_t collider;
+	collider_t & getCollider(){return collider;
+	};
 	::gc::Sprite sprite;
 	::gc::Sprite & getGraphicalComponent() noexcept {return sprite;
 	}
 	::gc::Sprite const & getGraphicalComponent() const noexcept{return sprite;
 	};
 	private:
+	i16 _hp;
 	std::string _tag;
 	public:
 	::gc::Vec2 pos;
 	bool isVisible = true;
+	bool isActive = true;
 	RenderableObject10(Scene0 &, EnemyLayer &);
 	~RenderableObject10();
 	void onStart();
@@ -37,6 +41,8 @@ class RenderableObject10 : public ::gc::TypeAliases<RenderableObject10>{
 	const ::gc::Sprite & getCurrentSprite() const;
 	public:
 	;
+	void dealDamage(u16 dmg);
+	void die();
 	std::string const & getTag();private:
 	;
 	public:

@@ -22,6 +22,8 @@ class Bullet : public ::gc::TypeAliases<Bullet>{
 	float lifeTime;
 	typedef ::gc::Collider<::gc::ColliderType::Circle> collider_t;
 	collider_t collider;
+	collider_t & getCollider(){return collider;
+	};
 	::gc::Sprite sprite;
 	::gc::Sprite & getGraphicalComponent() noexcept {return sprite;
 	}
@@ -29,18 +31,23 @@ class Bullet : public ::gc::TypeAliases<Bullet>{
 	};
 	private:
 	float _ttl;
-	bool _isActive;
+	bool _alreadyFired;
 	gc::Vec2 _dir;
+	bool _isDied = false;
+	u8 _hitCount = 20;
 	std::string _tag;
 	public:
 	::gc::Vec2 pos;
 	bool isVisible = true;
+	bool isActive = true;
 	Bullet(Scene0 &, ObjectsLayer &);
 	~Bullet();
 	void onStart();
 	void onUpdate(const float & dt);
 	const ::gc::Sprite & getCurrentSprite() const;
 	public:
+	void die();
+	void wake();
 	void start(gc::Vec2 const & pos, gc::Vec2 const & dir);
 	std::string const & getTag();
 	;private:

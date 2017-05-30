@@ -11,8 +11,8 @@ namespace gc{
 			inline Bool() noexcept : _data() {}
 			inline Bool(Bool const & a)noexcept : _data(a._data) {}
 			inline Bool(bool const & a) noexcept : _data(a) {}
-			inline const Bool & operator = (Bool const & a) noexcept {_data = a._data;}
-			inline const Bool & operator = (Bool && a) noexcept {_data = a._data;}
+			inline const Bool & operator = (Bool const & a) noexcept {_data = a._data; return *this;}
+			inline const Bool & operator = (Bool && a) noexcept {_data = a._data; return *this;}
 			inline const Bool operator == (Bool const & a) const noexcept{return _data == a._data;}
 			inline const Bool operator != (Bool const & a) const noexcept{return _data != a._data;}
 	
@@ -83,12 +83,14 @@ namespace gc{
 			inline operator Bool() const noexcept{return _data != 0;}
 		
 			//inline operator T() const noexcept{return _data;}
+			/*
 			template<class Y>
 			Optional<Y> as() const noexcept {return static_cast<Y>(_data);}
 			template<>
 			Optional<T> as<T>() const noexcept {return _data;}
 			template<>
 			Optional<std::string> as<std::string>() const noexcept {return std::to_string(_data);}
+			*/
 
 			inline static const numeric_base<T> getMaxValue(){return std::numeric_limits<T>::max();}
 			friend std::ostream & operator << (std::ostream & s, numeric_base<T> const & n){

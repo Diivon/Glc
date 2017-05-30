@@ -10,12 +10,17 @@
 
 #define GC_GET_WORD_SIZE (::gc::priv::size_if<std::numeric_limits<size_t>::max() == 0xffffffff, 4, 8>::value)
 #define IF_FAIL(expr) try{ expr ; }catch(std::exception & fail_exception)
-///human readable lambdas
-#define Lambda0 							[]()
-#define Lambda1(name1) 						[](auto & name1)
-#define Lambda2(name1, name2) 				[](auto & name1, auto & name2)
-#define Lambda3(name1, name2, name3) 		[](auto & name1, auto & name2, auto & name3)
-#define Lambda4(name1, name2, name3, name4) [](auto & name1, auto & name2, auto & name3, auto & name4)
+
+#define _GC_REGISTER_THIS_T(_arg_type_) 	using this_t = _arg_type_;
+#define _GC_REGISTER_LREF_T(_arg_type_) 	using lref_t = _arg_type_ &;
+#define _GC_REGISTER_RREF_T(_arg_type_) 	using rref_t = _arg_type_ &&;
+#define _GC_REGISTER_C_LREF_T(_arg_type_) 	using c_lref_t = _arg_type_ const &;
+#define GC_REGISTER_TYPE_ALIASES(_arg_type_)\
+		_GC_REGISTER_THIS_T(_arg_type_)\
+		_GC_REGISTER_LREF_T(_arg_type_)\
+		_GC_REGISTER_RREF_T(_arg_type_)\
+		_GC_REGISTER_C_LREF_T(_arg_type_)
+
 namespace gc
 {
 	template<class T>

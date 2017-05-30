@@ -11,8 +11,8 @@ void ObjectsLayer::onStart(){
 	ObjRenderableObject1.onStart();
 }
 void ObjectsLayer::onUpdate(const float & dt){
-	ObjRenderableObject0.onUpdate(dt);
-	ObjRenderableObject1.onUpdate(dt);
+	if(ObjRenderableObject0.isActive) ObjRenderableObject0.onUpdate(dt);
+	if(ObjRenderableObject1.isActive) ObjRenderableObject1.onUpdate(dt);
 }
 template<class F>
 void ObjectsLayer::foreach(F && f){

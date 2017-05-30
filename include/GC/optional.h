@@ -1,6 +1,6 @@
 #pragma once
-#include <new>
 #include "GC/Utils.h"
+#include <new>
 namespace gc {
 	template<class T>
 	class Optional{
@@ -14,17 +14,17 @@ namespace gc {
 			_success(a._success)
 		{
 			if (_success)
-				new(_data) T(a._data);
+				_data =  a._data;
 			else
-				new(_ex) std::exception(a._ex);
+				_ex = a._ex;
 		}
 		Optional(Optional<T> && a):
 			_success(a._success)
 		{
 			if (_success)
-				new(_data) T(std::move(a._data));
+				_data =  std::move(a._data);
 			else
-				new(_ex) std::exception(std::move(a._ex));
+				_ex = std::move(a._ex);
 		}
 		Optional(const T & y) : _data(y), _success(true) {}
 		Optional(T && y) : _data(std::move(y)), _success(true) {}
@@ -38,13 +38,13 @@ namespace gc {
 		}
 		T unwrapOr(T def) noexcept {
 			if (_success)
-				return std::move(_data);
+				return _data;
 			else
 				return def;
 		}
 		T unwrapOrPanic() {
 			if (_success)
-				return std::move(_data);
+				return _data;
 			else
 				panic();
 		}

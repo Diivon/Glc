@@ -48,11 +48,11 @@ inline void fillBackground(gc::Renderer & r){
 								gc::Renderer renderer;
 								renderer.setWindow(mainWindow).setCamera(mainCamera);
 								float dt = 0.5f;
-								auto & currentScene = Scene0();
+								Scene0 currentScene;
 								currentScene.setRenderer(renderer);
 								currentScene.start();
 								sf::Clock clock;
-								while(mainWindow.isOpen()){
+								while(mainWindow.isOpen()) try{
 									clock.restart();
 									processEvents(mainWindow);
 									mainWindow.clear();
@@ -66,5 +66,8 @@ inline void fillBackground(gc::Renderer & r){
 									renderer.show();
 									dt = clock.getElapsedTime().asMilliseconds();
 									if (dt < c_MillisecondsForOneFrame) sf::sleep(sf::milliseconds(static_cast<sf::Int32>(c_MillisecondsForOneFrame - dt)));
+								}
+								catch(std::exception & e){
+									gc::debug.log("exception was catched in main game loop, what is:", e.what());
 								}
 							}

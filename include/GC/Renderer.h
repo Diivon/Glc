@@ -67,14 +67,16 @@ namespace gc
 			_win->draw(l, 2, sf::LinesStrip);
 		}
 		else{
-			auto len = line.getLength();
-			if ( len < FLT_EPSILON ) return *this;
-			sf::RectangleShape l(sf::Vector2f(static_cast<float>(line._thickness), len));
-			auto coss = (gc::Vec2::up * (line._data[1] - line._data[0])) / (len);
-			auto deg = acos(coss) * 180 / Pi;
-			l.rotate(-deg);
+			auto dir = line._data[1] - line._data[0];
+			auto deg = gc::toDegree(acos(dir.getNormalized().x));
+			if (dir.y < 0)
+				deg.value *= -1;
+			sf::RectangleShape l(sf::Vector2f(dir.getLength(), (float)line._thickness));
+			l.rotate(deg.value);
+			l.setOutlineThickness(0);
+			l.setFillColor(line._color);
 			l.setPosition(line._data[0]);
-			_win->draw(l);
+			this->render(l);
 		}
 		return *this;
 	}

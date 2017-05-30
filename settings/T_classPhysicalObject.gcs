@@ -11,6 +11,7 @@ Class:PhysicalObject:Declaration
 		#ComponentsVariables#
 	public:
 		::gc::Vec2 pos;
+		bool isActive = true;
 		#ClassName#(#SceneName# &, #LayerName# &);
 		~#ClassName#();
 		void onStart();

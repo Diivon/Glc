@@ -11,8 +11,9 @@
 namespace gc
 {
 
-	struct Vec2 : public TypeAliases<Vec2>
+	struct Vec2
 	{
+		GC_REGISTER_TYPE_ALIASES(Vec2)
 		float x, y;
 
 		static const Vec2 zero;
@@ -22,33 +23,33 @@ namespace gc
 		static const Vec2 down;
 
 
-		inline this_t(float x, float y);
+		inline Vec2(float x, float y);
 
-		inline this_t() noexcept;
-		inline this_t(c_lref_t) noexcept;
-		inline this_t(rref_t) noexcept;
+		inline Vec2() noexcept;
+		inline Vec2(c_lref_t) noexcept;
+		inline Vec2(rref_t) noexcept;
 		inline lref_t operator = (c_lref_t) noexcept;
 		inline lref_t operator = (rref_t) noexcept;
 
 		#ifdef SFML_VECTOR2_HPP
-			inline this_t(const sf::Vector2f &) noexcept;
-			inline this_t(sf::Vector2f &&) noexcept;
-			inline this_t(const sf::Vector2i &) noexcept;
-			inline this_t(sf::Vector2i &&) noexcept;
+			inline Vec2(const sf::Vector2f &) noexcept;
+			inline Vec2(sf::Vector2f &&) noexcept;
+			inline Vec2(const sf::Vector2i &) noexcept;
+			inline Vec2(sf::Vector2i &&) noexcept;
 			inline lref_t operator = (const sf::Vector2f &) noexcept;
 			inline lref_t operator = (sf::Vector2f &&) noexcept;
 			inline operator sf::Vector2f() const noexcept;
 		#endif
 
 		//getters
-		inline this_t operator + () const noexcept;
-		inline this_t operator - () const noexcept;
+		inline Vec2 operator + () const noexcept;
+		inline Vec2 operator - () const noexcept;
 		
-		inline this_t operator + (c_lref_t) const noexcept;
-		inline this_t operator - (c_lref_t) const noexcept;
+		inline Vec2 operator + (c_lref_t) const noexcept;
+		inline Vec2 operator - (c_lref_t) const noexcept;
 		inline const float operator * (c_lref_t) const noexcept;
-		inline this_t operator * (float) const noexcept;
-		inline this_t operator / (float) const noexcept;
+		inline Vec2 operator * (float) const noexcept;
+		inline Vec2 operator / (float) const noexcept;
 
 		//changers
 		inline c_lref_t operator += (c_lref_t) noexcept;
@@ -58,11 +59,11 @@ namespace gc
 		
 		//getters
 		template<class T>
-		inline this_t getRotated(sh::priv::degree_t<T> const &) const noexcept;
+		inline Vec2 getRotated(sh::priv::degree_t<T> const &) const noexcept;
 		template<class T>
-		inline this_t getRotated(sh::priv::radian_t<T> const &) const noexcept;
-		inline this_t getRotatedCS(float coss, float sinn) const noexcept;
-		inline this_t getNormalized() const noexcept;
+		inline Vec2 getRotated(sh::priv::radian_t<T> const &) const noexcept;
+		inline Vec2 getRotatedCS(float coss, float sinn) const noexcept;
+		inline Vec2 getNormalized() const noexcept;
 		inline const float getLength() const noexcept;
 
 		//changers
@@ -122,25 +123,25 @@ namespace gc
 			return sf::Vector2f(x, y);
 		}
 	#endif
-	Vec2::this_t Vec2::operator + () const noexcept{
+	Vec2 Vec2::operator + () const noexcept{
 		return Vec2(x, y);
 	}
-	Vec2::this_t Vec2::operator - () const noexcept{
+	Vec2 Vec2::operator - () const noexcept{
 		return Vec2(-x, -y);
 	}
-	Vec2::this_t Vec2::operator + (Vec2::c_lref_t a) const noexcept{
+	Vec2 Vec2::operator + (Vec2::c_lref_t a) const noexcept{
 		return Vec2(x + a.x, y + a.y);
 	}
-	Vec2::this_t Vec2::operator - (Vec2::c_lref_t a) const noexcept{
+	Vec2 Vec2::operator - (Vec2::c_lref_t a) const noexcept{
 		return Vec2(x - a.x, y - a.y);
 	}
 	const float Vec2::operator * (Vec2::c_lref_t a) const noexcept{
 		return (x * a.x) + (y * a.y);
 	}
-	Vec2::this_t Vec2::operator * (float a) const noexcept{
+	Vec2 Vec2::operator * (float a) const noexcept{
 		return Vec2(x * a, y * a);
 	}
-	Vec2::this_t Vec2::operator / (float a) const noexcept{
+	Vec2 Vec2::operator / (float a) const noexcept{
 		return Vec2(x / a, y / a);
 	}
 	Vec2::c_lref_t Vec2::operator += (Vec2::c_lref_t a) noexcept{
@@ -162,22 +163,22 @@ namespace gc
 		return *this;
 	}
 	template<class T>
-	Vec2::this_t Vec2::getRotated(sh::priv::degree_t<T> const & d) const noexcept{
+	Vec2 Vec2::getRotated(sh::priv::degree_t<T> const & d) const noexcept{
 		auto a = ((float)d.value) / 180 * Pi;
 		float coss = cos(a);
 		float sinn = sin(a);
 		return Vec2(x * coss - y * sinn, x * sinn + y * coss);
 	}
 	template<class T>
-	Vec2::this_t Vec2::getRotated(sh::priv::radian_t<T> const & a) const noexcept{
+	Vec2 Vec2::getRotated(sh::priv::radian_t<T> const & a) const noexcept{
 		float coss = cos((float)a.value);
 		float sinn = sin((float)a.value);
 		return Vec2(x * coss - y * sinn, x * sinn + y * coss);
 	}
-	Vec2::this_t Vec2::getRotatedCS(float coss, float sinn) const noexcept{
+	Vec2 Vec2::getRotatedCS(float coss, float sinn) const noexcept{
 		return Vec2(x * coss - y * sinn, x * sinn + y * coss);
 	}
-	Vec2::this_t Vec2::getNormalized() const noexcept{
+	Vec2 Vec2::getNormalized() const noexcept{
 		if (x == 0 && y == 0) 
 			return Vec2::zero;
 		float len = this->getLength();
@@ -227,5 +228,18 @@ namespace gc
 		x /= len; y /= len;
 		x *= l;	  y *= l;
 		return *this;
+	}
+	inline bool areAtDifferentSides(Vec2 const & vb, Vec2 const & ve, gc::Vec2 p1, gc::Vec2 p2){
+		auto normalizedVec = ve - vb;
+		if (normalizedVec.y == 0.0f)
+			return true;
+		auto k = normalizedVec.y / normalizedVec.x;
+		p1 -= vb;
+		p2 -= vb;
+
+		bool isFirstLess  = p1.y < k * p1.x;//ignore if it on line
+		bool isSecondLess = p2.y < k * p2.x;//ignore if it on line
+
+		return isSecondLess != isFirstLess;
 	}
 }
