@@ -4,6 +4,8 @@
 #include "Numerics.h"
 #include "Event.h"
 #include "Optional.h"
+#include "SemanticHelpers.h"
+
 
 namespace gc{
 	enum class AnimationType
@@ -73,6 +75,9 @@ namespace gc{
 		Animation & stop() noexcept;
 		//update the animation, dt is elapsed milliseconds
 		Animation & update(float dt) noexcept;
+
+		template<class Y>
+		Animation & setRotation(sh::priv::degree_t<Y> const &) noexcept;
 
 
 		//events
@@ -241,6 +246,13 @@ namespace gc{
 	template<AnimationType T>
 	Animation<T> & Animation<T>::update(float dt) noexcept{
 		_updateHelper.update(*this, dt);
+		return *this;
+	}
+	template<AnimationType T>
+	template<class Y>
+	Animation<T> & Animation<T>::setRotation(sh::priv::degree_t<Y> const & deg) noexcept{
+		for(auto& i : _SFlist)
+			i.getSprite().setRotation(deg);
 		return *this;
 	}
 }

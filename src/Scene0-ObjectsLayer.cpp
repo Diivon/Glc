@@ -1,8 +1,12 @@
 #include "Scene0.h"
-ObjectsLayer::ObjectsLayer(Scene0 & sc):
+ObjectsLayer::ObjectsLayer(Scene0 & sc) try:
 scene(sc), self(*this)
 , ObjRenderableObject0(scene, *this), ObjRenderableObject1(scene, *this)
 {
+}
+catch(std::exception & e){
+	std::cout << "ObjectsLayer throws: " << e.what() << std::endl;
+	throw;
 }
 ObjectsLayer::~ObjectsLayer(){
 }

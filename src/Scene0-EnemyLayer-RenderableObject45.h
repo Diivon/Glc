@@ -29,7 +29,6 @@ class RenderableObject45 : public ::gc::TypeAliases<RenderableObject45>{
 	};
 	private:
 	i16 _hp;
-	std::string _tag;
 	public:
 	::gc::Vec2 pos;
 	bool isVisible = true;
@@ -42,8 +41,7 @@ class RenderableObject45 : public ::gc::TypeAliases<RenderableObject45>{
 	public:
 	;
 	void dealDamage(u16 dmg);
-	void die();
-	std::string const & getTag();private:
+	void die();private:
 	;
 	public:
 	gc::Vec2 getPosition() const noexcept;

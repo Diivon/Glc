@@ -32,11 +32,15 @@ Class:Layer:Declaration
 Class:Layer:Implementation
 	#include "#SceneName#.h"
 	
-	#ClassName#::#ClassName#(#SceneName# & sc):
+	#ClassName#::#ClassName#(#SceneName# & sc) try:
 		scene(sc), self(*this) 
 		#AdditionalConstructorList#
 		{
 		#ConstructorBody#
+	}
+	catch(std::exception & e){
+		std::cout << "#ClassName# throws: " << e.what() << std::endl;
+		throw;
 	}
 	#ClassName#::~#ClassName#(){
 	}

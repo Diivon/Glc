@@ -36,10 +36,16 @@ namespace gc
 	inline Sprite::Sprite(const std::string & file):
 		_tex(), _sprite()
 	{
-		auto v = getByteVectorFromFile(file).unwrap();
-		_tex.loadFromMemory(v.data(), v.size());
-		_sprite.setTexture(_tex);
-		_sprite.setOrigin(this->getCenter());
+		try{
+			auto v = getByteVectorFromFile(file).unwrap();
+			_tex.loadFromMemory(v.data(), v.size());
+			_sprite.setTexture(_tex);
+			_sprite.setOrigin(this->getSize() / 2);
+		}
+		catch(std::exception & e){
+			std::cout << "Sprite::Sprite " << e.what();
+			throw;
+		}
 	}
 	inline ::sf::Sprite Sprite::getSfSprite() const noexcept{
 		return _sprite;

@@ -20,6 +20,7 @@ class Bullet : public ::gc::TypeAliases<Bullet>{
 	public:
 	float speed;
 	float lifeTime;
+	u8 hitCount = 2;
 	typedef ::gc::Collider<::gc::ColliderType::Circle> collider_t;
 	collider_t collider;
 	collider_t & getCollider(){return collider;
@@ -34,8 +35,6 @@ class Bullet : public ::gc::TypeAliases<Bullet>{
 	bool _alreadyFired;
 	gc::Vec2 _dir;
 	bool _isDied = false;
-	u8 _hitCount = 20;
-	std::string _tag;
 	public:
 	::gc::Vec2 pos;
 	bool isVisible = true;
@@ -49,7 +48,7 @@ class Bullet : public ::gc::TypeAliases<Bullet>{
 	void die();
 	void wake();
 	void start(gc::Vec2 const & pos, gc::Vec2 const & dir);
-	std::string const & getTag();
+	void calculateCollisions();
 	;private:
 	;
 	public:

@@ -33,12 +33,17 @@ Class:RenderableObject:Declaration
 	};
 Class:RenderableObject:Implementation
 	#include "#SceneName#.h"
-	#ClassName#::#ClassName#(#SceneName# & sc, #LayerName# & lr):
+	#ClassName#::#ClassName#(#SceneName# & sc, #LayerName# & lr) try:
 		self(*this), pos(#Pos#), scene(sc), layer(lr)
 		#AdditionalConstructorList#
 		{
 			#ConstructorBody#
 		}
+	catch(std::exception & e){
+		std::cout << "#ClassName# throws: " << e.what() << std::endl;
+		std::cin.get();
+		throw;
+	}
 	#ClassName#::~#ClassName#(){
 	}
 	void #ClassName#::onStart(){

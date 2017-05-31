@@ -18,10 +18,11 @@ class Hero : public ::gc::TypeAliases<Hero>{
 	Scene0 & scene;
 	ObjectsLayer & layer;
 	public:
-	::gc::Sprite sprite;
-	::gc::Sprite & getGraphicalComponent() noexcept {return sprite;
+	typedef ::gc::Animation<::gc::AnimationType::Cyclic> animation_t;
+	animation_t animation;
+	animation_t & getGraphicalComponent() noexcept {return animation;
 	}
-	::gc::Sprite const & getGraphicalComponent() const noexcept{return sprite;
+	animation_t const & getGraphicalComponent() const noexcept {return animation;
 	};
 	private:
 	gc::Vec2 _lookvec;
@@ -30,7 +31,7 @@ class Hero : public ::gc::TypeAliases<Hero>{
 	bool _isFirstWeapon = true;
 	i16 _hp;
 	bool _isAlive = true;
-	std::string _tag;
+	float current_effect_life_time = 0.0f;
 	public:
 	::gc::Vec2 pos;
 	bool isVisible = true;
@@ -46,7 +47,6 @@ class Hero : public ::gc::TypeAliases<Hero>{
 	void dealDamage(u16 dmg);
 	void die();
 	bool isAlive();
-	std::string const & getTag();
 	;private:
 	;
 	public:

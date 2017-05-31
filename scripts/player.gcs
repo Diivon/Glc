@@ -1,6 +1,5 @@
 variables:
 	public: 
-	//your public variables here
 	private:
 		gc::Vec2 _lookvec;
 		const float _rotateGrade = 5.0f;
@@ -8,55 +7,21 @@ variables:
 		bool _isFirstWeapon = true;
 		i16 _hp;
 		bool _isAlive = true;
-	//your private variables here
+		float current_effect_life_time = 0.0f;
 methods:
 	void onStart(){
-	//it's called once, before game cycle begins
 		scene.getRenderer().getCamera().followSpeed = 0.2;
 		scene.getRenderer().getCamera().moveTo({400, 300});
 	}
-	void shoot(gc::Vec2 const & dir){
-		if (_isFirstWeapon){
-			layer.getObject<Bullet>().start(self.getCenter(), dir);
-			layer.getObject<Bullet>().speed = 250.0f;
-			layer.getObject<Bullet>().lifeTime = 100.0f;
-		}
-		else{
-			layer.getObject<Bullet>().start(self.getCenter(), dir.getRotated(sh::degree(gc::Random<float>::get(-50, 50))));
-			layer.getObject<Bullet>().speed = 250.0f;
-			layer.getObject<Bullet>().lifeTime = 100.0f;
-		}
-	}
-	void tryMove(gc::Vec2 const & dir){
-		auto newPos = self.getCenter() + dir;
-		auto selfHalfSize = self.getSize() / 2;
-		if (newPos.x - selfHalfSize.x < 0 ||
-			newPos.x + selfHalfSize.x > scene.getRenderer().getCamera().getSize().x ||
-			newPos.y - selfHalfSize.y < 0 ||
-			newPos.y + selfHalfSize.y > scene.getRenderer().getCamera().getSize().y
-			) return;
-		self.moveOn(dir);
-	}
-	void dealDamage(u16 dmg){
-		_hp -= dmg;
-	}
-	void die(){
-		self.isActive = false;
-		self.isVisible = false;
-		self._isAlive = false;
-	}
-	bool isAlive(){
-		return self._isAlive;
-	}
 	void onUpdate(const float & dt){
-	//onUpdate called once per frame
 		if (self._hp <= 0){
 			self.die();
 			return;
 		}
 
-		if (gc::Mouse::isButtonPressed(gc::Mouse::Button::Left))
+		if (gc::Mouse::isButtonPressed(gc::Mouse::Button::Left)){
 			self.shoot(_lookvec);
+		}
 		_lookvec = (gc::Mouse::getWorldPosition() - self.getCenter()).normalize();
 		auto deg = gc::toDegree(acos(-_lookvec.y));
 		if (_lookvec.x < 0)	deg.value *= -1;
@@ -96,6 +61,41 @@ methods:
 		if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::Num2)){
 			self._isFirstWeapon = false;
 		}
+	}
+	void shoot(gc::Vec2 const & dir){
+		if (_isFirstWeapon){
+			layer.getObject<Bullet>().start(self.getCenter() + (_lookvec * 50), dir);
+			layer.getObject<Bullet>().speed = 100.0f;
+			layer.getObject<Bullet>().lifeTime = 100.0f;
+			layer.getObject<Bullet>().hitCount = 3;
+		}
+		else{
+			layer.getObject<Bullet>().start(self.getCenter(), dir.getRotated(sh::degree(gc::Random<float>::get(-50, 50))));
+			layer.getObject<Bullet>().speed = 250.0f;
+			layer.getObject<Bullet>().lifeTime = 100.0f;
+			layer.getObject<Bullet>().hitCount = 1;
+		}
+	}
+	void tryMove(gc::Vec2 const & dir){
+		auto newPos = self.getCenter() + dir;
+		auto selfHalfSize = self.getSize() / 2;
+		if (newPos.x - selfHalfSize.x < 0 ||
+			newPos.x + selfHalfSize.x > 800 ||
+			newPos.y - selfHalfSize.y < 0 ||
+			newPos.y + selfHalfSize.y > 700
+			) return;
+		self.moveOn(dir);
+	}
+	void dealDamage(u16 dmg){
+		_hp -= dmg;
+	}
+	void die(){
+		self.isActive = false;
+		self.isVisible = false;
+		self._isAlive = false;
+	}
+	bool isAlive(){
+		return self._isAlive;
 	}
 	//else methods here
 constructors:

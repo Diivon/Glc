@@ -49,7 +49,8 @@ File:Main:Def
 	sf::RenderWindow * gc::Mouse::_win = &mainWindow;
 	gc::Camera * gc::Mouse::_cam = &mainCamera;
 
-	int main(){
+	int main() try{
+		std::cout.setf(std::ios::boolalpha);
 		gc::Renderer renderer;
 		renderer.setWindow(mainWindow).setCamera(mainCamera);
 		
@@ -57,7 +58,6 @@ File:Main:Def
 		#FirstSceneClassName# currentScene;
 		currentScene.setRenderer(renderer);
 		currentScene.start();
-
 		sf::Clock clock;
 		while(mainWindow.isOpen()) try{
 			clock.restart();
@@ -84,4 +84,10 @@ File:Main:Def
 		catch(std::exception & e){
 			gc::debug.log("exception was catched in main game loop, what is:", e.what());
 		}
+	}
+	catch(std::exception & e){
+		std::cout << "outer " << e.what();
+	}
+	catch(...){
+		std::cout << "wtf";
 	}

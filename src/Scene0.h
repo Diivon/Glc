@@ -18,9 +18,13 @@ class Scene0 : public ::gc::TypeAliases<Scene0>{
 	gc::Renderer & getRenderer(){return *_rend;}
 		void setRenderer(gc::Renderer & r){_rend = &r;}
 			Scene0()
-			:
+			try :
 			layerObject1(*this), layerObject0(*this)
 			{}
+				catch(std::exception & e){
+					std::cout << "Scene0 ctor throws" << e.what();
+					throw;
+				}
 				void start()
 				{
 					layerObject1.onStart();

@@ -9,11 +9,16 @@
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject38::RenderableObject38(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(329, 600), scene(sc), layer(lr)
+RenderableObject38::RenderableObject38(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(148, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject38 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject38::~RenderableObject38(){
 }
@@ -22,8 +27,9 @@ void RenderableObject38::onStart(){
 }
 void RenderableObject38::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject38::getCurrentSprite() const{
@@ -41,16 +47,29 @@ const ::gc::Sprite & RenderableObject38::getCurrentSprite() const{
 void RenderableObject38::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject38::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject38::getTag(){return _tag;
 	}

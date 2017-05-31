@@ -9,24 +9,33 @@
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-Hero::Hero(Scene0 & sc, ObjectsLayer & lr):
+Hero::Hero(Scene0 & sc, ObjectsLayer & lr) try:
 self(*this), pos(400, 300), scene(sc), layer(lr)
-, _lookvec(0,  -1),  _hp(100), _tag(gc::TypeName<this_t>::get()), sprite("resources\\soldier\\Soldier1.png")
+, _lookvec(0,  -1),  _hp(100), animation()
 {
+	animation.emplaceFrame("resources\\soldier\\Soldier1.png", 400.00f);
+	animation.emplaceFrame("resources\\soldier\\Soldier2.png", 400.00f);
+}
+catch(std::exception & e){
+	std::cout << "Hero throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 Hero::~Hero(){
 }
 void Hero::onStart(){
 	scene.getRenderer().getCamera().followSpeed = 0.2;
 	scene.getRenderer().getCamera().moveTo({400, 300});
+		animation.start();
 	}
 	void Hero::onUpdate(const float & dt){
 		if (self._hp <= 0){
 			self.die();
 			return;
 		}
-		if (gc::Mouse::isButtonPressed(gc::Mouse::Button::Left))
-		self.shoot(_lookvec);
+		if (gc::Mouse::isButtonPressed(gc::Mouse::Button::Left)){
+			self.shoot(_lookvec);
+		}
 		_lookvec = (gc::Mouse::getWorldPosition() - self.getCenter()).normalize();
 		auto deg = gc::toDegree(acos(-_lookvec.y));
 		if (_lookvec.x < 0)	deg.value *= -1;
@@ -59,9 +68,10 @@ void Hero::onStart(){
 						if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::Num2)){
 							self._isFirstWeapon = false;
 						}
+						animation.update(dt);
 					}
 					const ::gc::Sprite & Hero::getCurrentSprite() const{
-						return sprite;
+						return animation.getCurrentSprite();
 					}
 					::gc::Vec2 Hero::getPosition() const noexcept {
 						return self.pos;
@@ -73,22 +83,24 @@ void Hero::onStart(){
 						return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
 					}
 					void Hero::shoot(gc::Vec2 const & dir){if (_isFirstWeapon){
-						layer.getObject<Bullet>().start(self.getCenter(), dir);
-						layer.getObject<Bullet>().speed = 250.0f;
+						layer.getObject<Bullet>().start(self.getCenter() + (_lookvec * 50), dir);
+						layer.getObject<Bullet>().speed = 100.0f;
 						layer.getObject<Bullet>().lifeTime = 100.0f;
+						layer.getObject<Bullet>().hitCount = 3;
 					}
 					else{
 						layer.getObject<Bullet>().start(self.getCenter(), dir.getRotated(sh::degree(gc::Random<float>::get(-50, 50))));
 						layer.getObject<Bullet>().speed = 250.0f;
 						layer.getObject<Bullet>().lifeTime = 100.0f;
+						layer.getObject<Bullet>().hitCount = 1;
 					}
 				}
 				void Hero::tryMove(gc::Vec2 const & dir){auto newPos = self.getCenter() + dir;
 					auto selfHalfSize = self.getSize() / 2;
 					if (newPos.x - selfHalfSize.x < 0 ||
-					newPos.x + selfHalfSize.x > scene.getRenderer().getCamera().getSize().x ||
+					newPos.x + selfHalfSize.x > 800 ||
 					newPos.y - selfHalfSize.y < 0 ||
-					newPos.y + selfHalfSize.y > scene.getRenderer().getCamera().getSize().y
+					newPos.y + selfHalfSize.y > 700
 					) return;
 					self.moveOn(dir);
 				}
@@ -99,6 +111,4 @@ void Hero::onStart(){
 					self._isAlive = false;
 				}
 				bool Hero::isAlive(){return self._isAlive;
-				}
-				std::string const & Hero::getTag(){return _tag;
 				}

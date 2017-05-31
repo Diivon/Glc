@@ -44,7 +44,8 @@ inline void fillBackground(gc::Renderer & r){
 							gc::Camera mainCamera(gc::Vec2(0, 0), gc::Vec2(800,600));
 							sf::RenderWindow * gc::Mouse::_win = &mainWindow;
 							gc::Camera * gc::Mouse::_cam = &mainCamera;
-							int main(){
+							int main() try{
+								std::cout.setf(std::ios::boolalpha);
 								gc::Renderer renderer;
 								renderer.setWindow(mainWindow).setCamera(mainCamera);
 								float dt = 0.5f;
@@ -70,4 +71,10 @@ inline void fillBackground(gc::Renderer & r){
 								catch(std::exception & e){
 									gc::debug.log("exception was catched in main game loop, what is:", e.what());
 								}
+							}
+							catch(std::exception & e){
+								std::cout << "outer " << e.what();
+							}
+							catch(...){
+								std::cout << "wtf";
 							}

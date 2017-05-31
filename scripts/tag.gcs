@@ -16,7 +16,7 @@ methods:
 	}
 	//else methods here
 constructors:
-	_tag(gc::TypeName<this_t>::get())	
+	_tag(gc::TypeName<this_t>::get())
 	//this code will be in class constructor-specific synthax example is: 
 	//str("awd"), dur(6)
 constructor_body:

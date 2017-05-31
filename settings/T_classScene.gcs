@@ -7,8 +7,12 @@
 		gc::Renderer & getRenderer(){return *_rend;}
 		void setRenderer(gc::Renderer & r){_rend = &r;}
 		#ClassName#()
-			#Ctors#
+			try #Ctors#
 		{}
+		catch(std::exception & e){
+			std::cout << "#ClassName# ctor throws" << e.what();
+			throw;
+		}
 		void start()
 		{
 			#start#

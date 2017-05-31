@@ -1,8 +1,12 @@
 #include "Scene0.h"
-EnemyLayer::EnemyLayer(Scene0 & sc):
+EnemyLayer::EnemyLayer(Scene0 & sc) try:
 scene(sc), self(*this)
-, ObjRenderableObject2(scene, *this), ObjRenderableObject3(scene, *this), ObjRenderableObject4(scene, *this), ObjRenderableObject5(scene, *this), ObjRenderableObject6(scene, *this), ObjRenderableObject7(scene, *this), ObjRenderableObject8(scene, *this), ObjRenderableObject9(scene, *this), ObjRenderableObject10(scene, *this), ObjRenderableObject11(scene, *this), ObjRenderableObject12(scene, *this), ObjRenderableObject13(scene, *this), ObjRenderableObject14(scene, *this), ObjRenderableObject15(scene, *this), ObjRenderableObject16(scene, *this), ObjRenderableObject17(scene, *this), ObjRenderableObject18(scene, *this), ObjRenderableObject19(scene, *this), ObjRenderableObject20(scene, *this), ObjRenderableObject21(scene, *this), ObjRenderableObject22(scene, *this), ObjRenderableObject23(scene, *this), ObjRenderableObject24(scene, *this), ObjRenderableObject25(scene, *this), ObjRenderableObject26(scene, *this), ObjRenderableObject27(scene, *this), ObjRenderableObject28(scene, *this), ObjRenderableObject29(scene, *this), ObjRenderableObject30(scene, *this), ObjRenderableObject31(scene, *this), ObjRenderableObject32(scene, *this), ObjRenderableObject33(scene, *this), ObjRenderableObject34(scene, *this), ObjRenderableObject35(scene, *this), ObjRenderableObject36(scene, *this), ObjRenderableObject37(scene, *this), ObjRenderableObject38(scene, *this), ObjRenderableObject39(scene, *this), ObjRenderableObject40(scene, *this), ObjRenderableObject41(scene, *this), ObjRenderableObject42(scene, *this), ObjRenderableObject43(scene, *this), ObjRenderableObject44(scene, *this), ObjRenderableObject45(scene, *this), ObjRenderableObject46(scene, *this), ObjRenderableObject47(scene, *this), ObjRenderableObject48(scene, *this), ObjRenderableObject49(scene, *this), ObjRenderableObject50(scene, *this), ObjRenderableObject51(scene, *this)
+, ObjRenderableObject2(scene, *this), ObjRenderableObject3(scene, *this), ObjRenderableObject4(scene, *this), ObjRenderableObject5(scene, *this), ObjRenderableObject6(scene, *this), ObjRenderableObject7(scene, *this), ObjRenderableObject8(scene, *this), ObjRenderableObject9(scene, *this), ObjRenderableObject10(scene, *this), ObjRenderableObject11(scene, *this), ObjRenderableObject12(scene, *this), ObjRenderableObject13(scene, *this), ObjRenderableObject14(scene, *this), ObjRenderableObject15(scene, *this), ObjRenderableObject16(scene, *this), ObjRenderableObject17(scene, *this), ObjRenderableObject18(scene, *this), ObjRenderableObject19(scene, *this), ObjRenderableObject20(scene, *this), ObjRenderableObject21(scene, *this), ObjRenderableObject22(scene, *this), ObjRenderableObject23(scene, *this), ObjRenderableObject24(scene, *this), ObjRenderableObject25(scene, *this), ObjRenderableObject26(scene, *this), ObjRenderableObject27(scene, *this), ObjRenderableObject28(scene, *this), ObjRenderableObject29(scene, *this), ObjRenderableObject30(scene, *this), ObjRenderableObject31(scene, *this), ObjRenderableObject32(scene, *this), ObjRenderableObject33(scene, *this), ObjRenderableObject34(scene, *this), ObjRenderableObject35(scene, *this), ObjRenderableObject36(scene, *this), ObjRenderableObject37(scene, *this), ObjRenderableObject38(scene, *this), ObjRenderableObject39(scene, *this), ObjRenderableObject40(scene, *this), ObjRenderableObject41(scene, *this), ObjRenderableObject42(scene, *this), ObjRenderableObject43(scene, *this), ObjRenderableObject44(scene, *this), ObjRenderableObject45(scene, *this), ObjRenderableObject46(scene, *this), ObjRenderableObject47(scene, *this), ObjRenderableObject48(scene, *this), ObjRenderableObject49(scene, *this), ObjRenderableObject50(scene, *this), ObjRenderableObject51(scene, *this), ObjRenderableObject52(scene, *this), ObjRenderableObject53(scene, *this), ObjRenderableObject54(scene, *this), ObjRenderableObject55(scene, *this), ObjRenderableObject56(scene, *this), ObjRenderableObject57(scene, *this), ObjRenderableObject58(scene, *this), ObjRenderableObject59(scene, *this), ObjRenderableObject60(scene, *this), ObjRenderableObject61(scene, *this), ObjRenderableObject62(scene, *this), ObjRenderableObject63(scene, *this), ObjRenderableObject64(scene, *this), ObjRenderableObject65(scene, *this), ObjRenderableObject66(scene, *this), ObjRenderableObject67(scene, *this), ObjRenderableObject68(scene, *this), ObjRenderableObject69(scene, *this), ObjRenderableObject70(scene, *this), ObjRenderableObject71(scene, *this)
 {
+}
+catch(std::exception & e){
+	std::cout << "EnemyLayer throws: " << e.what() << std::endl;
+	throw;
 }
 EnemyLayer::~EnemyLayer(){
 }
@@ -57,6 +61,26 @@ void EnemyLayer::onStart(){
 	ObjRenderableObject49.onStart();
 	ObjRenderableObject50.onStart();
 	ObjRenderableObject51.onStart();
+	ObjRenderableObject52.onStart();
+	ObjRenderableObject53.onStart();
+	ObjRenderableObject54.onStart();
+	ObjRenderableObject55.onStart();
+	ObjRenderableObject56.onStart();
+	ObjRenderableObject57.onStart();
+	ObjRenderableObject58.onStart();
+	ObjRenderableObject59.onStart();
+	ObjRenderableObject60.onStart();
+	ObjRenderableObject61.onStart();
+	ObjRenderableObject62.onStart();
+	ObjRenderableObject63.onStart();
+	ObjRenderableObject64.onStart();
+	ObjRenderableObject65.onStart();
+	ObjRenderableObject66.onStart();
+	ObjRenderableObject67.onStart();
+	ObjRenderableObject68.onStart();
+	ObjRenderableObject69.onStart();
+	ObjRenderableObject70.onStart();
+	ObjRenderableObject71.onStart();
 }
 void EnemyLayer::onUpdate(const float & dt){
 	if(ObjRenderableObject2.isActive) ObjRenderableObject2.onUpdate(dt);
@@ -109,6 +133,26 @@ void EnemyLayer::onUpdate(const float & dt){
 	if(ObjRenderableObject49.isActive) ObjRenderableObject49.onUpdate(dt);
 	if(ObjRenderableObject50.isActive) ObjRenderableObject50.onUpdate(dt);
 	if(ObjRenderableObject51.isActive) ObjRenderableObject51.onUpdate(dt);
+	if(ObjRenderableObject52.isActive) ObjRenderableObject52.onUpdate(dt);
+	if(ObjRenderableObject53.isActive) ObjRenderableObject53.onUpdate(dt);
+	if(ObjRenderableObject54.isActive) ObjRenderableObject54.onUpdate(dt);
+	if(ObjRenderableObject55.isActive) ObjRenderableObject55.onUpdate(dt);
+	if(ObjRenderableObject56.isActive) ObjRenderableObject56.onUpdate(dt);
+	if(ObjRenderableObject57.isActive) ObjRenderableObject57.onUpdate(dt);
+	if(ObjRenderableObject58.isActive) ObjRenderableObject58.onUpdate(dt);
+	if(ObjRenderableObject59.isActive) ObjRenderableObject59.onUpdate(dt);
+	if(ObjRenderableObject60.isActive) ObjRenderableObject60.onUpdate(dt);
+	if(ObjRenderableObject61.isActive) ObjRenderableObject61.onUpdate(dt);
+	if(ObjRenderableObject62.isActive) ObjRenderableObject62.onUpdate(dt);
+	if(ObjRenderableObject63.isActive) ObjRenderableObject63.onUpdate(dt);
+	if(ObjRenderableObject64.isActive) ObjRenderableObject64.onUpdate(dt);
+	if(ObjRenderableObject65.isActive) ObjRenderableObject65.onUpdate(dt);
+	if(ObjRenderableObject66.isActive) ObjRenderableObject66.onUpdate(dt);
+	if(ObjRenderableObject67.isActive) ObjRenderableObject67.onUpdate(dt);
+	if(ObjRenderableObject68.isActive) ObjRenderableObject68.onUpdate(dt);
+	if(ObjRenderableObject69.isActive) ObjRenderableObject69.onUpdate(dt);
+	if(ObjRenderableObject70.isActive) ObjRenderableObject70.onUpdate(dt);
+	if(ObjRenderableObject71.isActive) ObjRenderableObject71.onUpdate(dt);
 }
 template<class F>
 void EnemyLayer::foreach(F && f){
@@ -162,6 +206,26 @@ void EnemyLayer::foreach(F && f){
 	f(this->getObject<RenderableObject49>());
 	f(this->getObject<RenderableObject50>());
 	f(this->getObject<RenderableObject51>());
+	f(this->getObject<RenderableObject52>());
+	f(this->getObject<RenderableObject53>());
+	f(this->getObject<RenderableObject54>());
+	f(this->getObject<RenderableObject55>());
+	f(this->getObject<RenderableObject56>());
+	f(this->getObject<RenderableObject57>());
+	f(this->getObject<RenderableObject58>());
+	f(this->getObject<RenderableObject59>());
+	f(this->getObject<RenderableObject60>());
+	f(this->getObject<RenderableObject61>());
+	f(this->getObject<RenderableObject62>());
+	f(this->getObject<RenderableObject63>());
+	f(this->getObject<RenderableObject64>());
+	f(this->getObject<RenderableObject65>());
+	f(this->getObject<RenderableObject66>());
+	f(this->getObject<RenderableObject67>());
+	f(this->getObject<RenderableObject68>());
+	f(this->getObject<RenderableObject69>());
+	f(this->getObject<RenderableObject70>());
+	f(this->getObject<RenderableObject71>());
 }
 #pragma once
 #include <string>
@@ -174,11 +238,16 @@ void EnemyLayer::foreach(F && f){
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject2::RenderableObject2(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(738, 600), scene(sc), layer(lr)
+RenderableObject2::RenderableObject2(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(444, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject2 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject2::~RenderableObject2(){
 }
@@ -187,8 +256,9 @@ void RenderableObject2::onStart(){
 }
 void RenderableObject2::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject2::getCurrentSprite() const{
@@ -206,18 +276,31 @@ const ::gc::Sprite & RenderableObject2::getCurrentSprite() const{
 void RenderableObject2::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject2::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject2::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -230,11 +313,16 @@ void RenderableObject2::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject3::RenderableObject3(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(735, 600), scene(sc), layer(lr)
+RenderableObject3::RenderableObject3(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(749, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject3 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject3::~RenderableObject3(){
 }
@@ -243,8 +331,9 @@ void RenderableObject3::onStart(){
 }
 void RenderableObject3::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject3::getCurrentSprite() const{
@@ -262,18 +351,31 @@ const ::gc::Sprite & RenderableObject3::getCurrentSprite() const{
 void RenderableObject3::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject3::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject3::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -286,11 +388,16 @@ void RenderableObject3::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject4::RenderableObject4(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(23, 600), scene(sc), layer(lr)
+RenderableObject4::RenderableObject4(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(320, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject4 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject4::~RenderableObject4(){
 }
@@ -299,8 +406,9 @@ void RenderableObject4::onStart(){
 }
 void RenderableObject4::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject4::getCurrentSprite() const{
@@ -318,18 +426,31 @@ const ::gc::Sprite & RenderableObject4::getCurrentSprite() const{
 void RenderableObject4::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject4::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject4::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -342,11 +463,16 @@ void RenderableObject4::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject5::RenderableObject5(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(174, 600), scene(sc), layer(lr)
+RenderableObject5::RenderableObject5(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(452, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject5 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject5::~RenderableObject5(){
 }
@@ -355,8 +481,9 @@ void RenderableObject5::onStart(){
 }
 void RenderableObject5::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject5::getCurrentSprite() const{
@@ -374,18 +501,31 @@ const ::gc::Sprite & RenderableObject5::getCurrentSprite() const{
 void RenderableObject5::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject5::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject5::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -398,11 +538,16 @@ void RenderableObject5::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject6::RenderableObject6(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(486, 600), scene(sc), layer(lr)
+RenderableObject6::RenderableObject6(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(437, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject6 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject6::~RenderableObject6(){
 }
@@ -411,8 +556,9 @@ void RenderableObject6::onStart(){
 }
 void RenderableObject6::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject6::getCurrentSprite() const{
@@ -430,18 +576,31 @@ const ::gc::Sprite & RenderableObject6::getCurrentSprite() const{
 void RenderableObject6::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject6::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject6::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -454,11 +613,16 @@ void RenderableObject6::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject7::RenderableObject7(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(599, 600), scene(sc), layer(lr)
+RenderableObject7::RenderableObject7(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(389, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject7 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject7::~RenderableObject7(){
 }
@@ -467,8 +631,9 @@ void RenderableObject7::onStart(){
 }
 void RenderableObject7::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject7::getCurrentSprite() const{
@@ -486,18 +651,31 @@ const ::gc::Sprite & RenderableObject7::getCurrentSprite() const{
 void RenderableObject7::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject7::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject7::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -510,11 +688,16 @@ void RenderableObject7::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject8::RenderableObject8(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(524, 600), scene(sc), layer(lr)
+RenderableObject8::RenderableObject8(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(91, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject8 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject8::~RenderableObject8(){
 }
@@ -523,8 +706,9 @@ void RenderableObject8::onStart(){
 }
 void RenderableObject8::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject8::getCurrentSprite() const{
@@ -542,18 +726,31 @@ const ::gc::Sprite & RenderableObject8::getCurrentSprite() const{
 void RenderableObject8::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject8::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject8::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -566,11 +763,16 @@ void RenderableObject8::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject9::RenderableObject9(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(589, 600), scene(sc), layer(lr)
+RenderableObject9::RenderableObject9(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(152, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject9 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject9::~RenderableObject9(){
 }
@@ -579,8 +781,9 @@ void RenderableObject9::onStart(){
 }
 void RenderableObject9::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject9::getCurrentSprite() const{
@@ -598,18 +801,31 @@ const ::gc::Sprite & RenderableObject9::getCurrentSprite() const{
 void RenderableObject9::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject9::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject9::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -622,11 +838,16 @@ void RenderableObject9::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject10::RenderableObject10(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(553, 600), scene(sc), layer(lr)
+RenderableObject10::RenderableObject10(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(571, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject10 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject10::~RenderableObject10(){
 }
@@ -635,8 +856,9 @@ void RenderableObject10::onStart(){
 }
 void RenderableObject10::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject10::getCurrentSprite() const{
@@ -654,18 +876,31 @@ const ::gc::Sprite & RenderableObject10::getCurrentSprite() const{
 void RenderableObject10::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject10::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject10::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -678,11 +913,16 @@ void RenderableObject10::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject11::RenderableObject11(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(671, 600), scene(sc), layer(lr)
+RenderableObject11::RenderableObject11(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(256, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject11 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject11::~RenderableObject11(){
 }
@@ -691,8 +931,9 @@ void RenderableObject11::onStart(){
 }
 void RenderableObject11::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject11::getCurrentSprite() const{
@@ -710,18 +951,31 @@ const ::gc::Sprite & RenderableObject11::getCurrentSprite() const{
 void RenderableObject11::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject11::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject11::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -734,11 +988,16 @@ void RenderableObject11::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject12::RenderableObject12(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(786, 600), scene(sc), layer(lr)
+RenderableObject12::RenderableObject12(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(782, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject12 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject12::~RenderableObject12(){
 }
@@ -747,8 +1006,9 @@ void RenderableObject12::onStart(){
 }
 void RenderableObject12::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject12::getCurrentSprite() const{
@@ -766,18 +1026,31 @@ const ::gc::Sprite & RenderableObject12::getCurrentSprite() const{
 void RenderableObject12::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject12::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject12::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -790,11 +1063,16 @@ void RenderableObject12::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject13::RenderableObject13(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(149, 600), scene(sc), layer(lr)
+RenderableObject13::RenderableObject13(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(410, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject13 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject13::~RenderableObject13(){
 }
@@ -803,8 +1081,9 @@ void RenderableObject13::onStart(){
 }
 void RenderableObject13::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject13::getCurrentSprite() const{
@@ -822,18 +1101,31 @@ const ::gc::Sprite & RenderableObject13::getCurrentSprite() const{
 void RenderableObject13::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject13::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject13::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -846,11 +1138,16 @@ void RenderableObject13::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject14::RenderableObject14(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(509, 600), scene(sc), layer(lr)
+RenderableObject14::RenderableObject14(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(664, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject14 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject14::~RenderableObject14(){
 }
@@ -859,8 +1156,9 @@ void RenderableObject14::onStart(){
 }
 void RenderableObject14::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject14::getCurrentSprite() const{
@@ -878,18 +1176,31 @@ const ::gc::Sprite & RenderableObject14::getCurrentSprite() const{
 void RenderableObject14::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject14::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject14::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -902,11 +1213,16 @@ void RenderableObject14::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject15::RenderableObject15(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(606, 600), scene(sc), layer(lr)
+RenderableObject15::RenderableObject15(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(5, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject15 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject15::~RenderableObject15(){
 }
@@ -915,8 +1231,9 @@ void RenderableObject15::onStart(){
 }
 void RenderableObject15::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject15::getCurrentSprite() const{
@@ -934,18 +1251,31 @@ const ::gc::Sprite & RenderableObject15::getCurrentSprite() const{
 void RenderableObject15::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject15::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject15::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -958,11 +1288,16 @@ void RenderableObject15::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject16::RenderableObject16(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(766, 600), scene(sc), layer(lr)
+RenderableObject16::RenderableObject16(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(45, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject16 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject16::~RenderableObject16(){
 }
@@ -971,8 +1306,9 @@ void RenderableObject16::onStart(){
 }
 void RenderableObject16::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject16::getCurrentSprite() const{
@@ -990,18 +1326,31 @@ const ::gc::Sprite & RenderableObject16::getCurrentSprite() const{
 void RenderableObject16::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject16::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject16::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -1014,11 +1363,16 @@ void RenderableObject16::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject17::RenderableObject17(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(712, 600), scene(sc), layer(lr)
+RenderableObject17::RenderableObject17(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(352, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject17 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject17::~RenderableObject17(){
 }
@@ -1027,8 +1381,9 @@ void RenderableObject17::onStart(){
 }
 void RenderableObject17::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject17::getCurrentSprite() const{
@@ -1046,18 +1401,31 @@ const ::gc::Sprite & RenderableObject17::getCurrentSprite() const{
 void RenderableObject17::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject17::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject17::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -1070,11 +1438,16 @@ void RenderableObject17::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject18::RenderableObject18(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(682, 600), scene(sc), layer(lr)
+RenderableObject18::RenderableObject18(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(428, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject18 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject18::~RenderableObject18(){
 }
@@ -1083,8 +1456,9 @@ void RenderableObject18::onStart(){
 }
 void RenderableObject18::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject18::getCurrentSprite() const{
@@ -1102,18 +1476,31 @@ const ::gc::Sprite & RenderableObject18::getCurrentSprite() const{
 void RenderableObject18::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject18::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject18::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -1126,11 +1513,16 @@ void RenderableObject18::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject19::RenderableObject19(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(773, 600), scene(sc), layer(lr)
+RenderableObject19::RenderableObject19(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(131, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject19 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject19::~RenderableObject19(){
 }
@@ -1139,8 +1531,9 @@ void RenderableObject19::onStart(){
 }
 void RenderableObject19::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject19::getCurrentSprite() const{
@@ -1158,18 +1551,31 @@ const ::gc::Sprite & RenderableObject19::getCurrentSprite() const{
 void RenderableObject19::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject19::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject19::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -1182,11 +1588,16 @@ void RenderableObject19::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject20::RenderableObject20(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(640, 600), scene(sc), layer(lr)
+RenderableObject20::RenderableObject20(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(752, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject20 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject20::~RenderableObject20(){
 }
@@ -1195,8 +1606,9 @@ void RenderableObject20::onStart(){
 }
 void RenderableObject20::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject20::getCurrentSprite() const{
@@ -1214,18 +1626,31 @@ const ::gc::Sprite & RenderableObject20::getCurrentSprite() const{
 void RenderableObject20::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject20::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject20::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -1238,11 +1663,16 @@ void RenderableObject20::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject21::RenderableObject21(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(748, 600), scene(sc), layer(lr)
+RenderableObject21::RenderableObject21(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(719, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject21 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject21::~RenderableObject21(){
 }
@@ -1251,8 +1681,9 @@ void RenderableObject21::onStart(){
 }
 void RenderableObject21::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject21::getCurrentSprite() const{
@@ -1270,18 +1701,31 @@ const ::gc::Sprite & RenderableObject21::getCurrentSprite() const{
 void RenderableObject21::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject21::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject21::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -1294,11 +1738,16 @@ void RenderableObject21::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject22::RenderableObject22(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(473, 600), scene(sc), layer(lr)
+RenderableObject22::RenderableObject22(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(249, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject22 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject22::~RenderableObject22(){
 }
@@ -1307,8 +1756,9 @@ void RenderableObject22::onStart(){
 }
 void RenderableObject22::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject22::getCurrentSprite() const{
@@ -1326,18 +1776,31 @@ const ::gc::Sprite & RenderableObject22::getCurrentSprite() const{
 void RenderableObject22::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject22::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject22::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -1350,11 +1813,16 @@ void RenderableObject22::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject23::RenderableObject23(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(490, 600), scene(sc), layer(lr)
+RenderableObject23::RenderableObject23(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(297, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject23 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject23::~RenderableObject23(){
 }
@@ -1363,8 +1831,9 @@ void RenderableObject23::onStart(){
 }
 void RenderableObject23::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject23::getCurrentSprite() const{
@@ -1382,18 +1851,31 @@ const ::gc::Sprite & RenderableObject23::getCurrentSprite() const{
 void RenderableObject23::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject23::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject23::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -1406,11 +1888,16 @@ void RenderableObject23::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject24::RenderableObject24(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(137, 600), scene(sc), layer(lr)
+RenderableObject24::RenderableObject24(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(72, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject24 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject24::~RenderableObject24(){
 }
@@ -1419,8 +1906,9 @@ void RenderableObject24::onStart(){
 }
 void RenderableObject24::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject24::getCurrentSprite() const{
@@ -1438,18 +1926,31 @@ const ::gc::Sprite & RenderableObject24::getCurrentSprite() const{
 void RenderableObject24::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject24::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject24::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -1462,11 +1963,16 @@ void RenderableObject24::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject25::RenderableObject25(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(495, 600), scene(sc), layer(lr)
+RenderableObject25::RenderableObject25(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(454, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject25 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject25::~RenderableObject25(){
 }
@@ -1475,8 +1981,9 @@ void RenderableObject25::onStart(){
 }
 void RenderableObject25::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject25::getCurrentSprite() const{
@@ -1494,18 +2001,31 @@ const ::gc::Sprite & RenderableObject25::getCurrentSprite() const{
 void RenderableObject25::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject25::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject25::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -1518,11 +2038,16 @@ void RenderableObject25::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject26::RenderableObject26(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(571, 600), scene(sc), layer(lr)
+RenderableObject26::RenderableObject26(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(22, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject26 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject26::~RenderableObject26(){
 }
@@ -1531,8 +2056,9 @@ void RenderableObject26::onStart(){
 }
 void RenderableObject26::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject26::getCurrentSprite() const{
@@ -1550,18 +2076,31 @@ const ::gc::Sprite & RenderableObject26::getCurrentSprite() const{
 void RenderableObject26::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject26::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject26::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -1574,11 +2113,16 @@ void RenderableObject26::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject27::RenderableObject27(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(735, 600), scene(sc), layer(lr)
+RenderableObject27::RenderableObject27(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(534, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject27 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject27::~RenderableObject27(){
 }
@@ -1587,8 +2131,9 @@ void RenderableObject27::onStart(){
 }
 void RenderableObject27::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject27::getCurrentSprite() const{
@@ -1606,18 +2151,31 @@ const ::gc::Sprite & RenderableObject27::getCurrentSprite() const{
 void RenderableObject27::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject27::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject27::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -1630,11 +2188,16 @@ void RenderableObject27::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject28::RenderableObject28(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(643, 600), scene(sc), layer(lr)
+RenderableObject28::RenderableObject28(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(637, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject28 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject28::~RenderableObject28(){
 }
@@ -1643,8 +2206,9 @@ void RenderableObject28::onStart(){
 }
 void RenderableObject28::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject28::getCurrentSprite() const{
@@ -1662,18 +2226,31 @@ const ::gc::Sprite & RenderableObject28::getCurrentSprite() const{
 void RenderableObject28::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject28::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject28::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -1686,11 +2263,16 @@ void RenderableObject28::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject29::RenderableObject29(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(137, 600), scene(sc), layer(lr)
+RenderableObject29::RenderableObject29(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(481, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject29 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject29::~RenderableObject29(){
 }
@@ -1699,8 +2281,9 @@ void RenderableObject29::onStart(){
 }
 void RenderableObject29::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject29::getCurrentSprite() const{
@@ -1718,18 +2301,31 @@ const ::gc::Sprite & RenderableObject29::getCurrentSprite() const{
 void RenderableObject29::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject29::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject29::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -1742,11 +2338,16 @@ void RenderableObject29::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject30::RenderableObject30(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(350, 600), scene(sc), layer(lr)
+RenderableObject30::RenderableObject30(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(540, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject30 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject30::~RenderableObject30(){
 }
@@ -1755,8 +2356,9 @@ void RenderableObject30::onStart(){
 }
 void RenderableObject30::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject30::getCurrentSprite() const{
@@ -1774,18 +2376,31 @@ const ::gc::Sprite & RenderableObject30::getCurrentSprite() const{
 void RenderableObject30::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject30::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject30::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -1798,11 +2413,16 @@ void RenderableObject30::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject31::RenderableObject31(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(722, 600), scene(sc), layer(lr)
+RenderableObject31::RenderableObject31(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(221, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject31 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject31::~RenderableObject31(){
 }
@@ -1811,8 +2431,9 @@ void RenderableObject31::onStart(){
 }
 void RenderableObject31::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject31::getCurrentSprite() const{
@@ -1830,18 +2451,31 @@ const ::gc::Sprite & RenderableObject31::getCurrentSprite() const{
 void RenderableObject31::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject31::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject31::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -1854,11 +2488,16 @@ void RenderableObject31::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject32::RenderableObject32(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(552, 600), scene(sc), layer(lr)
+RenderableObject32::RenderableObject32(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(752, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject32 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject32::~RenderableObject32(){
 }
@@ -1867,8 +2506,9 @@ void RenderableObject32::onStart(){
 }
 void RenderableObject32::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject32::getCurrentSprite() const{
@@ -1886,18 +2526,31 @@ const ::gc::Sprite & RenderableObject32::getCurrentSprite() const{
 void RenderableObject32::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject32::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject32::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -1910,11 +2563,16 @@ void RenderableObject32::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject33::RenderableObject33(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(555, 600), scene(sc), layer(lr)
+RenderableObject33::RenderableObject33(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(588, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject33 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject33::~RenderableObject33(){
 }
@@ -1923,8 +2581,9 @@ void RenderableObject33::onStart(){
 }
 void RenderableObject33::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject33::getCurrentSprite() const{
@@ -1942,18 +2601,31 @@ const ::gc::Sprite & RenderableObject33::getCurrentSprite() const{
 void RenderableObject33::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject33::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject33::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -1966,11 +2638,16 @@ void RenderableObject33::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject34::RenderableObject34(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(426, 600), scene(sc), layer(lr)
+RenderableObject34::RenderableObject34(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(39, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject34 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject34::~RenderableObject34(){
 }
@@ -1979,8 +2656,9 @@ void RenderableObject34::onStart(){
 }
 void RenderableObject34::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject34::getCurrentSprite() const{
@@ -1998,18 +2676,31 @@ const ::gc::Sprite & RenderableObject34::getCurrentSprite() const{
 void RenderableObject34::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject34::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject34::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -2022,11 +2713,16 @@ void RenderableObject34::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject35::RenderableObject35(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(726, 600), scene(sc), layer(lr)
+RenderableObject35::RenderableObject35(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(709, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject35 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject35::~RenderableObject35(){
 }
@@ -2035,8 +2731,9 @@ void RenderableObject35::onStart(){
 }
 void RenderableObject35::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject35::getCurrentSprite() const{
@@ -2054,18 +2751,31 @@ const ::gc::Sprite & RenderableObject35::getCurrentSprite() const{
 void RenderableObject35::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject35::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject35::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -2078,11 +2788,16 @@ void RenderableObject35::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject36::RenderableObject36(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(27, 600), scene(sc), layer(lr)
+RenderableObject36::RenderableObject36(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(364, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject36 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject36::~RenderableObject36(){
 }
@@ -2091,8 +2806,9 @@ void RenderableObject36::onStart(){
 }
 void RenderableObject36::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject36::getCurrentSprite() const{
@@ -2110,18 +2826,31 @@ const ::gc::Sprite & RenderableObject36::getCurrentSprite() const{
 void RenderableObject36::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject36::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject36::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -2134,11 +2863,16 @@ void RenderableObject36::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject37::RenderableObject37(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(674, 600), scene(sc), layer(lr)
+RenderableObject37::RenderableObject37(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(676, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject37 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject37::~RenderableObject37(){
 }
@@ -2147,8 +2881,9 @@ void RenderableObject37::onStart(){
 }
 void RenderableObject37::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject37::getCurrentSprite() const{
@@ -2166,18 +2901,31 @@ const ::gc::Sprite & RenderableObject37::getCurrentSprite() const{
 void RenderableObject37::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject37::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject37::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -2190,11 +2938,16 @@ void RenderableObject37::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject38::RenderableObject38(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(329, 600), scene(sc), layer(lr)
+RenderableObject38::RenderableObject38(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(148, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject38 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject38::~RenderableObject38(){
 }
@@ -2203,8 +2956,9 @@ void RenderableObject38::onStart(){
 }
 void RenderableObject38::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject38::getCurrentSprite() const{
@@ -2222,18 +2976,31 @@ const ::gc::Sprite & RenderableObject38::getCurrentSprite() const{
 void RenderableObject38::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject38::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject38::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -2246,11 +3013,16 @@ void RenderableObject38::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject39::RenderableObject39(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(71, 600), scene(sc), layer(lr)
+RenderableObject39::RenderableObject39(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(186, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject39 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject39::~RenderableObject39(){
 }
@@ -2259,8 +3031,9 @@ void RenderableObject39::onStart(){
 }
 void RenderableObject39::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject39::getCurrentSprite() const{
@@ -2278,18 +3051,31 @@ const ::gc::Sprite & RenderableObject39::getCurrentSprite() const{
 void RenderableObject39::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject39::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject39::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -2302,11 +3088,16 @@ void RenderableObject39::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject40::RenderableObject40(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(507, 600), scene(sc), layer(lr)
+RenderableObject40::RenderableObject40(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(653, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject40 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject40::~RenderableObject40(){
 }
@@ -2315,8 +3106,9 @@ void RenderableObject40::onStart(){
 }
 void RenderableObject40::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject40::getCurrentSprite() const{
@@ -2334,18 +3126,31 @@ const ::gc::Sprite & RenderableObject40::getCurrentSprite() const{
 void RenderableObject40::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject40::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject40::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -2358,11 +3163,16 @@ void RenderableObject40::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject41::RenderableObject41(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(340, 600), scene(sc), layer(lr)
+RenderableObject41::RenderableObject41(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(470, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject41 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject41::~RenderableObject41(){
 }
@@ -2371,8 +3181,9 @@ void RenderableObject41::onStart(){
 }
 void RenderableObject41::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject41::getCurrentSprite() const{
@@ -2390,18 +3201,31 @@ const ::gc::Sprite & RenderableObject41::getCurrentSprite() const{
 void RenderableObject41::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject41::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject41::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -2414,11 +3238,16 @@ void RenderableObject41::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject42::RenderableObject42(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(679, 600), scene(sc), layer(lr)
+RenderableObject42::RenderableObject42(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(420, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject42 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject42::~RenderableObject42(){
 }
@@ -2427,8 +3256,9 @@ void RenderableObject42::onStart(){
 }
 void RenderableObject42::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject42::getCurrentSprite() const{
@@ -2446,18 +3276,31 @@ const ::gc::Sprite & RenderableObject42::getCurrentSprite() const{
 void RenderableObject42::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject42::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject42::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -2470,11 +3313,16 @@ void RenderableObject42::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject43::RenderableObject43(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(472, 600), scene(sc), layer(lr)
+RenderableObject43::RenderableObject43(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(203, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject43 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject43::~RenderableObject43(){
 }
@@ -2483,8 +3331,9 @@ void RenderableObject43::onStart(){
 }
 void RenderableObject43::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject43::getCurrentSprite() const{
@@ -2502,18 +3351,31 @@ const ::gc::Sprite & RenderableObject43::getCurrentSprite() const{
 void RenderableObject43::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject43::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject43::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -2526,11 +3388,16 @@ void RenderableObject43::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject44::RenderableObject44(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(348, 600), scene(sc), layer(lr)
+RenderableObject44::RenderableObject44(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(636, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject44 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject44::~RenderableObject44(){
 }
@@ -2539,8 +3406,9 @@ void RenderableObject44::onStart(){
 }
 void RenderableObject44::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject44::getCurrentSprite() const{
@@ -2558,18 +3426,31 @@ const ::gc::Sprite & RenderableObject44::getCurrentSprite() const{
 void RenderableObject44::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject44::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject44::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -2582,11 +3463,16 @@ void RenderableObject44::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject45::RenderableObject45(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(135, 600), scene(sc), layer(lr)
+RenderableObject45::RenderableObject45(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(93, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject45 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject45::~RenderableObject45(){
 }
@@ -2595,8 +3481,9 @@ void RenderableObject45::onStart(){
 }
 void RenderableObject45::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject45::getCurrentSprite() const{
@@ -2614,18 +3501,31 @@ const ::gc::Sprite & RenderableObject45::getCurrentSprite() const{
 void RenderableObject45::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject45::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject45::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -2638,11 +3538,16 @@ void RenderableObject45::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject46::RenderableObject46(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(153, 600), scene(sc), layer(lr)
+RenderableObject46::RenderableObject46(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(620, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject46 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject46::~RenderableObject46(){
 }
@@ -2651,8 +3556,9 @@ void RenderableObject46::onStart(){
 }
 void RenderableObject46::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject46::getCurrentSprite() const{
@@ -2670,18 +3576,31 @@ const ::gc::Sprite & RenderableObject46::getCurrentSprite() const{
 void RenderableObject46::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject46::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject46::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -2694,11 +3613,16 @@ void RenderableObject46::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject47::RenderableObject47(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(5, 600), scene(sc), layer(lr)
+RenderableObject47::RenderableObject47(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(544, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject47 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject47::~RenderableObject47(){
 }
@@ -2707,8 +3631,9 @@ void RenderableObject47::onStart(){
 }
 void RenderableObject47::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject47::getCurrentSprite() const{
@@ -2726,18 +3651,31 @@ const ::gc::Sprite & RenderableObject47::getCurrentSprite() const{
 void RenderableObject47::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject47::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject47::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -2750,11 +3688,16 @@ void RenderableObject47::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject48::RenderableObject48(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(131, 600), scene(sc), layer(lr)
+RenderableObject48::RenderableObject48(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(225, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject48 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject48::~RenderableObject48(){
 }
@@ -2763,8 +3706,9 @@ void RenderableObject48::onStart(){
 }
 void RenderableObject48::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject48::getCurrentSprite() const{
@@ -2782,18 +3726,31 @@ const ::gc::Sprite & RenderableObject48::getCurrentSprite() const{
 void RenderableObject48::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject48::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject48::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -2806,11 +3763,16 @@ void RenderableObject48::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject49::RenderableObject49(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(560, 600), scene(sc), layer(lr)
+RenderableObject49::RenderableObject49(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(26, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject49 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject49::~RenderableObject49(){
 }
@@ -2819,8 +3781,9 @@ void RenderableObject49::onStart(){
 }
 void RenderableObject49::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject49::getCurrentSprite() const{
@@ -2838,18 +3801,31 @@ const ::gc::Sprite & RenderableObject49::getCurrentSprite() const{
 void RenderableObject49::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject49::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject49::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -2862,11 +3838,16 @@ void RenderableObject49::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject50::RenderableObject50(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(298, 600), scene(sc), layer(lr)
+RenderableObject50::RenderableObject50(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(463, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject50 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject50::~RenderableObject50(){
 }
@@ -2875,8 +3856,9 @@ void RenderableObject50::onStart(){
 }
 void RenderableObject50::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject50::getCurrentSprite() const{
@@ -2894,18 +3876,31 @@ const ::gc::Sprite & RenderableObject50::getCurrentSprite() const{
 void RenderableObject50::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject50::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
-	}
-	std::string const & RenderableObject50::getTag(){return _tag;
 	}
 #pragma once
 #include <string>
@@ -2918,11 +3913,16 @@ void RenderableObject50::dealDamage(u16 dmg){_hp -= dmg;
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-RenderableObject51::RenderableObject51(Scene0 & sc, EnemyLayer & lr):
-self(*this), pos(317, 600), scene(sc), layer(lr)
+RenderableObject51::RenderableObject51(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(268, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, _tag(gc::TypeName<this_t>::get()), sprite("resources\\enemy.png")
+, sprite("resources\\enemy.png")
 {
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject51 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 RenderableObject51::~RenderableObject51(){
 }
@@ -2931,8 +3931,9 @@ void RenderableObject51::onStart(){
 }
 void RenderableObject51::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
-	self.moveOn(dir.getNormalized() * 3.0f);
-	if (dir.getLength() < 25.0f)
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
 }
 const ::gc::Sprite & RenderableObject51::getCurrentSprite() const{
@@ -2950,24 +3951,1541 @@ const ::gc::Sprite & RenderableObject51::getCurrentSprite() const{
 void RenderableObject51::dealDamage(u16 dmg){_hp -= dmg;
 	if (_hp <= 0)
 	die();
-	auto effect = sf::CircleShape(50);
+	auto effect = sf::CircleShape(5);
 	effect.setFillColor(gc::Color::Red);
 	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
 		scene.getRenderer().render(effect);
 	}
 	void RenderableObject51::die(){gc::Vec2 newPos;
-		newPos.x = gc::Random<float>::get(0, 800);
-		newPos.y = 600;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
 		self.moveTo(newPos);
 		_hp = 100;
 	}
-	std::string const & RenderableObject51::getTag(){return _tag;
+#pragma once
+#include <string>
+#include <iostream>
+#include <utility>
+#include "Glance.h"
+#include "SFML/Graphics.hpp"
+#include "SFML/System.hpp"
+#include "SFML/Audio.hpp"
+#include "SFML/Network.hpp"
+#include <cmath>
+#include "Scene0.h"
+RenderableObject52::RenderableObject52(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(188, 600), scene(sc), layer(lr)
+, collider(pos,  ::gc::Vec2(54,  94))
+, sprite("resources\\enemy.png")
+{
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject52 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
+}
+RenderableObject52::~RenderableObject52(){
+}
+void RenderableObject52::onStart(){
+	_hp = 100;
+}
+void RenderableObject52::onUpdate(const float & dt){
+	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
+	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+}
+const ::gc::Sprite & RenderableObject52::getCurrentSprite() const{
+	return sprite;
+}
+::gc::Vec2 RenderableObject52::getPosition() const noexcept {
+	return self.pos;
+}
+::gc::Vec2 RenderableObject52::getSize() const noexcept{
+	return self.getCurrentSprite().getSize();
+}
+::gc::Vec2 RenderableObject52::getCenter() const noexcept{
+	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
+}
+void RenderableObject52::dealDamage(u16 dmg){_hp -= dmg;
+	if (_hp <= 0)
+	die();
+	auto effect = sf::CircleShape(5);
+	effect.setFillColor(gc::Color::Red);
+	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
+		scene.getRenderer().render(effect);
+	}
+	void RenderableObject52::die(){gc::Vec2 newPos;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		self.moveTo(newPos);
+		_hp = 100;
+	}
+#pragma once
+#include <string>
+#include <iostream>
+#include <utility>
+#include "Glance.h"
+#include "SFML/Graphics.hpp"
+#include "SFML/System.hpp"
+#include "SFML/Audio.hpp"
+#include "SFML/Network.hpp"
+#include <cmath>
+#include "Scene0.h"
+RenderableObject53::RenderableObject53(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(624, 600), scene(sc), layer(lr)
+, collider(pos,  ::gc::Vec2(54,  94))
+, sprite("resources\\enemy.png")
+{
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject53 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
+}
+RenderableObject53::~RenderableObject53(){
+}
+void RenderableObject53::onStart(){
+	_hp = 100;
+}
+void RenderableObject53::onUpdate(const float & dt){
+	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
+	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+}
+const ::gc::Sprite & RenderableObject53::getCurrentSprite() const{
+	return sprite;
+}
+::gc::Vec2 RenderableObject53::getPosition() const noexcept {
+	return self.pos;
+}
+::gc::Vec2 RenderableObject53::getSize() const noexcept{
+	return self.getCurrentSprite().getSize();
+}
+::gc::Vec2 RenderableObject53::getCenter() const noexcept{
+	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
+}
+void RenderableObject53::dealDamage(u16 dmg){_hp -= dmg;
+	if (_hp <= 0)
+	die();
+	auto effect = sf::CircleShape(5);
+	effect.setFillColor(gc::Color::Red);
+	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
+		scene.getRenderer().render(effect);
+	}
+	void RenderableObject53::die(){gc::Vec2 newPos;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		self.moveTo(newPos);
+		_hp = 100;
+	}
+#pragma once
+#include <string>
+#include <iostream>
+#include <utility>
+#include "Glance.h"
+#include "SFML/Graphics.hpp"
+#include "SFML/System.hpp"
+#include "SFML/Audio.hpp"
+#include "SFML/Network.hpp"
+#include <cmath>
+#include "Scene0.h"
+RenderableObject54::RenderableObject54(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(698, 600), scene(sc), layer(lr)
+, collider(pos,  ::gc::Vec2(54,  94))
+, sprite("resources\\enemy.png")
+{
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject54 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
+}
+RenderableObject54::~RenderableObject54(){
+}
+void RenderableObject54::onStart(){
+	_hp = 100;
+}
+void RenderableObject54::onUpdate(const float & dt){
+	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
+	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+}
+const ::gc::Sprite & RenderableObject54::getCurrentSprite() const{
+	return sprite;
+}
+::gc::Vec2 RenderableObject54::getPosition() const noexcept {
+	return self.pos;
+}
+::gc::Vec2 RenderableObject54::getSize() const noexcept{
+	return self.getCurrentSprite().getSize();
+}
+::gc::Vec2 RenderableObject54::getCenter() const noexcept{
+	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
+}
+void RenderableObject54::dealDamage(u16 dmg){_hp -= dmg;
+	if (_hp <= 0)
+	die();
+	auto effect = sf::CircleShape(5);
+	effect.setFillColor(gc::Color::Red);
+	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
+		scene.getRenderer().render(effect);
+	}
+	void RenderableObject54::die(){gc::Vec2 newPos;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		self.moveTo(newPos);
+		_hp = 100;
+	}
+#pragma once
+#include <string>
+#include <iostream>
+#include <utility>
+#include "Glance.h"
+#include "SFML/Graphics.hpp"
+#include "SFML/System.hpp"
+#include "SFML/Audio.hpp"
+#include "SFML/Network.hpp"
+#include <cmath>
+#include "Scene0.h"
+RenderableObject55::RenderableObject55(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(534, 600), scene(sc), layer(lr)
+, collider(pos,  ::gc::Vec2(54,  94))
+, sprite("resources\\enemy.png")
+{
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject55 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
+}
+RenderableObject55::~RenderableObject55(){
+}
+void RenderableObject55::onStart(){
+	_hp = 100;
+}
+void RenderableObject55::onUpdate(const float & dt){
+	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
+	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+}
+const ::gc::Sprite & RenderableObject55::getCurrentSprite() const{
+	return sprite;
+}
+::gc::Vec2 RenderableObject55::getPosition() const noexcept {
+	return self.pos;
+}
+::gc::Vec2 RenderableObject55::getSize() const noexcept{
+	return self.getCurrentSprite().getSize();
+}
+::gc::Vec2 RenderableObject55::getCenter() const noexcept{
+	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
+}
+void RenderableObject55::dealDamage(u16 dmg){_hp -= dmg;
+	if (_hp <= 0)
+	die();
+	auto effect = sf::CircleShape(5);
+	effect.setFillColor(gc::Color::Red);
+	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
+		scene.getRenderer().render(effect);
+	}
+	void RenderableObject55::die(){gc::Vec2 newPos;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		self.moveTo(newPos);
+		_hp = 100;
+	}
+#pragma once
+#include <string>
+#include <iostream>
+#include <utility>
+#include "Glance.h"
+#include "SFML/Graphics.hpp"
+#include "SFML/System.hpp"
+#include "SFML/Audio.hpp"
+#include "SFML/Network.hpp"
+#include <cmath>
+#include "Scene0.h"
+RenderableObject56::RenderableObject56(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(171, 600), scene(sc), layer(lr)
+, collider(pos,  ::gc::Vec2(54,  94))
+, sprite("resources\\enemy.png")
+{
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject56 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
+}
+RenderableObject56::~RenderableObject56(){
+}
+void RenderableObject56::onStart(){
+	_hp = 100;
+}
+void RenderableObject56::onUpdate(const float & dt){
+	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
+	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+}
+const ::gc::Sprite & RenderableObject56::getCurrentSprite() const{
+	return sprite;
+}
+::gc::Vec2 RenderableObject56::getPosition() const noexcept {
+	return self.pos;
+}
+::gc::Vec2 RenderableObject56::getSize() const noexcept{
+	return self.getCurrentSprite().getSize();
+}
+::gc::Vec2 RenderableObject56::getCenter() const noexcept{
+	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
+}
+void RenderableObject56::dealDamage(u16 dmg){_hp -= dmg;
+	if (_hp <= 0)
+	die();
+	auto effect = sf::CircleShape(5);
+	effect.setFillColor(gc::Color::Red);
+	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
+		scene.getRenderer().render(effect);
+	}
+	void RenderableObject56::die(){gc::Vec2 newPos;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		self.moveTo(newPos);
+		_hp = 100;
+	}
+#pragma once
+#include <string>
+#include <iostream>
+#include <utility>
+#include "Glance.h"
+#include "SFML/Graphics.hpp"
+#include "SFML/System.hpp"
+#include "SFML/Audio.hpp"
+#include "SFML/Network.hpp"
+#include <cmath>
+#include "Scene0.h"
+RenderableObject57::RenderableObject57(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(147, 600), scene(sc), layer(lr)
+, collider(pos,  ::gc::Vec2(54,  94))
+, sprite("resources\\enemy.png")
+{
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject57 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
+}
+RenderableObject57::~RenderableObject57(){
+}
+void RenderableObject57::onStart(){
+	_hp = 100;
+}
+void RenderableObject57::onUpdate(const float & dt){
+	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
+	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+}
+const ::gc::Sprite & RenderableObject57::getCurrentSprite() const{
+	return sprite;
+}
+::gc::Vec2 RenderableObject57::getPosition() const noexcept {
+	return self.pos;
+}
+::gc::Vec2 RenderableObject57::getSize() const noexcept{
+	return self.getCurrentSprite().getSize();
+}
+::gc::Vec2 RenderableObject57::getCenter() const noexcept{
+	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
+}
+void RenderableObject57::dealDamage(u16 dmg){_hp -= dmg;
+	if (_hp <= 0)
+	die();
+	auto effect = sf::CircleShape(5);
+	effect.setFillColor(gc::Color::Red);
+	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
+		scene.getRenderer().render(effect);
+	}
+	void RenderableObject57::die(){gc::Vec2 newPos;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		self.moveTo(newPos);
+		_hp = 100;
+	}
+#pragma once
+#include <string>
+#include <iostream>
+#include <utility>
+#include "Glance.h"
+#include "SFML/Graphics.hpp"
+#include "SFML/System.hpp"
+#include "SFML/Audio.hpp"
+#include "SFML/Network.hpp"
+#include <cmath>
+#include "Scene0.h"
+RenderableObject58::RenderableObject58(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(677, 600), scene(sc), layer(lr)
+, collider(pos,  ::gc::Vec2(54,  94))
+, sprite("resources\\enemy.png")
+{
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject58 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
+}
+RenderableObject58::~RenderableObject58(){
+}
+void RenderableObject58::onStart(){
+	_hp = 100;
+}
+void RenderableObject58::onUpdate(const float & dt){
+	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
+	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+}
+const ::gc::Sprite & RenderableObject58::getCurrentSprite() const{
+	return sprite;
+}
+::gc::Vec2 RenderableObject58::getPosition() const noexcept {
+	return self.pos;
+}
+::gc::Vec2 RenderableObject58::getSize() const noexcept{
+	return self.getCurrentSprite().getSize();
+}
+::gc::Vec2 RenderableObject58::getCenter() const noexcept{
+	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
+}
+void RenderableObject58::dealDamage(u16 dmg){_hp -= dmg;
+	if (_hp <= 0)
+	die();
+	auto effect = sf::CircleShape(5);
+	effect.setFillColor(gc::Color::Red);
+	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
+		scene.getRenderer().render(effect);
+	}
+	void RenderableObject58::die(){gc::Vec2 newPos;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		self.moveTo(newPos);
+		_hp = 100;
+	}
+#pragma once
+#include <string>
+#include <iostream>
+#include <utility>
+#include "Glance.h"
+#include "SFML/Graphics.hpp"
+#include "SFML/System.hpp"
+#include "SFML/Audio.hpp"
+#include "SFML/Network.hpp"
+#include <cmath>
+#include "Scene0.h"
+RenderableObject59::RenderableObject59(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(665, 600), scene(sc), layer(lr)
+, collider(pos,  ::gc::Vec2(54,  94))
+, sprite("resources\\enemy.png")
+{
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject59 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
+}
+RenderableObject59::~RenderableObject59(){
+}
+void RenderableObject59::onStart(){
+	_hp = 100;
+}
+void RenderableObject59::onUpdate(const float & dt){
+	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
+	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+}
+const ::gc::Sprite & RenderableObject59::getCurrentSprite() const{
+	return sprite;
+}
+::gc::Vec2 RenderableObject59::getPosition() const noexcept {
+	return self.pos;
+}
+::gc::Vec2 RenderableObject59::getSize() const noexcept{
+	return self.getCurrentSprite().getSize();
+}
+::gc::Vec2 RenderableObject59::getCenter() const noexcept{
+	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
+}
+void RenderableObject59::dealDamage(u16 dmg){_hp -= dmg;
+	if (_hp <= 0)
+	die();
+	auto effect = sf::CircleShape(5);
+	effect.setFillColor(gc::Color::Red);
+	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
+		scene.getRenderer().render(effect);
+	}
+	void RenderableObject59::die(){gc::Vec2 newPos;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		self.moveTo(newPos);
+		_hp = 100;
+	}
+#pragma once
+#include <string>
+#include <iostream>
+#include <utility>
+#include "Glance.h"
+#include "SFML/Graphics.hpp"
+#include "SFML/System.hpp"
+#include "SFML/Audio.hpp"
+#include "SFML/Network.hpp"
+#include <cmath>
+#include "Scene0.h"
+RenderableObject60::RenderableObject60(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(429, 600), scene(sc), layer(lr)
+, collider(pos,  ::gc::Vec2(54,  94))
+, sprite("resources\\enemy.png")
+{
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject60 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
+}
+RenderableObject60::~RenderableObject60(){
+}
+void RenderableObject60::onStart(){
+	_hp = 100;
+}
+void RenderableObject60::onUpdate(const float & dt){
+	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
+	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+}
+const ::gc::Sprite & RenderableObject60::getCurrentSprite() const{
+	return sprite;
+}
+::gc::Vec2 RenderableObject60::getPosition() const noexcept {
+	return self.pos;
+}
+::gc::Vec2 RenderableObject60::getSize() const noexcept{
+	return self.getCurrentSprite().getSize();
+}
+::gc::Vec2 RenderableObject60::getCenter() const noexcept{
+	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
+}
+void RenderableObject60::dealDamage(u16 dmg){_hp -= dmg;
+	if (_hp <= 0)
+	die();
+	auto effect = sf::CircleShape(5);
+	effect.setFillColor(gc::Color::Red);
+	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
+		scene.getRenderer().render(effect);
+	}
+	void RenderableObject60::die(){gc::Vec2 newPos;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		self.moveTo(newPos);
+		_hp = 100;
+	}
+#pragma once
+#include <string>
+#include <iostream>
+#include <utility>
+#include "Glance.h"
+#include "SFML/Graphics.hpp"
+#include "SFML/System.hpp"
+#include "SFML/Audio.hpp"
+#include "SFML/Network.hpp"
+#include <cmath>
+#include "Scene0.h"
+RenderableObject61::RenderableObject61(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(703, 600), scene(sc), layer(lr)
+, collider(pos,  ::gc::Vec2(54,  94))
+, sprite("resources\\enemy.png")
+{
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject61 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
+}
+RenderableObject61::~RenderableObject61(){
+}
+void RenderableObject61::onStart(){
+	_hp = 100;
+}
+void RenderableObject61::onUpdate(const float & dt){
+	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
+	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+}
+const ::gc::Sprite & RenderableObject61::getCurrentSprite() const{
+	return sprite;
+}
+::gc::Vec2 RenderableObject61::getPosition() const noexcept {
+	return self.pos;
+}
+::gc::Vec2 RenderableObject61::getSize() const noexcept{
+	return self.getCurrentSprite().getSize();
+}
+::gc::Vec2 RenderableObject61::getCenter() const noexcept{
+	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
+}
+void RenderableObject61::dealDamage(u16 dmg){_hp -= dmg;
+	if (_hp <= 0)
+	die();
+	auto effect = sf::CircleShape(5);
+	effect.setFillColor(gc::Color::Red);
+	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
+		scene.getRenderer().render(effect);
+	}
+	void RenderableObject61::die(){gc::Vec2 newPos;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		self.moveTo(newPos);
+		_hp = 100;
+	}
+#pragma once
+#include <string>
+#include <iostream>
+#include <utility>
+#include "Glance.h"
+#include "SFML/Graphics.hpp"
+#include "SFML/System.hpp"
+#include "SFML/Audio.hpp"
+#include "SFML/Network.hpp"
+#include <cmath>
+#include "Scene0.h"
+RenderableObject62::RenderableObject62(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(552, 600), scene(sc), layer(lr)
+, collider(pos,  ::gc::Vec2(54,  94))
+, sprite("resources\\enemy.png")
+{
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject62 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
+}
+RenderableObject62::~RenderableObject62(){
+}
+void RenderableObject62::onStart(){
+	_hp = 100;
+}
+void RenderableObject62::onUpdate(const float & dt){
+	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
+	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+}
+const ::gc::Sprite & RenderableObject62::getCurrentSprite() const{
+	return sprite;
+}
+::gc::Vec2 RenderableObject62::getPosition() const noexcept {
+	return self.pos;
+}
+::gc::Vec2 RenderableObject62::getSize() const noexcept{
+	return self.getCurrentSprite().getSize();
+}
+::gc::Vec2 RenderableObject62::getCenter() const noexcept{
+	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
+}
+void RenderableObject62::dealDamage(u16 dmg){_hp -= dmg;
+	if (_hp <= 0)
+	die();
+	auto effect = sf::CircleShape(5);
+	effect.setFillColor(gc::Color::Red);
+	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
+		scene.getRenderer().render(effect);
+	}
+	void RenderableObject62::die(){gc::Vec2 newPos;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		self.moveTo(newPos);
+		_hp = 100;
+	}
+#pragma once
+#include <string>
+#include <iostream>
+#include <utility>
+#include "Glance.h"
+#include "SFML/Graphics.hpp"
+#include "SFML/System.hpp"
+#include "SFML/Audio.hpp"
+#include "SFML/Network.hpp"
+#include <cmath>
+#include "Scene0.h"
+RenderableObject63::RenderableObject63(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(409, 600), scene(sc), layer(lr)
+, collider(pos,  ::gc::Vec2(54,  94))
+, sprite("resources\\enemy.png")
+{
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject63 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
+}
+RenderableObject63::~RenderableObject63(){
+}
+void RenderableObject63::onStart(){
+	_hp = 100;
+}
+void RenderableObject63::onUpdate(const float & dt){
+	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
+	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+}
+const ::gc::Sprite & RenderableObject63::getCurrentSprite() const{
+	return sprite;
+}
+::gc::Vec2 RenderableObject63::getPosition() const noexcept {
+	return self.pos;
+}
+::gc::Vec2 RenderableObject63::getSize() const noexcept{
+	return self.getCurrentSprite().getSize();
+}
+::gc::Vec2 RenderableObject63::getCenter() const noexcept{
+	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
+}
+void RenderableObject63::dealDamage(u16 dmg){_hp -= dmg;
+	if (_hp <= 0)
+	die();
+	auto effect = sf::CircleShape(5);
+	effect.setFillColor(gc::Color::Red);
+	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
+		scene.getRenderer().render(effect);
+	}
+	void RenderableObject63::die(){gc::Vec2 newPos;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		self.moveTo(newPos);
+		_hp = 100;
+	}
+#pragma once
+#include <string>
+#include <iostream>
+#include <utility>
+#include "Glance.h"
+#include "SFML/Graphics.hpp"
+#include "SFML/System.hpp"
+#include "SFML/Audio.hpp"
+#include "SFML/Network.hpp"
+#include <cmath>
+#include "Scene0.h"
+RenderableObject64::RenderableObject64(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(411, 600), scene(sc), layer(lr)
+, collider(pos,  ::gc::Vec2(54,  94))
+, sprite("resources\\enemy.png")
+{
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject64 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
+}
+RenderableObject64::~RenderableObject64(){
+}
+void RenderableObject64::onStart(){
+	_hp = 100;
+}
+void RenderableObject64::onUpdate(const float & dt){
+	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
+	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+}
+const ::gc::Sprite & RenderableObject64::getCurrentSprite() const{
+	return sprite;
+}
+::gc::Vec2 RenderableObject64::getPosition() const noexcept {
+	return self.pos;
+}
+::gc::Vec2 RenderableObject64::getSize() const noexcept{
+	return self.getCurrentSprite().getSize();
+}
+::gc::Vec2 RenderableObject64::getCenter() const noexcept{
+	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
+}
+void RenderableObject64::dealDamage(u16 dmg){_hp -= dmg;
+	if (_hp <= 0)
+	die();
+	auto effect = sf::CircleShape(5);
+	effect.setFillColor(gc::Color::Red);
+	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
+		scene.getRenderer().render(effect);
+	}
+	void RenderableObject64::die(){gc::Vec2 newPos;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		self.moveTo(newPos);
+		_hp = 100;
+	}
+#pragma once
+#include <string>
+#include <iostream>
+#include <utility>
+#include "Glance.h"
+#include "SFML/Graphics.hpp"
+#include "SFML/System.hpp"
+#include "SFML/Audio.hpp"
+#include "SFML/Network.hpp"
+#include <cmath>
+#include "Scene0.h"
+RenderableObject65::RenderableObject65(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(349, 600), scene(sc), layer(lr)
+, collider(pos,  ::gc::Vec2(54,  94))
+, sprite("resources\\enemy.png")
+{
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject65 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
+}
+RenderableObject65::~RenderableObject65(){
+}
+void RenderableObject65::onStart(){
+	_hp = 100;
+}
+void RenderableObject65::onUpdate(const float & dt){
+	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
+	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+}
+const ::gc::Sprite & RenderableObject65::getCurrentSprite() const{
+	return sprite;
+}
+::gc::Vec2 RenderableObject65::getPosition() const noexcept {
+	return self.pos;
+}
+::gc::Vec2 RenderableObject65::getSize() const noexcept{
+	return self.getCurrentSprite().getSize();
+}
+::gc::Vec2 RenderableObject65::getCenter() const noexcept{
+	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
+}
+void RenderableObject65::dealDamage(u16 dmg){_hp -= dmg;
+	if (_hp <= 0)
+	die();
+	auto effect = sf::CircleShape(5);
+	effect.setFillColor(gc::Color::Red);
+	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
+		scene.getRenderer().render(effect);
+	}
+	void RenderableObject65::die(){gc::Vec2 newPos;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		self.moveTo(newPos);
+		_hp = 100;
+	}
+#pragma once
+#include <string>
+#include <iostream>
+#include <utility>
+#include "Glance.h"
+#include "SFML/Graphics.hpp"
+#include "SFML/System.hpp"
+#include "SFML/Audio.hpp"
+#include "SFML/Network.hpp"
+#include <cmath>
+#include "Scene0.h"
+RenderableObject66::RenderableObject66(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(303, 600), scene(sc), layer(lr)
+, collider(pos,  ::gc::Vec2(54,  94))
+, sprite("resources\\enemy.png")
+{
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject66 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
+}
+RenderableObject66::~RenderableObject66(){
+}
+void RenderableObject66::onStart(){
+	_hp = 100;
+}
+void RenderableObject66::onUpdate(const float & dt){
+	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
+	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+}
+const ::gc::Sprite & RenderableObject66::getCurrentSprite() const{
+	return sprite;
+}
+::gc::Vec2 RenderableObject66::getPosition() const noexcept {
+	return self.pos;
+}
+::gc::Vec2 RenderableObject66::getSize() const noexcept{
+	return self.getCurrentSprite().getSize();
+}
+::gc::Vec2 RenderableObject66::getCenter() const noexcept{
+	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
+}
+void RenderableObject66::dealDamage(u16 dmg){_hp -= dmg;
+	if (_hp <= 0)
+	die();
+	auto effect = sf::CircleShape(5);
+	effect.setFillColor(gc::Color::Red);
+	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
+		scene.getRenderer().render(effect);
+	}
+	void RenderableObject66::die(){gc::Vec2 newPos;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		self.moveTo(newPos);
+		_hp = 100;
+	}
+#pragma once
+#include <string>
+#include <iostream>
+#include <utility>
+#include "Glance.h"
+#include "SFML/Graphics.hpp"
+#include "SFML/System.hpp"
+#include "SFML/Audio.hpp"
+#include "SFML/Network.hpp"
+#include <cmath>
+#include "Scene0.h"
+RenderableObject67::RenderableObject67(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(194, 600), scene(sc), layer(lr)
+, collider(pos,  ::gc::Vec2(54,  94))
+, sprite("resources\\enemy.png")
+{
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject67 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
+}
+RenderableObject67::~RenderableObject67(){
+}
+void RenderableObject67::onStart(){
+	_hp = 100;
+}
+void RenderableObject67::onUpdate(const float & dt){
+	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
+	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+}
+const ::gc::Sprite & RenderableObject67::getCurrentSprite() const{
+	return sprite;
+}
+::gc::Vec2 RenderableObject67::getPosition() const noexcept {
+	return self.pos;
+}
+::gc::Vec2 RenderableObject67::getSize() const noexcept{
+	return self.getCurrentSprite().getSize();
+}
+::gc::Vec2 RenderableObject67::getCenter() const noexcept{
+	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
+}
+void RenderableObject67::dealDamage(u16 dmg){_hp -= dmg;
+	if (_hp <= 0)
+	die();
+	auto effect = sf::CircleShape(5);
+	effect.setFillColor(gc::Color::Red);
+	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
+		scene.getRenderer().render(effect);
+	}
+	void RenderableObject67::die(){gc::Vec2 newPos;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		self.moveTo(newPos);
+		_hp = 100;
+	}
+#pragma once
+#include <string>
+#include <iostream>
+#include <utility>
+#include "Glance.h"
+#include "SFML/Graphics.hpp"
+#include "SFML/System.hpp"
+#include "SFML/Audio.hpp"
+#include "SFML/Network.hpp"
+#include <cmath>
+#include "Scene0.h"
+RenderableObject68::RenderableObject68(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(370, 600), scene(sc), layer(lr)
+, collider(pos,  ::gc::Vec2(54,  94))
+, sprite("resources\\enemy.png")
+{
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject68 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
+}
+RenderableObject68::~RenderableObject68(){
+}
+void RenderableObject68::onStart(){
+	_hp = 100;
+}
+void RenderableObject68::onUpdate(const float & dt){
+	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
+	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+}
+const ::gc::Sprite & RenderableObject68::getCurrentSprite() const{
+	return sprite;
+}
+::gc::Vec2 RenderableObject68::getPosition() const noexcept {
+	return self.pos;
+}
+::gc::Vec2 RenderableObject68::getSize() const noexcept{
+	return self.getCurrentSprite().getSize();
+}
+::gc::Vec2 RenderableObject68::getCenter() const noexcept{
+	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
+}
+void RenderableObject68::dealDamage(u16 dmg){_hp -= dmg;
+	if (_hp <= 0)
+	die();
+	auto effect = sf::CircleShape(5);
+	effect.setFillColor(gc::Color::Red);
+	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
+		scene.getRenderer().render(effect);
+	}
+	void RenderableObject68::die(){gc::Vec2 newPos;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		self.moveTo(newPos);
+		_hp = 100;
+	}
+#pragma once
+#include <string>
+#include <iostream>
+#include <utility>
+#include "Glance.h"
+#include "SFML/Graphics.hpp"
+#include "SFML/System.hpp"
+#include "SFML/Audio.hpp"
+#include "SFML/Network.hpp"
+#include <cmath>
+#include "Scene0.h"
+RenderableObject69::RenderableObject69(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(755, 600), scene(sc), layer(lr)
+, collider(pos,  ::gc::Vec2(54,  94))
+, sprite("resources\\enemy.png")
+{
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject69 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
+}
+RenderableObject69::~RenderableObject69(){
+}
+void RenderableObject69::onStart(){
+	_hp = 100;
+}
+void RenderableObject69::onUpdate(const float & dt){
+	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
+	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+}
+const ::gc::Sprite & RenderableObject69::getCurrentSprite() const{
+	return sprite;
+}
+::gc::Vec2 RenderableObject69::getPosition() const noexcept {
+	return self.pos;
+}
+::gc::Vec2 RenderableObject69::getSize() const noexcept{
+	return self.getCurrentSprite().getSize();
+}
+::gc::Vec2 RenderableObject69::getCenter() const noexcept{
+	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
+}
+void RenderableObject69::dealDamage(u16 dmg){_hp -= dmg;
+	if (_hp <= 0)
+	die();
+	auto effect = sf::CircleShape(5);
+	effect.setFillColor(gc::Color::Red);
+	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
+		scene.getRenderer().render(effect);
+	}
+	void RenderableObject69::die(){gc::Vec2 newPos;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		self.moveTo(newPos);
+		_hp = 100;
+	}
+#pragma once
+#include <string>
+#include <iostream>
+#include <utility>
+#include "Glance.h"
+#include "SFML/Graphics.hpp"
+#include "SFML/System.hpp"
+#include "SFML/Audio.hpp"
+#include "SFML/Network.hpp"
+#include <cmath>
+#include "Scene0.h"
+RenderableObject70::RenderableObject70(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(440, 600), scene(sc), layer(lr)
+, collider(pos,  ::gc::Vec2(54,  94))
+, sprite("resources\\enemy.png")
+{
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject70 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
+}
+RenderableObject70::~RenderableObject70(){
+}
+void RenderableObject70::onStart(){
+	_hp = 100;
+}
+void RenderableObject70::onUpdate(const float & dt){
+	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
+	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+}
+const ::gc::Sprite & RenderableObject70::getCurrentSprite() const{
+	return sprite;
+}
+::gc::Vec2 RenderableObject70::getPosition() const noexcept {
+	return self.pos;
+}
+::gc::Vec2 RenderableObject70::getSize() const noexcept{
+	return self.getCurrentSprite().getSize();
+}
+::gc::Vec2 RenderableObject70::getCenter() const noexcept{
+	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
+}
+void RenderableObject70::dealDamage(u16 dmg){_hp -= dmg;
+	if (_hp <= 0)
+	die();
+	auto effect = sf::CircleShape(5);
+	effect.setFillColor(gc::Color::Red);
+	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
+		scene.getRenderer().render(effect);
+	}
+	void RenderableObject70::die(){gc::Vec2 newPos;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		self.moveTo(newPos);
+		_hp = 100;
+	}
+#pragma once
+#include <string>
+#include <iostream>
+#include <utility>
+#include "Glance.h"
+#include "SFML/Graphics.hpp"
+#include "SFML/System.hpp"
+#include "SFML/Audio.hpp"
+#include "SFML/Network.hpp"
+#include <cmath>
+#include "Scene0.h"
+RenderableObject71::RenderableObject71(Scene0 & sc, EnemyLayer & lr) try:
+self(*this), pos(169, 600), scene(sc), layer(lr)
+, collider(pos,  ::gc::Vec2(54,  94))
+, sprite("resources\\enemy.png")
+{
+}
+catch(std::exception & e){
+	std::cout << "RenderableObject71 throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
+}
+RenderableObject71::~RenderableObject71(){
+}
+void RenderableObject71::onStart(){
+	_hp = 100;
+}
+void RenderableObject71::onUpdate(const float & dt){
+	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
+	if (dir.getLength() > 30.0f )
+	self.moveOn(dir.getNormalized());
+	if (dir.getLength() < 50.0f)
+	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+}
+const ::gc::Sprite & RenderableObject71::getCurrentSprite() const{
+	return sprite;
+}
+::gc::Vec2 RenderableObject71::getPosition() const noexcept {
+	return self.pos;
+}
+::gc::Vec2 RenderableObject71::getSize() const noexcept{
+	return self.getCurrentSprite().getSize();
+}
+::gc::Vec2 RenderableObject71::getCenter() const noexcept{
+	return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
+}
+void RenderableObject71::dealDamage(u16 dmg){_hp -= dmg;
+	if (_hp <= 0)
+	die();
+	auto effect = sf::CircleShape(5);
+	effect.setFillColor(gc::Color::Red);
+	effect.setPosition(self.getCenter() - gc::Vec2{25, 25});
+		scene.getRenderer().render(effect);
+	}
+	void RenderableObject71::die(){gc::Vec2 newPos;
+		u8 from_where = gc::Random<int>::get(0, 3);
+		if (from_where == 0){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 600;
+		}
+		if (from_where == 1){
+			newPos.x = gc::Random<float>::get(0, 800);
+			newPos.y = 0;
+		}
+		if (from_where == 2){
+			newPos.x = 800;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		if (from_where == 3){
+			newPos.x = 0;
+			newPos.y = gc::Random<float>::get(0, 600);
+		}
+		self.moveTo(newPos);
+		_hp = 100;
 	}
 #include "Scene0.h"
-ObjectsLayer::ObjectsLayer(Scene0 & sc):
+ObjectsLayer::ObjectsLayer(Scene0 & sc) try:
 scene(sc), self(*this)
 , ObjRenderableObject0(scene, *this), ObjRenderableObject1(scene, *this)
 {
+}
+catch(std::exception & e){
+	std::cout << "ObjectsLayer throws: " << e.what() << std::endl;
+	throw;
 }
 ObjectsLayer::~ObjectsLayer(){
 }
@@ -2995,24 +5513,33 @@ void ObjectsLayer::foreach(F && f){
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-Hero::Hero(Scene0 & sc, ObjectsLayer & lr):
+Hero::Hero(Scene0 & sc, ObjectsLayer & lr) try:
 self(*this), pos(400, 300), scene(sc), layer(lr)
-, _lookvec(0,  -1),  _hp(100), _tag(gc::TypeName<this_t>::get()), sprite("resources\\soldier\\Soldier1.png")
+, _lookvec(0,  -1),  _hp(100), animation()
 {
+	animation.emplaceFrame("resources\\soldier\\Soldier1.png", 400.00f);
+	animation.emplaceFrame("resources\\soldier\\Soldier2.png", 400.00f);
+}
+catch(std::exception & e){
+	std::cout << "Hero throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 Hero::~Hero(){
 }
 void Hero::onStart(){
 	scene.getRenderer().getCamera().followSpeed = 0.2;
 	scene.getRenderer().getCamera().moveTo({400, 300});
+		animation.start();
 	}
 	void Hero::onUpdate(const float & dt){
 		if (self._hp <= 0){
 			self.die();
 			return;
 		}
-		if (gc::Mouse::isButtonPressed(gc::Mouse::Button::Left))
-		self.shoot(_lookvec);
+		if (gc::Mouse::isButtonPressed(gc::Mouse::Button::Left)){
+			self.shoot(_lookvec);
+		}
 		_lookvec = (gc::Mouse::getWorldPosition() - self.getCenter()).normalize();
 		auto deg = gc::toDegree(acos(-_lookvec.y));
 		if (_lookvec.x < 0)	deg.value *= -1;
@@ -3045,9 +5572,10 @@ void Hero::onStart(){
 						if (gc::Keyboard::isKeyPressed(gc::Keyboard::Key::Num2)){
 							self._isFirstWeapon = false;
 						}
+						animation.update(dt);
 					}
 					const ::gc::Sprite & Hero::getCurrentSprite() const{
-						return sprite;
+						return animation.getCurrentSprite();
 					}
 					::gc::Vec2 Hero::getPosition() const noexcept {
 						return self.pos;
@@ -3059,22 +5587,24 @@ void Hero::onStart(){
 						return self.getPosition() + (self.getCurrentSprite().getSize() / 2);
 					}
 					void Hero::shoot(gc::Vec2 const & dir){if (_isFirstWeapon){
-						layer.getObject<Bullet>().start(self.getCenter(), dir);
-						layer.getObject<Bullet>().speed = 250.0f;
+						layer.getObject<Bullet>().start(self.getCenter() + (_lookvec * 50), dir);
+						layer.getObject<Bullet>().speed = 100.0f;
 						layer.getObject<Bullet>().lifeTime = 100.0f;
+						layer.getObject<Bullet>().hitCount = 3;
 					}
 					else{
 						layer.getObject<Bullet>().start(self.getCenter(), dir.getRotated(sh::degree(gc::Random<float>::get(-50, 50))));
 						layer.getObject<Bullet>().speed = 250.0f;
 						layer.getObject<Bullet>().lifeTime = 100.0f;
+						layer.getObject<Bullet>().hitCount = 1;
 					}
 				}
 				void Hero::tryMove(gc::Vec2 const & dir){auto newPos = self.getCenter() + dir;
 					auto selfHalfSize = self.getSize() / 2;
 					if (newPos.x - selfHalfSize.x < 0 ||
-					newPos.x + selfHalfSize.x > scene.getRenderer().getCamera().getSize().x ||
+					newPos.x + selfHalfSize.x > 800 ||
 					newPos.y - selfHalfSize.y < 0 ||
-					newPos.y + selfHalfSize.y > scene.getRenderer().getCamera().getSize().y
+					newPos.y + selfHalfSize.y > 700
 					) return;
 					self.moveOn(dir);
 				}
@@ -3085,8 +5615,6 @@ void Hero::onStart(){
 					self._isAlive = false;
 				}
 				bool Hero::isAlive(){return self._isAlive;
-				}
-				std::string const & Hero::getTag(){return _tag;
 				}
 #pragma once
 #include <string>
@@ -3099,11 +5627,16 @@ void Hero::onStart(){
 #include "SFML/Network.hpp"
 #include <cmath>
 #include "Scene0.h"
-Bullet::Bullet(Scene0 & sc, ObjectsLayer & lr):
+Bullet::Bullet(Scene0 & sc, ObjectsLayer & lr) try:
 self(*this), pos(0, 0), scene(sc), layer(lr)
-, _ttl(0.0f),  _alreadyFired(false),  speed(5.0f),  lifeTime(0.0f), _tag(gc::TypeName<this_t>::get()), collider(pos,  5.00f)
+, _ttl(0.0f),  _alreadyFired(false),  speed(5.0f),  lifeTime(0.0f), collider(pos,  5.00f)
 , sprite("resources\\bullet.jpg")
 {
+}
+catch(std::exception & e){
+	std::cout << "Bullet throws: " << e.what() << std::endl;
+	std::cin.get();
+	throw;
 }
 Bullet::~Bullet(){
 }
@@ -3118,27 +5651,14 @@ void Bullet::onUpdate(const float & dt){
 	}
 	_ttl += dt;
 	self.moveOn(_dir * speed);
-	scene.getLayer<EnemyLayer>().foreach([this](auto & i){
-		if (_hitCount == 0)	return;
-		bool a = gc::areAtDifferentSides(
-		self.getCenter(),
-		self.getCenter() + (_dir * speed),
-		i.getCollider().getTopLeftCorner(),
-		i.getCollider().getLowRightCorner()
-		);
-		bool b = gc::areAtDifferentSides(
-		self.getCenter(),
-		self.getCenter() + (_dir * speed),
-		i.getCollider().getTopRightCorner(),
-		i.getCollider().getLowLeftCorner()
-		);
-		bool c = a || b;
-		if (c && (i.getCenter() - self.getCenter()).getLength() < speed){
-			i.dealDamage(40);
-			--_hitCount;
-		}
-	});
-	if (_hitCount == 0)	self.die();
+	calculateCollisions();
+	scene.getRenderer().render(
+	gc::Line()
+	.setBegin(self.getCenter())
+	.setEnd(self.getCenter() + (_dir * speed))
+	.setColor(gc::Color::Yellow)
+	.setThickness(5)
+	);
 }
 const ::gc::Sprite & Bullet::getCurrentSprite() const{
 	return sprite;
@@ -3162,7 +5682,6 @@ void Bullet::wake(){isVisible = true;
 	isActive = true;
 	_isDied = false;
 	_alreadyFired = false;
-	u8 _hitCount = 20;
 }
 void Bullet::start(gc::Vec2 const & pos, gc::Vec2 const & dir){if(_alreadyFired) return;
 	if (self._isDied)
@@ -3170,6 +5689,33 @@ void Bullet::start(gc::Vec2 const & pos, gc::Vec2 const & dir){if(_alreadyFired)
 	self.moveTo(pos);
 	_alreadyFired = true;
 	_dir = dir;
+	scene.getRenderer().render(
+	gc::Line()
+	.setBegin(self.getCenter() + (_dir * 10))
+	.setEnd(self.getCenter() + (_dir * speed))
+	.setColor(gc::Color::Yellow)
+	.setThickness(5)
+	);
 }
-std::string const & Bullet::getTag(){return _tag;
+void Bullet::calculateCollisions(){scene.getLayer<EnemyLayer>().foreach([this](auto & i){
+	if (hitCount == 0)	return;
+	bool a = gc::areAtDifferentSides(
+	self.getCenter(),
+	self.getCenter() + (_dir * speed),
+	i.getCollider().getTopLeftCorner(),
+	i.getCollider().getLowRightCorner()
+	);
+	bool b = gc::areAtDifferentSides(
+	self.getCenter(),
+	self.getCenter() + (_dir * speed),
+	i.getCollider().getTopRightCorner(),
+	i.getCollider().getLowLeftCorner()
+	);
+	bool c = a || b;
+	if (c && (i.getCenter() - self.getCenter()).getLength() < speed){
+		i.dealDamage(40);
+		--hitCount;
+	}
+});
+if (hitCount == 0)	self.die();
 }

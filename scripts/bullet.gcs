@@ -3,12 +3,12 @@ variables:
 		//your public variables here
 		float speed;
 		float lifeTime;
-	private: 
+		u8 hitCount = 2;
+	private:
 		float _ttl;
 		bool _alreadyFired;
 		gc::Vec2 _dir;
 		bool _isDied = false;
-		u8 _hitCount = 20;
 methods:
 	void onStart(){
 		//it's called once, before game cycle begins
@@ -26,20 +26,42 @@ methods:
 		isActive = true;
 		_isDied = false;
 		_alreadyFired = false;
-		u8 _hitCount = 20;
 	}
 	void onUpdate(const float & dt){
-		//onUpdate called once per frame
 		if (_ttl > lifeTime){
 			self.die();
 			return;
 		}
 		_ttl += dt;
-
 		self.moveOn(_dir * speed);
-
+		calculateCollisions();
+		scene.getRenderer().render(
+			gc::Line()
+				.setBegin(self.getCenter())
+				.setEnd(self.getCenter() + (_dir * speed))
+				.setColor(gc::Color::Yellow)
+				.setThickness(5)
+		);
+	}
+	void start(gc::Vec2 const & pos, gc::Vec2 const & dir){
+		if(_alreadyFired) return;
+		
+		if (self._isDied)
+			wake();
+		self.moveTo(pos);
+		_alreadyFired = true;
+		_dir = dir;
+		scene.getRenderer().render(
+		gc::Line()
+			.setBegin(self.getCenter() + (_dir * 10))
+			.setEnd(self.getCenter() + (_dir * speed))
+			.setColor(gc::Color::Yellow)
+			.setThickness(5)
+		);
+	}
+	void calculateCollisions(){
 		scene.getLayer<EnemyLayer>().foreach([this](auto & i){
-			if (_hitCount == 0)	return;
+			if (hitCount == 0)	return;
 			bool a = gc::areAtDifferentSides(
 				self.getCenter(), 
 				self.getCenter() + (_dir * speed),
@@ -55,26 +77,11 @@ methods:
 			bool c = a || b;
 			if (c && (i.getCenter() - self.getCenter()).getLength() < speed){
 				i.dealDamage(40);
-				--_hitCount;
+				--hitCount;
 			}
 		});
-		if (_hitCount == 0)	self.die();
+		if (hitCount == 0)	self.die();
 	}
-	void start(gc::Vec2 const & pos, gc::Vec2 const & dir){
-		if(_alreadyFired) return;
-		
-		if (self._isDied)
-			wake();
-		self.moveTo(pos);
-		_alreadyFired = true;
-		_dir = dir;
-	}
-
-	//else methods here
 constructors:
-	//this code will be in class constructor-specific synthax example is: 
-	//str("awd"), dur(6)
 	_ttl(0.0f), _alreadyFired(false), speed(5.0f), lifeTime(0.0f)
 constructor_body:
-	//this code will be runned when constructor of object will be called
-	//use it for primary initialization only!!!

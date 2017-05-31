@@ -18,6 +18,7 @@ namespace gc
 	public:
 		SpriteFrame(const std::string & path, float duration) noexcept;
 		const Sprite & 	getSprite() const noexcept;
+		Sprite & 	getSprite() noexcept;
 		const float 	getDuration() const noexcept;
 	};
 
@@ -26,6 +27,9 @@ namespace gc
 		_dur(duration), _sprite(path)
 	{}
 	inline const Sprite & SpriteFrame::getSprite() const noexcept{
+		return _sprite;
+	}
+	inline Sprite & SpriteFrame::getSprite() noexcept{
 		return _sprite;
 	}
 	inline const float SpriteFrame::getDuration() const noexcept{
