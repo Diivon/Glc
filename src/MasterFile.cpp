@@ -239,12 +239,12 @@ void EnemyLayer::foreach(F && f){
 #include <cmath>
 #include "Scene0.h"
 RenderableObject2::RenderableObject2(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(750, 600), scene(sc), layer(lr)
+self(*this), pos(133, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 563.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 552.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 552.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 476.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject2 throws: " << e.what() << std::endl;
@@ -321,12 +321,12 @@ void RenderableObject2::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject3::RenderableObject3(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(565, 600), scene(sc), layer(lr)
+self(*this), pos(798, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 496.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 468.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 360.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 530.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject3 throws: " << e.what() << std::endl;
@@ -403,12 +403,12 @@ void RenderableObject3::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject4::RenderableObject4(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(433, 600), scene(sc), layer(lr)
+self(*this), pos(18, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 505.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 476.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 336.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 341.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject4 throws: " << e.what() << std::endl;
@@ -485,12 +485,12 @@ void RenderableObject4::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject5::RenderableObject5(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(319, 600), scene(sc), layer(lr)
+self(*this), pos(362, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 442.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 408.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 411.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 443.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject5 throws: " << e.what() << std::endl;
@@ -567,12 +567,12 @@ void RenderableObject5::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject6::RenderableObject6(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(394, 600), scene(sc), layer(lr)
+self(*this), pos(722, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 418.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 537.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 468.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 316.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject6 throws: " << e.what() << std::endl;
@@ -649,12 +649,12 @@ void RenderableObject6::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject7::RenderableObject7(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(713, 600), scene(sc), layer(lr)
+self(*this), pos(270, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 545.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 316.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 392.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 365.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject7 throws: " << e.what() << std::endl;
@@ -731,12 +731,12 @@ void RenderableObject7::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject8::RenderableObject8(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(532, 600), scene(sc), layer(lr)
+self(*this), pos(187, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 401.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 371.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 336.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 580.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject8 throws: " << e.what() << std::endl;
@@ -813,12 +813,12 @@ void RenderableObject8::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject9::RenderableObject9(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(207, 600), scene(sc), layer(lr)
+self(*this), pos(381, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 592.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 585.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 336.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 496.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject9 throws: " << e.what() << std::endl;
@@ -895,12 +895,12 @@ void RenderableObject9::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject10::RenderableObject10(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(70, 600), scene(sc), layer(lr)
+self(*this), pos(67, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 498.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 564.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 337.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 362.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject10 throws: " << e.what() << std::endl;
@@ -977,12 +977,12 @@ void RenderableObject10::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject11::RenderableObject11(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(485, 600), scene(sc), layer(lr)
+self(*this), pos(70, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 511.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 565.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 471.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 572.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject11 throws: " << e.what() << std::endl;
@@ -1059,12 +1059,12 @@ void RenderableObject11::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject12::RenderableObject12(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(106, 600), scene(sc), layer(lr)
+self(*this), pos(221, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 315.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 559.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 357.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 497.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject12 throws: " << e.what() << std::endl;
@@ -1141,12 +1141,12 @@ void RenderableObject12::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject13::RenderableObject13(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(260, 600), scene(sc), layer(lr)
+self(*this), pos(326, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 520.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 441.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 306.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 490.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject13 throws: " << e.what() << std::endl;
@@ -1223,12 +1223,12 @@ void RenderableObject13::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject14::RenderableObject14(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(266, 600), scene(sc), layer(lr)
+self(*this), pos(461, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 368.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 392.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 330.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 446.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject14 throws: " << e.what() << std::endl;
@@ -1305,12 +1305,12 @@ void RenderableObject14::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject15::RenderableObject15(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(729, 600), scene(sc), layer(lr)
+self(*this), pos(4, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 549.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 450.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 455.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 416.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject15 throws: " << e.what() << std::endl;
@@ -1387,12 +1387,12 @@ void RenderableObject15::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject16::RenderableObject16(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(737, 600), scene(sc), layer(lr)
+self(*this), pos(791, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 434.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 413.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 411.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 382.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject16 throws: " << e.what() << std::endl;
@@ -1469,12 +1469,12 @@ void RenderableObject16::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject17::RenderableObject17(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(734, 600), scene(sc), layer(lr)
+self(*this), pos(27, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 512.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 516.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 476.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 452.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject17 throws: " << e.what() << std::endl;
@@ -1551,12 +1551,12 @@ void RenderableObject17::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject18::RenderableObject18(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(314, 600), scene(sc), layer(lr)
+self(*this), pos(82, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 533.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 397.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 571.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 524.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject18 throws: " << e.what() << std::endl;
@@ -1633,12 +1633,12 @@ void RenderableObject18::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject19::RenderableObject19(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(368, 600), scene(sc), layer(lr)
+self(*this), pos(66, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 504.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 450.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 539.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 482.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject19 throws: " << e.what() << std::endl;
@@ -1715,12 +1715,12 @@ void RenderableObject19::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject20::RenderableObject20(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(694, 600), scene(sc), layer(lr)
+self(*this), pos(771, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 503.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 571.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 507.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 515.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject20 throws: " << e.what() << std::endl;
@@ -1797,12 +1797,12 @@ void RenderableObject20::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject21::RenderableObject21(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(710, 600), scene(sc), layer(lr)
+self(*this), pos(747, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 485.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 597.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 574.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 322.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject21 throws: " << e.what() << std::endl;
@@ -1879,12 +1879,12 @@ void RenderableObject21::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject22::RenderableObject22(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(544, 600), scene(sc), layer(lr)
+self(*this), pos(448, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
 	animation.emplaceFrame("resources\\enemy\\enemy1.png", 580.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 594.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 464.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject22 throws: " << e.what() << std::endl;
@@ -1961,12 +1961,12 @@ void RenderableObject22::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject23::RenderableObject23(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(562, 600), scene(sc), layer(lr)
+self(*this), pos(184, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 379.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 426.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 352.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 353.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject23 throws: " << e.what() << std::endl;
@@ -2043,12 +2043,12 @@ void RenderableObject23::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject24::RenderableObject24(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(397, 600), scene(sc), layer(lr)
+self(*this), pos(656, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 350.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 497.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 448.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 462.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject24 throws: " << e.what() << std::endl;
@@ -2125,12 +2125,12 @@ void RenderableObject24::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject25::RenderableObject25(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(257, 600), scene(sc), layer(lr)
+self(*this), pos(336, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 467.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 477.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 528.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 361.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject25 throws: " << e.what() << std::endl;
@@ -2207,12 +2207,12 @@ void RenderableObject25::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject26::RenderableObject26(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(598, 600), scene(sc), layer(lr)
+self(*this), pos(584, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 526.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 451.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 368.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 480.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject26 throws: " << e.what() << std::endl;
@@ -2289,12 +2289,12 @@ void RenderableObject26::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject27::RenderableObject27(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(588, 600), scene(sc), layer(lr)
+self(*this), pos(438, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 400.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 457.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 446.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 524.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject27 throws: " << e.what() << std::endl;
@@ -2371,12 +2371,12 @@ void RenderableObject27::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject28::RenderableObject28(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(460, 600), scene(sc), layer(lr)
+self(*this), pos(302, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 350.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 586.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 314.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 461.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject28 throws: " << e.what() << std::endl;
@@ -2453,12 +2453,12 @@ void RenderableObject28::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject29::RenderableObject29(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(126, 600), scene(sc), layer(lr)
+self(*this), pos(560, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 364.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 578.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 595.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 499.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject29 throws: " << e.what() << std::endl;
@@ -2535,12 +2535,12 @@ void RenderableObject29::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject30::RenderableObject30(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(450, 600), scene(sc), layer(lr)
+self(*this), pos(127, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 501.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 410.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 358.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 417.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject30 throws: " << e.what() << std::endl;
@@ -2617,12 +2617,12 @@ void RenderableObject30::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject31::RenderableObject31(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(289, 600), scene(sc), layer(lr)
+self(*this), pos(39, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 437.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 317.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 432.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 399.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject31 throws: " << e.what() << std::endl;
@@ -2699,12 +2699,12 @@ void RenderableObject31::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject32::RenderableObject32(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(453, 600), scene(sc), layer(lr)
+self(*this), pos(732, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 433.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 482.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 492.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 355.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject32 throws: " << e.what() << std::endl;
@@ -2781,12 +2781,12 @@ void RenderableObject32::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject33::RenderableObject33(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(252, 600), scene(sc), layer(lr)
+self(*this), pos(329, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 369.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 568.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 433.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 474.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject33 throws: " << e.what() << std::endl;
@@ -2863,12 +2863,12 @@ void RenderableObject33::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject34::RenderableObject34(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(418, 600), scene(sc), layer(lr)
+self(*this), pos(670, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 365.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 354.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 527.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 359.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject34 throws: " << e.what() << std::endl;
@@ -2945,12 +2945,12 @@ void RenderableObject34::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject35::RenderableObject35(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(763, 600), scene(sc), layer(lr)
+self(*this), pos(77, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 426.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 462.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 364.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 328.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject35 throws: " << e.what() << std::endl;
@@ -3027,12 +3027,12 @@ void RenderableObject35::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject36::RenderableObject36(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(51, 600), scene(sc), layer(lr)
+self(*this), pos(773, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 321.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 365.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 504.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 343.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject36 throws: " << e.what() << std::endl;
@@ -3109,12 +3109,12 @@ void RenderableObject36::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject37::RenderableObject37(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(586, 600), scene(sc), layer(lr)
+self(*this), pos(434, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 513.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 578.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 405.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 471.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject37 throws: " << e.what() << std::endl;
@@ -3191,12 +3191,12 @@ void RenderableObject37::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject38::RenderableObject38(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(797, 600), scene(sc), layer(lr)
+self(*this), pos(4, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 339.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 402.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 424.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 360.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject38 throws: " << e.what() << std::endl;
@@ -3273,12 +3273,12 @@ void RenderableObject38::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject39::RenderableObject39(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(302, 600), scene(sc), layer(lr)
+self(*this), pos(776, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 394.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 434.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 466.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 559.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject39 throws: " << e.what() << std::endl;
@@ -3355,12 +3355,12 @@ void RenderableObject39::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject40::RenderableObject40(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(31, 600), scene(sc), layer(lr)
+self(*this), pos(430, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 456.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 516.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 557.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 584.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject40 throws: " << e.what() << std::endl;
@@ -3437,12 +3437,12 @@ void RenderableObject40::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject41::RenderableObject41(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(42, 600), scene(sc), layer(lr)
+self(*this), pos(707, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 342.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 477.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 321.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 594.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject41 throws: " << e.what() << std::endl;
@@ -3519,12 +3519,12 @@ void RenderableObject41::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject42::RenderableObject42(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(42, 600), scene(sc), layer(lr)
+self(*this), pos(631, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 340.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 513.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 531.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 315.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject42 throws: " << e.what() << std::endl;
@@ -3601,12 +3601,12 @@ void RenderableObject42::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject43::RenderableObject43(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(480, 600), scene(sc), layer(lr)
+self(*this), pos(168, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 526.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 334.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 451.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 335.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject43 throws: " << e.what() << std::endl;
@@ -3683,12 +3683,12 @@ void RenderableObject43::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject44::RenderableObject44(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(785, 600), scene(sc), layer(lr)
+self(*this), pos(15, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 429.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 456.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 395.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 535.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject44 throws: " << e.what() << std::endl;
@@ -3765,12 +3765,12 @@ void RenderableObject44::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject45::RenderableObject45(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(488, 600), scene(sc), layer(lr)
+self(*this), pos(16, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 364.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 335.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 512.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 518.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject45 throws: " << e.what() << std::endl;
@@ -3847,12 +3847,12 @@ void RenderableObject45::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject46::RenderableObject46(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(274, 600), scene(sc), layer(lr)
+self(*this), pos(440, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 486.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 524.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 384.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 550.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject46 throws: " << e.what() << std::endl;
@@ -3929,12 +3929,12 @@ void RenderableObject46::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject47::RenderableObject47(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(330, 600), scene(sc), layer(lr)
+self(*this), pos(354, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 327.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 342.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 520.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 391.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject47 throws: " << e.what() << std::endl;
@@ -4011,12 +4011,12 @@ void RenderableObject47::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject48::RenderableObject48(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(567, 600), scene(sc), layer(lr)
+self(*this), pos(415, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 549.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 588.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 485.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 552.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject48 throws: " << e.what() << std::endl;
@@ -4093,12 +4093,12 @@ void RenderableObject48::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject49::RenderableObject49(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(352, 600), scene(sc), layer(lr)
+self(*this), pos(655, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 409.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 397.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 313.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 308.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject49 throws: " << e.what() << std::endl;
@@ -4175,12 +4175,12 @@ void RenderableObject49::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject50::RenderableObject50(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(571, 600), scene(sc), layer(lr)
+self(*this), pos(101, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 356.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 339.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 583.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 325.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject50 throws: " << e.what() << std::endl;
@@ -4257,12 +4257,12 @@ void RenderableObject50::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject51::RenderableObject51(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(127, 600), scene(sc), layer(lr)
+self(*this), pos(257, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 382.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 512.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 562.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 475.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject51 throws: " << e.what() << std::endl;
@@ -4339,12 +4339,12 @@ void RenderableObject51::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject52::RenderableObject52(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(140, 600), scene(sc), layer(lr)
+self(*this), pos(506, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 440.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 323.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 586.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 506.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject52 throws: " << e.what() << std::endl;
@@ -4421,12 +4421,12 @@ void RenderableObject52::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject53::RenderableObject53(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(471, 600), scene(sc), layer(lr)
+self(*this), pos(172, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 570.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 385.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 392.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 432.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject53 throws: " << e.what() << std::endl;
@@ -4503,12 +4503,12 @@ void RenderableObject53::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject54::RenderableObject54(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(663, 600), scene(sc), layer(lr)
+self(*this), pos(33, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 439.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 395.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 526.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 352.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject54 throws: " << e.what() << std::endl;
@@ -4585,12 +4585,12 @@ void RenderableObject54::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject55::RenderableObject55(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(84, 600), scene(sc), layer(lr)
+self(*this), pos(22, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 525.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 383.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 456.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 310.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject55 throws: " << e.what() << std::endl;
@@ -4667,12 +4667,12 @@ void RenderableObject55::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject56::RenderableObject56(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(325, 600), scene(sc), layer(lr)
+self(*this), pos(629, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 415.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 575.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 595.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 511.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject56 throws: " << e.what() << std::endl;
@@ -4749,12 +4749,12 @@ void RenderableObject56::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject57::RenderableObject57(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(180, 600), scene(sc), layer(lr)
+self(*this), pos(379, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 310.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 507.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 426.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 382.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject57 throws: " << e.what() << std::endl;
@@ -4831,12 +4831,12 @@ void RenderableObject57::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject58::RenderableObject58(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(560, 600), scene(sc), layer(lr)
+self(*this), pos(24, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 487.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 428.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 328.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 337.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject58 throws: " << e.what() << std::endl;
@@ -4913,12 +4913,12 @@ void RenderableObject58::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject59::RenderableObject59(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(462, 600), scene(sc), layer(lr)
+self(*this), pos(516, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 403.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 393.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 409.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 436.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject59 throws: " << e.what() << std::endl;
@@ -4995,12 +4995,12 @@ void RenderableObject59::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject60::RenderableObject60(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(505, 600), scene(sc), layer(lr)
+self(*this), pos(112, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 483.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 531.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 591.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 518.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject60 throws: " << e.what() << std::endl;
@@ -5077,12 +5077,12 @@ void RenderableObject60::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject61::RenderableObject61(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(309, 600), scene(sc), layer(lr)
+self(*this), pos(19, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 566.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 469.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 325.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 468.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject61 throws: " << e.what() << std::endl;
@@ -5159,12 +5159,12 @@ void RenderableObject61::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject62::RenderableObject62(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(785, 600), scene(sc), layer(lr)
+self(*this), pos(25, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 546.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 347.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 509.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 433.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject62 throws: " << e.what() << std::endl;
@@ -5241,12 +5241,12 @@ void RenderableObject62::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject63::RenderableObject63(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(651, 600), scene(sc), layer(lr)
+self(*this), pos(159, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 430.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 523.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 416.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 526.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject63 throws: " << e.what() << std::endl;
@@ -5323,12 +5323,12 @@ void RenderableObject63::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject64::RenderableObject64(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(30, 600), scene(sc), layer(lr)
+self(*this), pos(32, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 526.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 515.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 400.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 592.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject64 throws: " << e.what() << std::endl;
@@ -5405,12 +5405,12 @@ void RenderableObject64::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject65::RenderableObject65(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(369, 600), scene(sc), layer(lr)
+self(*this), pos(313, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 475.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 488.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 420.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 593.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject65 throws: " << e.what() << std::endl;
@@ -5487,12 +5487,12 @@ void RenderableObject65::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject66::RenderableObject66(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(659, 600), scene(sc), layer(lr)
+self(*this), pos(102, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 481.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 323.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 447.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 328.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject66 throws: " << e.what() << std::endl;
@@ -5569,12 +5569,12 @@ void RenderableObject66::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject67::RenderableObject67(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(546, 600), scene(sc), layer(lr)
+self(*this), pos(645, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 310.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 593.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 309.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 318.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject67 throws: " << e.what() << std::endl;
@@ -5651,12 +5651,12 @@ void RenderableObject67::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject68::RenderableObject68(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(324, 600), scene(sc), layer(lr)
+self(*this), pos(256, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 446.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 346.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 496.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 457.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject68 throws: " << e.what() << std::endl;
@@ -5733,12 +5733,12 @@ void RenderableObject68::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject69::RenderableObject69(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(351, 600), scene(sc), layer(lr)
+self(*this), pos(649, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 437.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 494.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 387.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 534.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject69 throws: " << e.what() << std::endl;
@@ -5815,12 +5815,12 @@ void RenderableObject69::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject70::RenderableObject70(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(222, 600), scene(sc), layer(lr)
+self(*this), pos(367, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 479.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 337.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 596.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 476.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject70 throws: " << e.what() << std::endl;
@@ -5897,12 +5897,12 @@ void RenderableObject70::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject71::RenderableObject71(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(614, 600), scene(sc), layer(lr)
+self(*this), pos(186, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 587.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 386.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 322.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 401.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject71 throws: " << e.what() << std::endl;

@@ -10,12 +10,12 @@
 #include <cmath>
 #include "Scene0.h"
 RenderableObject51::RenderableObject51(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(127, 600), scene(sc), layer(lr)
+self(*this), pos(257, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 382.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 512.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 562.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 475.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject51 throws: " << e.what() << std::endl;

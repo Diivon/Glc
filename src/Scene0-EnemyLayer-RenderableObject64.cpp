@@ -10,12 +10,12 @@
 #include <cmath>
 #include "Scene0.h"
 RenderableObject64::RenderableObject64(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(30, 600), scene(sc), layer(lr)
+self(*this), pos(32, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , animation()
 {
-	animation.emplaceFrame("resources\\enemy\\enemy1.png", 526.00f);
-	animation.emplaceFrame("resources\\enemy\\enemy2.png", 515.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 400.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 592.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject64 throws: " << e.what() << std::endl;
