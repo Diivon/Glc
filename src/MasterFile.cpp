@@ -239,7 +239,7 @@ void EnemyLayer::foreach(F && f){
 #include <cmath>
 #include "Scene0.h"
 RenderableObject2::RenderableObject2(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(444, 600), scene(sc), layer(lr)
+self(*this), pos(686, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -314,7 +314,7 @@ void RenderableObject2::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject3::RenderableObject3(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(749, 600), scene(sc), layer(lr)
+self(*this), pos(495, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -389,7 +389,7 @@ void RenderableObject3::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject4::RenderableObject4(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(320, 600), scene(sc), layer(lr)
+self(*this), pos(310, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -464,7 +464,7 @@ void RenderableObject4::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject5::RenderableObject5(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(452, 600), scene(sc), layer(lr)
+self(*this), pos(257, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -539,7 +539,7 @@ void RenderableObject5::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject6::RenderableObject6(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(437, 600), scene(sc), layer(lr)
+self(*this), pos(69, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -614,7 +614,7 @@ void RenderableObject6::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject7::RenderableObject7(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(389, 600), scene(sc), layer(lr)
+self(*this), pos(655, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -689,7 +689,7 @@ void RenderableObject7::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject8::RenderableObject8(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(91, 600), scene(sc), layer(lr)
+self(*this), pos(296, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -764,7 +764,7 @@ void RenderableObject8::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject9::RenderableObject9(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(152, 600), scene(sc), layer(lr)
+self(*this), pos(677, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -839,7 +839,7 @@ void RenderableObject9::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject10::RenderableObject10(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(571, 600), scene(sc), layer(lr)
+self(*this), pos(669, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -914,7 +914,7 @@ void RenderableObject10::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject11::RenderableObject11(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(256, 600), scene(sc), layer(lr)
+self(*this), pos(508, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -989,7 +989,7 @@ void RenderableObject11::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject12::RenderableObject12(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(782, 600), scene(sc), layer(lr)
+self(*this), pos(299, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -1064,7 +1064,7 @@ void RenderableObject12::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject13::RenderableObject13(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(410, 600), scene(sc), layer(lr)
+self(*this), pos(661, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -1139,7 +1139,7 @@ void RenderableObject13::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject14::RenderableObject14(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(664, 600), scene(sc), layer(lr)
+self(*this), pos(285, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -1214,7 +1214,7 @@ void RenderableObject14::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject15::RenderableObject15(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(5, 600), scene(sc), layer(lr)
+self(*this), pos(613, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -1289,7 +1289,7 @@ void RenderableObject15::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject16::RenderableObject16(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(45, 600), scene(sc), layer(lr)
+self(*this), pos(543, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -1364,7 +1364,7 @@ void RenderableObject16::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject17::RenderableObject17(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(352, 600), scene(sc), layer(lr)
+self(*this), pos(780, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -1439,7 +1439,7 @@ void RenderableObject17::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject18::RenderableObject18(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(428, 600), scene(sc), layer(lr)
+self(*this), pos(273, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -1514,7 +1514,7 @@ void RenderableObject18::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject19::RenderableObject19(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(131, 600), scene(sc), layer(lr)
+self(*this), pos(491, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -1589,7 +1589,7 @@ void RenderableObject19::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject20::RenderableObject20(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(752, 600), scene(sc), layer(lr)
+self(*this), pos(376, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -1664,7 +1664,7 @@ void RenderableObject20::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject21::RenderableObject21(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(719, 600), scene(sc), layer(lr)
+self(*this), pos(501, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -1739,7 +1739,7 @@ void RenderableObject21::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject22::RenderableObject22(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(249, 600), scene(sc), layer(lr)
+self(*this), pos(262, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -1814,7 +1814,7 @@ void RenderableObject22::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject23::RenderableObject23(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(297, 600), scene(sc), layer(lr)
+self(*this), pos(554, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -1889,7 +1889,7 @@ void RenderableObject23::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject24::RenderableObject24(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(72, 600), scene(sc), layer(lr)
+self(*this), pos(405, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -1964,7 +1964,7 @@ void RenderableObject24::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject25::RenderableObject25(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(454, 600), scene(sc), layer(lr)
+self(*this), pos(381, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -2039,7 +2039,7 @@ void RenderableObject25::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject26::RenderableObject26(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(22, 600), scene(sc), layer(lr)
+self(*this), pos(393, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -2114,7 +2114,7 @@ void RenderableObject26::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject27::RenderableObject27(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(534, 600), scene(sc), layer(lr)
+self(*this), pos(562, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -2189,7 +2189,7 @@ void RenderableObject27::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject28::RenderableObject28(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(637, 600), scene(sc), layer(lr)
+self(*this), pos(666, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -2264,7 +2264,7 @@ void RenderableObject28::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject29::RenderableObject29(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(481, 600), scene(sc), layer(lr)
+self(*this), pos(463, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -2339,7 +2339,7 @@ void RenderableObject29::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject30::RenderableObject30(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(540, 600), scene(sc), layer(lr)
+self(*this), pos(685, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -2414,7 +2414,7 @@ void RenderableObject30::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject31::RenderableObject31(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(221, 600), scene(sc), layer(lr)
+self(*this), pos(45, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -2489,7 +2489,7 @@ void RenderableObject31::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject32::RenderableObject32(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(752, 600), scene(sc), layer(lr)
+self(*this), pos(109, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -2564,7 +2564,7 @@ void RenderableObject32::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject33::RenderableObject33(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(588, 600), scene(sc), layer(lr)
+self(*this), pos(353, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -2639,7 +2639,7 @@ void RenderableObject33::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject34::RenderableObject34(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(39, 600), scene(sc), layer(lr)
+self(*this), pos(483, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -2714,7 +2714,7 @@ void RenderableObject34::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject35::RenderableObject35(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(709, 600), scene(sc), layer(lr)
+self(*this), pos(705, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -2789,7 +2789,7 @@ void RenderableObject35::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject36::RenderableObject36(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(364, 600), scene(sc), layer(lr)
+self(*this), pos(263, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -2864,7 +2864,7 @@ void RenderableObject36::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject37::RenderableObject37(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(676, 600), scene(sc), layer(lr)
+self(*this), pos(16, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -2939,7 +2939,7 @@ void RenderableObject37::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject38::RenderableObject38(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(148, 600), scene(sc), layer(lr)
+self(*this), pos(173, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -3014,7 +3014,7 @@ void RenderableObject38::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject39::RenderableObject39(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(186, 600), scene(sc), layer(lr)
+self(*this), pos(113, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -3089,7 +3089,7 @@ void RenderableObject39::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject40::RenderableObject40(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(653, 600), scene(sc), layer(lr)
+self(*this), pos(268, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -3164,7 +3164,7 @@ void RenderableObject40::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject41::RenderableObject41(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(470, 600), scene(sc), layer(lr)
+self(*this), pos(185, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -3239,7 +3239,7 @@ void RenderableObject41::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject42::RenderableObject42(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(420, 600), scene(sc), layer(lr)
+self(*this), pos(361, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -3314,7 +3314,7 @@ void RenderableObject42::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject43::RenderableObject43(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(203, 600), scene(sc), layer(lr)
+self(*this), pos(378, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -3389,7 +3389,7 @@ void RenderableObject43::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject44::RenderableObject44(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(636, 600), scene(sc), layer(lr)
+self(*this), pos(499, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -3464,7 +3464,7 @@ void RenderableObject44::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject45::RenderableObject45(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(93, 600), scene(sc), layer(lr)
+self(*this), pos(127, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -3539,7 +3539,7 @@ void RenderableObject45::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject46::RenderableObject46(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(620, 600), scene(sc), layer(lr)
+self(*this), pos(162, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -3614,7 +3614,7 @@ void RenderableObject46::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject47::RenderableObject47(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(544, 600), scene(sc), layer(lr)
+self(*this), pos(596, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -3689,7 +3689,7 @@ void RenderableObject47::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject48::RenderableObject48(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(225, 600), scene(sc), layer(lr)
+self(*this), pos(121, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -3764,7 +3764,7 @@ void RenderableObject48::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject49::RenderableObject49(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(26, 600), scene(sc), layer(lr)
+self(*this), pos(98, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -3839,7 +3839,7 @@ void RenderableObject49::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject50::RenderableObject50(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(463, 600), scene(sc), layer(lr)
+self(*this), pos(116, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -3914,7 +3914,7 @@ void RenderableObject50::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject51::RenderableObject51(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(268, 600), scene(sc), layer(lr)
+self(*this), pos(438, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -3989,7 +3989,7 @@ void RenderableObject51::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject52::RenderableObject52(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(188, 600), scene(sc), layer(lr)
+self(*this), pos(453, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -4064,7 +4064,7 @@ void RenderableObject52::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject53::RenderableObject53(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(624, 600), scene(sc), layer(lr)
+self(*this), pos(575, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -4139,7 +4139,7 @@ void RenderableObject53::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject54::RenderableObject54(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(698, 600), scene(sc), layer(lr)
+self(*this), pos(545, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -4214,7 +4214,7 @@ void RenderableObject54::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject55::RenderableObject55(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(534, 600), scene(sc), layer(lr)
+self(*this), pos(137, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -4289,7 +4289,7 @@ void RenderableObject55::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject56::RenderableObject56(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(171, 600), scene(sc), layer(lr)
+self(*this), pos(189, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -4364,7 +4364,7 @@ void RenderableObject56::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject57::RenderableObject57(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(147, 600), scene(sc), layer(lr)
+self(*this), pos(131, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -4439,7 +4439,7 @@ void RenderableObject57::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject58::RenderableObject58(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(677, 600), scene(sc), layer(lr)
+self(*this), pos(90, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -4514,7 +4514,7 @@ void RenderableObject58::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject59::RenderableObject59(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(665, 600), scene(sc), layer(lr)
+self(*this), pos(728, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -4589,7 +4589,7 @@ void RenderableObject59::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject60::RenderableObject60(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(429, 600), scene(sc), layer(lr)
+self(*this), pos(664, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -4664,7 +4664,7 @@ void RenderableObject60::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject61::RenderableObject61(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(703, 600), scene(sc), layer(lr)
+self(*this), pos(307, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -4739,7 +4739,7 @@ void RenderableObject61::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject62::RenderableObject62(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(552, 600), scene(sc), layer(lr)
+self(*this), pos(789, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -4814,7 +4814,7 @@ void RenderableObject62::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject63::RenderableObject63(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(409, 600), scene(sc), layer(lr)
+self(*this), pos(632, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -4889,7 +4889,7 @@ void RenderableObject63::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject64::RenderableObject64(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(411, 600), scene(sc), layer(lr)
+self(*this), pos(791, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -4964,7 +4964,7 @@ void RenderableObject64::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject65::RenderableObject65(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(349, 600), scene(sc), layer(lr)
+self(*this), pos(624, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -5039,7 +5039,7 @@ void RenderableObject65::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject66::RenderableObject66(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(303, 600), scene(sc), layer(lr)
+self(*this), pos(399, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -5114,7 +5114,7 @@ void RenderableObject66::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject67::RenderableObject67(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(194, 600), scene(sc), layer(lr)
+self(*this), pos(746, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -5189,7 +5189,7 @@ void RenderableObject67::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject68::RenderableObject68(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(370, 600), scene(sc), layer(lr)
+self(*this), pos(178, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -5264,7 +5264,7 @@ void RenderableObject68::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject69::RenderableObject69(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(755, 600), scene(sc), layer(lr)
+self(*this), pos(379, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -5339,7 +5339,7 @@ void RenderableObject69::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject70::RenderableObject70(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(440, 600), scene(sc), layer(lr)
+self(*this), pos(350, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
@@ -5414,7 +5414,7 @@ void RenderableObject70::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject71::RenderableObject71(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(169, 600), scene(sc), layer(lr)
+self(*this), pos(526, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {

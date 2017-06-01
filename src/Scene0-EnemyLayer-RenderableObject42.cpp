@@ -10,7 +10,7 @@
 #include <cmath>
 #include "Scene0.h"
 RenderableObject42::RenderableObject42(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(420, 600), scene(sc), layer(lr)
+self(*this), pos(361, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
 , sprite("resources\\enemy.png")
 {
