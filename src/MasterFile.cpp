@@ -239,10 +239,12 @@ void EnemyLayer::foreach(F && f){
 #include <cmath>
 #include "Scene0.h"
 RenderableObject2::RenderableObject2(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(686, 600), scene(sc), layer(lr)
+self(*this), pos(716, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 557.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 583.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject2 throws: " << e.what() << std::endl;
@@ -253,6 +255,7 @@ RenderableObject2::~RenderableObject2(){
 }
 void RenderableObject2::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject2::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -260,9 +263,13 @@ void RenderableObject2::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject2::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject2::getPosition() const noexcept {
 	return self.pos;
@@ -314,10 +321,12 @@ void RenderableObject2::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject3::RenderableObject3(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(495, 600), scene(sc), layer(lr)
+self(*this), pos(546, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 472.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 421.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject3 throws: " << e.what() << std::endl;
@@ -328,6 +337,7 @@ RenderableObject3::~RenderableObject3(){
 }
 void RenderableObject3::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject3::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -335,9 +345,13 @@ void RenderableObject3::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject3::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject3::getPosition() const noexcept {
 	return self.pos;
@@ -389,10 +403,12 @@ void RenderableObject3::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject4::RenderableObject4(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(310, 600), scene(sc), layer(lr)
+self(*this), pos(115, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 588.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 537.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject4 throws: " << e.what() << std::endl;
@@ -403,6 +419,7 @@ RenderableObject4::~RenderableObject4(){
 }
 void RenderableObject4::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject4::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -410,9 +427,13 @@ void RenderableObject4::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject4::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject4::getPosition() const noexcept {
 	return self.pos;
@@ -464,10 +485,12 @@ void RenderableObject4::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject5::RenderableObject5(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(257, 600), scene(sc), layer(lr)
+self(*this), pos(190, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 452.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 536.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject5 throws: " << e.what() << std::endl;
@@ -478,6 +501,7 @@ RenderableObject5::~RenderableObject5(){
 }
 void RenderableObject5::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject5::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -485,9 +509,13 @@ void RenderableObject5::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject5::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject5::getPosition() const noexcept {
 	return self.pos;
@@ -539,10 +567,12 @@ void RenderableObject5::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject6::RenderableObject6(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(69, 600), scene(sc), layer(lr)
+self(*this), pos(528, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 329.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 336.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject6 throws: " << e.what() << std::endl;
@@ -553,6 +583,7 @@ RenderableObject6::~RenderableObject6(){
 }
 void RenderableObject6::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject6::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -560,9 +591,13 @@ void RenderableObject6::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject6::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject6::getPosition() const noexcept {
 	return self.pos;
@@ -614,10 +649,12 @@ void RenderableObject6::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject7::RenderableObject7(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(655, 600), scene(sc), layer(lr)
+self(*this), pos(66, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 518.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 482.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject7 throws: " << e.what() << std::endl;
@@ -628,6 +665,7 @@ RenderableObject7::~RenderableObject7(){
 }
 void RenderableObject7::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject7::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -635,9 +673,13 @@ void RenderableObject7::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject7::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject7::getPosition() const noexcept {
 	return self.pos;
@@ -689,10 +731,12 @@ void RenderableObject7::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject8::RenderableObject8(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(296, 600), scene(sc), layer(lr)
+self(*this), pos(281, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 377.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 406.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject8 throws: " << e.what() << std::endl;
@@ -703,6 +747,7 @@ RenderableObject8::~RenderableObject8(){
 }
 void RenderableObject8::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject8::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -710,9 +755,13 @@ void RenderableObject8::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject8::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject8::getPosition() const noexcept {
 	return self.pos;
@@ -764,10 +813,12 @@ void RenderableObject8::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject9::RenderableObject9(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(677, 600), scene(sc), layer(lr)
+self(*this), pos(738, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 482.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 528.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject9 throws: " << e.what() << std::endl;
@@ -778,6 +829,7 @@ RenderableObject9::~RenderableObject9(){
 }
 void RenderableObject9::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject9::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -785,9 +837,13 @@ void RenderableObject9::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject9::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject9::getPosition() const noexcept {
 	return self.pos;
@@ -839,10 +895,12 @@ void RenderableObject9::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject10::RenderableObject10(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(669, 600), scene(sc), layer(lr)
+self(*this), pos(327, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 355.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 538.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject10 throws: " << e.what() << std::endl;
@@ -853,6 +911,7 @@ RenderableObject10::~RenderableObject10(){
 }
 void RenderableObject10::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject10::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -860,9 +919,13 @@ void RenderableObject10::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject10::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject10::getPosition() const noexcept {
 	return self.pos;
@@ -914,10 +977,12 @@ void RenderableObject10::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject11::RenderableObject11(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(508, 600), scene(sc), layer(lr)
+self(*this), pos(722, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 327.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 415.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject11 throws: " << e.what() << std::endl;
@@ -928,6 +993,7 @@ RenderableObject11::~RenderableObject11(){
 }
 void RenderableObject11::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject11::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -935,9 +1001,13 @@ void RenderableObject11::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject11::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject11::getPosition() const noexcept {
 	return self.pos;
@@ -989,10 +1059,12 @@ void RenderableObject11::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject12::RenderableObject12(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(299, 600), scene(sc), layer(lr)
+self(*this), pos(565, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 510.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 484.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject12 throws: " << e.what() << std::endl;
@@ -1003,6 +1075,7 @@ RenderableObject12::~RenderableObject12(){
 }
 void RenderableObject12::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject12::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -1010,9 +1083,13 @@ void RenderableObject12::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject12::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject12::getPosition() const noexcept {
 	return self.pos;
@@ -1064,10 +1141,12 @@ void RenderableObject12::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject13::RenderableObject13(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(661, 600), scene(sc), layer(lr)
+self(*this), pos(611, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 498.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 312.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject13 throws: " << e.what() << std::endl;
@@ -1078,6 +1157,7 @@ RenderableObject13::~RenderableObject13(){
 }
 void RenderableObject13::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject13::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -1085,9 +1165,13 @@ void RenderableObject13::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject13::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject13::getPosition() const noexcept {
 	return self.pos;
@@ -1139,10 +1223,12 @@ void RenderableObject13::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject14::RenderableObject14(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(285, 600), scene(sc), layer(lr)
+self(*this), pos(159, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 573.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 485.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject14 throws: " << e.what() << std::endl;
@@ -1153,6 +1239,7 @@ RenderableObject14::~RenderableObject14(){
 }
 void RenderableObject14::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject14::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -1160,9 +1247,13 @@ void RenderableObject14::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject14::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject14::getPosition() const noexcept {
 	return self.pos;
@@ -1214,10 +1305,12 @@ void RenderableObject14::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject15::RenderableObject15(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(613, 600), scene(sc), layer(lr)
+self(*this), pos(522, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 590.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 473.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject15 throws: " << e.what() << std::endl;
@@ -1228,6 +1321,7 @@ RenderableObject15::~RenderableObject15(){
 }
 void RenderableObject15::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject15::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -1235,9 +1329,13 @@ void RenderableObject15::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject15::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject15::getPosition() const noexcept {
 	return self.pos;
@@ -1289,10 +1387,12 @@ void RenderableObject15::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject16::RenderableObject16(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(543, 600), scene(sc), layer(lr)
+self(*this), pos(2, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 516.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 547.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject16 throws: " << e.what() << std::endl;
@@ -1303,6 +1403,7 @@ RenderableObject16::~RenderableObject16(){
 }
 void RenderableObject16::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject16::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -1310,9 +1411,13 @@ void RenderableObject16::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject16::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject16::getPosition() const noexcept {
 	return self.pos;
@@ -1364,10 +1469,12 @@ void RenderableObject16::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject17::RenderableObject17(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(780, 600), scene(sc), layer(lr)
+self(*this), pos(650, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 460.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 588.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject17 throws: " << e.what() << std::endl;
@@ -1378,6 +1485,7 @@ RenderableObject17::~RenderableObject17(){
 }
 void RenderableObject17::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject17::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -1385,9 +1493,13 @@ void RenderableObject17::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject17::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject17::getPosition() const noexcept {
 	return self.pos;
@@ -1439,10 +1551,12 @@ void RenderableObject17::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject18::RenderableObject18(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(273, 600), scene(sc), layer(lr)
+self(*this), pos(608, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 541.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 499.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject18 throws: " << e.what() << std::endl;
@@ -1453,6 +1567,7 @@ RenderableObject18::~RenderableObject18(){
 }
 void RenderableObject18::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject18::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -1460,9 +1575,13 @@ void RenderableObject18::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject18::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject18::getPosition() const noexcept {
 	return self.pos;
@@ -1514,10 +1633,12 @@ void RenderableObject18::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject19::RenderableObject19(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(491, 600), scene(sc), layer(lr)
+self(*this), pos(594, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 520.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 341.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject19 throws: " << e.what() << std::endl;
@@ -1528,6 +1649,7 @@ RenderableObject19::~RenderableObject19(){
 }
 void RenderableObject19::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject19::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -1535,9 +1657,13 @@ void RenderableObject19::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject19::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject19::getPosition() const noexcept {
 	return self.pos;
@@ -1589,10 +1715,12 @@ void RenderableObject19::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject20::RenderableObject20(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(376, 600), scene(sc), layer(lr)
+self(*this), pos(710, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 591.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 375.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject20 throws: " << e.what() << std::endl;
@@ -1603,6 +1731,7 @@ RenderableObject20::~RenderableObject20(){
 }
 void RenderableObject20::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject20::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -1610,9 +1739,13 @@ void RenderableObject20::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject20::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject20::getPosition() const noexcept {
 	return self.pos;
@@ -1664,10 +1797,12 @@ void RenderableObject20::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject21::RenderableObject21(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(501, 600), scene(sc), layer(lr)
+self(*this), pos(146, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 381.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 416.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject21 throws: " << e.what() << std::endl;
@@ -1678,6 +1813,7 @@ RenderableObject21::~RenderableObject21(){
 }
 void RenderableObject21::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject21::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -1685,9 +1821,13 @@ void RenderableObject21::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject21::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject21::getPosition() const noexcept {
 	return self.pos;
@@ -1739,10 +1879,12 @@ void RenderableObject21::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject22::RenderableObject22(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(262, 600), scene(sc), layer(lr)
+self(*this), pos(487, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 372.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 561.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject22 throws: " << e.what() << std::endl;
@@ -1753,6 +1895,7 @@ RenderableObject22::~RenderableObject22(){
 }
 void RenderableObject22::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject22::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -1760,9 +1903,13 @@ void RenderableObject22::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject22::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject22::getPosition() const noexcept {
 	return self.pos;
@@ -1814,10 +1961,12 @@ void RenderableObject22::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject23::RenderableObject23(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(554, 600), scene(sc), layer(lr)
+self(*this), pos(322, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 459.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 542.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject23 throws: " << e.what() << std::endl;
@@ -1828,6 +1977,7 @@ RenderableObject23::~RenderableObject23(){
 }
 void RenderableObject23::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject23::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -1835,9 +1985,13 @@ void RenderableObject23::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject23::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject23::getPosition() const noexcept {
 	return self.pos;
@@ -1889,10 +2043,12 @@ void RenderableObject23::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject24::RenderableObject24(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(405, 600), scene(sc), layer(lr)
+self(*this), pos(138, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 568.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 430.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject24 throws: " << e.what() << std::endl;
@@ -1903,6 +2059,7 @@ RenderableObject24::~RenderableObject24(){
 }
 void RenderableObject24::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject24::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -1910,9 +2067,13 @@ void RenderableObject24::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject24::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject24::getPosition() const noexcept {
 	return self.pos;
@@ -1964,10 +2125,12 @@ void RenderableObject24::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject25::RenderableObject25(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(381, 600), scene(sc), layer(lr)
+self(*this), pos(65, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 565.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 545.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject25 throws: " << e.what() << std::endl;
@@ -1978,6 +2141,7 @@ RenderableObject25::~RenderableObject25(){
 }
 void RenderableObject25::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject25::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -1985,9 +2149,13 @@ void RenderableObject25::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject25::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject25::getPosition() const noexcept {
 	return self.pos;
@@ -2039,10 +2207,12 @@ void RenderableObject25::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject26::RenderableObject26(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(393, 600), scene(sc), layer(lr)
+self(*this), pos(791, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 509.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 387.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject26 throws: " << e.what() << std::endl;
@@ -2053,6 +2223,7 @@ RenderableObject26::~RenderableObject26(){
 }
 void RenderableObject26::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject26::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -2060,9 +2231,13 @@ void RenderableObject26::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject26::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject26::getPosition() const noexcept {
 	return self.pos;
@@ -2114,10 +2289,12 @@ void RenderableObject26::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject27::RenderableObject27(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(562, 600), scene(sc), layer(lr)
+self(*this), pos(621, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 576.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 566.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject27 throws: " << e.what() << std::endl;
@@ -2128,6 +2305,7 @@ RenderableObject27::~RenderableObject27(){
 }
 void RenderableObject27::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject27::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -2135,9 +2313,13 @@ void RenderableObject27::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject27::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject27::getPosition() const noexcept {
 	return self.pos;
@@ -2189,10 +2371,12 @@ void RenderableObject27::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject28::RenderableObject28(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(666, 600), scene(sc), layer(lr)
+self(*this), pos(750, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 479.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 495.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject28 throws: " << e.what() << std::endl;
@@ -2203,6 +2387,7 @@ RenderableObject28::~RenderableObject28(){
 }
 void RenderableObject28::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject28::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -2210,9 +2395,13 @@ void RenderableObject28::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject28::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject28::getPosition() const noexcept {
 	return self.pos;
@@ -2264,10 +2453,12 @@ void RenderableObject28::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject29::RenderableObject29(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(463, 600), scene(sc), layer(lr)
+self(*this), pos(667, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 342.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 386.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject29 throws: " << e.what() << std::endl;
@@ -2278,6 +2469,7 @@ RenderableObject29::~RenderableObject29(){
 }
 void RenderableObject29::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject29::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -2285,9 +2477,13 @@ void RenderableObject29::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject29::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject29::getPosition() const noexcept {
 	return self.pos;
@@ -2339,10 +2535,12 @@ void RenderableObject29::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject30::RenderableObject30(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(685, 600), scene(sc), layer(lr)
+self(*this), pos(577, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 588.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 590.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject30 throws: " << e.what() << std::endl;
@@ -2353,6 +2551,7 @@ RenderableObject30::~RenderableObject30(){
 }
 void RenderableObject30::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject30::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -2360,9 +2559,13 @@ void RenderableObject30::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject30::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject30::getPosition() const noexcept {
 	return self.pos;
@@ -2414,10 +2617,12 @@ void RenderableObject30::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject31::RenderableObject31(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(45, 600), scene(sc), layer(lr)
+self(*this), pos(380, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 563.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 506.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject31 throws: " << e.what() << std::endl;
@@ -2428,6 +2633,7 @@ RenderableObject31::~RenderableObject31(){
 }
 void RenderableObject31::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject31::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -2435,9 +2641,13 @@ void RenderableObject31::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject31::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject31::getPosition() const noexcept {
 	return self.pos;
@@ -2489,10 +2699,12 @@ void RenderableObject31::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject32::RenderableObject32(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(109, 600), scene(sc), layer(lr)
+self(*this), pos(632, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 304.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 491.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject32 throws: " << e.what() << std::endl;
@@ -2503,6 +2715,7 @@ RenderableObject32::~RenderableObject32(){
 }
 void RenderableObject32::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject32::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -2510,9 +2723,13 @@ void RenderableObject32::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject32::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject32::getPosition() const noexcept {
 	return self.pos;
@@ -2564,10 +2781,12 @@ void RenderableObject32::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject33::RenderableObject33(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(353, 600), scene(sc), layer(lr)
+self(*this), pos(183, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 312.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 517.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject33 throws: " << e.what() << std::endl;
@@ -2578,6 +2797,7 @@ RenderableObject33::~RenderableObject33(){
 }
 void RenderableObject33::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject33::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -2585,9 +2805,13 @@ void RenderableObject33::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject33::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject33::getPosition() const noexcept {
 	return self.pos;
@@ -2639,10 +2863,12 @@ void RenderableObject33::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject34::RenderableObject34(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(483, 600), scene(sc), layer(lr)
+self(*this), pos(566, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 479.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 356.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject34 throws: " << e.what() << std::endl;
@@ -2653,6 +2879,7 @@ RenderableObject34::~RenderableObject34(){
 }
 void RenderableObject34::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject34::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -2660,9 +2887,13 @@ void RenderableObject34::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject34::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject34::getPosition() const noexcept {
 	return self.pos;
@@ -2714,10 +2945,12 @@ void RenderableObject34::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject35::RenderableObject35(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(705, 600), scene(sc), layer(lr)
+self(*this), pos(13, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 491.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 491.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject35 throws: " << e.what() << std::endl;
@@ -2728,6 +2961,7 @@ RenderableObject35::~RenderableObject35(){
 }
 void RenderableObject35::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject35::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -2735,9 +2969,13 @@ void RenderableObject35::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject35::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject35::getPosition() const noexcept {
 	return self.pos;
@@ -2789,10 +3027,12 @@ void RenderableObject35::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject36::RenderableObject36(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(263, 600), scene(sc), layer(lr)
+self(*this), pos(420, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 503.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 576.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject36 throws: " << e.what() << std::endl;
@@ -2803,6 +3043,7 @@ RenderableObject36::~RenderableObject36(){
 }
 void RenderableObject36::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject36::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -2810,9 +3051,13 @@ void RenderableObject36::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject36::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject36::getPosition() const noexcept {
 	return self.pos;
@@ -2864,10 +3109,12 @@ void RenderableObject36::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject37::RenderableObject37(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(16, 600), scene(sc), layer(lr)
+self(*this), pos(676, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 526.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 310.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject37 throws: " << e.what() << std::endl;
@@ -2878,6 +3125,7 @@ RenderableObject37::~RenderableObject37(){
 }
 void RenderableObject37::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject37::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -2885,9 +3133,13 @@ void RenderableObject37::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject37::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject37::getPosition() const noexcept {
 	return self.pos;
@@ -2939,10 +3191,12 @@ void RenderableObject37::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject38::RenderableObject38(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(173, 600), scene(sc), layer(lr)
+self(*this), pos(676, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 333.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 315.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject38 throws: " << e.what() << std::endl;
@@ -2953,6 +3207,7 @@ RenderableObject38::~RenderableObject38(){
 }
 void RenderableObject38::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject38::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -2960,9 +3215,13 @@ void RenderableObject38::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject38::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject38::getPosition() const noexcept {
 	return self.pos;
@@ -3014,10 +3273,12 @@ void RenderableObject38::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject39::RenderableObject39(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(113, 600), scene(sc), layer(lr)
+self(*this), pos(290, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 373.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 502.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject39 throws: " << e.what() << std::endl;
@@ -3028,6 +3289,7 @@ RenderableObject39::~RenderableObject39(){
 }
 void RenderableObject39::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject39::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -3035,9 +3297,13 @@ void RenderableObject39::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject39::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject39::getPosition() const noexcept {
 	return self.pos;
@@ -3089,10 +3355,12 @@ void RenderableObject39::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject40::RenderableObject40(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(268, 600), scene(sc), layer(lr)
+self(*this), pos(590, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 532.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 329.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject40 throws: " << e.what() << std::endl;
@@ -3103,6 +3371,7 @@ RenderableObject40::~RenderableObject40(){
 }
 void RenderableObject40::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject40::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -3110,9 +3379,13 @@ void RenderableObject40::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject40::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject40::getPosition() const noexcept {
 	return self.pos;
@@ -3164,10 +3437,12 @@ void RenderableObject40::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject41::RenderableObject41(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(185, 600), scene(sc), layer(lr)
+self(*this), pos(467, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 504.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 470.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject41 throws: " << e.what() << std::endl;
@@ -3178,6 +3453,7 @@ RenderableObject41::~RenderableObject41(){
 }
 void RenderableObject41::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject41::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -3185,9 +3461,13 @@ void RenderableObject41::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject41::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject41::getPosition() const noexcept {
 	return self.pos;
@@ -3239,10 +3519,12 @@ void RenderableObject41::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject42::RenderableObject42(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(361, 600), scene(sc), layer(lr)
+self(*this), pos(672, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 509.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 305.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject42 throws: " << e.what() << std::endl;
@@ -3253,6 +3535,7 @@ RenderableObject42::~RenderableObject42(){
 }
 void RenderableObject42::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject42::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -3260,9 +3543,13 @@ void RenderableObject42::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject42::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject42::getPosition() const noexcept {
 	return self.pos;
@@ -3314,10 +3601,12 @@ void RenderableObject42::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject43::RenderableObject43(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(378, 600), scene(sc), layer(lr)
+self(*this), pos(597, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 387.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 560.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject43 throws: " << e.what() << std::endl;
@@ -3328,6 +3617,7 @@ RenderableObject43::~RenderableObject43(){
 }
 void RenderableObject43::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject43::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -3335,9 +3625,13 @@ void RenderableObject43::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject43::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject43::getPosition() const noexcept {
 	return self.pos;
@@ -3389,10 +3683,12 @@ void RenderableObject43::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject44::RenderableObject44(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(499, 600), scene(sc), layer(lr)
+self(*this), pos(143, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 527.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 496.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject44 throws: " << e.what() << std::endl;
@@ -3403,6 +3699,7 @@ RenderableObject44::~RenderableObject44(){
 }
 void RenderableObject44::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject44::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -3410,9 +3707,13 @@ void RenderableObject44::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject44::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject44::getPosition() const noexcept {
 	return self.pos;
@@ -3464,10 +3765,12 @@ void RenderableObject44::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject45::RenderableObject45(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(127, 600), scene(sc), layer(lr)
+self(*this), pos(453, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 320.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 396.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject45 throws: " << e.what() << std::endl;
@@ -3478,6 +3781,7 @@ RenderableObject45::~RenderableObject45(){
 }
 void RenderableObject45::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject45::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -3485,9 +3789,13 @@ void RenderableObject45::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject45::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject45::getPosition() const noexcept {
 	return self.pos;
@@ -3539,10 +3847,12 @@ void RenderableObject45::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject46::RenderableObject46(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(162, 600), scene(sc), layer(lr)
+self(*this), pos(558, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 576.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 587.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject46 throws: " << e.what() << std::endl;
@@ -3553,6 +3863,7 @@ RenderableObject46::~RenderableObject46(){
 }
 void RenderableObject46::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject46::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -3560,9 +3871,13 @@ void RenderableObject46::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject46::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject46::getPosition() const noexcept {
 	return self.pos;
@@ -3614,10 +3929,12 @@ void RenderableObject46::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject47::RenderableObject47(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(596, 600), scene(sc), layer(lr)
+self(*this), pos(10, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 392.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 439.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject47 throws: " << e.what() << std::endl;
@@ -3628,6 +3945,7 @@ RenderableObject47::~RenderableObject47(){
 }
 void RenderableObject47::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject47::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -3635,9 +3953,13 @@ void RenderableObject47::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject47::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject47::getPosition() const noexcept {
 	return self.pos;
@@ -3689,10 +4011,12 @@ void RenderableObject47::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject48::RenderableObject48(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(121, 600), scene(sc), layer(lr)
+self(*this), pos(292, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 562.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 362.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject48 throws: " << e.what() << std::endl;
@@ -3703,6 +4027,7 @@ RenderableObject48::~RenderableObject48(){
 }
 void RenderableObject48::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject48::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -3710,9 +4035,13 @@ void RenderableObject48::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject48::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject48::getPosition() const noexcept {
 	return self.pos;
@@ -3764,10 +4093,12 @@ void RenderableObject48::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject49::RenderableObject49(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(98, 600), scene(sc), layer(lr)
+self(*this), pos(745, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 489.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 529.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject49 throws: " << e.what() << std::endl;
@@ -3778,6 +4109,7 @@ RenderableObject49::~RenderableObject49(){
 }
 void RenderableObject49::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject49::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -3785,9 +4117,13 @@ void RenderableObject49::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject49::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject49::getPosition() const noexcept {
 	return self.pos;
@@ -3839,10 +4175,12 @@ void RenderableObject49::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject50::RenderableObject50(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(116, 600), scene(sc), layer(lr)
+self(*this), pos(509, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 428.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 531.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject50 throws: " << e.what() << std::endl;
@@ -3853,6 +4191,7 @@ RenderableObject50::~RenderableObject50(){
 }
 void RenderableObject50::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject50::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -3860,9 +4199,13 @@ void RenderableObject50::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject50::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject50::getPosition() const noexcept {
 	return self.pos;
@@ -3914,10 +4257,12 @@ void RenderableObject50::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject51::RenderableObject51(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(438, 600), scene(sc), layer(lr)
+self(*this), pos(770, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 447.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 380.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject51 throws: " << e.what() << std::endl;
@@ -3928,6 +4273,7 @@ RenderableObject51::~RenderableObject51(){
 }
 void RenderableObject51::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject51::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -3935,9 +4281,13 @@ void RenderableObject51::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject51::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject51::getPosition() const noexcept {
 	return self.pos;
@@ -3989,10 +4339,12 @@ void RenderableObject51::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject52::RenderableObject52(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(453, 600), scene(sc), layer(lr)
+self(*this), pos(501, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 337.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 575.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject52 throws: " << e.what() << std::endl;
@@ -4003,6 +4355,7 @@ RenderableObject52::~RenderableObject52(){
 }
 void RenderableObject52::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject52::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -4010,9 +4363,13 @@ void RenderableObject52::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject52::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject52::getPosition() const noexcept {
 	return self.pos;
@@ -4064,10 +4421,12 @@ void RenderableObject52::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject53::RenderableObject53(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(575, 600), scene(sc), layer(lr)
+self(*this), pos(497, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 352.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 582.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject53 throws: " << e.what() << std::endl;
@@ -4078,6 +4437,7 @@ RenderableObject53::~RenderableObject53(){
 }
 void RenderableObject53::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject53::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -4085,9 +4445,13 @@ void RenderableObject53::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject53::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject53::getPosition() const noexcept {
 	return self.pos;
@@ -4139,10 +4503,12 @@ void RenderableObject53::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject54::RenderableObject54(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(545, 600), scene(sc), layer(lr)
+self(*this), pos(494, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 533.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 416.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject54 throws: " << e.what() << std::endl;
@@ -4153,6 +4519,7 @@ RenderableObject54::~RenderableObject54(){
 }
 void RenderableObject54::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject54::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -4160,9 +4527,13 @@ void RenderableObject54::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject54::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject54::getPosition() const noexcept {
 	return self.pos;
@@ -4214,10 +4585,12 @@ void RenderableObject54::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject55::RenderableObject55(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(137, 600), scene(sc), layer(lr)
+self(*this), pos(43, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 499.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 598.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject55 throws: " << e.what() << std::endl;
@@ -4228,6 +4601,7 @@ RenderableObject55::~RenderableObject55(){
 }
 void RenderableObject55::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject55::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -4235,9 +4609,13 @@ void RenderableObject55::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject55::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject55::getPosition() const noexcept {
 	return self.pos;
@@ -4289,10 +4667,12 @@ void RenderableObject55::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject56::RenderableObject56(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(189, 600), scene(sc), layer(lr)
+self(*this), pos(302, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 383.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 312.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject56 throws: " << e.what() << std::endl;
@@ -4303,6 +4683,7 @@ RenderableObject56::~RenderableObject56(){
 }
 void RenderableObject56::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject56::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -4310,9 +4691,13 @@ void RenderableObject56::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject56::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject56::getPosition() const noexcept {
 	return self.pos;
@@ -4364,10 +4749,12 @@ void RenderableObject56::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject57::RenderableObject57(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(131, 600), scene(sc), layer(lr)
+self(*this), pos(585, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 499.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 396.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject57 throws: " << e.what() << std::endl;
@@ -4378,6 +4765,7 @@ RenderableObject57::~RenderableObject57(){
 }
 void RenderableObject57::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject57::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -4385,9 +4773,13 @@ void RenderableObject57::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject57::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject57::getPosition() const noexcept {
 	return self.pos;
@@ -4439,10 +4831,12 @@ void RenderableObject57::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject58::RenderableObject58(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(90, 600), scene(sc), layer(lr)
+self(*this), pos(574, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 517.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 439.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject58 throws: " << e.what() << std::endl;
@@ -4453,6 +4847,7 @@ RenderableObject58::~RenderableObject58(){
 }
 void RenderableObject58::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject58::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -4460,9 +4855,13 @@ void RenderableObject58::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject58::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject58::getPosition() const noexcept {
 	return self.pos;
@@ -4514,10 +4913,12 @@ void RenderableObject58::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject59::RenderableObject59(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(728, 600), scene(sc), layer(lr)
+self(*this), pos(507, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 365.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 541.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject59 throws: " << e.what() << std::endl;
@@ -4528,6 +4929,7 @@ RenderableObject59::~RenderableObject59(){
 }
 void RenderableObject59::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject59::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -4535,9 +4937,13 @@ void RenderableObject59::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject59::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject59::getPosition() const noexcept {
 	return self.pos;
@@ -4589,10 +4995,12 @@ void RenderableObject59::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject60::RenderableObject60(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(664, 600), scene(sc), layer(lr)
+self(*this), pos(286, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 572.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 319.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject60 throws: " << e.what() << std::endl;
@@ -4603,6 +5011,7 @@ RenderableObject60::~RenderableObject60(){
 }
 void RenderableObject60::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject60::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -4610,9 +5019,13 @@ void RenderableObject60::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject60::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject60::getPosition() const noexcept {
 	return self.pos;
@@ -4664,10 +5077,12 @@ void RenderableObject60::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject61::RenderableObject61(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(307, 600), scene(sc), layer(lr)
+self(*this), pos(202, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 333.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 559.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject61 throws: " << e.what() << std::endl;
@@ -4678,6 +5093,7 @@ RenderableObject61::~RenderableObject61(){
 }
 void RenderableObject61::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject61::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -4685,9 +5101,13 @@ void RenderableObject61::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject61::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject61::getPosition() const noexcept {
 	return self.pos;
@@ -4739,10 +5159,12 @@ void RenderableObject61::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject62::RenderableObject62(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(789, 600), scene(sc), layer(lr)
+self(*this), pos(76, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 365.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 380.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject62 throws: " << e.what() << std::endl;
@@ -4753,6 +5175,7 @@ RenderableObject62::~RenderableObject62(){
 }
 void RenderableObject62::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject62::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -4760,9 +5183,13 @@ void RenderableObject62::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject62::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject62::getPosition() const noexcept {
 	return self.pos;
@@ -4814,10 +5241,12 @@ void RenderableObject62::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject63::RenderableObject63(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(632, 600), scene(sc), layer(lr)
+self(*this), pos(309, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 582.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 583.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject63 throws: " << e.what() << std::endl;
@@ -4828,6 +5257,7 @@ RenderableObject63::~RenderableObject63(){
 }
 void RenderableObject63::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject63::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -4835,9 +5265,13 @@ void RenderableObject63::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject63::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject63::getPosition() const noexcept {
 	return self.pos;
@@ -4889,10 +5323,12 @@ void RenderableObject63::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject64::RenderableObject64(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(791, 600), scene(sc), layer(lr)
+self(*this), pos(321, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 323.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 523.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject64 throws: " << e.what() << std::endl;
@@ -4903,6 +5339,7 @@ RenderableObject64::~RenderableObject64(){
 }
 void RenderableObject64::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject64::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -4910,9 +5347,13 @@ void RenderableObject64::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject64::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject64::getPosition() const noexcept {
 	return self.pos;
@@ -4964,10 +5405,12 @@ void RenderableObject64::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject65::RenderableObject65(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(624, 600), scene(sc), layer(lr)
+self(*this), pos(11, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 418.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 459.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject65 throws: " << e.what() << std::endl;
@@ -4978,6 +5421,7 @@ RenderableObject65::~RenderableObject65(){
 }
 void RenderableObject65::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject65::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -4985,9 +5429,13 @@ void RenderableObject65::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject65::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject65::getPosition() const noexcept {
 	return self.pos;
@@ -5039,10 +5487,12 @@ void RenderableObject65::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject66::RenderableObject66(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(399, 600), scene(sc), layer(lr)
+self(*this), pos(60, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 393.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 362.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject66 throws: " << e.what() << std::endl;
@@ -5053,6 +5503,7 @@ RenderableObject66::~RenderableObject66(){
 }
 void RenderableObject66::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject66::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -5060,9 +5511,13 @@ void RenderableObject66::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject66::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject66::getPosition() const noexcept {
 	return self.pos;
@@ -5114,10 +5569,12 @@ void RenderableObject66::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject67::RenderableObject67(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(746, 600), scene(sc), layer(lr)
+self(*this), pos(171, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 466.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 405.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject67 throws: " << e.what() << std::endl;
@@ -5128,6 +5585,7 @@ RenderableObject67::~RenderableObject67(){
 }
 void RenderableObject67::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject67::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -5135,9 +5593,13 @@ void RenderableObject67::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject67::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject67::getPosition() const noexcept {
 	return self.pos;
@@ -5189,10 +5651,12 @@ void RenderableObject67::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject68::RenderableObject68(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(178, 600), scene(sc), layer(lr)
+self(*this), pos(579, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 571.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 528.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject68 throws: " << e.what() << std::endl;
@@ -5203,6 +5667,7 @@ RenderableObject68::~RenderableObject68(){
 }
 void RenderableObject68::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject68::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -5210,9 +5675,13 @@ void RenderableObject68::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject68::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject68::getPosition() const noexcept {
 	return self.pos;
@@ -5264,10 +5733,12 @@ void RenderableObject68::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject69::RenderableObject69(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(379, 600), scene(sc), layer(lr)
+self(*this), pos(359, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 373.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 530.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject69 throws: " << e.what() << std::endl;
@@ -5278,6 +5749,7 @@ RenderableObject69::~RenderableObject69(){
 }
 void RenderableObject69::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject69::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -5285,9 +5757,13 @@ void RenderableObject69::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject69::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject69::getPosition() const noexcept {
 	return self.pos;
@@ -5339,10 +5815,12 @@ void RenderableObject69::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject70::RenderableObject70(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(350, 600), scene(sc), layer(lr)
+self(*this), pos(643, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 597.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 571.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject70 throws: " << e.what() << std::endl;
@@ -5353,6 +5831,7 @@ RenderableObject70::~RenderableObject70(){
 }
 void RenderableObject70::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject70::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -5360,9 +5839,13 @@ void RenderableObject70::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject70::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject70::getPosition() const noexcept {
 	return self.pos;
@@ -5414,10 +5897,12 @@ void RenderableObject70::dealDamage(u16 dmg){_hp -= dmg;
 #include <cmath>
 #include "Scene0.h"
 RenderableObject71::RenderableObject71(Scene0 & sc, EnemyLayer & lr) try:
-self(*this), pos(526, 600), scene(sc), layer(lr)
+self(*this), pos(90, 600), scene(sc), layer(lr)
 , collider(pos,  ::gc::Vec2(54,  94))
-, sprite("resources\\enemy.png")
+, animation()
 {
+	animation.emplaceFrame("resources\\enemy\\enemy1.png", 378.00f);
+	animation.emplaceFrame("resources\\enemy\\enemy2.png", 380.00f);
 }
 catch(std::exception & e){
 	std::cout << "RenderableObject71 throws: " << e.what() << std::endl;
@@ -5428,6 +5913,7 @@ RenderableObject71::~RenderableObject71(){
 }
 void RenderableObject71::onStart(){
 	_hp = 100;
+	animation.start();
 }
 void RenderableObject71::onUpdate(const float & dt){
 	auto dir = scene.getLayer<ObjectsLayer>().getObject<Hero>().getCenter() - self.getCenter();
@@ -5435,9 +5921,13 @@ void RenderableObject71::onUpdate(const float & dt){
 	self.moveOn(dir.getNormalized());
 	if (dir.getLength() < 50.0f)
 	scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+	auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+	if (dir.x < 0)	deg.value *= -1;
+	self.getGraphicalComponent().setRotation(deg);
+	animation.update(dt);
 }
 const ::gc::Sprite & RenderableObject71::getCurrentSprite() const{
-	return sprite;
+	return animation.getCurrentSprite();
 }
 ::gc::Vec2 RenderableObject71::getPosition() const noexcept {
 	return self.pos;

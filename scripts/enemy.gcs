@@ -15,6 +15,10 @@ methods:
 
 		if (dir.getLength() < 50.0f)
 			scene.getLayer<ObjectsLayer>().getObject<Hero>().dealDamage(5);
+
+		auto deg = gc::toDegree(acos(-dir.getNormalized().y));
+		if (dir.x < 0)	deg.value *= -1;
+		self.getGraphicalComponent().setRotation(deg);
 	}
 	void dealDamage(u16 dmg){
 		_hp -= dmg;

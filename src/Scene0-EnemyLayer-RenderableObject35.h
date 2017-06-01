@@ -22,10 +22,11 @@ class RenderableObject35 : public ::gc::TypeAliases<RenderableObject35>{
 	collider_t collider;
 	collider_t & getCollider(){return collider;
 	};
-	::gc::Sprite sprite;
-	::gc::Sprite & getGraphicalComponent() noexcept {return sprite;
+	typedef ::gc::Animation<::gc::AnimationType::Cyclic> animation_t;
+	animation_t animation;
+	animation_t & getGraphicalComponent() noexcept {return animation;
 	}
-	::gc::Sprite const & getGraphicalComponent() const noexcept{return sprite;
+	animation_t const & getGraphicalComponent() const noexcept {return animation;
 	};
 	private:
 	i16 _hp;
